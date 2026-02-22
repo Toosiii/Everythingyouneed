@@ -57,7 +57,9 @@ let selectedTag = null;
 async function loadData() {
     try {
         const response = await fetch('links.yaml');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const yamlText = await response.text();
+        if (typeof jsyaml === 'undefined') throw new Error('YAML library not loaded');
         allData = jsyaml.load(yamlText);
         renderTopics();
         
@@ -206,3 +208,4 @@ window.addEventListener('DOMContentLoaded', loadData);
 
 </body>
 </html>
+
