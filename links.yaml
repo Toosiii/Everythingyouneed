@@ -1,0 +1,31 @@
+topics:
+
+  - id: prog
+    name: "Programmieren"
+    description: "Code & Tools"
+    image: "images/programming.jpg"
+
+    links:
+      - title: "PHP"
+        url: "https://www.php.net"
+        description: "PHP Doku"
+        tags: ["backend", "php"]
+        image: ""
+
+      - title: "TailwindCSS"
+        url: "https://tailwindcss.com"
+        description: "CSS Framework"
+        tags: ["css", "frontend"]
+        image: ""
+
+  - id: school
+    name: "Schule"
+    description: "Lernen"
+    image: "images/school.jpg"
+
+    links:
+      - title: "Wikipedia"
+        url: "https://wikipedia.org"
+        description: "Nachschlagen"
+        tags: ["wissen"]
+        image: ""
