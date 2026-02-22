@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist.min.js"></script>
     <title>Links</title>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
@@ -49,34 +48,65 @@
 </div>
 
 <script>
-let allData = [];
+let allData = {
+    topics: [
+        {
+            id: 'prog',
+            name: 'Programmieren',
+            description: 'Code & Tools',
+            image: 'images/programming.jpg',
+            links: [
+                {
+                    title: 'PHP',
+                    url: 'https://www.php.net',
+                    description: 'PHP Doku',
+                    tags: ['backend', 'php'],
+                    image: ''
+                },
+                {
+                    title: 'TailwindCSS',
+                    url: 'https://tailwindcss.com',
+                    description: 'CSS Framework',
+                    tags: ['css', 'frontend'],
+                    image: ''
+                }
+            ]
+        },
+        {
+            id: 'school',
+            name: 'Schule',
+            description: 'Lernen',
+            image: 'images/school.jpg',
+            links: [
+                {
+                    title: 'Wikipedia',
+                    url: 'https://wikipedia.org',
+                    description: 'Nachschlagen',
+                    tags: ['wissen'],
+                    image: ''
+                }
+            ]
+        }
+    ]
+};
 let currentTopicId = null;
 let selectedTag = null;
 
-// Load data from YAML
-async function loadData() {
-    try {
-        const response = await fetch('links.yaml');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const yamlText = await response.text();
-        if (typeof jsyaml === 'undefined') throw new Error('YAML library not loaded');
-        allData = jsyaml.load(yamlText);
-        renderTopics();
-        
-        // Check URL params
-        const params = new URLSearchParams(window.location.search);
-        const topicParam = params.get('topic');
-        const tagParam = params.get('tag');
-        const searchParam = params.get('search');
-        
-        if (topicParam) {
-            selectTopic(topicParam);
-            if (tagParam) selectedTag = tagParam;
-            if (searchParam) document.getElementById('searchInput').value = searchParam;
-            filterLinks();
-        }
-    } catch (error) {
-        console.error('Error loading data:', error);
+// Initialize and load
+function loadData() {
+    renderTopics();
+    
+    // Check URL params
+    const params = new URLSearchParams(window.location.search);
+    const topicParam = params.get('topic');
+    const tagParam = params.get('tag');
+    const searchParam = params.get('search');
+    
+    if (topicParam) {
+        selectTopic(topicParam);
+        if (tagParam) selectedTag = tagParam;
+        if (searchParam) document.getElementById('searchInput').value = searchParam;
+        filterLinks();
     }
 }
 
@@ -208,4 +238,3 @@ window.addEventListener('DOMContentLoaded', loadData);
 
 </body>
 </html>
-
