@@ -41,6 +41,14 @@
             <!-- TAGS -->
             <div id="tagsList" class="mb-4 flex gap-2 flex-wrap"></div>
 
+            <!-- GAME TYPE DROPDOWN -->
+            <div id="gameTypeFilter" style="display: none;" class="mb-4">
+                <label for="gameTypeSelect" class="mr-2 font-semibold">Game Type:</label>
+                <select id="gameTypeSelect" class="border p-2 rounded text-black" onchange="filterLinks()">
+                    <option value="">All Types</option>
+                </select>
+            </div>
+
             <!-- LINKS -->
             <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
         </div>
@@ -102,6 +110,16 @@ function selectTopic(topicId) {
     document.getElementById('topicContent').style.display = 'block';
     document.getElementById('topicTitle').textContent = current.name;
     
+    // Show game type filter only for Games topic
+    const gameTypeFilter = document.getElementById('gameTypeFilter');
+    if (topicId === 'Games') {
+        gameTypeFilter.style.display = 'block';
+        renderGameTypeFilter(current);
+    } else {
+        gameTypeFilter.style.display = 'none';
+        document.getElementById('gameTypeSelect').value = '';
+    }
+    
     renderTags(current);
     filterLinks();
 }
@@ -133,6 +151,26 @@ function renderTags(topic) {
     });
 }
 
+// Render game type filter dropdown
+function renderGameTypeFilter(topic) {
+    const select = document.getElementById('gameTypeSelect');
+    select.innerHTML = '<option value="">All Types</option>';
+    
+    const gameTypes = new Set();
+    topic.links?.forEach(link => {
+        if (link.gameType) {
+            gameTypes.add(link.gameType);
+        }
+    });
+    
+    gameTypes.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        select.appendChild(option);
+    });
+}
+
 // Filter and display links
 function filterLinks() {
     const current = allData.topics?.find(t => t.id === currentTopicId);
@@ -153,6 +191,14 @@ function filterLinks() {
     if (selectedTag) {
         links = links.filter(l =>
             l.tags?.includes(selectedTag)
+        );
+    }
+    
+    // Game type filter
+    const selectedGameType = document.getElementById('gameTypeSelect').value;
+    if (selectedGameType && currentTopicId === 'Games') {
+        links = links.filter(l =>
+            l.gameType === selectedGameType
         );
     }
     
