@@ -14,7 +14,15 @@
     <!-- SIDEBAR -->
     <aside class="w-64 bg-white dark:bg-gray-800 p-5">
         <h1 class="text-xl font-bold mb-4">Topics</h1>
-        <div id="topicsList"></div>
+        <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
+            <option value="">Select a topic...</option>
+        </select>
+        
+        <!-- GAMES CATEGORIES -->
+        <div id="gamesCategory" style="display: none; margin-top: 8px;">
+            <h3 class="text-lg font-semibold mt-4 mb-2">Games</h3>
+            <div id="gamesList" class="flex flex-col gap-1"></div>
+        </div>
     </aside>
 
     <!-- CONTENT -->
@@ -41,14 +49,6 @@
             <!-- TAGS -->
             <div id="tagsList" class="mb-4 flex gap-2 flex-wrap"></div>
 
-            <!-- GAME TYPE DROPDOWN -->
-            <div id="gameTypeFilter" style="display: none;" class="mb-4">
-                <label for="gameTypeSelect" class="mr-2 font-semibold">Game Type:</label>
-                <select id="gameTypeSelect" class="border p-2 rounded text-black" onchange="filterLinks()">
-                    <option value="">All Types</option>
-                </select>
-            </div>
-
             <!-- LINKS -->
             <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
         </div>
@@ -59,6 +59,7 @@
 <script>
 let currentTopicId = null;
 let selectedTag = null;
+let selectedGame = null;
 
 // Initialize and load
 function loadData() {
@@ -78,30 +79,28 @@ function loadData() {
     }
 }
 
-// Render topics in sidebar
+// Render topics in dropdown
 function renderTopics() {
-    const topicsList = document.getElementById('topicsList');
-    topicsList.innerHTML = '';
+    const topicsDropdown = document.getElementById('topicsDropdown');
+    topicsDropdown.innerHTML = '<option value="">Select a topic...</option>';
     
     allData.topics?.forEach(topic => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.textContent = topic.name;
-        a.className = 'block px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 mb-1 cursor-pointer';
-        a.onclick = (e) => {
-            e.preventDefault();
-            selectTopic(topic.id);
-            window.history.pushState(null, '', `?topic=${encodeURIComponent(topic.id)}`);
-        };
-        topicsList.appendChild(a);
+        const option = document.createElement('option');
+        option.value = topic.id;
+        option.textContent = topic.name;
+        topicsDropdown.appendChild(option);
     });
 }
 
 // Select a topic
 function selectTopic(topicId) {
+    if (!topicId) return; // Handle empty selection
+    
     currentTopicId = topicId;
     selectedTag = null;
+    selectedGame = null;
     document.getElementById('searchInput').value = '';
+    document.getElementById('topicsDropdown').value = topicId;
     
     const current = allData.topics?.find(t => t.id === topicId);
     if (!current) return;
@@ -110,18 +109,19 @@ function selectTopic(topicId) {
     document.getElementById('topicContent').style.display = 'block';
     document.getElementById('topicTitle').textContent = current.name;
     
-    // Show game type filter only for Games topic
-    const gameTypeFilter = document.getElementById('gameTypeFilter');
+    // Show games category section only for Games topic
+    const gamesCategorySection = document.getElementById('gamesCategory');
     if (topicId === 'Games') {
-        gameTypeFilter.style.display = 'block';
-        renderGameTypeFilter(current);
+        gamesCategorySection.style.display = 'block';
+        renderGameCategories(current);
     } else {
-        gameTypeFilter.style.display = 'none';
-        document.getElementById('gameTypeSelect').value = '';
+        gamesCategorySection.style.display = 'none';
     }
     
     renderTags(current);
     filterLinks();
+    
+    window.history.pushState(null, '', `?topic=${encodeURIComponent(topicId)}`);
 }
 
 // Render tags
@@ -151,23 +151,29 @@ function renderTags(topic) {
     });
 }
 
-// Render game type filter dropdown
-function renderGameTypeFilter(topic) {
-    const select = document.getElementById('gameTypeSelect');
-    select.innerHTML = '<option value="">All Types</option>';
+// Render game categories in sidebar
+function renderGameCategories(topic) {
+    const gamesList = document.getElementById('gamesList');
+    gamesList.innerHTML = '';
     
-    const gameTypes = new Set();
+    const games = new Set();
     topic.links?.forEach(link => {
-        if (link.gameType) {
-            gameTypes.add(link.gameType);
+        if (link.game) {
+            games.add(link.game);
         }
     });
     
-    gameTypes.forEach(type => {
-        const option = document.createElement('option');
-        option.value = type;
-        option.textContent = type;
-        select.appendChild(option);
+    games.forEach(game => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = game;
+        a.className = 'px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
+        a.onclick = (e) => {
+            e.preventDefault();
+            selectedGame = selectedGame === game ? null : game;
+            filterLinks();
+        };
+        gamesList.appendChild(a);
     });
 }
 
@@ -194,11 +200,10 @@ function filterLinks() {
         );
     }
     
-    // Game type filter
-    const selectedGameType = document.getElementById('gameTypeSelect').value;
-    if (selectedGameType && currentTopicId === 'Games') {
+    // Game filter (for Games topic)
+    if (selectedGame && currentTopicId === 'Games') {
         links = links.filter(l =>
-            l.gameType === selectedGameType
+            l.game === selectedGame
         );
     }
     
