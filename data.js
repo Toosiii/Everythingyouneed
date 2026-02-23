@@ -16,7 +16,13 @@ let allData = {
             featureDesc3: 'Greifen Sie auf Bildungsressourcen und Programmiertools an einem Ort zu',
             statTopics: 'Themen',
             statLinks: 'Links',
-            statLanguages: 'Sprachen'
+            statLanguages: 'Sprachen',
+            settings: 'Einstellungen',
+            darkMode: 'Dunkler Modus',
+            languageLabel: 'Sprache',
+            versionText: 'Version 1.0',
+            creditsTitle: 'Danksagungen',
+            creditsText: 'Gebaut mit: HTML5, Tailwind CSS, JavaScript. Icons: Emoji. Jahr: 2026'
         },
         en: {
             selectTopic: 'Select a topic',
@@ -34,7 +40,13 @@ let allData = {
             featureDesc3: 'Access educational resources and programming tools all in one place',
             statTopics: 'Topics',
             statLinks: 'Links',
-            statLanguages: 'Languages'
+            statLanguages: 'Languages',
+            settings: 'Settings',
+            darkMode: 'Dark Mode',
+            languageLabel: 'Language',
+            versionText: 'Version 1.0',
+            creditsTitle: 'Credits',
+            creditsText: 'Built with: HTML5, Tailwind CSS, JavaScript. Icons: Emoji. Year: 2026'
         }
     },
     topics: [
