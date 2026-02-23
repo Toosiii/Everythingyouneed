@@ -1,4 +1,24 @@
 let allData = {
+    translations: {
+        de: {
+            selectTopic: 'Thema auswählen',
+            everythingYouNeed: 'Alles was du brauchst',
+            startBrowsing: 'Wählen Sie ein Thema aus der Liste auf der linken Seite, um zu beginnen',
+            topics: 'Themen',
+            search: 'Suchen...',
+            games: 'Spiele',
+            language: 'Sprache'
+        },
+        en: {
+            selectTopic: 'Select a topic',
+            everythingYouNeed: 'Everything you need',
+            startBrowsing: 'Select a topic from the list on the left to get started',
+            topics: 'Topics',
+            search: 'Search...',
+            games: 'Games',
+            language: 'Language'
+        }
+    },
     topics: [
         {
             id: 'tv',
