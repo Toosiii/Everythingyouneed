@@ -35,9 +35,9 @@ main.landing-container::before {
 .landing-title {
     font-size: 3.5rem;
     font-weight: 800;
-    color: white;
+    color: #e9d5ff; /* light purple */
     margin-bottom: 1rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 18px rgba(167,139,250,0.9), 0 2px 10px rgba(102, 78, 203, 0.25);
     letter-spacing: -1px;
 }
 
@@ -62,7 +62,7 @@ main.landing-container::before {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.85);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -89,13 +89,14 @@ main.landing-container::before {
 .feature-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #333;
+    color: #e9d5ff; /* light purple */
+    text-shadow: 0 0 8px rgba(178,128,255,0.7), 0 2px 14px rgba(167,139,250,0.35);
     margin-bottom: 0.5rem;
 }
 
 .feature-description {
     font-size: 0.95rem;
-    color: #666;
+    color: #d7c7ff;
     line-height: 1.5;
 }
 
@@ -142,6 +143,8 @@ main.landing-container::before {
     font-size: 2.5rem;
     font-weight: 800;
     display: block;
+    color: #e9d5ff;
+    text-shadow: 0 0 10px rgba(167,139,250,0.7);
 }
 
 .stat-label {
@@ -217,11 +220,13 @@ main.landing-container::before {
 #topicContent h2,
 #topicContent .text-gray-600,
 #topicContent .text-gray-500 {
-    color: white;
+    color: #e9d5ff;
+    text-shadow: 0 0 10px rgba(167,139,250,0.5);
 }
 
 #topicContent input {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #e9d5ff;
 }
 
 #topicContent button {
@@ -230,13 +235,13 @@ main.landing-container::before {
 }
 
 #topicContent .bg-gray-300 {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: #e9d5ff;
 }
 
 #topicContent .bg-white {
-    background-color: rgba(255, 255, 255, 0.95);
-    color: #333;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #e9d5ff;
 }
 
 #topicContent .dark:bg-gray-800 {
@@ -244,9 +249,48 @@ main.landing-container::before {
 }
 
 #topicContent .text-blue-500 {
-    color: #3b82f6;
+    color: #c084fc; /* purple link color */
+    text-shadow: 0 0 6px rgba(192,132,252,0.35);
 }
 
 #topicContent .hover\:shadow-lg:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Settings Modal Styles */
+#settingsModal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#settingsModal > div {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#settingsBtn {
+    font-weight: 500;
+}
+
+#darkModeToggle {
+    cursor: pointer;
+    accent-color: #667eea;
 }
