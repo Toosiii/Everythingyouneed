@@ -23,6 +23,15 @@ let allData = {
             versionText: 'Version 1.0',
             creditsTitle: 'Danksagungen',
             creditsText: 'Gebaut mit: HTML5, Tailwind CSS, JavaScript. Icons: Emoji. Jahr: 2026'
+        ,
+            favorites: 'Favoriten',
+            openAll: 'Alle öffnen',
+            copyLinks: 'Links kopieren',
+            clear: 'Löschen',
+            noResults: 'Keine Ergebnisse',
+            favoritesEmpty: 'Keine Favoriten gespeichert',
+            addFavorite: 'Zu Favoriten hinzufügen',
+            removeFavorite: 'Aus Favoriten entfernen'
         },
         en: {
             selectTopic: 'Select a topic',
@@ -47,6 +56,15 @@ let allData = {
             versionText: 'Version 1.0',
             creditsTitle: 'Credits',
             creditsText: 'Built with: HTML5, Tailwind CSS, JavaScript. Icons: Emoji. Year: 2026'
+        ,
+            favorites: 'Favorites',
+            openAll: 'Open All',
+            copyLinks: 'Copy Links',
+            clear: 'Clear',
+            noResults: 'No results',
+            favoritesEmpty: 'No favorites saved',
+            addFavorite: 'Add to favorites',
+            removeFavorite: 'Remove from favorites'
         }
     },
     topics: [
