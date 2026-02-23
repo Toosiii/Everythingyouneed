@@ -1,17 +1,11 @@
 /* Landing Page Styles */
-.landing-container {
+main.landing-container {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
     position: relative;
     overflow: hidden;
 }
 
-.landing-container::before {
+main.landing-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -20,6 +14,14 @@
     bottom: 0;
     background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
     pointer-events: none;
+}
+
+.landing-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
 }
 
 .landing-content {
@@ -44,6 +46,11 @@
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 3rem;
     line-height: 1.6;
+}
+
+#topicContent {
+    position: relative;
+    z-index: 1;
 }
 
 .features-grid {
@@ -166,7 +173,7 @@
 }
 
 /* Dark mode adjustments */
-.dark .landing-container {
+.dark main.landing-container {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
@@ -200,4 +207,46 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+}
+
+/* Topic content styling on gradient background */
+#topicContent {
+    color: white;
+}
+
+#topicContent h2,
+#topicContent .text-gray-600,
+#topicContent .text-gray-500 {
+    color: white;
+}
+
+#topicContent input {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+#topicContent button {
+    background-color: rgba(102, 126, 234, 0.9);
+    color: white;
+}
+
+#topicContent .bg-gray-300 {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+#topicContent .bg-white {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+#topicContent .dark:bg-gray-800 {
+    background-color: rgba(30, 41, 59, 0.95);
+}
+
+#topicContent .text-blue-500 {
+    color: #3b82f6;
+}
+
+#topicContent .hover\:shadow-lg:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
