@@ -9,28 +9,37 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
 
-<div class="flex min-h-screen">
+<!-- HEADER -->
+<header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Everything you need</h1>
+    <select id="languageSelect" class="border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+    </select>
+</header>
+
+<div class="flex min-h-screen" style="height: calc(100vh - 65px);">
 
     <!-- SIDEBAR -->
-    <aside class="w-64 bg-white dark:bg-gray-800 p-5">
-        <h1 class="text-xl font-bold mb-4">Topics</h1>
+    <aside class="w-64 bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700">
+        <h1 id="sidebarTitle" class="text-xl font-bold mb-4">Topics</h1>
         <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
             <option value="">Select a topic...</option>
         </select>
         
         <!-- GAMES CATEGORIES -->
         <div id="gamesCategory" style="display: none; margin-top: 8px;">
-            <h3 class="text-lg font-semibold mt-4 mb-2">Games</h3>
+            <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
             <div id="gamesList" class="flex flex-col gap-1"></div>
         </div>
     </aside>
 
     <!-- CONTENT -->
-    <main class="flex-1 p-8">
+    <main class="flex-1 p-8 flex flex-col">
 
-        <div id="noTopicMessage">
-            <h2 class="text-3xl font-bold mb-4">Topic auswählen</h2>
-            <p class="text-gray-500">Links erscheinen nach Auswahl.</p>
+        <div id="landingPage" class="flex flex-col items-center justify-center h-full">
+            <h2 id="landingTitle" class="text-5xl font-bold mb-4 text-center">Everything you need</h2>
+            <p id="landingSubtitle" class="text-xl text-gray-600 dark:text-gray-300 text-center max-w-md">Select a topic from the list on the left to get started</p>
         </div>
 
         <div id="topicContent" style="display: none;">
@@ -38,7 +47,7 @@
 
             <!-- SUCHFELD -->
             <form class="mb-4 flex gap-2" onsubmit="return false;">
-                <input id="searchInput" name="search" placeholder="Suchen..."
+                <input id="searchInput" name="search" placeholder="Search..."
                        class="border p-2 rounded text-black w-64"
                        onkeyup="filterLinks()">
                 <button class="bg-blue-500 text-white px-4 rounded" onclick="filterLinks()">
@@ -60,9 +69,40 @@
 let currentTopicId = null;
 let selectedTag = null;
 let selectedGame = null;
+let currentLanguage = 'en';
+
+// Translation function
+function trans(key) {
+    return allData.translations[currentLanguage]?.[key] || key;
+}
+
+// Change language
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    document.getElementById('languageSelect').value = lang;
+    document.getElementById('sidebarTitle').textContent = trans('topics');
+    document.getElementById('gamesCategoryTitle').textContent = trans('games');
+    document.getElementById('landingTitle').textContent = trans('everythingYouNeed');
+    document.getElementById('landingSubtitle').textContent = trans('startBrowsing');
+    document.getElementById('searchInput').placeholder = trans('search');
+    
+    // Update topics dropdown
+    if (allData.topics) {
+        const select = document.getElementById('topicsDropdown');
+        select.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
+        allData.topics.forEach(topic => {
+            const option = document.createElement('option');
+            option.value = topic.id;
+            option.textContent = topic.name;
+            select.appendChild(option);
+        });
+    }
+}
 
 // Initialize and load
 function loadData() {
+    changeLanguage(currentLanguage);
     renderTopics();
     
     // Check URL params
@@ -94,7 +134,13 @@ function renderTopics() {
 
 // Select a topic
 function selectTopic(topicId) {
-    if (!topicId) return; // Handle empty selection
+    if (!topicId) {
+        // Show landing page if no topic selected
+        document.getElementById('landingPage').style.display = 'flex';
+        document.getElementById('topicContent').style.display = 'none';
+        document.getElementById('gamesCategory').style.display = 'none';
+        return;
+    }
     
     currentTopicId = topicId;
     selectedTag = null;
@@ -105,7 +151,7 @@ function selectTopic(topicId) {
     const current = allData.topics?.find(t => t.id === topicId);
     if (!current) return;
     
-    document.getElementById('noTopicMessage').style.display = 'none';
+    document.getElementById('landingPage').style.display = 'none';
     document.getElementById('topicContent').style.display = 'block';
     document.getElementById('topicTitle').textContent = current.name;
     
