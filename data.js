@@ -7,7 +7,16 @@ let allData = {
             topics: 'Themen',
             search: 'Suchen...',
             games: 'Spiele',
-            language: 'Sprache'
+            language: 'Sprache',
+            featureTitle1: 'Live TV & Streaming',
+            featureDesc1: 'Durchsuchen Sie kuratierte Links für Filme, Serien und Live-TV-Streams',
+            featureTitle2: 'Spiele',
+            featureDesc2: 'Finden Sie Ressourcen für Ihre Lieblingsspiele wie Minecraft, Valorant und mehr',
+            featureTitle3: 'Lernen & Tools',
+            featureDesc3: 'Greifen Sie auf Bildungsressourcen und Programmiertools an einem Ort zu',
+            statTopics: 'Themen',
+            statLinks: 'Links',
+            statLanguages: 'Sprachen'
         },
         en: {
             selectTopic: 'Select a topic',
@@ -16,7 +25,16 @@ let allData = {
             topics: 'Topics',
             search: 'Search...',
             games: 'Games',
-            language: 'Language'
+            language: 'Language',
+            featureTitle1: 'Live TV & Streaming',
+            featureDesc1: 'Browse through curated links for movies, series, and live TV streams',
+            featureTitle2: 'Games',
+            featureDesc2: 'Find resources for your favorite games like Minecraft, Valorant, and more',
+            featureTitle3: 'Learning & Tools',
+            featureDesc3: 'Access educational resources and programming tools all in one place',
+            statTopics: 'Topics',
+            statLinks: 'Links',
+            statLanguages: 'Languages'
         }
     },
     topics: [
