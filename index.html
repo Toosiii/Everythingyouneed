@@ -13,27 +13,83 @@
 <!-- HEADER -->
 <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold">Everything you need</h1>
-    <select id="languageSelect" class="border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="changeLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-    </select>
 </header>
 
 <div class="flex min-h-screen" style="height: calc(100vh - 65px);">
 
     <!-- SIDEBAR -->
-    <aside class="w-64 bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700">
-        <h1 id="sidebarTitle" class="text-xl font-bold mb-4">Topics</h1>
-        <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
-            <option value="">Select a topic...</option>
-        </select>
-        
-        <!-- GAMES CATEGORIES -->
-        <div id="gamesCategory" style="display: none; margin-top: 8px;">
-            <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
-            <div id="gamesList" class="flex flex-col gap-1"></div>
+    <aside class="w-64 bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700 flex flex-col">
+        <div class="flex-1">
+            <h1 id="sidebarTitle" class="text-xl font-bold mb-4">Topics</h1>
+            <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
+                <option value="">Select a topic...</option>
+            </select>
+            
+            <!-- GAMES CATEGORIES -->
+            <div id="gamesCategory" style="display: none; margin-top: 8px;">
+                <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
+                <div id="gamesList" class="flex flex-col gap-1"></div>
+            </div>
+        </div>
+
+        <!-- SETTINGS BUTTON -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+            <button id="settingsBtn" class="w-full flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition" onclick="toggleSettings()">
+                <span>⚙️</span>
+                <span id="settingsBtnText">Settings</span>
+            </button>
         </div>
     </aside>
+
+    <!-- SETTINGS MODAL -->
+    <div id="settingsModal" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-sm w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="settingsTitle" class="text-2xl font-bold">Settings</h2>
+                <button onclick="toggleSettings()" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl">×</button>
+            </div>
+            
+            <!-- DARK MODE TOGGLE -->
+            <div class="mb-6">
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" id="darkModeToggle" class="w-5 h-5 rounded" onchange="toggleDarkMode()">
+                    <span id="darkModeLabel">Dark Mode</span>
+                </label>
+            </div>
+
+            <!-- LANGUAGE PREFERENCE -->
+            <div class="mb-6">
+                <label id="languageLabel" class="block text-sm font-semibold mb-2">Language</label>
+                <select id="settingsLanguageSelect" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                <p id="aboutText" class="text-sm text-gray-600 dark:text-gray-400">
+                    <strong>Everything you need</strong><br>
+                    All links in one place<br>
+                    <span id="versionText">Version 1.0</span>
+                </p>
+            </div>
+
+            <!-- CREDITS -->
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
+                <p id="creditsTitle" class="text-sm font-semibold mb-2">Credits</p>
+                <p id="creditsText" class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <strong>Built with:</strong><br>
+                    • HTML5<br>
+                    • Tailwind CSS<br>
+                    • JavaScript<br>
+                    <br>
+                    <strong>Icons:</strong> Emoji<br>
+                    <strong>Year:</strong> 2026
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- CONTENT -->
     <main class="flex-1 p-8 flex flex-col landing-container">
@@ -118,16 +174,35 @@ function trans(key) {
     return allData.translations[currentLanguage]?.[key] || key;
 }
 
+// Toggle settings modal
+function toggleSettings() {
+    const modal = document.getElementById('settingsModal');
+    modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+}
+
+// Toggle dark mode
+function toggleDarkMode() {
+    const isDarkMode = document.documentElement.classList.toggle('dark');
+    document.getElementById('darkModeToggle').checked = isDarkMode;
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
 // Change language
 function changeLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang;
-    document.getElementById('languageSelect').value = lang;
+    document.getElementById('settingsLanguageSelect').value = lang;
     document.getElementById('sidebarTitle').textContent = trans('topics');
     document.getElementById('gamesCategoryTitle').textContent = trans('games');
     document.getElementById('landingTitle').textContent = trans('everythingYouNeed');
     document.getElementById('landingSubtitle').textContent = trans('startBrowsing');
     document.getElementById('searchInput').placeholder = trans('search');
+    document.getElementById('settingsBtnText').textContent = trans('settings');
+    document.getElementById('settingsTitle').textContent = trans('settings');
+    document.getElementById('darkModeLabel').textContent = trans('darkMode');
+    document.getElementById('languageLabel').textContent = trans('languageLabel');
+    document.getElementById('versionText').textContent = trans('versionText');
+    document.getElementById('creditsTitle').textContent = trans('creditsTitle');
     
     // Update feature cards
     document.getElementById('featureTitle1').textContent = trans('featureTitle1');
@@ -153,11 +228,30 @@ function changeLanguage(lang) {
             select.appendChild(option);
         });
     }
+    
+    localStorage.setItem('language', lang);
 }
 
 // Initialize and load
 function loadData() {
-    changeLanguage(currentLanguage);
+    // Restore saved preferences
+    const savedLanguage = localStorage.getItem('language') || currentLanguage;
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    
+    // Set dark mode
+    if (savedDarkMode) {
+        document.documentElement.classList.add('dark');
+    }
+    document.getElementById('darkModeToggle').checked = savedDarkMode;
+    
+    changeLanguage(savedLanguage);
+    
+    // Close settings modal when clicking outside
+    document.getElementById('settingsModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            toggleSettings();
+        }
+    });
     
     // Check URL params
     const params = new URLSearchParams(window.location.search);
