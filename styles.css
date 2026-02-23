@@ -294,3 +294,12 @@ main.landing-container::before {
     cursor: pointer;
     accent-color: #667eea;
 }
+
+/* Highlight for matched text */
+.match-highlight {
+    background: rgba(192,132,252,0.18);
+    color: #f8f0ff;
+    padding: 0 4px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(167,139,250,0.4);
+}
