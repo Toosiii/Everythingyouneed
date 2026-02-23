@@ -55,6 +55,7 @@ let allData = {
                     url: 'https://howlongtobeat.com',
                     description: 'Find out how long it takes to beat a game.',
                     tags: ['games', 'info'],
+                    gameType: 'Info',
                     image: ''
                 },
                 {
@@ -62,6 +63,7 @@ let allData = {
                     url: 'https://adescargar.net',
                     description: 'Every game for free and Pro version for free',
                     tags: ['games', 'free'],
+                    gameType: 'Action',
                     image: ''
                 }
             ]
