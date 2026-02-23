@@ -144,13 +144,13 @@
             <h2 id="topicTitle" class="text-3xl font-bold mb-4"></h2>
 
             <!-- SUCHFELD -->
-            <form class="mb-4 flex gap-2" onsubmit="return false;">
+            <form class="mb-4 flex gap-2 items-center" onsubmit="return false;">
                 <input id="searchInput" name="search" placeholder="Search..."
                        class="border p-2 rounded text-black w-64"
-                       onkeyup="filterLinks()">
-                <button class="bg-blue-500 text-white px-4 rounded" onclick="filterLinks()">
-                    OK
-                </button>
+                       oninput="filterLinks()">
+                <button type="button" class="bg-blue-500 text-white px-4 rounded" onclick="filterLinks()">Search</button>
+                <button type="button" class="bg-gray-300 text-black px-3 rounded" onclick="clearSearch()">Clear</button>
+                <span id="resultsCount" class="text-sm text-gray-400 ml-3"></span>
             </form>
 
             <!-- TAGS -->
@@ -377,56 +377,84 @@ function filterLinks() {
     if (!current) return;
     
     let links = current.links || [];
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    
-    // Search filter
+    const rawSearch = document.getElementById('searchInput').value.trim();
+    const search = rawSearch.toLowerCase();
+
+    // Multi-term search: split words and require all terms to match one of the searchable fields
     if (search) {
-        links = links.filter(l =>
-            l.title.toLowerCase().includes(search) ||
-            l.description.toLowerCase().includes(search)
-        );
+        const terms = search.split(/\s+/).filter(Boolean);
+        links = links.filter(l => {
+            const haystack = [
+                l.title || '',
+                l.description || '',
+                l.url || '',
+                (l.tags || []).join(' '),
+                l.game || ''
+            ].join(' ').toLowerCase();
+            return terms.every(t => haystack.includes(t));
+        });
     }
-    
+
     // Tag filter
     if (selectedTag) {
-        links = links.filter(l =>
-            l.tags?.includes(selectedTag)
-        );
+        links = links.filter(l => l.tags?.includes(selectedTag));
     }
-    
+
     // Game filter (for Games topic)
     if (selectedGame && currentTopicId === 'Games') {
-        links = links.filter(l =>
-            l.game === selectedGame
-        );
+        links = links.filter(l => l.game === selectedGame);
     }
-    
-    renderLinks(links);
+
+    // Update results count
+    const resultsCount = document.getElementById('resultsCount');
+    resultsCount.textContent = links.length ? `${links.length} result${links.length > 1 ? 's' : ''}` : 'No results';
+
+    renderLinks(links, rawSearch);
 }
 
 // Render links
-function renderLinks(links) {
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function highlightText(text, rawSearch) {
+    if (!rawSearch) return text;
+    const terms = rawSearch.split(/\s+/).filter(Boolean);
+    let result = text;
+    terms.forEach(term => {
+        try {
+            const re = new RegExp('(' + escapeRegExp(term) + ')', 'ig');
+            result = result.replace(re, '<span class="match-highlight">$1</span>');
+        } catch (e) {
+            // ignore bad regex
+        }
+    });
+    return result;
+}
+
+// Render links with highlighted matches
+function renderLinks(links, rawSearch) {
     const linksList = document.getElementById('linksList');
     linksList.innerHTML = '';
-    
+
     links.forEach(link => {
         const div = document.createElement('div');
         div.className = 'bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
-        
+
         const title = document.createElement('h3');
         title.className = 'font-semibold text-lg';
-        title.textContent = link.title;
-        
+        title.innerHTML = highlightText(link.title || '', rawSearch);
+
         const url = document.createElement('a');
         url.href = link.url;
         url.target = '_blank';
         url.className = 'text-blue-500 text-sm break-all';
-        url.textContent = link.url;
-        
+        url.innerHTML = highlightText(link.url || '', rawSearch);
+
         const desc = document.createElement('p');
         desc.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
-        desc.textContent = link.description;
-        
+        desc.innerHTML = highlightText(link.description || '', rawSearch);
+
         div.appendChild(title);
         div.appendChild(url);
         div.appendChild(desc);
