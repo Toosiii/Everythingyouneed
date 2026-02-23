@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="data.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Links</title>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
@@ -37,9 +38,50 @@
     <!-- CONTENT -->
     <main class="flex-1 p-8 flex flex-col">
 
-        <div id="landingPage" class="flex flex-col items-center justify-center h-full">
-            <h2 id="landingTitle" class="text-5xl font-bold mb-4 text-center">Everything you need</h2>
-            <p id="landingSubtitle" class="text-xl text-gray-600 dark:text-gray-300 text-center max-w-md">Select a topic from the list on the left to get started</p>
+        <div id="landingPage" class="w-full">
+            <div class="landing-container dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800">
+                <div class="landing-content">
+                    <h2 id="landingTitle" class="landing-title">Everything you need</h2>
+                    <p id="landingSubtitle" class="landing-subtitle">Select a topic from the list on the left to get started</p>
+                    
+                    <!-- Features Grid -->
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎬</div>
+                            <div class="feature-title" id="featureTitle1">Live TV & Streaming</div>
+                            <div class="feature-description" id="featureDesc1">Browse through curated links for movies, series, and live TV streams</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
+                            <div class="feature-title" id="featureTitle2">Games</div>
+                            <div class="feature-description" id="featureDesc2">Find resources for your favorite games like Minecraft, Valorant, and more</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <div class="feature-title" id="featureTitle3">Learning & Tools</div>
+                            <div class="feature-description" id="featureDesc3">Access educational resources and programming tools all in one place</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-section">
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label" id="statTopics">Topics</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalLinks">15+</span>
+                            <span class="stat-label" id="statLinks">Links</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label" id="statLanguages">Languages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="topicContent" style="display: none;">
@@ -87,6 +129,19 @@ function changeLanguage(lang) {
     document.getElementById('landingSubtitle').textContent = trans('startBrowsing');
     document.getElementById('searchInput').placeholder = trans('search');
     
+    // Update feature cards
+    document.getElementById('featureTitle1').textContent = trans('featureTitle1');
+    document.getElementById('featureDesc1').textContent = trans('featureDesc1');
+    document.getElementById('featureTitle2').textContent = trans('featureTitle2');
+    document.getElementById('featureDesc2').textContent = trans('featureDesc2');
+    document.getElementById('featureTitle3').textContent = trans('featureTitle3');
+    document.getElementById('featureDesc3').textContent = trans('featureDesc3');
+    
+    // Update stats
+    document.getElementById('statTopics').textContent = trans('statTopics');
+    document.getElementById('statLinks').textContent = trans('statLinks');
+    document.getElementById('statLanguages').textContent = trans('statLanguages');
+    
     // Update topics dropdown
     if (allData.topics) {
         const select = document.getElementById('topicsDropdown');
@@ -103,7 +158,6 @@ function changeLanguage(lang) {
 // Initialize and load
 function loadData() {
     changeLanguage(currentLanguage);
-    renderTopics();
     
     // Check URL params
     const params = new URLSearchParams(window.location.search);
@@ -136,7 +190,7 @@ function renderTopics() {
 function selectTopic(topicId) {
     if (!topicId) {
         // Show landing page if no topic selected
-        document.getElementById('landingPage').style.display = 'flex';
+        document.getElementById('landingPage').style.display = 'block';
         document.getElementById('topicContent').style.display = 'none';
         document.getElementById('gamesCategory').style.display = 'none';
         return;
