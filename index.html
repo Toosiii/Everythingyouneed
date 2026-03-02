@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./src/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Everything you need</title>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
@@ -23,15 +24,11 @@
             <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
                 <option value="">Select a topic...</option>
             </select>
-
-            <!-- GAMES CATEGORIES -->
             <div id="gamesCategory" style="display: none; margin-top: 8px;">
                 <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
                 <div id="gamesList" class="flex flex-col gap-1"></div>
             </div>
         </div>
-
-        <!-- SETTINGS BUTTON -->
         <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
             <button id="settingsBtn" class="w-full flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition" onclick="toggleSettings()">
                 <span>⚙️</span>
@@ -47,16 +44,12 @@
                 <h2 id="settingsTitle" class="text-2xl font-bold">Settings</h2>
                 <button onclick="toggleSettings()" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl">×</button>
             </div>
-
-            <!-- DARK MODE TOGGLE -->
             <div class="mb-6">
                 <label class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" id="darkModeToggle" class="w-5 h-5 rounded" onchange="toggleDarkMode()">
                     <span id="darkModeLabel">Dark Mode</span>
                 </label>
             </div>
-
-            <!-- LANGUAGE PREFERENCE -->
             <div class="mb-6">
                 <label id="languageLabel" class="block text-sm font-semibold mb-2">Language</label>
                 <select id="settingsLanguageSelect" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="changeLanguage(this.value)">
@@ -64,29 +57,19 @@
                     <option value="de">Deutsch</option>
                 </select>
             </div>
-
-            <!-- ABOUT -->
             <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-                <p id="aboutText" class="text-sm text-gray-600 dark:text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                     <strong>Everything you need</strong><br>
                     All links in one place<br>
                     <span id="versionText">Version 1.0</span>
                 </p>
             </div>
-
-            <!-- CREDITS -->
             <div class="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
                 <p id="creditsTitle" class="text-sm font-semibold mb-2">Credits</p>
-                <p id="creditsText" class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     <strong>Built with:</strong><br>
-                    • HTML5<br>
-                    • Tailwind CSS<br>
-                    • JavaScript<br>
-                    • Vite<br>
-                    • YAML<br>
-                    <br>
-                    <strong>Icons:</strong> Emoji<br>
-                    <strong>Year:</strong> 2026
+                    • HTML5 • Tailwind CSS • JavaScript • YAML<br><br>
+                    <strong>Icons:</strong> Emoji &nbsp; <strong>Year:</strong> 2026
                 </p>
             </div>
         </div>
@@ -94,14 +77,11 @@
 
     <!-- CONTENT -->
     <main class="flex-1 p-8 flex flex-col landing-container">
-
         <div id="landingPage" class="w-full">
             <div class="landing-page-content">
                 <div class="landing-content">
                     <h2 id="landingTitle" class="landing-title cursor-pointer hover:opacity-80 transition" onclick="selectTopic('')">Everything you need</h2>
                     <p id="landingSubtitle" class="landing-subtitle">Select a topic from the list on the left to get started</p>
-
-                    <!-- Features Grid -->
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">🎬</div>
@@ -119,15 +99,13 @@
                             <div class="feature-description" id="featureDesc3">Access educational resources and programming tools all in one place</div>
                         </div>
                     </div>
-
-                    <!-- Stats Section -->
                     <div class="stats-section">
                         <div class="stat">
-                            <span class="stat-number">4</span>
+                            <span class="stat-number" id="statTopicsNum">4</span>
                             <span class="stat-label" id="statTopics">Topics</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" id="totalLinks">15+</span>
+                            <span class="stat-number" id="totalLinks">0</span>
                             <span class="stat-label" id="statLinks">Links</span>
                         </div>
                         <div class="stat">
@@ -141,8 +119,6 @@
 
         <div id="topicContent" style="display: none;">
             <h2 id="topicTitle" class="text-3xl font-bold mb-4"></h2>
-
-            <!-- SUCHFELD -->
             <form class="mb-4 flex gap-2 items-center" onsubmit="return false;">
                 <input id="searchInput" name="search" placeholder="Search..."
                        class="border p-2 rounded text-black w-64"
@@ -151,17 +127,235 @@
                 <button type="button" class="bg-gray-300 text-black px-3 rounded" onclick="clearSearch()">Clear</button>
                 <span id="resultsCount" class="text-sm text-gray-400 ml-3"></span>
             </form>
-
-            <!-- TAGS -->
             <div id="tagsList" class="mb-4 flex gap-2 flex-wrap"></div>
-
-            <!-- LINKS -->
             <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
         </div>
-
     </main>
 </div>
 
-<script type="module" src="./src/main.js"></script>
+<script>
+let allData = null;
+let currentTopicId = null;
+let selectedTag = null;
+let selectedGame = null;
+let currentLanguage = 'en';
+
+function trans(key) {
+    return allData?.translations?.[currentLanguage]?.[key] || key;
+}
+
+function toggleSettings() {
+    const modal = document.getElementById('settingsModal');
+    modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+}
+
+function toggleDarkMode() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    document.getElementById('darkModeToggle').checked = isDark;
+    localStorage.setItem('darkMode', isDark);
+}
+
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    document.getElementById('settingsLanguageSelect').value = lang;
+    const ids = [
+        ['sidebarTitle', 'topics'], ['gamesCategoryTitle', 'games'],
+        ['landingTitle', 'everythingYouNeed'], ['landingSubtitle', 'startBrowsing'],
+        ['settingsBtnText', 'settings'], ['settingsTitle', 'settings'],
+        ['darkModeLabel', 'darkMode'], ['languageLabel', 'languageLabel'],
+        ['versionText', 'versionText'], ['creditsTitle', 'creditsTitle'],
+        ['featureTitle1', 'featureTitle1'], ['featureDesc1', 'featureDesc1'],
+        ['featureTitle2', 'featureTitle2'], ['featureDesc2', 'featureDesc2'],
+        ['featureTitle3', 'featureTitle3'], ['featureDesc3', 'featureDesc3'],
+        ['statTopics', 'statTopics'], ['statLinks', 'statLinks'],
+        ['statLanguages', 'statLanguages'],
+    ];
+    ids.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = trans(key);
+    });
+    document.getElementById('searchInput').placeholder = trans('search');
+
+    const select = document.getElementById('topicsDropdown');
+    select.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
+    allData?.topics?.forEach(topic => {
+        const option = document.createElement('option');
+        option.value = topic.id;
+        option.textContent = topic.name;
+        select.appendChild(option);
+    });
+
+    localStorage.setItem('language', lang);
+}
+
+function selectTopic(topicId) {
+    if (!topicId) {
+        document.getElementById('landingPage').style.display = 'block';
+        document.getElementById('topicContent').style.display = 'none';
+        document.getElementById('gamesCategory').style.display = 'none';
+        return;
+    }
+    currentTopicId = topicId;
+    selectedTag = null;
+    selectedGame = null;
+    document.getElementById('searchInput').value = '';
+    document.getElementById('topicsDropdown').value = topicId;
+
+    const current = allData?.topics?.find(t => t.id === topicId);
+    if (!current) return;
+
+    document.getElementById('landingPage').style.display = 'none';
+    document.getElementById('topicContent').style.display = 'block';
+    document.getElementById('topicTitle').textContent = current.name;
+
+    const gamesSection = document.getElementById('gamesCategory');
+    if (topicId === 'Games') {
+        gamesSection.style.display = 'block';
+        renderGameCategories(current);
+    } else {
+        gamesSection.style.display = 'none';
+    }
+
+    renderTags(current);
+    filterLinks();
+    window.history.pushState(null, '', `?topic=${encodeURIComponent(topicId)}`);
+}
+
+function renderTags(topic) {
+    const tagsList = document.getElementById('tagsList');
+    tagsList.innerHTML = '';
+    const allTags = {};
+    topic.links?.forEach(link => link.tags?.forEach(tag => allTags[tag] = true));
+    Object.keys(allTags).forEach(tag => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = tag;
+        a.className = 'px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded text-sm cursor-pointer hover:bg-gray-400';
+        a.onclick = (e) => {
+            e.preventDefault();
+            selectedTag = selectedTag === tag ? null : tag;
+            filterLinks();
+        };
+        tagsList.appendChild(a);
+    });
+}
+
+function renderGameCategories(topic) {
+    const gamesList = document.getElementById('gamesList');
+    gamesList.innerHTML = '';
+    const games = new Set();
+    topic.links?.forEach(link => { if (link.game) games.add(link.game); });
+    games.forEach(game => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = game;
+        a.className = 'px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
+        a.onclick = (e) => {
+            e.preventDefault();
+            selectedGame = selectedGame === game ? null : game;
+            filterLinks();
+        };
+        gamesList.appendChild(a);
+    });
+}
+
+function filterLinks() {
+    const current = allData?.topics?.find(t => t.id === currentTopicId);
+    if (!current) return;
+    let links = current.links || [];
+    const rawSearch = document.getElementById('searchInput').value.trim();
+    const search = rawSearch.toLowerCase();
+    if (search) {
+        const terms = search.split(/\s+/).filter(Boolean);
+        links = links.filter(l => {
+            const hay = [l.title, l.description, l.url, (l.tags||[]).join(' '), l.game||''].join(' ').toLowerCase();
+            return terms.every(t => hay.includes(t));
+        });
+    }
+    if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
+    if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
+    const rc = document.getElementById('resultsCount');
+    rc.textContent = links.length ? `${links.length} result${links.length > 1 ? 's' : ''}` : trans('noResults');
+    renderLinks(links, rawSearch);
+}
+
+function highlightText(text, rawSearch) {
+    if (!rawSearch) return text;
+    return rawSearch.split(/\s+/).filter(Boolean).reduce((result, term) => {
+        try {
+            return result.replace(new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<span class="match-highlight">$1</span>');
+        } catch(e) { return result; }
+    }, text);
+}
+
+function renderLinks(links, rawSearch) {
+    const linksList = document.getElementById('linksList');
+    linksList.innerHTML = '';
+    links.forEach(link => {
+        const div = document.createElement('div');
+        div.className = 'bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
+        const title = document.createElement('h3');
+        title.className = 'font-semibold text-lg';
+        title.innerHTML = highlightText(link.title || '', rawSearch);
+        const url = document.createElement('a');
+        url.href = link.url;
+        url.target = '_blank';
+        url.className = 'text-blue-500 text-sm break-all';
+        url.innerHTML = highlightText(link.url || '', rawSearch);
+        const desc = document.createElement('p');
+        desc.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
+        desc.innerHTML = highlightText(link.description || '', rawSearch);
+        div.appendChild(title);
+        div.appendChild(url);
+        div.appendChild(desc);
+        linksList.appendChild(div);
+    });
+}
+
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    filterLinks();
+}
+
+async function loadData() {
+    try {
+        const response = await fetch('data.yaml');
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const text = await response.text();
+        allData = jsyaml.load(text);
+
+        const totalLinks = allData.topics?.reduce((sum, t) => sum + (t.links?.length || 0), 0) || 0;
+        document.getElementById('totalLinks').textContent = totalLinks;
+        document.getElementById('statTopicsNum').textContent = allData.topics?.length || 0;
+
+        const savedLang = localStorage.getItem('language') || 'en';
+        const savedDark = localStorage.getItem('darkMode') === 'true';
+        if (savedDark) document.documentElement.classList.add('dark');
+        document.getElementById('darkModeToggle').checked = savedDark;
+
+        changeLanguage(savedLang);
+
+        document.getElementById('settingsModal').addEventListener('click', function(e) {
+            if (e.target === this) toggleSettings();
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        const topicParam = params.get('topic');
+        if (topicParam) {
+            selectTopic(topicParam);
+            const searchParam = params.get('search');
+            if (searchParam) document.getElementById('searchInput').value = searchParam;
+            filterLinks();
+        }
+    } catch (err) {
+        console.error('Fehler:', err);
+        document.body.innerHTML = '<div style="padding:2rem;color:red;font-size:1.2rem;">⚠️ data.yaml konnte nicht geladen werden. Stelle sicher, dass die Datei im gleichen Ordner wie index.html liegt.</div>';
+    }
+}
+
+document.documentElement.classList.add('dark');
+window.addEventListener('DOMContentLoaded', loadData);
+</script>
 </body>
 </html>
