@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="data.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>Links</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <title>Everything you need</title>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
 
@@ -24,7 +23,7 @@
             <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
                 <option value="">Select a topic...</option>
             </select>
-            
+
             <!-- GAMES CATEGORIES -->
             <div id="gamesCategory" style="display: none; margin-top: 8px;">
                 <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
@@ -48,7 +47,7 @@
                 <h2 id="settingsTitle" class="text-2xl font-bold">Settings</h2>
                 <button onclick="toggleSettings()" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl">×</button>
             </div>
-            
+
             <!-- DARK MODE TOGGLE -->
             <div class="mb-6">
                 <label class="flex items-center gap-3 cursor-pointer">
@@ -83,6 +82,8 @@
                     • HTML5<br>
                     • Tailwind CSS<br>
                     • JavaScript<br>
+                    • Vite<br>
+                    • YAML<br>
                     <br>
                     <strong>Icons:</strong> Emoji<br>
                     <strong>Year:</strong> 2026
@@ -99,7 +100,7 @@
                 <div class="landing-content">
                     <h2 id="landingTitle" class="landing-title cursor-pointer hover:opacity-80 transition" onclick="selectTopic('')">Everything you need</h2>
                     <p id="landingSubtitle" class="landing-subtitle">Select a topic from the list on the left to get started</p>
-                    
+
                     <!-- Features Grid -->
                     <div class="features-grid">
                         <div class="feature-card">
@@ -107,13 +108,11 @@
                             <div class="feature-title" id="featureTitle1">Live TV & Streaming</div>
                             <div class="feature-description" id="featureDesc1">Browse through curated links for movies, series, and live TV streams</div>
                         </div>
-                        
                         <div class="feature-card">
                             <div class="feature-icon">🎮</div>
                             <div class="feature-title" id="featureTitle2">Games</div>
                             <div class="feature-description" id="featureDesc2">Find resources for your favorite games like Minecraft, Valorant, and more</div>
                         </div>
-                        
                         <div class="feature-card">
                             <div class="feature-icon">💻</div>
                             <div class="feature-title" id="featureTitle3">Learning & Tools</div>
@@ -163,311 +162,6 @@
     </main>
 </div>
 
-<script>
-let currentTopicId = null;
-let selectedTag = null;
-let selectedGame = null;
-let currentLanguage = 'en';
-
-// Translation function
-function trans(key) {
-    return allData.translations[currentLanguage]?.[key] || key;
-}
-
-// Toggle settings modal
-function toggleSettings() {
-    const modal = document.getElementById('settingsModal');
-    modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
-}
-
-// Toggle dark mode
-function toggleDarkMode() {
-    const isDarkMode = document.documentElement.classList.toggle('dark');
-    document.getElementById('darkModeToggle').checked = isDarkMode;
-    localStorage.setItem('darkMode', isDarkMode);
-}
-
-// Change language
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    document.getElementById('settingsLanguageSelect').value = lang;
-    document.getElementById('sidebarTitle').textContent = trans('topics');
-    document.getElementById('gamesCategoryTitle').textContent = trans('games');
-    document.getElementById('landingTitle').textContent = trans('everythingYouNeed');
-    document.getElementById('landingSubtitle').textContent = trans('startBrowsing');
-    document.getElementById('searchInput').placeholder = trans('search');
-    document.getElementById('settingsBtnText').textContent = trans('settings');
-    document.getElementById('settingsTitle').textContent = trans('settings');
-    document.getElementById('darkModeLabel').textContent = trans('darkMode');
-    document.getElementById('languageLabel').textContent = trans('languageLabel');
-    document.getElementById('versionText').textContent = trans('versionText');
-    document.getElementById('creditsTitle').textContent = trans('creditsTitle');
-    
-    // Update feature cards
-    document.getElementById('featureTitle1').textContent = trans('featureTitle1');
-    document.getElementById('featureDesc1').textContent = trans('featureDesc1');
-    document.getElementById('featureTitle2').textContent = trans('featureTitle2');
-    document.getElementById('featureDesc2').textContent = trans('featureDesc2');
-    document.getElementById('featureTitle3').textContent = trans('featureTitle3');
-    document.getElementById('featureDesc3').textContent = trans('featureDesc3');
-    
-    // Update stats
-    document.getElementById('statTopics').textContent = trans('statTopics');
-    document.getElementById('statLinks').textContent = trans('statLinks');
-    document.getElementById('statLanguages').textContent = trans('statLanguages');
-    
-    // Update topics dropdown
-    if (allData.topics) {
-        const select = document.getElementById('topicsDropdown');
-        select.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
-        allData.topics.forEach(topic => {
-            const option = document.createElement('option');
-            option.value = topic.id;
-            option.textContent = topic.name;
-            select.appendChild(option);
-        });
-    }
-    
-    localStorage.setItem('language', lang);
-}
-
-// Initialize and load
-function loadData() {
-    // Restore saved preferences
-    const savedLanguage = localStorage.getItem('language') || currentLanguage;
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    
-    // Set dark mode
-    if (savedDarkMode) {
-        document.documentElement.classList.add('dark');
-    }
-    document.getElementById('darkModeToggle').checked = savedDarkMode;
-    
-    changeLanguage(savedLanguage);
-    
-    // Close settings modal when clicking outside
-    document.getElementById('settingsModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            toggleSettings();
-        }
-    });
-    
-    // Check URL params
-    const params = new URLSearchParams(window.location.search);
-    const topicParam = params.get('topic');
-    const tagParam = params.get('tag');
-    const searchParam = params.get('search');
-    
-    if (topicParam) {
-        selectTopic(topicParam);
-        if (tagParam) selectedTag = tagParam;
-        if (searchParam) document.getElementById('searchInput').value = searchParam;
-        filterLinks();
-    }
-}
-
-// Render topics in dropdown
-function renderTopics() {
-    const topicsDropdown = document.getElementById('topicsDropdown');
-    topicsDropdown.innerHTML = '<option value="">Select a topic...</option>';
-    
-    allData.topics?.forEach(topic => {
-        const option = document.createElement('option');
-        option.value = topic.id;
-        option.textContent = topic.name;
-        topicsDropdown.appendChild(option);
-    });
-}
-
-// Select a topic
-function selectTopic(topicId) {
-    if (!topicId) {
-        // Show landing page if no topic selected
-        document.getElementById('landingPage').style.display = 'block';
-        document.getElementById('topicContent').style.display = 'none';
-        document.getElementById('gamesCategory').style.display = 'none';
-        return;
-    }
-    
-    currentTopicId = topicId;
-    selectedTag = null;
-    selectedGame = null;
-    document.getElementById('searchInput').value = '';
-    document.getElementById('topicsDropdown').value = topicId;
-    
-    const current = allData.topics?.find(t => t.id === topicId);
-    if (!current) return;
-    
-    document.getElementById('landingPage').style.display = 'none';
-    document.getElementById('topicContent').style.display = 'block';
-    document.getElementById('topicTitle').textContent = current.name;
-    
-    // Show games category section only for Games topic
-    const gamesCategorySection = document.getElementById('gamesCategory');
-    if (topicId === 'Games') {
-        gamesCategorySection.style.display = 'block';
-        renderGameCategories(current);
-    } else {
-        gamesCategorySection.style.display = 'none';
-    }
-    
-    renderTags(current);
-    filterLinks();
-    
-    window.history.pushState(null, '', `?topic=${encodeURIComponent(topicId)}`);
-}
-
-// Render tags
-function renderTags(topic) {
-    const tagsList = document.getElementById('tagsList');
-    tagsList.innerHTML = '';
-    
-    const allTags = {};
-    topic.links?.forEach(link => {
-        link.tags?.forEach(tag => {
-            allTags[tag] = true;
-        });
-    });
-    
-    Object.keys(allTags).forEach(tag => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.textContent = tag;
-        a.className = 'px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded text-sm cursor-pointer hover:bg-gray-400 dark:hover:bg-gray-600';
-        a.onclick = (e) => {
-            e.preventDefault();
-            selectedTag = selectedTag === tag ? null : tag;
-            window.history.pushState(null, '', `?topic=${currentTopicId}&tag=${selectedTag || ''}`);
-            filterLinks();
-        };
-        tagsList.appendChild(a);
-    });
-}
-
-// Render game categories in sidebar
-function renderGameCategories(topic) {
-    const gamesList = document.getElementById('gamesList');
-    gamesList.innerHTML = '';
-    
-    const games = new Set();
-    topic.links?.forEach(link => {
-        if (link.game) {
-            games.add(link.game);
-        }
-    });
-    
-    games.forEach(game => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.textContent = game;
-        a.className = 'px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
-        a.onclick = (e) => {
-            e.preventDefault();
-            selectedGame = selectedGame === game ? null : game;
-            filterLinks();
-        };
-        gamesList.appendChild(a);
-    });
-}
-
-// Filter and display links
-function filterLinks() {
-    const current = allData.topics?.find(t => t.id === currentTopicId);
-    if (!current) return;
-    
-    let links = current.links || [];
-    const rawSearch = document.getElementById('searchInput').value.trim();
-    const search = rawSearch.toLowerCase();
-
-    // Multi-term search: split words and require all terms to match one of the searchable fields
-    if (search) {
-        const terms = search.split(/\s+/).filter(Boolean);
-        links = links.filter(l => {
-            const haystack = [
-                l.title || '',
-                l.description || '',
-                l.url || '',
-                (l.tags || []).join(' '),
-                l.game || ''
-            ].join(' ').toLowerCase();
-            return terms.every(t => haystack.includes(t));
-        });
-    }
-
-    // Tag filter
-    if (selectedTag) {
-        links = links.filter(l => l.tags?.includes(selectedTag));
-    }
-
-    // Game filter (for Games topic)
-    if (selectedGame && currentTopicId === 'Games') {
-        links = links.filter(l => l.game === selectedGame);
-    }
-
-    // Update results count
-    const resultsCount = document.getElementById('resultsCount');
-    resultsCount.textContent = links.length ? `${links.length} result${links.length > 1 ? 's' : ''}` : 'No results';
-
-    renderLinks(links, rawSearch);
-}
-
-// Render links
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function highlightText(text, rawSearch) {
-    if (!rawSearch) return text;
-    const terms = rawSearch.split(/\s+/).filter(Boolean);
-    let result = text;
-    terms.forEach(term => {
-        try {
-            const re = new RegExp('(' + escapeRegExp(term) + ')', 'ig');
-            result = result.replace(re, '<span class="match-highlight">$1</span>');
-        } catch (e) {
-            // ignore bad regex
-        }
-    });
-    return result;
-}
-
-// Render links with highlighted matches
-function renderLinks(links, rawSearch) {
-    const linksList = document.getElementById('linksList');
-    linksList.innerHTML = '';
-
-    links.forEach(link => {
-        const div = document.createElement('div');
-        div.className = 'bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
-
-        const title = document.createElement('h3');
-        title.className = 'font-semibold text-lg';
-        title.innerHTML = highlightText(link.title || '', rawSearch);
-
-        const url = document.createElement('a');
-        url.href = link.url;
-        url.target = '_blank';
-        url.className = 'text-blue-500 text-sm break-all';
-        url.innerHTML = highlightText(link.url || '', rawSearch);
-
-        const desc = document.createElement('p');
-        desc.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
-        desc.innerHTML = highlightText(link.description || '', rawSearch);
-
-        div.appendChild(title);
-        div.appendChild(url);
-        div.appendChild(desc);
-        linksList.appendChild(div);
-    });
-}
-
-// Dark mode always enabled
-document.documentElement.classList.add('dark');
-
-// Load everything on page load
-window.addEventListener('DOMContentLoaded', loadData);
-</script>
-
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>
