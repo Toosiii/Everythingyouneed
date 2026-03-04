@@ -325,6 +325,49 @@ main.landing-container::before {
 #darkModeToggle { cursor: pointer; accent-color: #667eea; }
 
 /* ============================================================
+   PRICE FILTER BUTTONS
+   ============================================================ */
+
+.price-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.price-filter:hover {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+}
+.price-filter.active {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+}
+.price-filter.free.active {
+    background: rgba(34,197,94,0.2);
+    color: #22c55e;
+    border-color: rgba(34,197,94,0.5);
+}
+.price-filter.paid.active {
+    background: rgba(239,68,68,0.2);
+    color: #ef4444;
+    border-color: rgba(239,68,68,0.5);
+}
+.price-filter.freemium.active {
+    background: rgba(234,179,8,0.2);
+    color: #eab308;
+    border-color: rgba(234,179,8,0.5);
+}
+
+/* ============================================================
    PRICE BADGES
    ============================================================ */
 

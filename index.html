@@ -179,12 +179,27 @@
             <!-- TOPIC CONTENT -->
             <div id="topicContent" style="display:none;">
                 <h2 id="topicTitle" class="text-3xl font-bold mb-4"></h2>
-                <form class="mb-4 flex gap-2 items-center" onsubmit="return false;">
-                    <input id="searchInput" placeholder="Search..." class="border p-2 rounded text-black w-64" oninput="filterLinks()">
-                    <button type="button" class="bg-blue-500 text-white px-4 rounded" onclick="filterLinks()">Search</button>
-                    <button type="button" class="bg-gray-300 text-black px-3 rounded" onclick="clearSearch()">Clear</button>
-                    <span id="resultsCount" class="text-sm text-gray-400 ml-3"></span>
-                </form>
+                <div class="mb-4 flex flex-wrap gap-2 items-center">
+                    <input id="searchInput" placeholder="Search..." class="border p-2 rounded text-black w-56" oninput="filterLinks()">
+                    <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded" onclick="filterLinks()">Search</button>
+                    <button type="button" class="bg-gray-300 text-black px-3 py-2 rounded" onclick="clearSearch()">Clear</button>
+                    <div class="flex gap-1">
+                        <button id="filter-all"      class="price-filter active"   onclick="setPriceFilter('all')">All</button>
+                        <button id="filter-free"     class="price-filter free"     onclick="setPriceFilter('free')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+                            Free
+                        </button>
+                        <button id="filter-paid"     class="price-filter paid"     onclick="setPriceFilter('paid')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            Paid
+                        </button>
+                        <button id="filter-freemium" class="price-filter freemium" onclick="setPriceFilter('freemium')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            Freemium
+                        </button>
+                    </div>
+                    <span id="resultsCount" class="text-sm text-gray-400"></span>
+                </div>
                 <div id="tagsList" class="mb-4 flex gap-2 flex-wrap"></div>
                 <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
             </div>
@@ -197,7 +212,7 @@
 <!--  JAVASCRIPT                                                  -->
 <!-- ============================================================ -->
 <script>
-let allData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en';
+let allData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en', selectedPriceFilter = 'all';
 
 // --- Screen switching ---
 function showApp() {
@@ -293,6 +308,24 @@ function renderGameCategories(topic) {
     });
 }
 
+function getPriceType(tags) {
+    const t = (tags || []).map(x => x.toString().toLowerCase());
+    const isFree    = t.includes('free');
+    const isPremium = t.some(x => ['premium','paid','subscription','not-free'].includes(x));
+    if (isFree && isPremium) return 'freemium';
+    if (isFree)    return 'free';
+    if (isPremium) return 'paid';
+    return 'none';
+}
+
+function setPriceFilter(type) {
+    selectedPriceFilter = type;
+    ['all','free','paid','freemium'].forEach(t => {
+        document.getElementById('filter-' + t)?.classList.toggle('active', t === type);
+    });
+    filterLinks();
+}
+
 function filterLinks() {
     const current = allData?.topics?.find(t => t.id === currentTopicId);
     if (!current) return;
@@ -308,6 +341,7 @@ function filterLinks() {
     }
     if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
     if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
+    if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
     document.getElementById('resultsCount').textContent = links.length
         ? `${links.length} result${links.length > 1 ? 's' : ''}` : trans('noResults');
     renderLinks(links, rawSearch);
