@@ -10,35 +10,30 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
 
-<!-- HEADER -->
 <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold">Everything you need</h1>
 </header>
 
 <div class="flex min-h-screen" style="height: calc(100vh - 65px);">
-
-    <!-- SIDEBAR -->
     <aside class="w-64 bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700 flex flex-col">
         <div class="flex-1">
             <h1 id="sidebarTitle" class="text-xl font-bold mb-4">Topics</h1>
             <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value)">
                 <option value="">Select a topic...</option>
             </select>
-            <div id="gamesCategory" style="display: none; margin-top: 8px;">
+            <div id="gamesCategory" style="display:none; margin-top:8px;">
                 <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
                 <div id="gamesList" class="flex flex-col gap-1"></div>
             </div>
         </div>
         <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-            <button id="settingsBtn" class="w-full flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition" onclick="toggleSettings()">
-                <span>⚙️</span>
-                <span id="settingsBtnText">Settings</span>
+            <button class="w-full flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition" onclick="toggleSettings()">
+                <span>⚙️</span><span id="settingsBtnText">Settings</span>
             </button>
         </div>
     </aside>
 
-    <!-- SETTINGS MODAL -->
-    <div id="settingsModal" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div id="settingsModal" style="display:none;" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-sm w-full mx-4">
             <div class="flex justify-between items-center mb-4">
                 <h2 id="settingsTitle" class="text-2xl font-bold">Settings</h2>
@@ -59,23 +54,20 @@
             </div>
             <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <strong>Everything you need</strong><br>
-                    All links in one place<br>
+                    <strong>Everything you need</strong><br>All links in one place<br>
                     <span id="versionText">Version 1.0</span>
                 </p>
             </div>
             <div class="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
                 <p id="creditsTitle" class="text-sm font-semibold mb-2">Credits</p>
                 <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                    <strong>Built with:</strong><br>
-                    • HTML5 • Tailwind CSS • JavaScript • YAML<br><br>
+                    <strong>Built with:</strong> HTML5 · Tailwind CSS · JavaScript · YAML<br>
                     <strong>Icons:</strong> Emoji &nbsp; <strong>Year:</strong> 2026
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- CONTENT -->
     <main class="flex-1 p-8 flex flex-col landing-container">
         <div id="landingPage" class="w-full">
             <div class="landing-page-content">
@@ -117,12 +109,10 @@
             </div>
         </div>
 
-        <div id="topicContent" style="display: none;">
+        <div id="topicContent" style="display:none;">
             <h2 id="topicTitle" class="text-3xl font-bold mb-4"></h2>
             <form class="mb-4 flex gap-2 items-center" onsubmit="return false;">
-                <input id="searchInput" name="search" placeholder="Search..."
-                       class="border p-2 rounded text-black w-64"
-                       oninput="filterLinks()">
+                <input id="searchInput" placeholder="Search..." class="border p-2 rounded text-black w-64" oninput="filterLinks()">
                 <button type="button" class="bg-blue-500 text-white px-4 rounded" onclick="filterLinks()">Search</button>
                 <button type="button" class="bg-gray-300 text-black px-3 rounded" onclick="clearSearch()">Clear</button>
                 <span id="resultsCount" class="text-sm text-gray-400 ml-3"></span>
@@ -134,19 +124,13 @@
 </div>
 
 <script>
-let allData = null;
-let currentTopicId = null;
-let selectedTag = null;
-let selectedGame = null;
-let currentLanguage = 'en';
+let allData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en';
 
-function trans(key) {
-    return allData?.translations?.[currentLanguage]?.[key] || key;
-}
+function trans(key) { return allData?.translations?.[currentLanguage]?.[key] || key; }
 
 function toggleSettings() {
-    const modal = document.getElementById('settingsModal');
-    modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+    const m = document.getElementById('settingsModal');
+    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
 }
 
 function toggleDarkMode() {
@@ -159,33 +143,21 @@ function changeLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang;
     document.getElementById('settingsLanguageSelect').value = lang;
-    const ids = [
-        ['sidebarTitle', 'topics'], ['gamesCategoryTitle', 'games'],
-        ['landingTitle', 'everythingYouNeed'], ['landingSubtitle', 'startBrowsing'],
-        ['settingsBtnText', 'settings'], ['settingsTitle', 'settings'],
-        ['darkModeLabel', 'darkMode'], ['languageLabel', 'languageLabel'],
-        ['versionText', 'versionText'], ['creditsTitle', 'creditsTitle'],
-        ['featureTitle1', 'featureTitle1'], ['featureDesc1', 'featureDesc1'],
-        ['featureTitle2', 'featureTitle2'], ['featureDesc2', 'featureDesc2'],
-        ['featureTitle3', 'featureTitle3'], ['featureDesc3', 'featureDesc3'],
-        ['statTopics', 'statTopics'], ['statLinks', 'statLinks'],
-        ['statLanguages', 'statLanguages'],
-    ];
-    ids.forEach(([id, key]) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = trans(key);
-    });
+    [['sidebarTitle','topics'],['gamesCategoryTitle','games'],['landingTitle','everythingYouNeed'],
+     ['landingSubtitle','startBrowsing'],['settingsBtnText','settings'],['settingsTitle','settings'],
+     ['darkModeLabel','darkMode'],['languageLabel','languageLabel'],['versionText','versionText'],
+     ['creditsTitle','creditsTitle'],['featureTitle1','featureTitle1'],['featureDesc1','featureDesc1'],
+     ['featureTitle2','featureTitle2'],['featureDesc2','featureDesc2'],['featureTitle3','featureTitle3'],
+     ['featureDesc3','featureDesc3'],['statTopics','statTopics'],['statLinks','statLinks'],
+     ['statLanguages','statLanguages']
+    ].forEach(([id, key]) => { const el = document.getElementById(id); if(el) el.textContent = trans(key); });
     document.getElementById('searchInput').placeholder = trans('search');
-
-    const select = document.getElementById('topicsDropdown');
-    select.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
-    allData?.topics?.forEach(topic => {
-        const option = document.createElement('option');
-        option.value = topic.id;
-        option.textContent = topic.name;
-        select.appendChild(option);
+    const sel = document.getElementById('topicsDropdown');
+    sel.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
+    allData?.topics?.forEach(t => {
+        const o = document.createElement('option');
+        o.value = t.id; o.textContent = t.name; sel.appendChild(o);
     });
-
     localStorage.setItem('language', lang);
 }
 
@@ -196,67 +168,42 @@ function selectTopic(topicId) {
         document.getElementById('gamesCategory').style.display = 'none';
         return;
     }
-    currentTopicId = topicId;
-    selectedTag = null;
-    selectedGame = null;
+    currentTopicId = topicId; selectedTag = null; selectedGame = null;
     document.getElementById('searchInput').value = '';
     document.getElementById('topicsDropdown').value = topicId;
-
     const current = allData?.topics?.find(t => t.id === topicId);
     if (!current) return;
-
     document.getElementById('landingPage').style.display = 'none';
     document.getElementById('topicContent').style.display = 'block';
     document.getElementById('topicTitle').textContent = current.name;
-
-    const gamesSection = document.getElementById('gamesCategory');
-    if (topicId === 'Games') {
-        gamesSection.style.display = 'block';
-        renderGameCategories(current);
-    } else {
-        gamesSection.style.display = 'none';
-    }
-
-    renderTags(current);
-    filterLinks();
+    const gs = document.getElementById('gamesCategory');
+    if (topicId === 'Games') { gs.style.display = 'block'; renderGameCategories(current); }
+    else gs.style.display = 'none';
+    renderTags(current); filterLinks();
     window.history.pushState(null, '', `?topic=${encodeURIComponent(topicId)}`);
 }
 
 function renderTags(topic) {
-    const tagsList = document.getElementById('tagsList');
-    tagsList.innerHTML = '';
+    const tl = document.getElementById('tagsList'); tl.innerHTML = '';
     const allTags = {};
-    topic.links?.forEach(link => link.tags?.forEach(tag => allTags[tag] = true));
+    topic.links?.forEach(l => l.tags?.forEach(t => allTags[t] = true));
     Object.keys(allTags).forEach(tag => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.textContent = tag;
+        const a = document.createElement('a'); a.href='#'; a.textContent = tag;
         a.className = 'px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded text-sm cursor-pointer hover:bg-gray-400';
-        a.onclick = (e) => {
-            e.preventDefault();
-            selectedTag = selectedTag === tag ? null : tag;
-            filterLinks();
-        };
-        tagsList.appendChild(a);
+        a.onclick = e => { e.preventDefault(); selectedTag = selectedTag === tag ? null : tag; filterLinks(); };
+        tl.appendChild(a);
     });
 }
 
 function renderGameCategories(topic) {
-    const gamesList = document.getElementById('gamesList');
-    gamesList.innerHTML = '';
+    const gl = document.getElementById('gamesList'); gl.innerHTML = '';
     const games = new Set();
-    topic.links?.forEach(link => { if (link.game) games.add(link.game); });
+    topic.links?.forEach(l => { if(l.game) games.add(l.game); });
     games.forEach(game => {
-        const a = document.createElement('a');
-        a.href = '#';
-        a.textContent = game;
+        const a = document.createElement('a'); a.href='#'; a.textContent = game;
         a.className = 'px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
-        a.onclick = (e) => {
-            e.preventDefault();
-            selectedGame = selectedGame === game ? null : game;
-            filterLinks();
-        };
-        gamesList.appendChild(a);
+        a.onclick = e => { e.preventDefault(); selectedGame = selectedGame === game ? null : game; filterLinks(); };
+        gl.appendChild(a);
     });
 }
 
@@ -269,88 +216,65 @@ function filterLinks() {
     if (search) {
         const terms = search.split(/\s+/).filter(Boolean);
         links = links.filter(l => {
-            const hay = [l.title, l.description, l.url, (l.tags||[]).join(' '), l.game||''].join(' ').toLowerCase();
+            const hay = [l.title,l.description,l.url,(l.tags||[]).join(' '),l.game||''].join(' ').toLowerCase();
             return terms.every(t => hay.includes(t));
         });
     }
     if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
     if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
-    const rc = document.getElementById('resultsCount');
-    rc.textContent = links.length ? `${links.length} result${links.length > 1 ? 's' : ''}` : trans('noResults');
+    document.getElementById('resultsCount').textContent = links.length
+        ? `${links.length} result${links.length > 1 ? 's' : ''}` : trans('noResults');
     renderLinks(links, rawSearch);
 }
 
-function highlightText(text, rawSearch) {
-    if (!rawSearch) return text;
-    return rawSearch.split(/\s+/).filter(Boolean).reduce((result, term) => {
-        try {
-            return result.replace(new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<span class="match-highlight">$1</span>');
-        } catch(e) { return result; }
+function highlight(text, raw) {
+    if (!raw) return text;
+    return raw.split(/\s+/).filter(Boolean).reduce((r, t) => {
+        try { return r.replace(new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<span class="match-highlight">$1</span>'); }
+        catch(e) { return r; }
     }, text);
 }
 
 function renderLinks(links, rawSearch) {
-    const linksList = document.getElementById('linksList');
-    linksList.innerHTML = '';
+    const ll = document.getElementById('linksList'); ll.innerHTML = '';
     links.forEach(link => {
         const div = document.createElement('div');
         div.className = 'bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
-        const title = document.createElement('h3');
-        title.className = 'font-semibold text-lg';
-        title.innerHTML = highlightText(link.title || '', rawSearch);
-        const url = document.createElement('a');
-        url.href = link.url;
-        url.target = '_blank';
-        url.className = 'text-blue-500 text-sm break-all';
-        url.innerHTML = highlightText(link.url || '', rawSearch);
-        const desc = document.createElement('p');
-        desc.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
-        desc.innerHTML = highlightText(link.description || '', rawSearch);
-        div.appendChild(title);
-        div.appendChild(url);
-        div.appendChild(desc);
-        linksList.appendChild(div);
+        const h3 = document.createElement('h3'); h3.className = 'font-semibold text-lg';
+        h3.innerHTML = highlight(link.title||'', rawSearch);
+        const a = document.createElement('a'); a.href = link.url; a.target = '_blank';
+        a.className = 'text-blue-500 text-sm break-all';
+        a.innerHTML = highlight(link.url||'', rawSearch);
+        const p = document.createElement('p'); p.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
+        p.innerHTML = highlight(link.description||'', rawSearch);
+        div.appendChild(h3); div.appendChild(a); div.appendChild(p); ll.appendChild(div);
     });
 }
 
-function clearSearch() {
-    document.getElementById('searchInput').value = '';
-    filterLinks();
-}
+function clearSearch() { document.getElementById('searchInput').value = ''; filterLinks(); }
 
 async function loadData() {
     try {
-        const response = await fetch('data.yaml');
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        const text = await response.text();
-        allData = jsyaml.load(text);
-
-        const totalLinks = allData.topics?.reduce((sum, t) => sum + (t.links?.length || 0), 0) || 0;
-        document.getElementById('totalLinks').textContent = totalLinks;
+        const res = await fetch('data.yaml');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        allData = jsyaml.load(await res.text());
+        const total = allData.topics?.reduce((s,t) => s+(t.links?.length||0), 0) || 0;
+        document.getElementById('totalLinks').textContent = total;
         document.getElementById('statTopicsNum').textContent = allData.topics?.length || 0;
-
         const savedLang = localStorage.getItem('language') || 'en';
         const savedDark = localStorage.getItem('darkMode') === 'true';
         if (savedDark) document.documentElement.classList.add('dark');
         document.getElementById('darkModeToggle').checked = savedDark;
-
         changeLanguage(savedLang);
-
-        document.getElementById('settingsModal').addEventListener('click', function(e) {
-            if (e.target === this) toggleSettings();
-        });
-
+        document.getElementById('settingsModal').addEventListener('click', function(e) { if(e.target===this) toggleSettings(); });
         const params = new URLSearchParams(window.location.search);
-        const topicParam = params.get('topic');
-        if (topicParam) {
-            selectTopic(topicParam);
-            const searchParam = params.get('search');
-            if (searchParam) document.getElementById('searchInput').value = searchParam;
+        if (params.get('topic')) {
+            selectTopic(params.get('topic'));
+            if (params.get('search')) document.getElementById('searchInput').value = params.get('search');
             filterLinks();
         }
-    } catch (err) {
-        console.error('Fehler:', err);
-        document.body.innerHTML = '<div style="padding:2rem;color:red;font-size:1.2rem;">⚠️ data.yaml konnte nicht geladen werden. Stelle sicher, dass die Datei im gleichen Ordner wie index.html liegt.</div>';
+    } catch(err) {
+        document.body.innerHTML = '<div style="padding:2rem;color:red;font-size:1.2rem;">⚠️ <strong>data.yaml konnte nicht geladen werden.</strong><br>Stelle sicher, dass <code>data.yaml</code> im gleichen Ordner wie <code>index.html</code> liegt.</div>';
     }
 }
 
