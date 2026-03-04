@@ -61,56 +61,940 @@ translations:
     removeFavorite: "Remove from favorites"
 
 topics:
+
+  # ─────────────────────────────────────────────
   - id: tv
-    name: "Live TV"
-    description: "Sports Streams, Movie/Series Streams, TV Streams"
+    name: "📺 Live TV & Streaming"
+    description: "Movies, Series, Sports, Live TV"
     links:
       - title: "Rivestream.org"
         url: "https://rivestream.org/"
-        description: "All in one streaming platform for live TV, movies, series and sports streams"
-        tags: [Sports, Movies, Series, TV]
+        description: "All-in-one platform for live TV, movies, series and sports streams"
+        tags: [Sports, Movies, Series, TV, free]
+
       - title: "watch-v2"
         url: "https://watch-v2.autoembed.cc"
         description: "Watch movies and series online for free"
-        tags: [movies, series, free]
+        tags: [Movies, Series, free]
+
       - title: "DeepWebNest"
         url: "https://deepwebnest.com"
-        description: "Games, Movies, Series, TV Streams for free, Books, Music and more"
-        tags: [Sports, Movies, Series, TV, free, books, music, vpn, Adblocker]
+        description: "Movies, Series, TV, Books, Music and more – all free"
+        tags: [Movies, Series, TV, free, Books, Music]
 
-  - id: school
-    name: "Schule"
-    description: "Lernen"
-    links:
-      - title: "Turbo.ai"
-        url: "https://turbo.ai"
-        description: "AI-powered tools for productivity, including note-taking, task management, and content generation."
-        tags: [ai, productivity, school]
+      - title: "Soap2Day"
+        url: "https://soap2day.tf"
+        description: "Watch free HD movies and TV shows online"
+        tags: [Movies, Series, free, HD]
 
+      - title: "Tubi TV"
+        url: "https://tubitv.com"
+        description: "Free legal streaming with thousands of movies and shows"
+        tags: [Movies, Series, free, legal]
+
+      - title: "Pluto TV"
+        url: "https://pluto.tv"
+        description: "Free live TV and on-demand movies"
+        tags: [TV, Movies, free, live]
+
+      - title: "Crackle"
+        url: "https://www.crackle.com"
+        description: "Free movies and TV shows from Sony"
+        tags: [Movies, Series, free, Sony]
+
+      - title: "Plex"
+        url: "https://www.plex.tv"
+        description: "Free streaming movies, shows and live TV"
+        tags: [Movies, Series, TV, free]
+
+      - title: "123Movies"
+        url: "https://ww5.123movies.buzz"
+        description: "Stream movies and series for free"
+        tags: [Movies, Series, free]
+
+      - title: "FMovies"
+        url: "https://fmovies.ps"
+        description: "Watch full HD movies online without registration"
+        tags: [Movies, HD, free]
+
+      - title: "Peacock"
+        url: "https://www.peacocktv.com"
+        description: "NBC's streaming service – movies, sports, news"
+        tags: [Movies, Series, Sports, News]
+
+      - title: "Paramount+"
+        url: "https://www.paramountplus.com"
+        description: "Stream CBS, MTV, Comedy Central and more"
+        tags: [Movies, Series, premium]
+
+      - title: "CrunchyRoll"
+        url: "https://www.crunchyroll.com"
+        description: "World's largest anime streaming service"
+        tags: [Anime, Series, free, premium]
+
+      - title: "9Anime"
+        url: "https://9anime.pl"
+        description: "Watch anime online in HD"
+        tags: [Anime, free, HD]
+
+      - title: "Zoro.to"
+        url: "https://zoro.to"
+        description: "Watch anime online with no ads"
+        tags: [Anime, free, no-ads]
+
+      - title: "ESPN+"
+        url: "https://plus.espn.com"
+        description: "Live sports, news and exclusive originals"
+        tags: [Sports, live, premium]
+
+      - title: "DAZN"
+        url: "https://www.dazn.com"
+        description: "Live and on-demand sports streaming"
+        tags: [Sports, live, premium]
+
+      - title: "Twitch"
+        url: "https://www.twitch.tv"
+        description: "Live streaming platform – gaming, IRL, esports and more"
+        tags: [live, Gaming, Esports, free]
+
+      - title: "YouTube"
+        url: "https://www.youtube.com"
+        description: "The world's biggest video platform"
+        tags: [Videos, free, Music, live]
+
+      - title: "Dailymotion"
+        url: "https://www.dailymotion.com"
+        description: "Watch and share videos worldwide"
+        tags: [Videos, free]
+
+  # ─────────────────────────────────────────────
   - id: Games
-    name: "Spiele"
-    description: "Games and more"
+    name: "🎮 Games"
+    description: "Game resources, tools and fun"
     links:
+      # ── General ──
+      - title: "Wordle"
+        url: "https://www.nytimes.com/games/wordle/index.html"
+        description: "Guess the 5-letter word in 6 tries – the viral daily word game"
+        tags: [puzzle, word, daily, browser]
+        game: General
+
+      - title: "2048"
+        url: "https://play2048.co"
+        description: "Slide tiles and combine them to reach 2048"
+        tags: [puzzle, numbers, browser, free]
+        game: General
+
+      - title: "Chess.com"
+        url: "https://www.chess.com"
+        description: "Play chess online against real players or AI"
+        tags: [chess, strategy, online, free]
+        game: General
+
+      - title: "Lichess"
+        url: "https://lichess.org"
+        description: "Free, open-source chess server – no ads ever"
+        tags: [chess, strategy, free, open-source]
+        game: General
+
       - title: "howlongtobeat.com"
         url: "https://howlongtobeat.com"
-        description: "Find out how long it takes to beat a game."
-        tags: [games, info]
+        description: "Find out exactly how long it takes to beat any game"
+        tags: [info, database, all-games]
         game: General
+
+      - title: "Metacritic – Games"
+        url: "https://www.metacritic.com/game"
+        description: "Aggregated critic and user scores for every game"
+        tags: [reviews, scores, info]
+        game: General
+
+      - title: "IGN"
+        url: "https://www.ign.com"
+        description: "Game news, reviews, trailers and wikis"
+        tags: [news, reviews, info]
+        game: General
+
+      - title: "GameFAQs"
+        url: "https://gamefaqs.gamespot.com"
+        description: "Guides, cheats, walkthroughs for thousands of games"
+        tags: [guides, walkthroughs, cheats, info]
+        game: General
+
+      - title: "ProGameGuides"
+        url: "https://progameguides.com"
+        description: "Tier lists, codes, guides for popular games"
+        tags: [guides, codes, tips]
+        game: General
+
+      - title: "IsThereAnyDeal"
+        url: "https://isthereanydeal.com"
+        description: "Track game prices and find the best deals across all stores"
+        tags: [deals, prices, sales]
+        game: General
+
+      - title: "GG.deals"
+        url: "https://gg.deals"
+        description: "Find the cheapest game keys and deals"
+        tags: [deals, keys, prices]
+        game: General
+
+      - title: "Speedrun.com"
+        url: "https://www.speedrun.com"
+        description: "Leaderboards and resources for speedrunning every game"
+        tags: [speedrun, leaderboard, competitive]
+        game: General
+
+      - title: "Twitch – Gaming"
+        url: "https://www.twitch.tv/directory/game"
+        description: "Watch live streams of any game"
+        tags: [streaming, live, esports]
+        game: General
+
+      # ── Minecraft ──
       - title: "Adescargar.net"
         url: "https://adescargar.net"
-        description: "Every game for free and Pro version for free"
-        tags: [games, free]
+        description: "Download Minecraft and other games for free"
+        tags: [download, free, cracked]
         game: Minecraft
 
-  - id: prog
-    name: "Programmierung"
-    description: "Programming and more"
+      - title: "CurseForge – Minecraft"
+        url: "https://www.curseforge.com/minecraft"
+        description: "The largest Minecraft mod repository – mods, modpacks, texture packs"
+        tags: [mods, modpacks, textures, download]
+        game: Minecraft
+
+      - title: "Modrinth"
+        url: "https://modrinth.com"
+        description: "Open-source mod platform – fast, clean, modern"
+        tags: [mods, modpacks, shaders, download]
+        game: Minecraft
+
+      - title: "Planet Minecraft"
+        url: "https://www.planetminecraft.com"
+        description: "Maps, skins, resource packs and servers"
+        tags: [maps, skins, servers, community]
+        game: Minecraft
+
+      - title: "Minecraft Wiki"
+        url: "https://minecraft.wiki"
+        description: "The official Minecraft wiki – crafting, mobs, biomes and everything"
+        tags: [wiki, info, crafting, guides]
+        game: Minecraft
+
+      - title: "NameMC"
+        url: "https://namemc.com"
+        description: "Browse and download Minecraft skins, check username availability"
+        tags: [skins, username, profile]
+        game: Minecraft
+
+      - title: "Minecraft Servers"
+        url: "https://minecraft-server-list.com"
+        description: "Find the best Minecraft servers by category and votes"
+        tags: [servers, multiplayer]
+        game: Minecraft
+
+      - title: "Shadermod / Iris"
+        url: "https://irisshaders.dev"
+        description: "Iris Shaders – beautiful shader support for Fabric"
+        tags: [shaders, graphics, mods]
+        game: Minecraft
+
+      # ── Valorant ──
+      - title: "Valorant Tracker"
+        url: "https://tracker.gg/valorant"
+        description: "Check your Valorant stats, rank, and match history"
+        tags: [stats, rank, tracker]
+        game: Valorant
+
+      - title: "Blitz.gg – Valorant"
+        url: "https://blitz.gg/valorant"
+        description: "Agent tier lists, meta picks, and performance stats"
+        tags: [tier-list, meta, stats, guides]
+        game: Valorant
+
+      - title: "Valorant Official"
+        url: "https://playvalorant.com"
+        description: "Official Valorant website – download, patch notes, agents"
+        tags: [official, download, agents, news]
+        game: Valorant
+
+      - title: "ValorantFandom Wiki"
+        url: "https://valorant.fandom.com"
+        description: "Complete Valorant wiki – agents, maps, weapons"
+        tags: [wiki, agents, maps, weapons]
+        game: Valorant
+
+      - title: "ProSettings – Valorant"
+        url: "https://prosettings.net/games/valorant/"
+        description: "Pro player settings, crosshairs, peripherals"
+        tags: [settings, crosshair, pro]
+        game: Valorant
+
+      # ── Fortnite ──
+      - title: "Fortnite Tracker"
+        url: "https://fortnitetracker.com"
+        description: "Track your Fortnite stats, wins, and K/D ratio"
+        tags: [stats, tracker, rank]
+        game: Fortnite
+
+      - title: "Fortnite.gg"
+        url: "https://fortnite.gg"
+        description: "Fortnite item shop, stats, and creative codes"
+        tags: [item-shop, stats, creative, codes]
+        game: Fortnite
+
+      - title: "Fortnite Official"
+        url: "https://www.fortnite.com"
+        description: "Official site – news, patch notes, and download"
+        tags: [official, news, download]
+        game: Fortnite
+
+      # ── League of Legends ──
+      - title: "OP.GG"
+        url: "https://www.op.gg"
+        description: "Champion stats, summoner lookup, tier lists"
+        tags: [stats, tier-list, champions, tracker]
+        game: League of Legends
+
+      - title: "U.GG – LoL"
+        url: "https://u.gg"
+        description: "Best champion builds, runes, and counters updated every patch"
+        tags: [builds, runes, counters, meta]
+        game: League of Legends
+
+      - title: "ProBuilds"
+        url: "https://probuild.net"
+        description: "See what pro players build in real time"
+        tags: [pro, builds, meta]
+        game: League of Legends
+
+      - title: "League of Graphs"
+        url: "https://www.leagueofgraphs.com"
+        description: "Detailed stats, champion win rates, and game data"
+        tags: [stats, data, champions]
+        game: League of Legends
+
+      # ── CS2 / CSGO ──
+      - title: "HLTV.org"
+        url: "https://www.hltv.org"
+        description: "CS2 news, pro match results, team rankings and demos"
+        tags: [news, pro, esports, rankings]
+        game: CS2
+
+      - title: "CSGOStats"
+        url: "https://csgostats.gg"
+        description: "Track your CS2 stats and match history"
+        tags: [stats, tracker, matches]
+        game: CS2
+
+      - title: "CS2 Skins – CSFloat"
+        url: "https://csfloat.com"
+        description: "Buy and sell CS2 skins safely"
+        tags: [skins, trading, market]
+        game: CS2
+
+      - title: "Leetify"
+        url: "https://leetify.com"
+        description: "Advanced CS2 performance analysis and coaching"
+        tags: [stats, coaching, analysis]
+        game: CS2
+
+      # ── Roblox ──
+      - title: "Roblox"
+        url: "https://www.roblox.com"
+        description: "Official Roblox platform – play and create"
+        tags: [official, play, create]
+        game: Roblox
+
+      - title: "Rolimons"
+        url: "https://www.rolimons.com"
+        description: "Roblox item values, trading, and price checks"
+        tags: [trading, items, prices]
+        game: Roblox
+
+      - title: "RoPro Extension"
+        url: "https://ropro.io"
+        description: "Browser extension that enhances the Roblox experience"
+        tags: [extension, tools, enhancement]
+        game: Roblox
+
+  # ─────────────────────────────────────────────
+  - id: school
+    name: "📚 Schule & Lernen"
+    description: "Tools and resources for studying"
     links:
+      - title: "Khan Academy"
+        url: "https://www.khanacademy.org"
+        description: "Free world-class education in math, science, history and more"
+        tags: [math, science, free, courses]
+
+      - title: "Turbo.ai"
+        url: "https://turbo.ai"
+        description: "AI-powered productivity and note-taking tools"
+        tags: [ai, productivity, notes]
+
+      - title: "Quizlet"
+        url: "https://quizlet.com"
+        description: "Create flashcards, study sets and practice tests"
+        tags: [flashcards, study, memorize, free]
+
+      - title: "Anki"
+        url: "https://apps.ankiweb.net"
+        description: "Powerful spaced-repetition flashcard app"
+        tags: [flashcards, memorize, free, spaced-repetition]
+
+      - title: "Wolfram Alpha"
+        url: "https://www.wolframalpha.com"
+        description: "Computational knowledge engine – math, science, everything"
+        tags: [math, science, calculator, answers]
+
+      - title: "Desmos"
+        url: "https://www.desmos.com/calculator"
+        description: "Free, beautiful online graphing calculator"
+        tags: [math, graphs, calculator, free]
+
+      - title: "GeoGebra"
+        url: "https://www.geogebra.org"
+        description: "Interactive geometry, algebra, and calculus tools"
+        tags: [math, geometry, algebra, free]
+
+      - title: "Symbolab"
+        url: "https://www.symbolab.com"
+        description: "Step-by-step math solver for algebra, calculus and more"
+        tags: [math, solver, step-by-step, free]
+
+      - title: "Coursera"
+        url: "https://www.coursera.org"
+        description: "Online courses from top universities and companies"
+        tags: [courses, university, certificates]
+
+      - title: "edX"
+        url: "https://www.edx.org"
+        description: "Free online courses from MIT, Harvard and more"
+        tags: [courses, university, free, certificates]
+
+      - title: "Brilliant.org"
+        url: "https://brilliant.org"
+        description: "Learn math, science, and CS through problem solving"
+        tags: [math, science, interactive, premium]
+
+      - title: "Duolingo"
+        url: "https://www.duolingo.com"
+        description: "Learn any language for free with gamified lessons"
+        tags: [languages, free, gamified]
+
+      - title: "Babbel"
+        url: "https://www.babbel.com"
+        description: "Language learning app with real-world conversations"
+        tags: [languages, premium, speaking]
+
+      - title: "LibreTexts"
+        url: "https://libretexts.org"
+        description: "Free open-source textbooks for college and school"
+        tags: [textbooks, free, science, math]
+
+      - title: "Project Gutenberg"
+        url: "https://www.gutenberg.org"
+        description: "Over 70,000 free eBooks – classics and public domain"
+        tags: [books, free, ebooks, classics]
+
+      - title: "Notion"
+        url: "https://www.notion.so"
+        description: "All-in-one workspace for notes, wikis, and tasks"
+        tags: [notes, productivity, organization, free]
+
+      - title: "Obsidian"
+        url: "https://obsidian.md"
+        description: "Powerful knowledge base and note-taking app"
+        tags: [notes, knowledge-base, free, markdown]
+
+      - title: "Zotero"
+        url: "https://www.zotero.org"
+        description: "Free reference manager for research and citations"
+        tags: [research, citations, free, academic]
+
+      - title: "Google Scholar"
+        url: "https://scholar.google.com"
+        description: "Search academic papers, theses and citations"
+        tags: [research, academic, papers, free]
+
+      - title: "Sci-Hub"
+        url: "https://sci-hub.se"
+        description: "Access millions of academic papers for free"
+        tags: [papers, research, free, academic]
+
+  # ─────────────────────────────────────────────
+  - id: prog
+    name: "💻 Programmierung"
+    description: "Coding tools, references, and resources"
+    links:
+      - title: "GitHub"
+        url: "https://github.com"
+        description: "Host and collaborate on code repositories"
+        tags: [git, code, collaboration, free]
+
+      - title: "GitLab"
+        url: "https://gitlab.com"
+        description: "DevOps platform with git repos, CI/CD, and more"
+        tags: [git, devops, CI/CD, free]
+
+      - title: "Stack Overflow"
+        url: "https://stackoverflow.com"
+        description: "Q&A community for programmers – find answers to any coding question"
+        tags: [Q&A, community, help, free]
+
+      - title: "MDN Web Docs"
+        url: "https://developer.mozilla.org"
+        description: "The definitive reference for HTML, CSS, and JavaScript"
+        tags: [reference, HTML, CSS, JavaScript, docs]
+
+      - title: "DevDocs"
+        url: "https://devdocs.io"
+        description: "Combined API documentation for 100+ languages and frameworks"
+        tags: [docs, reference, API, offline]
+
       - title: "Blackbox.ai"
         url: "https://www.blackbox.ai"
-        description: "AI-powered tools for productivity, including note-taking, task management, and content generation."
-        tags: [ai, productivity, school, coding, programming]
+        description: "AI-powered code completion and generation"
+        tags: [ai, coding, autocomplete, free]
+
       - title: "Enetr.pro"
         url: "https://enetr.pro"
-        description: "Coding"
-        tags: [coding, programming]
+        description: "Online coding environment and tools"
+        tags: [coding, online, tools]
+
+      - title: "CodePen"
+        url: "https://codepen.io"
+        description: "Social platform for frontend code – HTML, CSS, JS playgrounds"
+        tags: [frontend, playground, HTML, CSS, JavaScript]
+
+      - title: "JSFiddle"
+        url: "https://jsfiddle.net"
+        description: "Test and share JavaScript, CSS, and HTML snippets"
+        tags: [JavaScript, playground, snippets]
+
+      - title: "Replit"
+        url: "https://replit.com"
+        description: "Online IDE supporting 50+ languages – code in the browser"
+        tags: [IDE, online, Python, JavaScript, free]
+
+      - title: "StackBlitz"
+        url: "https://stackblitz.com"
+        description: "Instant full-stack web apps in the browser"
+        tags: [IDE, online, frontend, fullstack]
+
+      - title: "W3Schools"
+        url: "https://www.w3schools.com"
+        description: "Beginner-friendly tutorials and references for web technologies"
+        tags: [tutorials, HTML, CSS, JavaScript, beginner]
+
+      - title: "freeCodeCamp"
+        url: "https://www.freecodecamp.org"
+        description: "Free coding curriculum – web dev, Python, data science"
+        tags: [courses, free, HTML, CSS, JavaScript, Python]
+
+      - title: "The Odin Project"
+        url: "https://www.theodinproject.com"
+        description: "Free full-stack web development curriculum"
+        tags: [courses, free, fullstack, HTML, CSS, JavaScript]
+
+      - title: "CS50 – Harvard"
+        url: "https://cs50.harvard.edu"
+        description: "Harvard's famous intro to CS – free and world-class"
+        tags: [courses, free, CS, Python, C, beginner]
+
+      - title: "LeetCode"
+        url: "https://leetcode.com"
+        description: "Practice coding interview questions and data structures"
+        tags: [algorithms, interviews, practice, competitive]
+
+      - title: "HackerRank"
+        url: "https://www.hackerrank.com"
+        description: "Coding challenges and competitions for all skill levels"
+        tags: [challenges, practice, competitions]
+
+      - title: "Roadmap.sh"
+        url: "https://roadmap.sh"
+        description: "Developer roadmaps – step-by-step learning paths for any tech stack"
+        tags: [roadmap, learning, frontend, backend, devops]
+
+      - title: "CSS Tricks"
+        url: "https://css-tricks.com"
+        description: "Tips, tricks, and techniques for CSS and frontend"
+        tags: [CSS, tutorials, frontend, tips]
+
+      - title: "Can I Use"
+        url: "https://caniuse.com"
+        description: "Check browser compatibility for HTML/CSS/JS features"
+        tags: [CSS, HTML, JavaScript, compatibility, reference]
+
+      - title: "Tailwind CSS Docs"
+        url: "https://tailwindcss.com/docs"
+        description: "Official Tailwind CSS documentation"
+        tags: [CSS, Tailwind, docs, reference]
+
+      - title: "npm"
+        url: "https://www.npmjs.com"
+        description: "The Node.js package registry – find and install packages"
+        tags: [Node.js, packages, JavaScript, registry]
+
+      - title: "Python Docs"
+        url: "https://docs.python.org/3/"
+        description: "Official Python 3 documentation and tutorials"
+        tags: [Python, docs, reference]
+
+      - title: "PyPI"
+        url: "https://pypi.org"
+        description: "Python Package Index – find and install Python packages"
+        tags: [Python, packages, pip]
+
+      - title: "Regex101"
+        url: "https://regex101.com"
+        description: "Test and debug regular expressions with real-time explanation"
+        tags: [regex, tools, debug, reference]
+
+      - title: "JSON Formatter"
+        url: "https://jsonformatter.curiousconcept.com"
+        description: "Validate and format JSON data online"
+        tags: [JSON, tools, formatter, debug]
+
+      - title: "Postman"
+        url: "https://www.postman.com"
+        description: "API development and testing platform"
+        tags: [API, testing, tools, REST]
+
+      - title: "Vercel"
+        url: "https://vercel.com"
+        description: "Deploy frontend apps and APIs in seconds"
+        tags: [hosting, deployment, frontend, free]
+
+      - title: "Netlify"
+        url: "https://www.netlify.com"
+        description: "Build, deploy and host websites and apps"
+        tags: [hosting, deployment, CI/CD, free]
+
+      - title: "Cloudflare"
+        url: "https://www.cloudflare.com"
+        description: "CDN, security, DNS and serverless tools"
+        tags: [CDN, security, DNS, hosting]
+
+      - title: "Supabase"
+        url: "https://supabase.com"
+        description: "Open-source Firebase alternative – database, auth, storage"
+        tags: [database, backend, auth, free, open-source]
+
+      - title: "PlanetScale"
+        url: "https://planetscale.com"
+        description: "Serverless MySQL database platform"
+        tags: [database, MySQL, serverless]
+
+  # ─────────────────────────────────────────────
+  - id: tools
+    name: "🛠️ Tools & Utilities"
+    description: "Everyday tools that make life easier"
+    links:
+      - title: "Squoosh"
+        url: "https://squoosh.app"
+        description: "Compress and convert images in the browser – no upload needed"
+        tags: [images, compress, convert, free]
+
+      - title: "TinyPNG"
+        url: "https://tinypng.com"
+        description: "Compress PNG and JPEG images up to 80%"
+        tags: [images, compress, PNG, JPEG, free]
+
+      - title: "Remove.bg"
+        url: "https://www.remove.bg"
+        description: "Remove image backgrounds automatically in seconds"
+        tags: [images, background-removal, AI, free]
+
+      - title: "Photopea"
+        url: "https://www.photopea.com"
+        description: "Free online Photoshop alternative – PSD, XCF, Sketch support"
+        tags: [images, editor, Photoshop, free, design]
+
+      - title: "Canva"
+        url: "https://www.canva.com"
+        description: "Create stunning designs, posters, and social media content"
+        tags: [design, templates, free, images, branding]
+
+      - title: "Figma"
+        url: "https://www.figma.com"
+        description: "Collaborative UI/UX design tool"
+        tags: [design, UI/UX, collaboration, free]
+
+      - title: "Excalidraw"
+        url: "https://excalidraw.com"
+        description: "Hand-drawn style whiteboard and diagramming tool"
+        tags: [whiteboard, diagrams, drawing, free]
+
+      - title: "draw.io"
+        url: "https://app.diagrams.net"
+        description: "Free flowcharts, diagrams, and mind maps"
+        tags: [diagrams, flowcharts, free]
+
+      - title: "Convertio"
+        url: "https://convertio.co"
+        description: "Convert files between 300+ formats online"
+        tags: [convert, files, free]
+
+      - title: "iLovePDF"
+        url: "https://www.ilovepdf.com"
+        description: "Merge, split, compress, and convert PDFs"
+        tags: [PDF, merge, compress, convert, free]
+
+      - title: "Smallpdf"
+        url: "https://smallpdf.com"
+        description: "All PDF tools in one place"
+        tags: [PDF, tools, free]
+
+      - title: "Google Translate"
+        url: "https://translate.google.com"
+        description: "Translate text between 100+ languages instantly"
+        tags: [translate, languages, free]
+
+      - title: "DeepL"
+        url: "https://www.deepl.com"
+        description: "The most accurate AI-powered translator"
+        tags: [translate, AI, languages, free]
+
+      - title: "Temp Mail"
+        url: "https://temp-mail.org"
+        description: "Disposable temporary email address"
+        tags: [email, privacy, disposable, free]
+
+      - title: "10 Minute Mail"
+        url: "https://10minutemail.com"
+        description: "Self-destructing email address for 10 minutes"
+        tags: [email, privacy, disposable, free]
+
+      - title: "Bitwarden"
+        url: "https://bitwarden.com"
+        description: "Free, open-source password manager"
+        tags: [passwords, security, free, open-source]
+
+      - title: "Have I Been Pwned"
+        url: "https://haveibeenpwned.com"
+        description: "Check if your email was in a data breach"
+        tags: [security, privacy, breach, free]
+
+      - title: "SpeedTest"
+        url: "https://www.speedtest.net"
+        description: "Test your internet connection speed"
+        tags: [internet, speed, network, free]
+
+      - title: "Fast.com"
+        url: "https://fast.com"
+        description: "Netflix's simple internet speed test"
+        tags: [internet, speed, free]
+
+      - title: "WhatIsMyIP"
+        url: "https://www.whatismyip.com"
+        description: "Find your public IP address and location"
+        tags: [network, IP, tools, free]
+
+      - title: "Cloudflare WARP VPN"
+        url: "https://1.1.1.1"
+        description: "Free VPN and faster DNS by Cloudflare"
+        tags: [VPN, privacy, DNS, free]
+
+      - title: "Proton VPN"
+        url: "https://protonvpn.com"
+        description: "Secure, free VPN from the makers of ProtonMail"
+        tags: [VPN, privacy, security, free]
+
+      - title: "Wayback Machine"
+        url: "https://web.archive.org"
+        description: "Browse archived versions of any website"
+        tags: [archive, history, research, free]
+
+      - title: "Pastebin"
+        url: "https://pastebin.com"
+        description: "Share text and code snippets online"
+        tags: [text, share, snippets, free]
+
+      - title: "WeTransfer"
+        url: "https://wetransfer.com"
+        description: "Send large files up to 2GB for free"
+        tags: [files, share, transfer, free]
+
+      - title: "Google Drive"
+        url: "https://drive.google.com"
+        description: "15GB free cloud storage from Google"
+        tags: [storage, cloud, free, Google]
+
+      - title: "Notion"
+        url: "https://www.notion.so"
+        description: "All-in-one workspace – notes, databases, wikis"
+        tags: [notes, productivity, free, organization]
+
+      - title: "Trello"
+        url: "https://trello.com"
+        description: "Kanban-style project management tool"
+        tags: [tasks, kanban, productivity, free]
+
+      - title: "Todoist"
+        url: "https://todoist.com"
+        description: "Smart to-do list and task manager"
+        tags: [tasks, productivity, free]
+
+  # ─────────────────────────────────────────────
+  - id: ai
+    name: "🤖 AI Tools"
+    description: "The best AI tools for every use case"
+    links:
+      - title: "ChatGPT"
+        url: "https://chat.openai.com"
+        description: "OpenAI's powerful AI chatbot for writing, coding, brainstorming"
+        tags: [chatbot, writing, coding, free]
+
+      - title: "Claude"
+        url: "https://claude.ai"
+        description: "Anthropic's AI assistant – great for analysis, writing, and code"
+        tags: [chatbot, writing, coding, analysis, free]
+
+      - title: "Gemini"
+        url: "https://gemini.google.com"
+        description: "Google's multimodal AI model"
+        tags: [chatbot, Google, multimodal, free]
+
+      - title: "Perplexity AI"
+        url: "https://www.perplexity.ai"
+        description: "AI-powered search engine with cited answers"
+        tags: [search, AI, research, free]
+
+      - title: "Midjourney"
+        url: "https://www.midjourney.com"
+        description: "Generate stunning AI artwork from text prompts"
+        tags: [images, art, generation, premium]
+
+      - title: "DALL-E 3"
+        url: "https://openai.com/dall-e-3"
+        description: "OpenAI's image generation model"
+        tags: [images, art, generation]
+
+      - title: "Stable Diffusion"
+        url: "https://stablediffusionweb.com"
+        description: "Free open-source AI image generation"
+        tags: [images, art, generation, free, open-source]
+
+      - title: "Leonardo.ai"
+        url: "https://leonardo.ai"
+        description: "AI image generation for game assets and creative work"
+        tags: [images, art, generation, free]
+
+      - title: "ElevenLabs"
+        url: "https://elevenlabs.io"
+        description: "Realistic AI text-to-speech and voice cloning"
+        tags: [voice, TTS, audio, AI]
+
+      - title: "Suno AI"
+        url: "https://suno.ai"
+        description: "Generate full songs with AI from a text prompt"
+        tags: [music, generation, AI, free]
+
+      - title: "Udio"
+        url: "https://www.udio.com"
+        description: "Create AI-generated music in any style"
+        tags: [music, generation, AI, free]
+
+      - title: "Runway ML"
+        url: "https://runwayml.com"
+        description: "AI video generation and editing tools"
+        tags: [video, generation, AI, editing]
+
+      - title: "Pika Labs"
+        url: "https://pika.art"
+        description: "Generate and edit videos with AI"
+        tags: [video, generation, AI, free]
+
+      - title: "GitHub Copilot"
+        url: "https://github.com/features/copilot"
+        description: "AI pair programmer that helps you write code faster"
+        tags: [coding, AI, autocomplete, premium]
+
+      - title: "Blackbox.ai"
+        url: "https://www.blackbox.ai"
+        description: "AI code generation and autocomplete"
+        tags: [coding, AI, free]
+
+      - title: "Phind"
+        url: "https://www.phind.com"
+        description: "AI search engine for developers"
+        tags: [search, coding, AI, free]
+
+      - title: "Gamma.app"
+        url: "https://gamma.app"
+        description: "Create presentations and documents with AI"
+        tags: [presentations, AI, free]
+
+      - title: "Otter.ai"
+        url: "https://otter.ai"
+        description: "AI meeting transcription and notes"
+        tags: [transcription, meetings, AI, free]
+
+  # ─────────────────────────────────────────────
+  - id: music
+    name: "🎵 Music"
+    description: "Listen, discover, and create music"
+    links:
+      - title: "Spotify"
+        url: "https://www.spotify.com"
+        description: "Stream 100 million songs and podcasts"
+        tags: [streaming, free, premium, podcasts]
+
+      - title: "YouTube Music"
+        url: "https://music.youtube.com"
+        description: "Music streaming powered by YouTube"
+        tags: [streaming, free, Google]
+
+      - title: "SoundCloud"
+        url: "https://soundcloud.com"
+        description: "Discover and share music from artists worldwide"
+        tags: [streaming, indie, free, upload]
+
+      - title: "Bandcamp"
+        url: "https://bandcamp.com"
+        description: "Support artists directly – buy and stream music"
+        tags: [indie, artists, buy, stream]
+
+      - title: "Last.fm"
+        url: "https://www.last.fm"
+        description: "Track your music listening history and discover new artists"
+        tags: [scrobbling, discovery, stats, free]
+
+      - title: "Genius"
+        url: "https://genius.com"
+        description: "Song lyrics and annotations for millions of songs"
+        tags: [lyrics, annotations, free]
+
+      - title: "Musescore"
+        url: "https://musescore.com"
+        description: "Free sheet music for thousands of songs"
+        tags: [sheet-music, free, notation]
+
+      - title: "Audacity"
+        url: "https://www.audacityteam.org"
+        description: "Free, open-source audio editor and recorder"
+        tags: [audio, editor, free, open-source]
+
+      - title: "BeatStars"
+        url: "https://www.beatstars.com"
+        description: "Buy and sell beats online"
+        tags: [beats, buy, sell, producers]
+
+      - title: "Looperman"
+        url: "https://www.looperman.com"
+        description: "Free loops, acapellas, and samples for music production"
+        tags: [samples, loops, free, production]
+
+      - title: "Radio Garden"
+        url: "https://radio.garden"
+        description: "Listen to live radio stations from anywhere in the world"
+        tags: [radio, live, worldwide, free]
+
+      - title: "Musicbed"
+        url: "https://www.musicbed.com"
+        description: "Licensed music for videos and creative projects"
+        tags: [licensing, videos, premium]
