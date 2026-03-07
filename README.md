@@ -1,65 +1,25 @@
 # Everything you need
 
-All links in one place – built with Vite + YAML, deployed on GitHub Pages.
+All links in one place – deployed on GitHub Pages.
 
-## 📁 Dateistruktur
+## About me
 
-```
-my-project/
-├── src/
-│   ├── data.yaml        ← Hier pflegst du deine Links & Übersetzungen
-│   ├── main.js          ← JavaScript-Logik
-│   └── styles.css       ← Deine bestehenden Styles
-├── index.html
-├── vite.config.js
-├── package.json
-└── .github/
-    └── workflows/
-        └── deploy.yml   ← Automatischer GitHub Pages Deploy
-```
+Hey, I'm **Toosi** – a German student who built this with almost no coding knowledge and no budget. I just wanted a single place where anyone can find what they're looking for without paying for it. Football, soccer, baseball, basketball, movies, series and so much more – all in one spot.
 
-## 🚀 Setup (einmalig)
+## Why
 
-```bash
-# 1. Dependencies installieren
-npm install
+As a student with no money, I spent a lot of time not knowing where to find the things I wanted to watch or use. Everything was scattered, hard to find, or hidden behind paywalls. I wanted to fix that – not just for myself, but for anyone in the same situation.
 
-# 2. Lokalen Dev-Server starten
-npm run dev
+This page is the result of that. A big, organized collection of links so nobody has to search as long as I did.
 
-# 3. Build für Produktion
-npm run build
-```
+## ⚠️ Disclaimer
 
-## ✏️ Links hinzufügen / bearbeiten
+I am **not** the creator, owner, or operator of any of the websites listed here. I do not host any content, I am not advertising any of these sites, and I have no affiliation with them whatsoever. This project is purely a **personal collection of publicly available links**, made for educational purposes and for people who want everything in one place.
 
-Öffne `src/data.yaml` und füge einen neuen Eintrag hinzu:
+## ✏️ Be a part of it
 
-```yaml
-- title: "Mein neuer Link"
-  url: "https://example.com"
-  description: "Kurze Beschreibung"
-  tags: [tag1, tag2]
-```
+Know a site that should be on here? Just send it my way and I'll add it so everyone can find it too.
 
-Danach einfach `git push` → GitHub Actions baut und deployed automatisch!
+You can reach me at: **everythingyouneed@gmail.com**
 
-## ⚙️ GitHub Pages aktivieren
-
-1. Repo auf GitHub → **Settings** → **Pages**
-2. Source: **GitHub Actions**
-3. Fertig! Bei jedem Push auf `main` wird automatisch deployed.
-
-## 🌐 Neue Sprache hinzufügen
-
-In `src/data.yaml` unter `translations:` einen neuen Block hinzufügen:
-
-```yaml
-translations:
-  fr:
-    selectTopic: "Choisir un sujet"
-    everythingYouNeed: "Tout ce dont vous avez besoin"
-    # ... alle anderen Keys
-```
-
-Dann in `index.html` die `<select>` für die Sprache ergänzen.
+Or drop it in the issues tab above – whatever works for you.
