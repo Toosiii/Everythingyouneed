@@ -526,6 +526,7 @@ function toggleSidebar() {
     }
 }
 function closeSidebar() {
+    if (window.innerWidth >= 640) return; // don't close on desktop
     const sb = document.getElementById('sidebar');
     const ov = document.getElementById('sidebarOverlay');
     sb.style.transform = 'translateX(-100%)';
