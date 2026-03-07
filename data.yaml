@@ -9,10 +9,10 @@ translations:
     language: "Sprache"
     featureTitle1: "Live TV & Streaming"
     featureDesc1: "Durchsuchen Sie kuratierte Links für Filme, Serien und Live-TV-Streams"
-    featureTitle2: "Spiele"
-    featureDesc2: "Finden Sie Ressourcen für Ihre Lieblingsspiele wie Minecraft, Valorant und mehr"
-    featureTitle3: "Lernen & Tools"
-    featureDesc3: "Greifen Sie auf Bildungsressourcen und Programmiertools an einem Ort zu"
+    featureTitle2: "Sport"
+    featureDesc2: "Live-Sport-Streams und Wiederholungen aller großen Sportarten"
+    featureTitle3: "Anime & Cartoons"
+    featureDesc3: "Anime, Cartoons und asiatische Dramen streamen"
     statTopics: "Themen"
     statLinks: "Links"
     statLanguages: "Sprachen"
@@ -39,10 +39,10 @@ translations:
     language: "Language"
     featureTitle1: "Live TV & Streaming"
     featureDesc1: "Browse through curated links for movies, series, and live TV streams"
-    featureTitle2: "Games"
-    featureDesc2: "Find resources for your favorite games like Minecraft, Valorant, and more"
-    featureTitle3: "Learning & Tools"
-    featureDesc3: "Access educational resources and programming tools all in one place"
+    featureTitle2: "Sports"
+    featureDesc2: "Find live sports streams and replays for all major sports"
+    featureTitle3: "Anime & Cartoons"
+    featureDesc3: "Stream anime, cartoons and Asian dramas all in one place"
     statTopics: "Topics"
     statLinks: "Links"
     statLanguages: "Languages"
@@ -62,10 +62,13 @@ translations:
 
 topics:
 
-  # ─────────────────────────────────────────────
+  # ═══════════════════════════════════════════════
+  # 📺  STREAMING
+  # ═══════════════════════════════════════════════
+
   - id: tv
     name: "📺 Live TV & Streaming"
-    description: "Movies, Series, Sports, Live TV"
+    description: "Movies, Series, Sports, Live TV – general platforms"
     links:
       - title: "Rivestream.org"
         url: "https://rivestream.org/"
@@ -132,16 +135,6 @@ topics:
         description: "World's largest anime streaming service"
         tags: [Anime, Series, free, premium]
 
-      - title: "9Anime"
-        url: "https://9anime.pl"
-        description: "Watch anime online in HD"
-        tags: [Anime, free, HD]
-
-      - title: "Zoro.to"
-        url: "https://zoro.to"
-        description: "Watch anime online with no ads"
-        tags: [Anime, free, no-ads]
-
       - title: "ESPN+"
         url: "https://plus.espn.com"
         description: "Live sports, news and exclusive originals"
@@ -168,6 +161,2678 @@ topics:
         tags: [Videos, free]
 
   # ─────────────────────────────────────────────
+  - id: multi_server
+    name: "🎬 Movies & Series (Multi-Server)"
+    description: "Multi-server streaming sites for movies, TV shows and anime"
+    links:
+      - title: "Cineby"
+        url: "https://www.cineby.gd/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Bitcine"
+        url: "https://www.bitcine.app/"
+        description: "Movies, TV, Anime with Auto-Next. Mirror of Cineby."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Fmovies+"
+        url: "https://www.fmovies.gd/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "XPrime"
+        url: "https://xprime.today/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "XPrime Mirror"
+        url: "https://xprime.stream/"
+        description: "Movies, TV, Anime with Auto-Next. Mirror of XPrime."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Rive Mirror 2"
+        url: "https://rivestream.net/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Rive Mirror 3"
+        url: "https://www.rivestream.app/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "CorsFlix"
+        url: "https://watch.corsflix.net"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "67Movies"
+        url: "https://67movies.net/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "456movie"
+        url: "https://456movie.nl"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Aether"
+        url: "https://aether.mom/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "FlickyStream"
+        url: "https://flickystream.ru/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "CineMora"
+        url: "https://cinemora.ru/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "SpenFlix"
+        url: "https://watch.spencerdevs.xyz/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Cinegram"
+        url: "https://cinegram.net/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "ShuttleTV"
+        url: "https://shuttletv.su/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "1Shows"
+        url: "https://www.1shows.nl/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "1Flex"
+        url: "https://www.1flex.nl/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "RgShows"
+        url: "https://www.rgshows.ru/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Cinema.BZ"
+        url: "https://cinema.bz/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Cinevibe"
+        url: "https://cinevibe.asia/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "FilmCave"
+        url: "https://filmcave.ru/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Flixway"
+        url: "https://flixway.pro/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "PopcornMovies"
+        url: "https://popcornmovies.org/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Movish"
+        url: "https://movish.net/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Cinetaro"
+        url: "https://cinetaro.buzz/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "IceFY"
+        url: "https://icefy.top/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Smashystream"
+        url: "https://smashystream.com/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "TVids"
+        url: "https://www.tvids.to/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "AZMovies"
+        url: "https://azmovies.to/"
+        description: "Movies, TV, Anime. Mostly 3rd party hosts."
+        tags: [Movies, Series, Anime, Free]
+      - title: "BFLIX"
+        url: "https://bflix.sh/"
+        description: "Movies and TV streaming."
+        tags: [Movies, Series, Free]
+      - title: "MovieHD"
+        url: "https://moviehd.us"
+        description: "Movies streaming."
+        tags: [Movies, Free]
+      - title: "StreamM4u"
+        url: "https://streamm4u.com.co/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Levidia"
+        url: "https://www.levidia.ch/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Supernova"
+        url: "https://supernova.to/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "PrimeWire"
+        url: "https://www.primewire.mov/"
+        description: "Movies, TV, Anime. Mostly 3rd party hosts."
+        tags: [Movies, Series, Anime, Free]
+      - title: "ProjectFreeTV"
+        url: "https://projectfreetv.sx/"
+        description: "Movies, TV, Anime. 3rd party hosts."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Downloads-Anymovies"
+        url: "https://www.downloads-anymovies.co/"
+        description: "Movies. 3rd party hosts."
+        tags: [Movies, Download, Free]
+
+  # ─────────────────────────────────────────────
+  - id: single_server
+    name: "🖥️ Movies & Series (Single Server)"
+    description: "Fast, consistent single-server streaming with less mislabeled content"
+    links:
+      - title: "NEPU"
+        url: "https://nepu.to/"
+        description: "Movies, TV, Anime with Auto-Next and 4K."
+        tags: [Movies, Series, Anime, Auto-Next, 4K, Free]
+      - title: "EE3"
+        url: "https://ee3.me/"
+        description: "Movies. Invite codes: mpgh or 1hack. Requires sign-up."
+        tags: [Movies, Free, SignUp]
+      - title: "RIPS"
+        url: "https://rips.cc/"
+        description: "Movies. Requires sign-up."
+        tags: [Movies, Free, SignUp]
+      - title: "yFlix"
+        url: "https://yflix.to/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "1Movies"
+        url: "https://1movies.bz/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "MovieBox"
+        url: "https://moviebox.ph/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "CinemaCity"
+        url: "https://cinemacity.cc/"
+        description: "Movies, TV, Anime. Requires sign-up."
+        tags: [Movies, Series, Anime, Free, SignUp]
+      - title: "RidoMovies"
+        url: "https://ridomovies.tv/"
+        description: "Movies and TV streaming."
+        tags: [Movies, Series, Free]
+      - title: "WatchFlix"
+        url: "https://watchflix.to/"
+        description: "Movies, TV, Anime at 720p."
+        tags: [Movies, Series, Anime, 720p, Free]
+      - title: "ShowBox"
+        url: "https://www.showbox.media/"
+        description: "Movies, TV, Anime. Use throwaway Gmail."
+        tags: [Movies, Series, Anime, Free]
+      - title: "UniqueStream"
+        url: "https://uniquestream.net/"
+        description: "Movies, TV, Anime at 720p."
+        tags: [Movies, Series, Anime, 720p, Free]
+      - title: "FshareTV"
+        url: "https://fsharetv.co/"
+        description: "Movies streaming."
+        tags: [Movies, Free]
+      - title: "YesMovie"
+        url: "https://ww1.yesmovies.ag/"
+        description: "Movies and TV at 720p."
+        tags: [Movies, Series, 720p, Free]
+      - title: "SFlix"
+        url: "https://sflix2.to/"
+        description: "Movies and TV streaming."
+        tags: [Movies, Series, Free]
+      - title: "FlixHQ"
+        url: "https://flixhq.to/"
+        description: "Movies and TV streaming."
+        tags: [Movies, Series, Free]
+      - title: "HollyMovieHD"
+        url: "https://hollymoviehd.cc/"
+        description: "Movies, TV, Anime streaming."
+        tags: [Movies, Series, Anime, Free]
+      - title: "LookMovie"
+        url: "https://lookmovie2.to/"
+        description: "Movies and TV with Auto-Next at 480p."
+        tags: [Movies, Series, Auto-Next, 480p, Free]
+      - title: "PlayIMDb"
+        url: "https://www.playimdb.com/"
+        description: "Search VidSrc via IMDb URLs."
+        tags: [Movies, Series, Free]
+
+  # ─────────────────────────────────────────────
+  - id: aggregators
+    name: "🔀 Stream Aggregators"
+    description: "Auto-test multiple stream sources without user input"
+    links:
+      - title: "Flixer"
+        url: "https://flixer.su"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Hexa"
+        url: "https://hexa.su/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Vidora"
+        url: "https://watch.vidora.su/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "bCine"
+        url: "https://bcine.app/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Filmex"
+        url: "https://filmex.to/"
+        description: "Movies, TV, Anime with Auto-Next and 4K."
+        tags: [Movies, Series, Anime, Auto-Next, 4K, Aggregator, Free]
+      - title: "Vidbox"
+        url: "https://vidbox.cc/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Willow"
+        url: "https://willow.arlen.icu/"
+        description: "Movies, TV, Anime with Auto-Next and 4K support."
+        tags: [Movies, Series, Anime, Auto-Next, 4K, Aggregator, Free]
+      - title: "CinemaOS"
+        url: "https://cinemaos.live/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "FlyX"
+        url: "https://tv.vynx.cc/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "AuroraScreen"
+        url: "https://www.aurorascreen.org/"
+        description: "Movies, TV, Anime with Auto-Next. Requires Chromium."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Poprink"
+        url: "https://www.popr.ink/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "SanuFlix"
+        url: "https://sanuflix-web-v2.pages.dev/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "amri.gg"
+        url: "https://amri.gg/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "HydraHD"
+        url: "https://hydrahd.com/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Primeshows"
+        url: "https://www.primeshows.uk/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "Netflex"
+        url: "https://netflex.uk/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "LordFlix"
+        url: "https://lordflix.club/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Flicker"
+        url: "https://flickermini.pages.dev/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "1PrimeShows"
+        url: "https://1primeshow.online/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "ZXCSTREAM"
+        url: "https://zxcprime.icu/"
+        description: "Movies and TV aggregator."
+        tags: [Movies, Series, Aggregator, Free]
+      - title: "KiraStreams"
+        url: "https://kirastreamsv2.vercel.app/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "Netplay"
+        url: "https://netplayz.live/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Cinelove"
+        url: "https://cinelove.live/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Youflex"
+        url: "https://youflex.live/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "StreamWatch"
+        url: "https://streamwatch.online/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Aggregator, Free]
+      - title: "Mapple.tv"
+        url: "https://mappl.tv/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "QuickWatch"
+        url: "https://www.quickwatch.co/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "Auto Embed"
+        url: "https://watch-v2.autoembed.cc/"
+        description: "Movies, TV, Anime embed aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "Moviebay"
+        url: "https://moviebay.cc/"
+        description: "Movies, TV, Anime aggregator."
+        tags: [Movies, Series, Anime, Aggregator, Free]
+      - title: "PlayTorrio Streaming"
+        url: "https://playtorrio.xyz/"
+        description: "Streaming desktop app. Use Streaming Mode."
+        tags: [Movies, Series, Anime, Desktop, Free]
+      - title: "mov-cli"
+        url: "https://mov-cli.github.io/"
+        description: "Streaming CLI tool with plugin support."
+        tags: [Movies, Series, Anime, CLI, Free]
+
+  # ─────────────────────────────────────────────
+  - id: embed_frontends
+    name: "🖱️ Embed Frontends"
+    description: "Pick your preferred stream source from a list"
+    links:
+      - title: "VoidFlix"
+        url: "https://flixzy.pages.dev/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Cinezo"
+        url: "https://www.cinezo.net/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Flikhub"
+        url: "https://www.flikhub.net/"
+        description: "Movies, TV, Anime with Auto-Next."
+        tags: [Movies, Series, Anime, Auto-Next, Free]
+      - title: "Redflix"
+        url: "https://redflix.co/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Flixvo"
+        url: "https://flixvo.live/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "BoredFlix"
+        url: "https://www.boredflix.com/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "TeleV"
+        url: "https://stream.telev.tv/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "AlienFlix"
+        url: "https://alienflix.net/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "CineBolt"
+        url: "https://cinebolt.net/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "ONOFLIX"
+        url: "https://onoflix.ru/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Bingeflix"
+        url: "https://bingeflix.tv/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Streamr"
+        url: "https://streamr.pages.dev/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Cubeflix"
+        url: "https://cubeflix.org/discover"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "LunaStream"
+        url: "https://lunastream.fun/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "CineFlow"
+        url: "https://www.cineflow.watch/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Way2Movies"
+        url: "https://way2movies.live/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "zmov"
+        url: "https://plexmovies.online/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "KaitoVault"
+        url: "https://www.kaitovault.com/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Yampi"
+        url: "https://yampi.live/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "M-Zone"
+        url: "https://www.m-zone.org/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "MoviePluto"
+        url: "https://moviepluto.fun/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "VIBLIX"
+        url: "https://viblix.ovh/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "321Movies"
+        url: "https://321movies.xyz/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "VibeMax"
+        url: "https://vibemax.to/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "KrakenFlix"
+        url: "https://krakenflix.cx/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "StreameX"
+        url: "https://streamex.sh/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Snowstream"
+        url: "https://snowstream.vercel.app/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "ViewFlix"
+        url: "https://viewflix.site/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Mjland"
+        url: "https://beta.mjland.xyz/"
+        description: "Movies, TV, Anime with customizable sources."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Ask4Movies"
+        url: "https://ask4movie.app/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "MovieBite"
+        url: "https://moviebite.cc/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Warflix"
+        url: "https://warflix.im/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Heartive"
+        url: "https://heartiveloves.pages.dev/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "CineGo"
+        url: "https://cinego.co/"
+        description: "Movies and TV embed frontend."
+        tags: [Movies, Series, Free]
+      - title: "Moviepire"
+        url: "https://moviepire.org/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+      - title: "Madplay"
+        url: "https://madplay.site/"
+        description: "Movies, TV, Anime embed frontend."
+        tags: [Movies, Series, Anime, Free]
+
+  # ─────────────────────────────────────────────
+  - id: free_ads
+    name: "📡 Free with Ads (Legal)"
+    description: "Official free streaming platforms supported by ads"
+    links:
+      - title: "Tubi"
+        url: "https://tubitv.com"
+        description: "Free official Movies and TV up to 720p."
+        tags: [Movies, Series, Free, Legal, Ads]
+      - title: "Plex"
+        url: "https://watch.plex.tv/"
+        description: "Free official Movies and TV up to 720p."
+        tags: [Movies, Series, Free, Legal, Ads]
+      - title: "Pluto TV Live"
+        url: "https://pluto.tv/"
+        description: "Free Movies, TV and Live streaming."
+        tags: [Movies, Series, Live, Free, Legal, Ads]
+      - title: "Prime Video Free"
+        url: "https://www.amazon.com/gp/video/storefront/?contentId=freetv"
+        description: "Free movies and TV on Amazon. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Roku Channel"
+        url: "https://therokuchannel.roku.com/"
+        description: "Free Movies and TV. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "DarkRoom"
+        url: "https://www.darkroom.film/"
+        description: "Free Movies and TV. US only. Requires sign-up."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Fawesome"
+        url: "https://fawesome.tv/"
+        description: "Free Movies and TV."
+        tags: [Movies, Series, Free, Legal]
+      - title: "Sling Free"
+        url: "https://watch.sling.com/"
+        description: "Free Movies, TV and Live News. US only."
+        tags: [Movies, Series, Live, Free, Legal, US]
+      - title: "Mometu"
+        url: "https://watch.mometu.com/"
+        description: "Free Movies and TV. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Vudu Free"
+        url: "https://www.vudu.com/content/movies/uxpage/View-All-Free-Movies-TV/207"
+        description: "Free Movies and TV. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Fandango Free"
+        url: "https://athome.fandango.com/content/browse/free"
+        description: "Free Movies and TV. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Shout! TV"
+        url: "https://shout-tv.com/"
+        description: "Free Movies and TV with Auto-Next. US and CA only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "Kanopy"
+        url: "https://kanopy.com/"
+        description: "Free Movies and TV with library card. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "hoopla"
+        url: "https://www.hoopladigital.com/"
+        description: "Free Movies and TV with library card. US only."
+        tags: [Movies, Series, Free, Legal, US]
+      - title: "7+"
+        url: "https://7plus.com.au/"
+        description: "Free Movies and TV. US and AU."
+        tags: [Movies, Series, Free, Legal]
+      - title: "Playary"
+        url: "https://www.playary.com/"
+        description: "Free Movies and TV."
+        tags: [Movies, Series, Free, Legal]
+      - title: "Filmzie"
+        url: "https://filmzie.com/"
+        description: "Free Movies and TV."
+        tags: [Movies, Series, Free, Legal]
+      - title: "ARTE"
+        url: "https://www.arte.tv/en"
+        description: "Free European Movies and TV with Auto-Next."
+        tags: [Movies, Series, Free, Legal, European]
+      - title: "BBC iPlayer"
+        url: "https://www.bbc.co.uk/iplayer"
+        description: "Free BBC Movies and TV. Requires UK VPN."
+        tags: [Movies, Series, Free, Legal, UK]
+      - title: "FlixHouse"
+        url: "https://flixhouse.com/"
+        description: "Free Indie Movies."
+        tags: [Movies, Free, Legal, Indie]
+
+  # ─────────────────────────────────────────────
+  - id: video_platforms
+    name: "▶️ Video Platforms"
+    description: "General video platforms good for classic, obscure and short films"
+    links:
+      - title: "VK Video"
+        url: "https://vkvideo.ru/"
+        description: "Russian video platform with wide content variety."
+        tags: [Movies, Series, Free, Video]
+      - title: "OK.ru Video"
+        url: "https://ok.ru/video"
+        description: "Odnoklassniki video platform."
+        tags: [Movies, Free, Video]
+      - title: "BiliBili"
+        url: "https://www.bilibili.com/"
+        description: "Chinese video platform with anime and movies."
+        tags: [Anime, Movies, Free, Video]
+      - title: "Niconico"
+        url: "https://www.nicovideo.jp/"
+        description: "Japanese video sharing platform."
+        tags: [Anime, Movies, Free, Video]
+      - title: "PeerTube"
+        url: "https://joinpeertube.org/"
+        description: "Decentralized open-source video platform."
+        tags: [Movies, Free, Video]
+      - title: "Vimeo"
+        url: "https://vimeo.com/watch"
+        description: "High quality video and short film platform."
+        tags: [Movies, Short-Films, Free, Video]
+      - title: "Rutube"
+        url: "https://rutube.ru"
+        description: "Russian video platform."
+        tags: [Movies, Free, Video]
+      - title: "Odysee"
+        url: "https://odysee.com/"
+        description: "Decentralized blockchain video platform."
+        tags: [Movies, Free, Video]
+      - title: "Rumble"
+        url: "https://rumble.com/"
+        description: "Video platform. May require VPN in some countries."
+        tags: [Movies, Free, Video]
+
+  # ─────────────────────────────────────────────
+  - id: anime
+    name: "🎌 Anime"
+    description: "Dedicated anime streaming with sub and dub options"
+    links:
+      - title: "9Anime"
+        url: "https://9anime.pl"
+        description: "Watch anime online in HD"
+        tags: [Anime, free, HD]
+      - title: "Zoro.to"
+        url: "https://zoro.to"
+        description: "Watch anime online with no ads"
+        tags: [Anime, free, no-ads]
+      - title: "AnimeKai"
+        url: "https://animekai.to/home"
+        description: "Hard subs and dub with Auto-Next. Multiple mirrors."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "HiAnime"
+        url: "https://hianime.to/"
+        description: "Sub and dub with Auto-Next. Many mirrors."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Miruro"
+        url: "https://www.miruro.com/"
+        description: "Hard subs and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Anime Realms"
+        url: "https://www.animerealms.org/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "All Manga"
+        url: "https://allmanga.to/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "animepahe"
+        url: "https://animepahe.si/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "KickAssAnime"
+        url: "https://kaa.to/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "AnimeX"
+        url: "https://animex.one/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Anidap"
+        url: "https://anidap.se/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Anify"
+        url: "https://anify.to/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "123anime"
+        url: "https://123animes.ru/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Kuudere"
+        url: "https://kuudere.to/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "JustAnime"
+        url: "https://justanime.to/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "AniKuro"
+        url: "https://anikuro.to/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "AnimeNoSub"
+        url: "https://animenosub.to/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "Anime Nexus"
+        url: "https://anime.nexus/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "AnimeHub"
+        url: "https://animehub.ac/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "AniZone"
+        url: "https://anizone.to/"
+        description: "Sub-only anime streaming."
+        tags: [Anime, Sub, Free]
+      - title: "AniHQ"
+        url: "https://anihq.to/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "Animelok"
+        url: "https://animelok.site/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "Anisuge"
+        url: "https://animesuge.cz/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "Lunar"
+        url: "https://lunaranime.ru/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "Anoboye"
+        url: "https://anoboye.com/"
+        description: "Sub-only anime streaming."
+        tags: [Anime, Sub, Free]
+      - title: "Senshi"
+        url: "https://senshi.live/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "AnimeParadise"
+        url: "https://www.animeparadise.moe/"
+        description: "Sub and dub anime streaming."
+        tags: [Anime, Sub, Dub, Free]
+      - title: "KissAnime"
+        url: "https://kissanime.com.ru/"
+        description: "Sub and dub with Auto-Next."
+        tags: [Anime, Sub, Dub, Auto-Next, Free]
+      - title: "AnimeOnsen"
+        url: "https://animeonsen.xyz/"
+        description: "Sub anime at 720p."
+        tags: [Anime, Sub, 720p, Free]
+      - title: "AnimeStream"
+        url: "https://anime.uniquestream.net/"
+        description: "Sub anime at 720p."
+        tags: [Anime, Sub, 720p, Free]
+      - title: "FireAnime"
+        url: "https://fireani.me/"
+        description: "Sub-only anime streaming."
+        tags: [Anime, Sub, Free]
+      - title: "PirateXplay Anime"
+        url: "https://piratexplay.cc/home"
+        description: "Sub anime streaming."
+        tags: [Anime, Sub, Free]
+      - title: "AnimeXin"
+        url: "https://animexin.dev/"
+        description: "Donghua (Chinese anime) sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "Lucifer Donghua"
+        url: "https://luciferdonghua.in/"
+        description: "Donghua sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "LMANIME"
+        url: "https://lmanime.com/"
+        description: "Donghua sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "CKSub"
+        url: "https://cksub.org/"
+        description: "Donghua sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "MyAnime"
+        url: "https://myanime.live/"
+        description: "Donghua sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "AnimeKhor"
+        url: "https://animekhor.org/"
+        description: "Donghua sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "Crimson Subs"
+        url: "https://crimsonfansubs.com/"
+        description: "Donghua fan sub streaming."
+        tags: [Anime, Donghua, Sub, Free]
+      - title: "Seanime"
+        url: "https://seanime.app/"
+        description: "Desktop anime streaming and torrent app."
+        tags: [Anime, Desktop, Torrent, Free]
+      - title: "AnymeX"
+        url: "https://anymex.vercel.app/"
+        description: "Desktop anime streaming app."
+        tags: [Anime, Desktop, Free]
+      - title: "Miru"
+        url: "https://miru.js.org/en/"
+        description: "Desktop anime streaming app."
+        tags: [Anime, Desktop, Free]
+
+  # ─────────────────────────────────────────────
+  - id: cartoons
+    name: "🐾 Cartoons"
+    description: "Free cartoon and animated series streaming"
+    links:
+      - title: "WCO"
+        url: "https://www.wco.tv/"
+        description: "TV cartoons, movies and anime streaming."
+        tags: [Cartoons, Movies, Anime, Free]
+      - title: "KimCartoon"
+        url: "https://kimcartoon.si/"
+        description: "TV cartoon streaming."
+        tags: [Cartoons, Free]
+      - title: "KissCartoon"
+        url: "https://kisscartoon.nz/"
+        description: "TV cartoon streaming."
+        tags: [Cartoons, Free]
+      - title: "HiCartoons"
+        url: "https://hicartoon.to/"
+        description: "TV and movie cartoon streaming."
+        tags: [Cartoons, Movies, Free]
+      - title: "PirateXplay Cartoons"
+        url: "https://piratexplay.cc/home"
+        description: "TV, movies and anime cartoons."
+        tags: [Cartoons, Movies, Anime, Free]
+      - title: "FunnierMoments"
+        url: "https://www.funniermoments.net/"
+        description: "TV cartoon streaming."
+        tags: [Cartoons, Free]
+      - title: "B98"
+        url: "https://www.b98.tv/home/"
+        description: "Classic TV cartoon streaming."
+        tags: [Cartoons, Classic, Free]
+      - title: "ToonTales"
+        url: "https://www.toontales.net/"
+        description: "Classic TV cartoon streaming."
+        tags: [Cartoons, Classic, Free]
+      - title: "SuperCartoons"
+        url: "https://www.supercartoons.net/"
+        description: "Classic TV cartoon streaming."
+        tags: [Cartoons, Classic, Free]
+
+  # ─────────────────────────────────────────────
+  - id: tv_shows
+    name: "📻 TV Shows"
+    description: "Sites dedicated to TV show streaming"
+    links:
+      - title: "Best Series"
+        url: "https://bstsrs.in/"
+        description: "TV and Anime. 3rd party hosts."
+        tags: [Series, Anime, Free]
+      - title: "NOXX"
+        url: "https://noxx.to/"
+        description: "TV streaming via 3rd party hosts."
+        tags: [Series, Free]
+      - title: "AZ Series"
+        url: "https://azseries.org/"
+        description: "TV streaming via 3rd party hosts."
+        tags: [Series, Free]
+      - title: "HISTORY Channel"
+        url: "https://play.history.com/"
+        description: "Full History and A+E channel episodes."
+        tags: [Series, Documentary, Free, Legal]
+      - title: "Adult Swim"
+        url: "https://www.adultswim.com/videos/"
+        description: "Full Adult Swim episodes."
+        tags: [Cartoons, Series, Free, Legal]
+      - title: "DisneyNOW"
+        url: "https://disneynow.com/"
+        description: "Full Disney episodes. US only."
+        tags: [Cartoons, Series, Free, Legal, US]
+      - title: "HDclump"
+        url: "https://hdclump.com/"
+        description: "Documentaries, cooking and gardening shows."
+        tags: [Series, Documentary, Free]
+      - title: "BrokenSilenze"
+        url: "https://www.brokensilenze.net/"
+        description: "Reality TV shows."
+        tags: [Series, Reality, Free]
+      - title: "The Silent Library"
+        url: "https://thesilentlibrary.com/"
+        description: "Japanese game shows."
+        tags: [Series, Japanese, Free]
+      - title: "MyRM"
+        url: "https://myrunningman.com/"
+        description: "My Running Man episodes."
+        tags: [Series, Korean, Free]
+      - title: "Taskmaster Episodes"
+        url: "https://rentry.co/bbbr4cfr"
+        description: "Full Taskmaster episodes."
+        tags: [Series, Free]
+      - title: "TWC Classics"
+        url: "https://twcclassics.com/"
+        description: "Weather Channel classic replays."
+        tags: [Series, Archive, Free]
+
+  # ─────────────────────────────────────────────
+  - id: drama
+    name: "🌸 Asian Drama"
+    description: "Korean, Chinese, Japanese and other Asian drama streaming"
+    links:
+      - title: "GoPlay"
+        url: "https://goplay.su/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Dramacool"
+        url: "https://dramacoolt.com.in/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Einthusan"
+        url: "https://einthusan.tv/intro/"
+        description: "Asian movies streaming."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "KissAsian"
+        url: "https://ww14.kissasian.com.lv/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "KissKH"
+        url: "https://kisskh.ovh/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Dramahood"
+        url: "https://dramahood.mom/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Asiaflix"
+        url: "https://asiaflix.net/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Rive KDrama"
+        url: "https://rivestream.org/kdrama"
+        description: "Korean Drama, TV and Movies."
+        tags: [Drama, Movies, Korean, Free]
+      - title: "Vidbox Asian Drama"
+        url: "https://vidbox.cc/asian-drama"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "DramaFire"
+        url: "https://dramafire.com.pl/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "KissAsian.video"
+        url: "https://kissasian.video/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "AsianCrush"
+        url: "https://www.asiancrush.com/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "AsianSubs"
+        url: "https://asiansubs.com/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "Dramacool9"
+        url: "https://dramacools9.cam/"
+        description: "Asian TV and movies."
+        tags: [Drama, Movies, Asian, Free]
+      - title: "OnDemandChina"
+        url: "https://www.ondemandchina.com/"
+        description: "Chinese TV and movies."
+        tags: [Drama, Movies, Chinese, Free]
+
+  # ─────────────────────────────────────────────
+  - id: classics
+    name: "🎞️ Classics & Public Domain"
+    description: "Classic films, silent movies and public domain content"
+    links:
+      - title: "Internet Archive Films"
+        url: "https://archive.org/details/moviesandfilms"
+        description: "Classic and silent films archive."
+        tags: [Movies, Classic, Archive, Free]
+      - title: "WikiFlix"
+        url: "https://wikiflix.toolforge.org/"
+        description: "Classic films from Wikimedia."
+        tags: [Movies, Classic, Free]
+      - title: "Classic Cinema Online"
+        url: "https://classiccinemaonline.com/"
+        description: "Classic films streaming."
+        tags: [Movies, Classic, Free]
+      - title: "The Classic Movies"
+        url: "https://www.the-classic-movies.com/"
+        description: "Classic films streaming."
+        tags: [Movies, Classic, Free]
+      - title: "RetroFlix"
+        url: "https://retroflix.org/"
+        description: "Classic films streaming."
+        tags: [Movies, Classic, Free]
+      - title: "moonflix"
+        url: "https://moonflix.com/"
+        description: "Restored and colorized classic films and shows."
+        tags: [Movies, Classic, Free]
+      - title: "RetroStrange"
+        url: "https://retrostrange.com/"
+        description: "Live retro media streams."
+        tags: [Movies, Classic, Live, Free]
+      - title: "Wu Tang Collection"
+        url: "https://www.thewutangcollection.com/"
+        description: "Classic martial arts films."
+        tags: [Movies, Classic, Free]
+      - title: "Silent Hall of Fame"
+        url: "https://silent-hall-of-fame.org/"
+        description: "Silent films archive."
+        tags: [Movies, Classic, Silent, Free]
+      - title: "Danish Silent Film"
+        url: "https://www.stumfilm.dk/en/stumfilm"
+        description: "Silent Danish film archive."
+        tags: [Movies, Classic, Silent, Free]
+      - title: "Public Domain Movie Torrents"
+        url: "https://www.publicdomaintorrents.info/"
+        description: "Public domain movies as torrents."
+        tags: [Movies, Classic, Torrent, Free]
+      - title: "FootageFarm"
+        url: "https://footagefarm.com/"
+        description: "Public domain films."
+        tags: [Movies, Archive, Free]
+      - title: "Public Domain Movies"
+        url: "https://publicdomainmovie.net/"
+        description: "Public domain films streaming."
+        tags: [Movies, Classic, Free]
+      - title: "Cinetimes"
+        url: "https://cinetimes.org/en/"
+        description: "Public domain films."
+        tags: [Movies, Classic, Free]
+
+  # ─────────────────────────────────────────────
+  - id: specialty
+    name: "🔬 Specialty Streaming"
+    description: "Rare, experimental, avant-garde and niche streaming content"
+    links:
+      - title: "RareFilmm"
+        url: "https://rarefilmm.com/"
+        description: "Rare movies streaming."
+        tags: [Movies, Rare, Free]
+      - title: "JP-Films"
+        url: "https://jp-films.com/"
+        description: "Japanese Movies and TV streaming."
+        tags: [Movies, Series, Japanese, Free]
+      - title: "Tokuzilla"
+        url: "https://tokuzilla.net/"
+        description: "Tokusatsu movies and shows."
+        tags: [Movies, Series, Japanese, Free]
+      - title: "GizmoPlex"
+        url: "https://www.gizmoplex.com/mst3k"
+        description: "MST3K movies streaming."
+        tags: [Movies, Comedy, Free]
+      - title: "RiffTrax Twitch"
+        url: "https://www.twitch.tv/rifftrax"
+        description: "RiffTrax live streams."
+        tags: [Movies, Comedy, Live, Free]
+      - title: "Ubu"
+        url: "https://ubu.com/film/"
+        description: "Short films and avant-garde cinema."
+        tags: [Movies, Short-Films, Avant-Garde, Free]
+      - title: "Le Cinéma Club"
+        url: "https://www.lecinemaclub.com/"
+        description: "Hand-picked indie film stream with archive."
+        tags: [Movies, Indie, Free]
+      - title: "Zero1Cine"
+        url: "https://zero1cine.com/"
+        description: "AI generated films."
+        tags: [Movies, AI, Free]
+      - title: "Viddsee"
+        url: "https://www.viddsee.com/"
+        description: "Short films from Asia."
+        tags: [Short-Films, Free]
+      - title: "Short of the Week"
+        url: "https://www.shortoftheweek.com/"
+        description: "Curated short films."
+        tags: [Short-Films, Free]
+      - title: "0xDB"
+        url: "https://0xdb.org/"
+        description: "Rare movies archive."
+        tags: [Movies, Rare, Free]
+      - title: "HomeMovies101"
+        url: "https://www.homemovies100.it/en/"
+        description: "Home movies collection."
+        tags: [Movies, Archive, Free]
+      - title: "Prelinger Archives"
+        url: "https://www.panix.com/~footage/"
+        description: "Ephemeral films archive."
+        tags: [Movies, Archive, Free]
+      - title: "GlobalShakespeares"
+        url: "https://globalshakespeares.mit.edu/"
+        description: "Shakespeare performance recordings from MIT."
+        tags: [Movies, Theatre, Free]
+      - title: "TVARK"
+        url: "https://tvark.org/"
+        description: "Commercial and TV promo archive."
+        tags: [TV, Archive, Free]
+      - title: "Daily Commercials"
+        url: "https://dailycommercials.com/"
+        description: "Commercial and TV promo archive."
+        tags: [TV, Archive, Free]
+      - title: "NASA+"
+        url: "https://plus.nasa.gov/"
+        description: "Official NASA streaming service."
+        tags: [Documentary, Science, Free, Legal]
+
+  # ─────────────────────────────────────────────
+  - id: film_archives
+    name: "🏛️ Film Archives"
+    description: "National and international film archives with historical footage"
+    links:
+      - title: "Library of Congress"
+        url: "https://www.loc.gov/film-and-videos/"
+        description: "US Library of Congress movies and short films."
+        tags: [Movies, Archive, Historical, Free]
+      - title: "US National Archives"
+        url: "https://www.youtube.com/@USNationalArchives"
+        description: "US National Archives films on YouTube."
+        tags: [Movies, Archive, Historical, Free]
+      - title: "HuntleyArchives"
+        url: "https://www.huntleyarchives.com/"
+        description: "Rare and forgotten short films."
+        tags: [Movies, Archive, Short-Films, Free]
+      - title: "European Film Gateway"
+        url: "https://www.europeanfilmgateway.eu/"
+        description: "European film archive."
+        tags: [Movies, Archive, European, Free]
+      - title: "Eastern European Movies"
+        url: "https://easterneuropeanmovies.com/"
+        description: "Eastern European film archive."
+        tags: [Movies, Archive, European, Free]
+      - title: "BFI Player Free"
+        url: "https://player.bfi.org.uk/free"
+        description: "British Film Institute free archive. Requires UK VPN."
+        tags: [Movies, Archive, British, Free]
+      - title: "British Pathe"
+        url: "https://www.britishpathe.com/"
+        description: "British video archives."
+        tags: [Movies, Archive, British, Free]
+      - title: "Imperial War Museums"
+        url: "https://www.iwm.org.uk/"
+        description: "British and Commonwealth war footage."
+        tags: [Documentary, Archive, Historical, Free]
+      - title: "Atom Central"
+        url: "https://www.atomcentral.com/"
+        description: "Historical archive of atomic and nuclear tests."
+        tags: [Documentary, Archive, Historical, Free]
+      - title: "NFB Canada"
+        url: "https://www.nfb.ca/"
+        description: "Canadian film archive."
+        tags: [Movies, Archive, Free]
+      - title: "IndianCine"
+        url: "https://indiancine.ma/"
+        description: "Indian film archive."
+        tags: [Movies, Archive, Free]
+      - title: "National Film Archive of Japan"
+        url: "https://meiji.filmarchives.jp/"
+        description: "Japanese film archive."
+        tags: [Movies, Archive, Japanese, Free]
+      - title: "Japanese Animated Film Classics"
+        url: "https://animation.filmarchives.jp/index.html"
+        description: "Japanese animation archive."
+        tags: [Anime, Archive, Japanese, Free]
+      - title: "RussianFilmHub"
+        url: "https://russianfilmhub.com/"
+        description: "Russian films archive."
+        tags: [Movies, Archive, Free]
+      - title: "NFSA Australia"
+        url: "https://www.nfsa.gov.au/"
+        description: "Australian film archive."
+        tags: [Movies, Archive, Free]
+      - title: "NZOnScreen"
+        url: "https://www.nzonscreen.com/"
+        description: "New Zealand audiovisual archive."
+        tags: [Movies, Archive, Free]
+      - title: "Cinematheque Henri"
+        url: "https://www.cinematheque.fr/henri/english/"
+        description: "Rare French film archive."
+        tags: [Movies, Archive, French, Free]
+      - title: "Film Portal Germany"
+        url: "https://www.filmportal.de/en/videos"
+        description: "German video archive."
+        tags: [Movies, Archive, Free]
+      - title: "35mm Polish Archive"
+        url: "https://35mm.online/en"
+        description: "Polish film archive."
+        tags: [Movies, Archive, Free]
+      - title: "TexasArchive"
+        url: "https://texasarchive.org/"
+        description: "Texas film archive."
+        tags: [Movies, Archive, Free]
+      - title: "Chicago Film Archives"
+        url: "https://www.chicagofilmarchives.org/"
+        description: "Chicago film archive."
+        tags: [Movies, Archive, Free]
+      - title: "The Travel Film Archive"
+        url: "https://travelfilmarchive.com/"
+        description: "Archival travel footage."
+        tags: [Movies, Archive, Travel, Free]
+      - title: "DVidHub"
+        url: "https://www.dvidshub.net/"
+        description: "Military video archive."
+        tags: [Documentary, Archive, Historical, Free]
+      - title: "IFI Archive"
+        url: "https://ifiarchiveplayer.ie/"
+        description: "Irish film archive."
+        tags: [Movies, Archive, Free]
+      - title: "Northern Ireland Screen"
+        url: "https://digitalfilmarchive.net/"
+        description: "Northern Irish film archive."
+        tags: [Movies, Archive, Free]
+      - title: "NLS Scotland"
+        url: "https://movingimage.nls.uk/"
+        description: "Scottish film and video archive."
+        tags: [Movies, Archive, Free]
+      - title: "Cinemata"
+        url: "https://cinemata.org/"
+        description: "Asia-Pacific social films."
+        tags: [Movies, Archive, Asian, Free]
+      - title: "Austrian Film Museum"
+        url: "https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en"
+        description: "Austrian film archive."
+        tags: [Movies, Archive, Free]
+
+  # ═══════════════════════════════════════════════
+  # 📡  LIVE TV & SPORTS
+  # ═══════════════════════════════════════════════
+
+  - id: live_tv
+    name: "📡 Live TV"
+    description: "Free live TV channels from around the world"
+    links:
+      - title: "Sports4Free"
+        url: "http://sports4free.ru/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "NTV"
+        url: "http://ntv.cx/"
+        description: "Live TV and sports aggregator."
+        tags: [Live-TV, Sports, Aggregator, Free]
+      - title: "PlayTorrio IPTV"
+        url: "https://iptv.playtorrio.xyz/"
+        description: "Live TV and sports IPTV player."
+        tags: [Live-TV, Sports, IPTV, Free]
+      - title: "Famelack"
+        url: "https://famelack.com/"
+        description: "Free live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "EasyWebTV"
+        url: "https://zhangboheng.github.io/Easy-Web-TV-M3u8/routes/countries.html"
+        description: "Live TV from many countries via M3U8."
+        tags: [Live-TV, Sports, International, Free]
+      - title: "IPTV Web"
+        url: "https://iptv-web.app/"
+        description: "Live TV IPTV web player."
+        tags: [Live-TV, IPTV, Free]
+      - title: "RgShows Live TV"
+        url: "https://www.rgshows.ru/livetv/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "DaddyLive TV"
+        url: "https://dlhd.link/24-7-channels.php"
+        description: "Live TV and sports channels."
+        tags: [Live-TV, Sports, Free]
+      - title: "TVPass"
+        url: "https://tvpass.org/"
+        description: "Live TV and sports. US only."
+        tags: [Live-TV, Sports, Free, US]
+      - title: "StreamSports99 TV"
+        url: "https://streamsports99.su/live-tv"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "Xumo Play"
+        url: "https://play.xumo.com/networks"
+        description: "Free live TV. US only."
+        tags: [Live-TV, Free, Legal, US]
+      - title: "LiveHDTV"
+        url: "https://www.livehdtv.com/"
+        description: "Live TV streaming."
+        tags: [Live-TV, Free]
+      - title: "SportsBite TV"
+        url: "https://app.moviebite.cc/channels"
+        description: "Live TV and sports channels."
+        tags: [Live-TV, Sports, Free]
+      - title: "TV Freedom"
+        url: "https://tvfreedom.netlify.app/"
+        description: "Free live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "Globe TV"
+        url: "https://globetv.app/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "uFreeTV"
+        url: "https://ufreetv.com/"
+        description: "Free live TV."
+        tags: [Live-TV, Free]
+      - title: "SportOnTV"
+        url: "https://sportontv.biz/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "SportDB TV"
+        url: "https://hoofoot.ru/tv/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "Heartive Live"
+        url: "https://heartiveloves.pages.dev/live/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "CXtv"
+        url: "https://www.cxtvlive.com/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "lmao.love"
+        url: "https://lmao.love/channels/"
+        description: "Live TV and sports channels."
+        tags: [Live-TV, Sports, Free]
+      - title: "Cubik TV"
+        url: "https://cubiktv.com/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "Rive Live"
+        url: "https://rivestream.org/iptv"
+        description: "Live TV and sports on Rive."
+        tags: [Live-TV, Sports, Free]
+      - title: "iShowMovies Live"
+        url: "https://ishowmovies.org/live"
+        description: "Live TV streaming."
+        tags: [Live-TV, Free]
+      - title: "FreeInterTV"
+        url: "http://www.freeintertv.com/"
+        description: "Free international live TV."
+        tags: [Live-TV, International, Free]
+      - title: "Time4TV"
+        url: "https://t4tv.click/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "Global Free TV"
+        url: "https://www.globalfreetv.com/"
+        description: "Global free TV channels."
+        tags: [Live-TV, International, Free]
+      - title: "vipotv"
+        url: "https://vipotv.com/"
+        description: "Live TV and sports."
+        tags: [Live-TV, Sports, Free]
+      - title: "SquidTV"
+        url: "https://www.squidtv.net/"
+        description: "Live TV streaming."
+        tags: [Live-TV, Free]
+      - title: "DistroTV"
+        url: "https://distro.tv/"
+        description: "Free live TV streaming."
+        tags: [Live-TV, Free, Legal]
+      - title: "Puffer"
+        url: "https://puffer.stanford.edu/"
+        description: "San Francisco TV. Sign-up required."
+        tags: [Live-TV, Free]
+      - title: "YTCH"
+        url: "https://ytch.tv/"
+        description: "Random TV-style YouTube channels."
+        tags: [Live-TV, Free]
+      - title: "FreeTVz"
+        url: "https://freetvz.com/"
+        description: "Random TV-style YouTube."
+        tags: [Live-TV, Free]
+      - title: "SHOWROOM"
+        url: "https://showroom-live.com/"
+        description: "Live performance broadcasts."
+        tags: [Live-TV, Music, Free]
+      - title: "KCNA"
+        url: "https://kcnawatch.us/korea-central-tv-livestream"
+        description: "North Korean live TV stream."
+        tags: [Live-TV, Free]
+
+  # ─────────────────────────────────────────────
+  - id: live_sports
+    name: "⚽ Live Sports"
+    description: "Free live sports streaming from all major sports"
+    links:
+      - title: "Streamed"
+        url: "https://streamed.pk/"
+        description: "Sports stream aggregator for all major sports."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "SportyHunter"
+        url: "https://sportyhunter.com/"
+        description: "Community sports aggregator — NFL, NHL, MLB and more."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "WatchSports"
+        url: "https://watchsports.to/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "BINTV"
+        url: "https://bintv.net/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "Watch Footy"
+        url: "https://watchfooty.st/"
+        description: "Football-focused stream aggregator."
+        tags: [Sports, Football, Live, Aggregator, Free]
+      - title: "StreamSports99"
+        url: "https://streamsports99.su"
+        description: "Live sports streams."
+        tags: [Sports, Live, Free]
+      - title: "Sporting77"
+        url: "https://sporting77.ru/"
+        description: "Live sports streams."
+        tags: [Sports, Live, Free]
+      - title: "DaddyLive"
+        url: "https://dlhd.link/"
+        description: "Live TV and sports with many mirrors."
+        tags: [Sports, Live-TV, Free]
+      - title: "PPV.TO"
+        url: "https://ppv.cx"
+        description: "Live pay-per-view events."
+        tags: [Sports, PPV, Live, Free]
+      - title: "SportsBite"
+        url: "https://sportsbite.cv/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "StreamEast"
+        url: "https://streameast.ga/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "LiveTV"
+        url: "https://livetv.sx/enx/"
+        description: "Live sports TV from around the world."
+        tags: [Sports, Live, International, Free]
+      - title: "TimStreams"
+        url: "https://timstreams.lol/"
+        description: "Live events and sports."
+        tags: [Sports, Live, Free]
+      - title: "StreamFree"
+        url: "https://streamfree.app"
+        description: "Free sports streams."
+        tags: [Sports, Live, Free]
+      - title: "Sportsurge"
+        url: "https://v2.sportsurge.net/home5/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "SportDB"
+        url: "https://hoofoot.ru/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "TotalSportek"
+        url: "https://totalsportek.es/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "CrackStreams24"
+        url: "http://crackstreams24.cfd/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "FootStreams"
+        url: "https://footstreams.xyz/"
+        description: "Football stream aggregator."
+        tags: [Sports, Football, Live, Aggregator, Free]
+      - title: "Sportive"
+        url: "https://sportive.pages.dev/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "FSL"
+        url: "https://freestreams-live1a.pk/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "Footfy"
+        url: "https://footfy.net/"
+        description: "Football stream aggregator."
+        tags: [Sports, Football, Live, Aggregator, Free]
+      - title: "DaddyLive.cv"
+        url: "https://daddylive.cv/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "StreamCorner"
+        url: "https://streamcorner.info/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "GamesCentral"
+        url: "https://www.gamescentral.top/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "CosecTV"
+        url: "https://cosectv.com/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "CricHD"
+        url: "https://crichd.at/"
+        description: "Live cricket and sports."
+        tags: [Sports, Cricket, Live, Free]
+      - title: "l1l1"
+        url: "https://l1l1.link/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "MrGamingStreams"
+        url: "http://mrgamingstreams.org/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "Sports Plus"
+        url: "https://en12.sportplus.live/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "CrackStreams.blog"
+        url: "https://crackstreams.blog/"
+        description: "Sports stream aggregator."
+        tags: [Sports, Live, Aggregator, Free]
+      - title: "VIP Box Sports"
+        url: "https://www.viprow.co/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "720pStream"
+        url: "https://720pstream.lc/"
+        description: "Live sports at 720p."
+        tags: [Sports, Live, 720p, Free]
+      - title: "BuffStream"
+        url: "https://app.buffstream.io/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "Glisco"
+        url: "https://www.glisco.link/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "SharkStreams"
+        url: "https://sharkstreams.net/"
+        description: "Live sports streaming."
+        tags: [Sports, Live, Free]
+      - title: "MyFootball"
+        url: "https://myfootball.pw/"
+        description: "Football streaming."
+        tags: [Sports, Football, Live, Free]
+      - title: "LSBC"
+        url: "https://lsbc.cx/"
+        description: "Live football streaming."
+        tags: [Sports, Football, Live, Free]
+      - title: "Trendgola"
+        url: "https://trendgola.org/"
+        description: "Football streaming."
+        tags: [Sports, Football, Live, Free]
+      - title: "KilatLIVE"
+        url: "https://kilatlive.net/"
+        description: "Football streaming."
+        tags: [Sports, Football, Live, Free]
+      - title: "TFLIX Sports"
+        url: "https://tv.tflix.app/"
+        description: "Sports channels."
+        tags: [Sports, Live, Free]
+      - title: "NBAMonster"
+        url: "https://nbamonster.com/"
+        description: "Basketball streaming aggregator."
+        tags: [Sports, Basketball, Live, Aggregator, Free]
+      - title: "YoSinTV"
+        url: "https://www.yosintv.link/"
+        description: "Cricket and football live streams."
+        tags: [Sports, Cricket, Football, Live, Free]
+      - title: "WicketGoal"
+        url: "https://live.wicketgoal.com/"
+        description: "Live cricket and football."
+        tags: [Sports, Cricket, Football, Live, Free]
+      - title: "WebCric"
+        url: "https://me.webcric.com/"
+        description: "Live cricket streaming."
+        tags: [Sports, Cricket, Live, Free]
+      - title: "OnHockey"
+        url: "https://onhockey.tv/"
+        description: "Hockey streaming aggregator."
+        tags: [Sports, Hockey, Live, Aggregator, Free]
+      - title: "OvertakeFans"
+        url: "https://overtakefans.com/"
+        description: "Motorsports live streams."
+        tags: [Sports, Motorsport, Live, Free]
+      - title: "Aceztrims"
+        url: "https://acestrlms.pages.dev/"
+        description: "Motorsports streaming."
+        tags: [Sports, Motorsport, Live, Free]
+      - title: "Pitsport"
+        url: "https://pitsport.xyz/"
+        description: "Motorsports live streams."
+        tags: [Sports, Motorsport, Live, Free]
+      - title: "DD12"
+        url: "https://dd12streams.com/"
+        description: "Motorsports streaming."
+        tags: [Sports, Motorsport, Live, Free]
+      - title: "NontonGP"
+        url: "https://esp32.nontonx.com/"
+        description: "Motorcycle racing live streams."
+        tags: [Sports, Motorsport, Live, Free]
+      - title: "Tiz-Cycling"
+        url: "https://tiz-cycling.tv/"
+        description: "Live cycling streams."
+        tags: [Sports, Cycling, Live, Free]
+      - title: "Formula Timer"
+        url: "https://formula-timer.com/livetiming"
+        description: "F1 live stats dashboard."
+        tags: [Sports, F1, Live, Stats, Free]
+      - title: "F1 Dash"
+        url: "https://f1-dash.com/"
+        description: "F1 live timing dashboard."
+        tags: [Sports, F1, Live, Stats, Free]
+
+  # ─────────────────────────────────────────────
+  - id: sports_replays
+    name: "🏆 Sports Replays"
+    description: "Watch full replays of past sports events"
+    links:
+      - title: "720pier"
+        url: "https://720pier.ru/"
+        description: "Sports replays and torrents."
+        tags: [Sports, Replays, Free]
+      - title: "Basketball Video"
+        url: "https://basketball-video.com/"
+        description: "Basketball game replays."
+        tags: [Basketball, Replays, Free]
+      - title: "Footballia"
+        url: "https://footballia.net/"
+        description: "Classic football match replays."
+        tags: [Football, Replays, Free]
+      - title: "Watch-Wrestling"
+        url: "https://watch-wrestling.eu/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "1Max"
+        url: "https://1max.top/"
+        description: "MMA, wrestling and boxing replays."
+        tags: [MMA, Wrestling, Boxing, Replays, Free]
+      - title: "RealFights"
+        url: "https://realfight.org/"
+        description: "MMA, wrestling and boxing replays."
+        tags: [MMA, Wrestling, Boxing, Replays, Free]
+      - title: "Nascar Classics"
+        url: "https://classics.nascar.com/"
+        description: "Official Nascar classic race replays."
+        tags: [Nascar, Replays, Official, Free]
+      - title: "FullRaces"
+        url: "https://fullraces.com/"
+        description: "Motorsport race replays."
+        tags: [Motorsport, Replays, Free]
+      - title: "NFL Video"
+        url: "https://nfl-video.com/"
+        description: "American football replays."
+        tags: [NFL, Football, Replays, Free]
+      - title: "NFL Replays"
+        url: "https://nfl-replays.com/"
+        description: "American football replays."
+        tags: [NFL, Football, Replays, Free]
+      - title: "BasketballReplays"
+        url: "https://basketballreplays.net/"
+        description: "Basketball game replays."
+        tags: [Basketball, Replays, Free]
+      - title: "MLBLive"
+        url: "https://mlblive.net/"
+        description: "Baseball game replays."
+        tags: [Baseball, Replays, Free]
+      - title: "FootballOrigin"
+        url: "https://www.footballorgin.com/"
+        description: "Football match replays."
+        tags: [Football, Replays, Free]
+      - title: "FullMatchShows"
+        url: "https://fullmatchshows.com"
+        description: "Football match replays."
+        tags: [Football, Replays, Free]
+      - title: "SoccerFull"
+        url: "https://soccerfull.net/"
+        description: "Football match replays."
+        tags: [Football, Replays, Free]
+      - title: "HooFoot"
+        url: "https://hoofoot.com/"
+        description: "Spoiler-free football highlights."
+        tags: [Football, Highlights, Free]
+      - title: "Time Soccer TV"
+        url: "https://timesoccertv.com/"
+        description: "Football match replays."
+        tags: [Football, Replays, Free]
+      - title: "r/footballhighlights"
+        url: "https://www.reddit.com/r/footballhighlights/"
+        description: "Football replays and highlights on Reddit."
+        tags: [Football, Highlights, Replays, Free]
+      - title: "WatchProWrestling"
+        url: "https://watchprowrestlings.live/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "WatchWrestling"
+        url: "https://watchwrestling.ae/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "WatchWrestling.st"
+        url: "https://watchwrestling.st/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "PWrestling"
+        url: "https://pwrestling.com/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "AllWrestling24"
+        url: "https://allwrestling24.com/"
+        description: "MMA and wrestling replays."
+        tags: [MMA, Wrestling, Replays, Free]
+      - title: "123Wrestling"
+        url: "https://123wrestling.com/"
+        description: "Wrestling replays."
+        tags: [Wrestling, Replays, Free]
+      - title: "AllTheBestFights"
+        url: "https://www.allthebestfights.com/"
+        description: "MMA, boxing and kickboxing replays."
+        tags: [MMA, Boxing, Kickboxing, Replays, Free]
+      - title: "OvertakeFans Replays"
+        url: "https://overtakefans.com/"
+        description: "Motorsports replays."
+        tags: [Motorsport, Replays, Free]
+      - title: "r/MotorsportsReplays"
+        url: "https://reddit.com/r/MotorsportsReplays"
+        description: "Motorsports replays on Reddit."
+        tags: [Motorsport, Replays, Free]
+      - title: "F1 Full Races"
+        url: "https://f1fullraces.com/"
+        description: "Full F1 race replays."
+        tags: [F1, Motorsport, Replays, Free]
+      - title: "NontonGP Replay"
+        url: "https://replay.nontonx.com/"
+        description: "Motorcycle racing replays."
+        tags: [Motorsport, Replays, Free]
+      - title: "Rugby24"
+        url: "https://rugby24.net/"
+        description: "Rugby match replays."
+        tags: [Rugby, Replays, Free]
+      - title: "RuTracker Sports"
+        url: "https://rutracker.org/forum/index.php?c=28"
+        description: "Sports replays via torrents."
+        tags: [Sports, Replays, Torrent, Free]
+      - title: "Classic Sports Fanatic"
+        url: "https://www.youtube.com/@classicsportsfanatic7183/playlists"
+        description: "Full classic sports replays on YouTube."
+        tags: [Sports, Replays, Classic, Free]
+
+  # ═══════════════════════════════════════════════
+  # 🧲  TORRENTS & DOWNLOADS
+  # ═══════════════════════════════════════════════
+
+  - id: torrent_streaming
+    name: "🧲 Torrent Streaming"
+    description: "Stream content directly via torrents"
+    links:
+      - title: "Stremio"
+        url: "https://www.stremio.com/"
+        description: "Best torrent streaming app with addon support."
+        tags: [Movies, Series, Anime, Torrent, Streaming]
+      - title: "PlayTorrio"
+        url: "https://playtorrio.xyz/"
+        description: "Torrent streaming app with Stremio addon support."
+        tags: [Movies, Series, Anime, Torrent, Streaming]
+      - title: "Powder"
+        url: "https://powder.media/"
+        description: "Torrent streaming app."
+        tags: [Movies, Series, Torrent, Streaming]
+      - title: "Ace Stream"
+        url: "https://acestream.org/"
+        description: "Torrent streaming app with live channels."
+        tags: [Movies, Series, Live-TV, Torrent, Streaming]
+      - title: "WebTorrent"
+        url: "https://webtorrent.io/"
+        description: "Torrent streaming app."
+        tags: [Movies, Series, Torrent, Streaming]
+      - title: "WizTorrent"
+        url: "https://wiztorrent.com/"
+        description: "Torrent streaming app."
+        tags: [Movies, Series, Torrent, Streaming]
+      - title: "rqbit"
+        url: "https://github.com/ikatson/rqbit/"
+        description: "Torrent streaming client with UPnP integration."
+        tags: [Movies, Series, Torrent, Streaming]
+      - title: "Instant.io"
+        url: "https://instant.io/"
+        description: "Stream torrents in browser."
+        tags: [Movies, Series, Torrent, Browser, Free]
+      - title: "BTorrent"
+        url: "https://btorrent.xyz/"
+        description: "Stream torrents in browser."
+        tags: [Movies, Series, Torrent, Browser, Free]
+      - title: "Hayase"
+        url: "https://hayase.watch/"
+        description: "Anime torrent streaming app."
+        tags: [Anime, Torrent, Streaming]
+      - title: "Seanime"
+        url: "https://seanime.app/"
+        description: "Anime torrent streaming desktop app."
+        tags: [Anime, Torrent, Streaming, Desktop]
+      - title: "Prowlarr"
+        url: "https://github.com/Prowlarr/Prowlarr"
+        description: "Indexer manager for auto-downloading torrents."
+        tags: [Torrent, Automation, Tool]
+      - title: "Radarr"
+        url: "https://radarr.video/"
+        description: "Auto-download movie torrents."
+        tags: [Movies, Torrent, Automation, Tool]
+      - title: "Sonarr"
+        url: "https://sonarr.tv/"
+        description: "Auto-download TV show torrents."
+        tags: [Series, Torrent, Automation, Tool]
+
+  # ─────────────────────────────────────────────
+  - id: torrent_sites
+    name: "📥 Torrent Sites"
+    description: "Torrent sites for movies, TV and anime"
+    links:
+      - title: "1337x Movies"
+        url: "https://1337x.to/movie-library/1/"
+        description: "Movies, TV, Anime torrents."
+        tags: [Movies, Series, Anime, Torrent, Free]
+      - title: "RuTracker Movies"
+        url: "https://rutracker.org/forum/index.php?c=2"
+        description: "Movies, TV, Anime torrents."
+        tags: [Movies, Series, Anime, Torrent, Free]
+      - title: "ExT"
+        url: "https://ext.to/"
+        description: "Movie and TV torrent site."
+        tags: [Movies, Series, Torrent, Free]
+      - title: "Kinozal"
+        url: "https://kinozal.tv/"
+        description: "Movies, TV, 4K torrents. Requires sign-up."
+        tags: [Movies, Series, 4K, Torrent, Free]
+      - title: "EZTV"
+        url: "https://eztvx.to/"
+        description: "TV and Anime torrents."
+        tags: [Series, Anime, Torrent, Free]
+      - title: "Heartive Torrents"
+        url: "https://heartiveloves.pages.dev/"
+        description: "Movies, TV, Anime magnets."
+        tags: [Movies, Series, Anime, Torrent, Free]
+      - title: "YTS"
+        url: "https://yts.bz/"
+        description: "Compact movie torrents."
+        tags: [Movies, Torrent, Free]
+      - title: "YifyMovies"
+        url: "https://yifymovies.xyz/"
+        description: "Movie torrents."
+        tags: [Movies, Torrent, Free]
+      - title: "TPB Movies"
+        url: "https://thepiratebay.org/search.php?q=top100:200"
+        description: "Movies and TV torrents. Avoid software/games."
+        tags: [Movies, Series, Torrent, Free]
+      - title: "LimeTorrents"
+        url: "https://www.limetorrents.lol/"
+        description: "Movies and TV torrents."
+        tags: [Movies, Series, Torrent, Free]
+      - title: "Youplex Torrents"
+        url: "https://torrents.youplex.site/"
+        description: "Movies, TV, Anime, 4K torrents."
+        tags: [Movies, Series, Anime, 4K, Torrent, Free]
+      - title: "MSearch"
+        url: "https://msearch.vercel.app/"
+        description: "Movies and TV torrent search."
+        tags: [Movies, Series, Torrent, Free]
+      - title: "Public Domain Torrents"
+        url: "https://www.publicdomaintorrents.info/"
+        description: "Public domain movie torrents."
+        tags: [Movies, Classic, Torrent, Free]
+      - title: "Nyaa"
+        url: "https://nyaa.si/"
+        description: "Largest anime torrent site."
+        tags: [Anime, Torrent, Free]
+      - title: "AnimeTosho"
+        url: "https://animetosho.org/"
+        description: "Anime torrents, sub and dub."
+        tags: [Anime, Torrent, Free]
+      - title: "TokyoTosho"
+        url: "https://www.tokyotosho.info/"
+        description: "Anime torrent site."
+        tags: [Anime, Torrent, Free]
+      - title: "ShanaProject"
+        url: "https://www.shanaproject.com/"
+        description: "Anime torrent site."
+        tags: [Anime, Torrent, Free]
+      - title: "nekoBT"
+        url: "https://nekobt.to/"
+        description: "Anime torrents, sub and dub."
+        tags: [Anime, Torrent, Free]
+      - title: "bakabt"
+        url: "https://bakabt.me/"
+        description: "Anime torrents, sub and dub."
+        tags: [Anime, Torrent, Free]
+      - title: "JapaneseTorrents"
+        url: "https://japanesetorrents.wordpress.com/"
+        description: "Asian drama torrents."
+        tags: [Drama, Asian, Torrent, Free]
+      - title: "Kontrast"
+        url: "https://kontrast.top/"
+        description: "Movies and TV torrents."
+        tags: [Movies, Series, Torrent, Free]
+
+  # ─────────────────────────────────────────────
+  - id: downloads
+    name: "💾 Download Sites"
+    description: "Direct download sites for movies, TV and anime"
+    links:
+      - title: "VegaMovies"
+        url: "https://vegamovies.gratis/"
+        description: "Movies, TV, Anime downloads including 4K."
+        tags: [Movies, Series, Anime, 4K, Download, Free]
+      - title: "Pahe"
+        url: "https://pahe.ink/"
+        description: "Movies, TV, Anime downloads including 4K. Use ad-bypass script."
+        tags: [Movies, Series, Anime, 4K, Download, Free]
+      - title: "DDLBase"
+        url: "https://ddlbase.com/"
+        description: "Movies in 4K, 3D and remux quality."
+        tags: [Movies, 4K, 3D, Download, Free]
+      - title: "XDMovies"
+        url: "https://xdmovies.site/"
+        description: "Movies, TV, 4K downloads."
+        tags: [Movies, Series, 4K, Download, Free]
+      - title: "MovieParadise"
+        url: "https://movieparadise.org/"
+        description: "Movies and TV downloads."
+        tags: [Movies, Series, Download, Free]
+      - title: "ShowBox Downloads"
+        url: "https://www.showbox.media/"
+        description: "Movies, TV, Anime in 4K. Use throwaway Gmail."
+        tags: [Movies, Series, Anime, 4K, Download, Free]
+      - title: "PSArips"
+        url: "https://psa.wf/"
+        description: "Movies, TV, 4K downloads."
+        tags: [Movies, Series, 4K, Download, Free]
+      - title: "UHDMovies"
+        url: "https://modlist.in/?type=uhdmovies"
+        description: "Movies in 4K."
+        tags: [Movies, 4K, Download, Free]
+      - title: "4KHDHub"
+        url: "https://4khdhub.fans/"
+        description: "Movies and TV in 4K."
+        tags: [Movies, Series, 4K, Download, Free]
+      - title: "Drama Day"
+        url: "https://dramaday.me/"
+        description: "Asian Drama downloads."
+        tags: [Drama, Asian, Download, Free]
+      - title: "MKVDrama"
+        url: "https://mkvdrama.net/"
+        description: "Asian Drama MKV downloads."
+        tags: [Drama, Asian, Download, Free]
+      - title: "Tokyo Insider"
+        url: "https://www.tokyoinsider.com/"
+        description: "Anime sub and dub direct downloads."
+        tags: [Anime, Sub, Dub, Download, Free]
+      - title: "Kayoanime"
+        url: "https://kayoanime.com/"
+        description: "Anime sub and dub downloads. Requires Google account."
+        tags: [Anime, Sub, Dub, Download, Free]
+      - title: "hi10anime"
+        url: "https://hi10anime.com/"
+        description: "Anime sub downloads. Requires sign-up."
+        tags: [Anime, Sub, Download, Free]
+      - title: "MoviesDrive"
+        url: "https://moviesdrive.forum/"
+        description: "Movies, TV, Anime downloads."
+        tags: [Movies, Series, Anime, Download, Free]
+      - title: "KatMovieHD"
+        url: "https://katworld.net/?type=KatmovieHD"
+        description: "Movies, TV, Anime downloads."
+        tags: [Movies, Series, Anime, Download, Free]
+      - title: "VegaMovies / MoviesFlux"
+        url: "https://moviesflix.ad/"
+        description: "Movies, TV, Anime downloads including 4K."
+        tags: [Movies, Series, Anime, 4K, Download, Free]
+      - title: "TFPDL"
+        url: "https://tfpdl.se/category/movies/"
+        description: "Movies, TV, Anime downloads."
+        tags: [Movies, Series, Anime, Download, Free]
+      - title: "OlaMovies"
+        url: "https://new1.olamovies.onl/"
+        description: "Movies, TV, 4K. Requires Google account."
+        tags: [Movies, Series, 4K, Download, Free]
+      - title: "ShareMania"
+        url: "https://sharemania.us/"
+        description: "Movies, TV, 4K downloads."
+        tags: [Movies, Series, 4K, Download, Free]
+      - title: "WorldFree4u"
+        url: "https://worldfree4u.moe/"
+        description: "Movies download."
+        tags: [Movies, Download, Free]
+      - title: "SSR Movies"
+        url: "https://ssrmovies.com/"
+        description: "Movies and TV downloads."
+        tags: [Movies, Series, Download, Free]
+      - title: "FilmFans"
+        url: "https://filmfans.org/"
+        description: "Movies in 4K download."
+        tags: [Movies, 4K, Download, Free]
+      - title: "HDEncode"
+        url: "https://hdencode.org/"
+        description: "Movie and TV DDL forum. Requires debrid."
+        tags: [Movies, Series, Download, Debrid]
+      - title: "RapidMoviez"
+        url: "https://rmz.cr/"
+        description: "Movie and TV DDL forum. Requires debrid."
+        tags: [Movies, Series, Download, Debrid]
+      - title: "ShareSpark"
+        url: "https://ww1.sharespark.cfd/"
+        description: "Movies and TV downloads."
+        tags: [Movies, Series, Download, Free]
+      - title: "ShareBB"
+        url: "https://sharebb.me/"
+        description: "Movies and TV. Sign-up required."
+        tags: [Movies, Series, Download, Free]
+      - title: "FilmVault"
+        url: "https://filmvault.xyz/"
+        description: "Movies and TV downloads."
+        tags: [Movies, Series, Download, Free]
+      - title: "HindMoviez"
+        url: "https://hindmoviez.cafe/"
+        description: "Movies, TV, Anime downloads."
+        tags: [Movies, Series, Anime, Download, Free]
+      - title: "Animetsu"
+        url: "https://animetsu.net/"
+        description: "Anime sub and dub."
+        tags: [Anime, Sub, Dub, Download, Free]
+      - title: "AnimeSalt"
+        url: "https://animesalt.top/"
+        description: "Anime sub and dub downloads."
+        tags: [Anime, Sub, Dub, Download, Free]
+      - title: "anime7.download"
+        url: "https://anime7.download/"
+        description: "Anime sub downloads."
+        tags: [Anime, Sub, Download, Free]
+      - title: "AnimeOut"
+        url: "https://www.animeout.xyz/"
+        description: "Anime sub downloads. Requires sign-up."
+        tags: [Anime, Sub, Download, Free]
+      - title: "AnimeDDL"
+        url: "https://www.animeddl.xyz/"
+        description: "Anime sub and dub downloads."
+        tags: [Anime, Sub, Dub, Download, Free]
+      - title: "Anime2Enjoy"
+        url: "https://www.anime2enjoy.com/"
+        description: "Anime sub downloads."
+        tags: [Anime, Sub, Download, Free]
+      - title: "Chiby"
+        url: "https://www.animechiby.com/"
+        description: "Anime sub downloads."
+        tags: [Anime, Sub, Download, Free]
+      - title: "nKiri"
+        url: "https://nkiri.ink/"
+        description: "Asian Drama at 720p."
+        tags: [Drama, Asian, 720p, Download, Free]
+      - title: "CondensedAudioCatalog"
+        url: "https://condensedaudiocatalog.com/"
+        description: "Asian Drama condensed audio downloads."
+        tags: [Drama, Asian, Download, Free]
+      - title: "RareDoramas"
+        url: "https://www.raredoramas.com/"
+        description: "Rare JDrama at 480p."
+        tags: [Drama, Japanese, 480p, Download, Free]
+
+  # ═══════════════════════════════════════════════
+  # 🗂️  DISCOVERY & TRACKING
+  # ═══════════════════════════════════════════════
+
+  - id: tracking
+    name: "📊 Tracking & Databases"
+    description: "Track your watched content and discover new media"
+    links:
+      - title: "Simkl"
+        url: "https://simkl.com/"
+        description: "Track TV, anime and movies with import tools."
+        tags: [Tracker, Movies, Series, Anime, Database]
+      - title: "Trakt"
+        url: "https://trakt.tv/"
+        description: "Track TV, anime and movies with many integrations."
+        tags: [Tracker, Movies, Series, Anime, Database]
+      - title: "Letterboxd"
+        url: "https://letterboxd.com/"
+        description: "Movie diary and social film tracking."
+        tags: [Tracker, Movies, Database, Social]
+      - title: "ICheckMovies"
+        url: "https://www.icheckmovies.com/"
+        description: "Movie list database and tracking."
+        tags: [Tracker, Movies, Database]
+      - title: "serializd"
+        url: "https://www.serializd.com/"
+        description: "TV and anime tracking."
+        tags: [Tracker, Series, Anime, Database]
+      - title: "IMDb"
+        url: "https://www.imdb.com/"
+        description: "Largest movie and TV database."
+        tags: [Database, Movies, Series, Anime, Ratings]
+      - title: "Rotten Tomatoes"
+        url: "https://www.rottentomatoes.com/"
+        description: "Movie and TV reviews and ratings."
+        tags: [Database, Movies, Series, Ratings]
+      - title: "TMDb"
+        url: "https://www.themoviedb.org/"
+        description: "Community movie and TV database."
+        tags: [Database, Movies, Series, Anime]
+      - title: "Box Office Mojo"
+        url: "https://www.boxofficemojo.com/"
+        description: "Box office earnings database."
+        tags: [Database, Movies, Stats]
+      - title: "Movieo"
+        url: "https://movieo.me/"
+        description: "Movies, TV, Anime database."
+        tags: [Database, Movies, Series, Anime]
+      - title: "AllMovie"
+        url: "https://www.allmovie.com/"
+        description: "Movies, TV, Anime database."
+        tags: [Database, Movies, Series, Anime]
+      - title: "MyAnimeList"
+        url: "https://myanimelist.net/"
+        description: "Largest anime and manga database."
+        tags: [Tracker, Anime, Database, Ratings]
+      - title: "AniList"
+        url: "https://anilist.co/"
+        description: "Anime and manga tracking with modern UI."
+        tags: [Tracker, Anime, Database, Ratings]
+      - title: "Anime-Planet"
+        url: "https://www.anime-planet.com/"
+        description: "Anime tracking and recommendations."
+        tags: [Tracker, Anime, Database]
+      - title: "Kitsu"
+        url: "https://kitsu.io/"
+        description: "Anime tracking platform."
+        tags: [Tracker, Anime, Database]
+      - title: "Kuroiru"
+        url: "https://kuroiru.co/"
+        description: "Anime tracking and multi-site search."
+        tags: [Tracker, Anime, Database]
+      - title: "Anisearch"
+        url: "https://www.anisearch.com/"
+        description: "Anime database."
+        tags: [Database, Anime]
+      - title: "AniDB"
+        url: "https://anidb.net/"
+        description: "Comprehensive anime database."
+        tags: [Database, Anime]
+      - title: "MyDramaList"
+        url: "https://mydramalist.com/"
+        description: "Asian drama tracking database."
+        tags: [Tracker, Drama, Database]
+      - title: "FlickMetrix"
+        url: "https://flickmetrix.com/"
+        description: "Combines IMDb, Rotten Tomatoes and Letterboxd ratings."
+        tags: [Database, Movies, Ratings, Recommendations]
+      - title: "JustWatch"
+        url: "https://www.justwatch.com/us?monetization_types=free"
+        description: "Free streaming content directory."
+        tags: [Database, Movies, Series, Streaming]
+      - title: "What's on Netflix"
+        url: "https://www.whats-on-netflix.com/"
+        description: "Browse Netflix library."
+        tags: [Database, Netflix, Movies, Series]
+      - title: "uNoGS"
+        url: "https://unogs.com/"
+        description: "International Netflix library browser."
+        tags: [Database, Netflix, Movies, Series]
+      - title: "Blu-ray.com"
+        url: "https://www.blu-ray.com/"
+        description: "DVD and Blu-ray database."
+        tags: [Database, Movies, Series]
+      - title: "Taiga"
+        url: "https://taiga.moe/"
+        description: "Desktop anime tracking program."
+        tags: [Tracker, Anime, Desktop]
+      - title: "RatS"
+        url: "https://github.com/StegSchreck/RatS"
+        description: "Transfer ratings between services."
+        tags: [Tracker, Tool]
+
+  # ─────────────────────────────────────────────
+  - id: recommendations
+    name: "💡 Recommendations"
+    description: "Find your next favorite movie, show or anime"
+    links:
+      - title: "They Shoot Pictures"
+        url: "https://www.theyshootpictures.com/"
+        description: "Movie top 1000 list."
+        tags: [Movies, Recommendations, Lists]
+      - title: "TasteDive"
+        url: "https://tastedive.com/"
+        description: "Cross-media recommendations."
+        tags: [Movies, Series, Anime, Recommendations]
+      - title: "Series Graph"
+        url: "https://seriesgraph.com/"
+        description: "TV episode rating graphs."
+        tags: [Series, Ratings, Stats]
+      - title: "Ratings Graph"
+        url: "https://www.ratingraph.com/"
+        description: "Movie and TV rating graphs."
+        tags: [Movies, Series, Ratings, Stats]
+      - title: "TV Charts"
+        url: "https://tvcharts.co/"
+        description: "TV show rating charts."
+        tags: [Series, Ratings, Stats]
+      - title: "Episode Hive"
+        url: "https://episodehive.com/"
+        description: "TV episode rating graphs."
+        tags: [Series, Ratings, Stats]
+      - title: "TheShowGrid"
+        url: "https://theshowgrid.com/"
+        description: "TV show rating grid."
+        tags: [Series, Ratings, Stats]
+      - title: "Cinetrii"
+        url: "https://cinetrii.com/"
+        description: "Discover movies with similar themes."
+        tags: [Movies, Recommendations]
+      - title: "BestSimilar"
+        url: "https://bestsimilar.com/"
+        description: "Movie and TV recommendations."
+        tags: [Movies, Series, Recommendations]
+      - title: "MovieLens"
+        url: "https://movielens.org/"
+        description: "Personalized movie recommendations."
+        tags: [Movies, Recommendations]
+      - title: "Taste.io"
+        url: "https://www.taste.io/"
+        description: "Movie recommendations."
+        tags: [Movies, Recommendations]
+      - title: "couchmoney"
+        url: "https://couchmoney.tv/"
+        description: "Trakt history-based recommendations."
+        tags: [Movies, Series, Recommendations]
+      - title: "RelatedAnime"
+        url: "https://relatedanime.com/"
+        description: "Related anime index."
+        tags: [Anime, Recommendations]
+      - title: "AnimeStats"
+        url: "https://anime-stats.net/"
+        description: "Anime recommendations."
+        tags: [Anime, Recommendations, Stats]
+      - title: "AnimeKarmaList"
+        url: "https://animekarmalist.com/"
+        description: "Anime recommendations."
+        tags: [Anime, Recommendations]
+      - title: "Nothing To Watch"
+        url: "https://nothing-to-watch.port80.ch/"
+        description: "Interactive movie discovery visualization."
+        tags: [Movies, Recommendations, Interactive]
+      - title: "Sight and Sound"
+        url: "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time/"
+        description: "BFI movie top 250 list."
+        tags: [Movies, Recommendations, Lists]
+      - title: "kudos.wiki"
+        url: "https://kudos.wiki/"
+        description: "Wikipedia top 1000 list."
+        tags: [Movies, Recommendations, Lists]
+      - title: "DigitalDreamDoor"
+        url: "https://digitaldreamdoor.com/"
+        description: "Greatest 100 lists across categories."
+        tags: [Movies, Recommendations, Lists]
+      - title: "They Shoot Zombies"
+        url: "https://theyshootzombies.com/"
+        description: "Horror movie top 1000 list."
+        tags: [Movies, Horror, Recommendations, Lists]
+      - title: "TreasureTV"
+        url: "https://www.treasuretv.org/"
+        description: "Curated television list."
+        tags: [Series, Recommendations, Lists]
+      - title: "ReelScary"
+        url: "https://www.reelscary.com/"
+        description: "Scary movie ratings."
+        tags: [Movies, Horror, Ratings]
+      - title: "cringeMDb"
+        url: "https://cringemdb.com/"
+        description: "Find movies safe to watch with parents."
+        tags: [Movies, Recommendations, Family]
+      - title: "CommonSenseMedia"
+        url: "https://www.commonsensemedia.org/"
+        description: "Age-based media reviews."
+        tags: [Movies, Series, Ratings, Family]
+      - title: "Kids in Mind"
+        url: "https://kids-in-mind.com/"
+        description: "Age-based movie reviews."
+        tags: [Movies, Ratings, Family]
+      - title: "AnimeFillerList"
+        url: "https://www.animefillerlist.com/"
+        description: "Anime filler episode guides."
+        tags: [Anime, Guide]
+      - title: "AnimeFillerGuide"
+        url: "https://www.animefillerguide.com/"
+        description: "Anime filler episode guides."
+        tags: [Anime, Guide]
+      - title: "SuggestStream"
+        url: "https://suggestream.com/"
+        description: "Movie and TV recommendations."
+        tags: [Movies, Series, Recommendations]
+      - title: "NextFlick"
+        url: "https://nextflick.tv/"
+        description: "Random movie trailers."
+        tags: [Movies, Trailers, Recommendations]
+      - title: "MRQE"
+        url: "https://www.mrqe.com/"
+        description: "Movie review search engine."
+        tags: [Movies, Reviews]
+      - title: "Phi Phenomenon"
+        url: "https://phi-phenomenon.org/"
+        description: "Multiple top movie lists."
+        tags: [Movies, Recommendations, Lists]
+
+  # ─────────────────────────────────────────────
+  - id: calendar
+    name: "📅 Release Calendars"
+    description: "Track upcoming releases for movies, TV and anime"
+    links:
+      - title: "Your Countdown To"
+        url: "https://yourcountdown.to/"
+        description: "Countdown for movies, TV, anime and video games."
+        tags: [Movies, Series, Anime, Calendar, Upcoming]
+      - title: "Movie Countdown"
+        url: "https://moviescountdown.com/"
+        description: "Countdown for upcoming movies."
+        tags: [Movies, Calendar, Upcoming]
+      - title: "TV Countdown"
+        url: "https://countdown.tv/"
+        description: "Countdown for upcoming TV shows."
+        tags: [Series, Calendar, Upcoming]
+      - title: "Drama Countdown"
+        url: "https://dramacountdown.com/"
+        description: "Countdown for upcoming dramas."
+        tags: [Drama, Calendar, Upcoming]
+      - title: "Releases.com"
+        url: "https://www.releases.com/"
+        description: "DVD, Blu-ray, VOD and streaming release dates."
+        tags: [Movies, Series, Calendar, Releases]
+      - title: "DVDs Release Dates"
+        url: "https://www.dvdsreleasedates.com/"
+        description: "DVD and Blu-ray release dates."
+        tags: [Movies, Calendar, Releases]
+      - title: "TrailerPunk"
+        url: "https://trailerpunk.com/"
+        description: "Newest movie trailers."
+        tags: [Movies, Trailers, Upcoming]
+      - title: "TVMaze"
+        url: "https://www.tvmaze.com/"
+        description: "TV and anime episode schedule."
+        tags: [Series, Anime, Calendar, Schedule]
+      - title: "My Episodes"
+        url: "https://www.myepisodes.com/"
+        description: "TV show episode tracking."
+        tags: [Series, Calendar, Tracker]
+      - title: "Episode Calendar"
+        url: "https://episodecalendar.com/"
+        description: "TV show episode schedule."
+        tags: [Series, Calendar, Schedule]
+      - title: "Next Episode"
+        url: "https://next-episode.net/"
+        description: "TV show next episode schedule."
+        tags: [Series, Calendar, Schedule]
+      - title: "AniChart"
+        url: "https://anichart.net"
+        description: "Seasonal anime release chart."
+        tags: [Anime, Calendar, Upcoming]
+      - title: "AnimeSchedule"
+        url: "https://animeschedule.net/"
+        description: "Anime episode schedule."
+        tags: [Anime, Calendar, Schedule]
+      - title: "AnimeCountdown"
+        url: "https://animecountdown.com/"
+        description: "Countdown for upcoming anime."
+        tags: [Anime, Calendar, Upcoming]
+      - title: "Senpai.moe"
+        url: "https://www.senpai.moe/"
+        description: "Seasonal anime schedule."
+        tags: [Anime, Calendar, Schedule]
+      - title: "LiveChart"
+        url: "https://www.livechart.me/"
+        description: "Anime release chart with detailed info."
+        tags: [Anime, Calendar, Upcoming]
+      - title: "WhenToStream"
+        url: "https://www.whentostream.com/"
+        description: "Streaming release news and updates."
+        tags: [Movies, Series, Calendar, Streaming]
+      - title: "showRSS"
+        url: "https://showrss.info/"
+        description: "RSS feed for TV shows."
+        tags: [Series, Calendar, RSS]
+      - title: "Midloop"
+        url: "https://midloop.net/"
+        description: "Release dates for streaming, VOD, Blu-ray and DVD."
+        tags: [Movies, Series, Calendar, Releases]
+
+  # ─────────────────────────────────────────────
+  - id: subtitles
+    name: "💬 Subtitles"
+    description: "Download, edit and manage subtitles"
+    links:
+      - title: "Open Subtitles"
+        url: "https://opensubtitles.org/"
+        description: "Largest subtitle database in many languages."
+        tags: [Subtitles, Download, Free]
+      - title: "Subscene"
+        url: "https://sub-scene.com/"
+        description: "Large subtitle collection."
+        tags: [Subtitles, Download, Free]
+      - title: "SubDL"
+        url: "https://subdl.com/"
+        description: "Subtitle download site."
+        tags: [Subtitles, Download, Free]
+      - title: "Addic7ed"
+        url: "https://www.addic7ed.com/"
+        description: "TV subtitles updated quickly after airing."
+        tags: [Subtitles, Series, Download, Free]
+      - title: "SubSource"
+        url: "https://subsource.net/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "Freesub"
+        url: "https://freesub.live/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "Subtitle Cat"
+        url: "https://www.subtitlecat.com/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "Podnapisi"
+        url: "https://www.podnapisi.net/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "Subs4Free"
+        url: "https://www.subs4free.info/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "JustSubtitles"
+        url: "https://justsubtitles.com/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "IndexSubtitle"
+        url: "https://indexsubtitle.cc/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "YifySubtitles"
+        url: "https://yifysubtitles.ch/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "YTS Subs"
+        url: "https://yts-subs.com/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "Subtitlist"
+        url: "https://subtitlist.com/"
+        description: "Subtitle downloads."
+        tags: [Subtitles, Download, Free]
+      - title: "TVSubtitles"
+        url: "https://www.tvsubtitles.net/"
+        description: "TV show subtitles."
+        tags: [Subtitles, Series, Download, Free]
+      - title: "kitsunekko"
+        url: "https://kitsunekko.net/"
+        description: "Anime subtitle downloads."
+        tags: [Subtitles, Anime, Download, Free]
+      - title: "DownSub"
+        url: "https://downsub.com/"
+        description: "Download subtitles from video sites."
+        tags: [Subtitles, Download, Free]
+      - title: "SaveSubs"
+        url: "https://www.savesubs.com/"
+        description: "Extract subtitles from online videos."
+        tags: [Subtitles, Download, Free]
+      - title: "Subtitle Edit"
+        url: "https://www.nikse.dk/subtitleedit"
+        description: "Full-featured subtitle editor."
+        tags: [Subtitles, Editor, Tool]
+      - title: "Aegisub"
+        url: "https://github.com/arch1t3cht/Aegisub/releases"
+        description: "Advanced subtitle editor."
+        tags: [Subtitles, Editor, Tool]
+      - title: "Tero Subtitler"
+        url: "https://www.uruworks.net/"
+        description: "Subtitle editor."
+        tags: [Subtitles, Editor, Tool]
+      - title: "Jubler"
+        url: "https://www.jubler.org/"
+        description: "Subtitle editor."
+        tags: [Subtitles, Editor, Tool]
+      - title: "Bazarr"
+        url: "https://www.bazarr.media/"
+        description: "Automatic subtitle search and download."
+        tags: [Subtitles, Automation, Tool]
+      - title: "ffsubsync"
+        url: "https://github.com/smacke/ffsubsync"
+        description: "Automatically sync subtitles to video."
+        tags: [Subtitles, Sync, Tool]
+      - title: "asbplayer"
+        url: "https://killergerbah.github.io/asbplayer/"
+        description: "Subtitle sentence mining tool."
+        tags: [Subtitles, Language-Learning, Tool]
+
+  # ─────────────────────────────────────────────
+  - id: helpful_tools
+    name: "🔧 Media Tools"
+    description: "Useful tools for the media enthusiast"
+    links:
+      - title: "BingeClock"
+        url: "https://www.bingeclock.com/"
+        description: "Calculate how long it takes to watch a series."
+        tags: [Tools, Series, Stats]
+      - title: "Can I Binge?"
+        url: "https://canibinge.com/"
+        description: "TV show length calculator."
+        tags: [Tools, Series, Stats]
+      - title: "tiii.me"
+        url: "https://tiii.me/"
+        description: "TV show length calculator."
+        tags: [Tools, Series, Stats]
+      - title: "WhereYouWatch"
+        url: "https://whereyouwatch.com/latest-reports/"
+        description: "Movie leak notifications."
+        tags: [Tools, Movies, News]
+      - title: "FlickChart"
+        url: "https://www.flickchart.com/"
+        description: "Rank your movies."
+        tags: [Tools, Movies, Rankings]
+      - title: "Find Movie"
+        url: "https://find-movie.info/"
+        description: "Movie quote database."
+        tags: [Tools, Movies, Search]
+      - title: "QuoDB"
+        url: "https://www.quodb.com/"
+        description: "Movie quote search."
+        tags: [Tools, Movies, Search]
+      - title: "SubsLikeScript"
+        url: "https://subslikescript.com/"
+        description: "Movie and TV scripts and transcripts."
+        tags: [Tools, Movies, Series, Scripts]
+      - title: "IMSDB"
+        url: "https://imsdb.com/"
+        description: "Internet movie script database."
+        tags: [Tools, Movies, Scripts]
+      - title: "DailyScript"
+        url: "https://www.dailyscript.com/"
+        description: "Movie and TV scripts."
+        tags: [Tools, Movies, Scripts]
+      - title: "SimplyScripts"
+        url: "https://www.simplyscripts.com/"
+        description: "Movie and TV scripts."
+        tags: [Tools, Movies, Scripts]
+      - title: "Forever Dreaming"
+        url: "https://transcripts.foreverdreaming.org/"
+        description: "Media transcripts."
+        tags: [Tools, Movies, Series, Transcripts]
+      - title: "Caps-A-Holic"
+        url: "https://caps-a-holic.com/"
+        description: "Compare movie release quality."
+        tags: [Tools, Movies, Quality]
+      - title: "RunPee"
+        url: "https://runpee.com/"
+        description: "Best bathroom break times in movies."
+        tags: [Tools, Movies]
+      - title: "MoviePooper"
+        url: "https://moviepooper.com/"
+        description: "Movie spoilers and endings explained."
+        tags: [Tools, Movies, Spoilers]
+      - title: "themoviespoiler"
+        url: "https://themoviespoiler.com/"
+        description: "Movie spoilers."
+        tags: [Tools, Movies, Spoilers]
+      - title: "DoesTheDogDie"
+        url: "https://www.doesthedogdie.com/"
+        description: "Movie and show content warnings."
+        tags: [Tools, Movies, Series]
+      - title: "Behind the Voice Actors"
+        url: "https://www.behindthevoiceactors.com/"
+        description: "Voice actors database."
+        tags: [Database, Anime, Movies, Series]
+      - title: "Movie-Censorship"
+        url: "https://www.movie-censorship.com/"
+        description: "Compare alternate versions of media."
+        tags: [Tools, Movies, Database]
+      - title: "ShotOnWhat?"
+        url: "https://shotonwhat.com/"
+        description: "Film technical info and equipment database."
+        tags: [Database, Movies, Technical]
+      - title: "IMFDB"
+        url: "https://www.imfdb.org/"
+        description: "Movie firearms database."
+        tags: [Database, Movies]
+      - title: "Internet Movie Cars Database"
+        url: "https://www.imcdb.org/"
+        description: "Movie vehicle database."
+        tags: [Database, Movies]
+      - title: "WheresTheJump"
+        url: "https://wheresthejump.com/"
+        description: "Find movie jump scares."
+        tags: [Tools, Movies, Horror]
+      - title: "WhenJumpScare"
+        url: "https://www.whenjumpscare.com/"
+        description: "Movie jump scare timestamps."
+        tags: [Tools, Movies, Horror]
+      - title: "WhatsatMovie"
+        url: "https://whatsatmovie.com/"
+        description: "Find movies by description."
+        tags: [Tools, Movies, Search]
+      - title: "What is My Movie?"
+        url: "https://www.whatismymovie.com/"
+        description: "Find movies via description using AI."
+        tags: [Tools, Movies, Search]
+      - title: "Anime Skip"
+        url: "https://anime-skip.com/"
+        description: "Auto-skip anime intros."
+        tags: [Tools, Anime]
+      - title: "trace.moe"
+        url: "https://trace.moe/"
+        description: "Anime scene reverse image search."
+        tags: [Tools, Anime, Search]
+      - title: "watch_order"
+        url: "https://www.reddit.com/r/anime/wiki/watch_order"
+        description: "Anime watch order guides."
+        tags: [Tools, Anime, Guide]
+      - title: "Chiaki"
+        url: "https://chiaki.site/"
+        description: "Anime watch order guides."
+        tags: [Tools, Anime, Guide]
+      - title: "Movie-Locations"
+        url: "https://www.movie-locations.com/"
+        description: "Film location maps."
+        tags: [Database, Movies, Locations]
+      - title: "MovieLoci"
+        url: "https://www.movieloci.com/"
+        description: "Film location maps."
+        tags: [Database, Movies, Locations]
+      - title: "DramaWiki"
+        url: "https://wiki.d-addicts.com/"
+        description: "Asian drama wiki."
+        tags: [Database, Drama, Wiki]
+      - title: "HanCinema"
+        url: "https://www.hancinema.net/"
+        description: "Korean drama and movie database."
+        tags: [Database, Drama, Korean]
+      - title: "SeaDex"
+        url: "https://releases.moe/"
+        description: "Anime video quality guides."
+        tags: [Tools, Anime, Quality, Guide]
+      - title: "unconsenting media"
+        url: "https://www.unconsentingmedia.org"
+        description: "Database of sexual violence in movies and shows."
+        tags: [Database, Movies, Series, CW]
+      - title: "Bechdel Test"
+        url: "https://bechdeltest.com/"
+        description: "Movie Bechdel test check."
+        tags: [Database, Movies]
+      - title: "MovieSync"
+        url: "https://movie-sync-app.web.app/"
+        description: "Movie recommendations."
+        tags: [Tools, Movies, Recommendations]
+      - title: "Wyzie Subs"
+        url: "https://sub.wyzie.ru/"
+        description: "Subtitle scraping API."
+        tags: [Subtitles, API, Tool]
+      - title: "ACDB"
+        url: "https://www.animecharactersdatabase.com/"
+        description: "Anime character database."
+        tags: [Database, Anime]
+      - title: "DMT"
+        url: "https://dmtalkies.com/"
+        description: "Movie and TV ending explanations and recaps."
+        tags: [Tools, Movies, Series]
+      - title: "Age Rating JuJu"
+        url: "https://www.ageratingjuju.com/"
+        description: "Media age ratings."
+        tags: [Database, Movies, Series, Ratings]
+      - title: "CageMatch"
+        url: "https://www.cagematch.net/"
+        description: "Wrestling promotion database."
+        tags: [Database, Sports, Wrestling]
+      - title: "IMAX Guide"
+        url: "https://143190.xyz/"
+        description: "Database of IMAX theatres worldwide."
+        tags: [Database, Movies]
+
+  # ═══════════════════════════════════════════════
+  # 🎮  GAMES
+  # ═══════════════════════════════════════════════
+
   - id: Games
     name: "🎮 Games"
     description: "Game resources, tools and fun"
@@ -419,7 +3084,10 @@ topics:
         tags: [extension, tools, enhancement]
         game: Roblox
 
-  # ─────────────────────────────────────────────
+  # ═══════════════════════════════════════════════
+  # 📚  LERNEN & TOOLS
+  # ═══════════════════════════════════════════════
+
   - id: school
     name: "📚 Schule & Lernen"
     description: "Tools and resources for studying"
