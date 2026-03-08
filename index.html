@@ -120,48 +120,7 @@
                     <div id="gamesList" class="flex flex-col gap-1"></div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-                <button class="w-full flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition" onclick="toggleSettings()">
-                    <span>⚙️</span><span id="settingsBtnText">Settings</span>
-                </button>
-            </div>
         </aside>
-
-        <!-- SETTINGS MODAL -->
-        <div id="settingsModal" style="display:none;" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-sm w-full mx-4">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 id="settingsTitle" class="text-2xl font-bold">Settings</h2>
-                    <button onclick="toggleSettings()" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-2xl">×</button>
-                </div>
-                <div class="mb-6">
-                    <label class="flex items-center gap-3 cursor-pointer">
-                        <input type="checkbox" id="darkModeToggle" class="w-5 h-5 rounded" onchange="toggleDarkMode()">
-                        <span id="darkModeLabel">Dark Mode</span>
-                    </label>
-                </div>
-                <div class="mb-6">
-                    <label id="languageLabel" class="block text-sm font-semibold mb-2">Language</label>
-                    <select id="settingsLanguageSelect" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="changeLanguage(this.value)">
-                        <option value="en">English</option>
-                        <option value="de">Deutsch</option>
-                    </select>
-                </div>
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        <strong>Everything you need</strong><br>All links in one place<br>
-                        <span id="versionText">Version 1.0</span>
-                    </p>
-                </div>
-                <div class="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
-                    <p id="creditsTitle" class="text-sm font-semibold mb-2">Credits</p>
-                    <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                        <strong>Built with:</strong> HTML5 · Tailwind CSS · JavaScript · YAML<br>
-                        <strong>Icons:</strong> Emoji &nbsp; <strong>Year:</strong> 2026
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <!-- MAIN CONTENT -->
         <main class="flex-1 p-4 sm:p-8 flex flex-col landing-container overflow-y-auto" style="width:100%;">
@@ -254,7 +213,7 @@
         <div style="display:flex; flex-direction:column; gap:0.3rem; flex:1; min-width:130px;">
             <span style="font-weight:700; font-size:1rem; color:rgba(255,255,255,0.85); letter-spacing:0.01em;">Toosi</span>
             <span style="font-size:0.78rem;">© <span id="footer-year"></span> All rights reserved.</span>
-            <span id="footer-version" style="font-size:0.75rem; color:rgba(255,255,255,0.35);">Version 1.0</span>
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.35);">Version 1.0 · HTML · Tailwind · JS · YAML</span>
         </div>
 
         <!-- Center: social links -->
@@ -307,39 +266,6 @@ function showHome() {
 
 // --- Translations ---
 function trans(key) { return allData?.translations?.[currentLanguage]?.[key] || key; }
-
-function toggleSettings() {
-    const m = document.getElementById('settingsModal');
-    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
-}
-
-function toggleDarkMode() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    document.getElementById('darkModeToggle').checked = isDark;
-    localStorage.setItem('darkMode', isDark);
-}
-
-function changeLanguage(lang) {
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    document.getElementById('settingsLanguageSelect').value = lang;
-    [['sidebarTitle','topics'],['gamesCategoryTitle','games'],['landingTitle','everythingYouNeed'],
-     ['landingSubtitle','startBrowsing'],['settingsBtnText','settings'],['settingsTitle','settings'],
-     ['darkModeLabel','darkMode'],['languageLabel','languageLabel'],['versionText','versionText'],
-     ['creditsTitle','creditsTitle'],['featureTitle1','featureTitle1'],['featureDesc1','featureDesc1'],
-     ['featureTitle2','featureTitle2'],['featureDesc2','featureDesc2'],['featureTitle3','featureTitle3'],
-     ['featureDesc3','featureDesc3'],['statTopics','statTopics'],['statLinks','statLinks'],
-     ['statLanguages','statLanguages']
-    ].forEach(([id, key]) => { const el = document.getElementById(id); if(el) el.textContent = trans(key); });
-    document.getElementById('searchInput').placeholder = trans('search');
-    const sel = document.getElementById('topicsDropdown');
-    sel.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
-    allData?.topics?.forEach(t => {
-        const o = document.createElement('option');
-        o.value = t.id; o.textContent = t.name; sel.appendChild(o);
-    });
-    localStorage.setItem('language', lang);
-}
 
 function selectTopic(topicId) {
     if (!topicId) {
@@ -567,13 +493,14 @@ async function loadData() {
         document.getElementById('heroLinksNum').textContent = total;
         document.getElementById('heroTopicsNum').textContent = allData.topics?.length || 0;
 
-        const savedLang = localStorage.getItem('language') || 'en';
-        const savedDark = localStorage.getItem('darkMode') === 'true';
-        if (savedDark) document.documentElement.classList.add('dark');
-        document.getElementById('darkModeToggle').checked = savedDark;
-        changeLanguage(savedLang);
-
-        document.getElementById('settingsModal').addEventListener('click', function(e) { if(e.target===this) toggleSettings(); });
+        const savedLang = 'en';
+        // Populate topics dropdown
+        const sel = document.getElementById('topicsDropdown');
+        sel.innerHTML = `<option value="">Select a topic...</option>`;
+        allData?.topics?.forEach(t => {
+            const o = document.createElement('option');
+            o.value = t.id; o.textContent = t.name; sel.appendChild(o);
+        });
 
         // Handle URL params – go straight to app if ?screen=app
         const params = new URLSearchParams(window.location.search);
