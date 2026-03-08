@@ -73,18 +73,20 @@
             <span class="hidden sm:inline">Home</span>
         </button>
 
-        <!-- Universal search bar -->
-        <div class="flex-1 flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2" style="max-width:600px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="text-gray-400 flex-shrink-0">
-                <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
-            </svg>
-            <input id="searchInput" placeholder="Search all links..." oninput="filterLinks()"
-                class="bg-transparent outline-none w-full text-sm dark:text-white text-gray-800 placeholder-gray-400">
-            <button onclick="clearSearch()" id="searchClearBtn" style="display:none;" class="text-gray-400 hover:text-gray-600 dark:hover:text-white flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        <!-- Universal search bar — centered -->
+        <div class="flex-1 flex justify-center">
+            <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 w-full" style="max-width:500px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="text-gray-400 flex-shrink-0">
+                    <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
                 </svg>
-            </button>
+                <input id="searchInput" placeholder="Search all topics..." oninput="filterLinks()"
+                    class="bg-transparent outline-none w-full text-sm dark:text-white text-gray-800 placeholder-gray-400">
+                <button onclick="clearSearch()" id="searchClearBtn" style="display:none;" class="text-gray-400 hover:text-gray-600 dark:hover:text-white flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <!-- Hamburger (mobile only) -->
@@ -404,31 +406,80 @@ function setPriceFilter(type) {
 }
 
 function filterLinks() {
-    // If no topic selected yet and user types, auto-select first topic
-    if (!currentTopicId && allData?.topics?.length) {
-        selectTopic(allData.topics[0].id);
-        return;
-    }
-    const current = allData?.topics?.find(t => t.id === currentTopicId);
-    if (!current) return;
-    let links = current.links || [];
     const rawSearch = document.getElementById('searchInput').value.trim();
     const search = rawSearch.toLowerCase();
-    // show/hide the X clear button
     document.getElementById('searchClearBtn').style.display = rawSearch ? 'block' : 'none';
-    if (search) {
-        const terms = search.split(/\s+/).filter(Boolean);
+
+    // If no search term, show current topic normally
+    if (!search) {
+        const current = allData?.topics?.find(t => t.id === currentTopicId);
+        if (!current) return;
+        let links = current.links || [];
+        if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
+        if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
+        if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
+        document.getElementById('resultsCount').textContent = `${links.length} result${links.length !== 1 ? 's' : ''}`;
+        renderLinks(links, rawSearch);
+        return;
+    }
+
+    // Global search across ALL topics
+    const terms = search.split(/\s+/).filter(Boolean);
+    let totalCount = 0;
+    const ll = document.getElementById('linksList');
+    ll.innerHTML = '';
+
+    // Make sure topic content area is visible
+    document.getElementById('topicContent').style.display = 'block';
+    document.getElementById('landingPage').style.display = 'none';
+    document.getElementById('topicTitle').textContent = `Search: "${rawSearch}"`;
+
+    allData.topics.forEach(topic => {
+        let links = topic.links || [];
         links = links.filter(l => {
-            const hay = [l.title,l.description,l.url,(l.tags||[]).join(' '),l.game||''].join(' ').toLowerCase();
+            const hay = [l.title, l.description, l.url, (l.tags||[]).join(' '), l.game||''].join(' ').toLowerCase();
             return terms.every(t => hay.includes(t));
         });
-    }
-    if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
-    if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
-    if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
-    document.getElementById('resultsCount').textContent = links.length
-        ? `${links.length} result${links.length > 1 ? 's' : ''}` : trans('noResults');
-    renderLinks(links, rawSearch);
+        if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
+        if (!links.length) return;
+
+        totalCount += links.length;
+
+        // Topic heading
+        const heading = document.createElement('div');
+        heading.style.cssText = 'margin: 1.5rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.1);';
+        heading.innerHTML = `<span style="font-size:1rem;font-weight:700;opacity:0.85;">${topic.name}</span> <span style="font-size:0.8rem;opacity:0.45;">${links.length} result${links.length !== 1 ? 's' : ''}</span>`;
+        ll.appendChild(heading);
+
+        // Cards row
+        const grid = document.createElement('div');
+        grid.className = 'grid grid-cols-1 md:grid-cols-3 gap-4';
+        links.forEach(link => {
+            const div = document.createElement('div');
+            div.className = 'link-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
+            const header = document.createElement('div');
+            header.className = 'flex items-start justify-between gap-2 mb-1';
+            const h3 = document.createElement('h3');
+            h3.className = 'font-semibold text-lg leading-tight';
+            h3.innerHTML = highlight(link.title||'', rawSearch);
+            const badge = document.createElement('div');
+            badge.innerHTML = getPriceBadge(link.tags);
+            header.appendChild(h3); header.appendChild(badge);
+            const a = document.createElement('a'); a.href = link.url; a.target = '_blank';
+            a.className = 'text-blue-500 text-sm break-all';
+            a.innerHTML = highlight(link.url||'', rawSearch);
+            const p = document.createElement('p');
+            p.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
+            p.innerHTML = highlight(link.description||'', rawSearch);
+            div.appendChild(header); div.appendChild(a); div.appendChild(p);
+            grid.appendChild(div);
+        });
+        ll.appendChild(grid);
+    });
+
+    document.getElementById('resultsCount').textContent = totalCount
+        ? `${totalCount} result${totalCount !== 1 ? 's' : ''} across all topics`
+        : trans('noResults');
 }
 
 function highlight(text, raw) {
@@ -496,7 +547,12 @@ function renderLinks(links, rawSearch) {
 function clearSearch() {
     document.getElementById('searchInput').value = '';
     document.getElementById('searchClearBtn').style.display = 'none';
-    filterLinks();
+    // Restore topic title if a topic is selected
+    if (currentTopicId) {
+        const current = allData?.topics?.find(t => t.id === currentTopicId);
+        if (current) document.getElementById('topicTitle').textContent = current.name;
+        filterLinks();
+    }
 }
 
 async function loadData() {
