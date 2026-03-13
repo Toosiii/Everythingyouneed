@@ -20,6 +20,6 @@ I am **not** the creator, owner, or operator of any of the websites listed here.
 
 Know a site that should be on here? Just send it my way and I'll add it so everyone can find it too.
 
-You can reach me at: **everythingyouneed@gmail.com**
+You can reach me at: **eynscaif@gmail.com**
 
 Or drop it in the issues tab above – whatever works for you.
