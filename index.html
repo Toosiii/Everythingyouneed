@@ -247,6 +247,66 @@
 </script>
 
 <!-- ============================================================ -->
+<!--  LINK DETAIL MODAL                                           -->
+<!-- ============================================================ -->
+<div id="linkModal" onclick="if(event.target===this)closeLinkModal()" style="
+    display:none; position:fixed; inset:0; z-index:100;
+    background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    align-items:center; justify-content:center; padding:1rem;
+">
+    <div style="
+        background:#1e1e2e; border:1px solid rgba(255,255,255,0.1);
+        border-radius:1.25rem; width:100%; max-width:480px;
+        padding:1.75rem; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5);
+        animation: modalIn 0.2s ease;
+    ">
+        <!-- Close button -->
+        <button onclick="closeLinkModal()" style="
+            position:absolute; top:1rem; right:1rem;
+            background:rgba(255,255,255,0.08); border:none; border-radius:50%;
+            width:32px; height:32px; cursor:pointer; color:rgba(255,255,255,0.7);
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.1rem; transition:background 0.2s;
+        " onmouseover="this.style.background='rgba(255,255,255,0.16)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">✕</button>
+
+        <!-- Favicon + title row -->
+        <div style="display:flex; align-items:center; gap:0.85rem; margin-bottom:1rem;">
+            <img id="modalFavicon" src="" alt="" style="width:40px;height:40px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,0.06);padding:4px;" onerror="this.style.display='none'">
+            <div>
+                <div id="modalTitle" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.3;"></div>
+                <div id="modalBadge" style="margin-top:3px;"></div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <p id="modalDesc" style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.6;margin-bottom:1.25rem;"></p>
+
+        <!-- Tags -->
+        <div id="modalTags" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.4rem;"></div>
+
+        <!-- Visit button -->
+        <a id="modalLink" href="#" target="_blank" style="
+            display:flex; align-items:center; justify-content:center; gap:0.5rem;
+            background:linear-gradient(135deg,#7c3aed,#4f46e5);
+            color:#fff; text-decoration:none; font-weight:600; font-size:0.95rem;
+            padding:0.75rem 1.5rem; border-radius:0.75rem;
+            transition:opacity 0.2s; width:100%; box-sizing:border-box;
+        " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Visit Site
+        </a>
+    </div>
+</div>
+
+<style>
+@keyframes modalIn {
+    from { opacity:0; transform:scale(0.95) translateY(10px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+}
+</style>
+
+<!-- ============================================================ -->
 <!--  JAVASCRIPT                                                  -->
 <!-- ============================================================ -->
 <script>
@@ -435,11 +495,35 @@ function getPriceBadge(tags) {
     return '';
 }
 
+function openLinkModal(link) {
+    const domain = (() => { try { return new URL(link.url).hostname; } catch(e) { return ''; } })();
+    document.getElementById('modalFavicon').src = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    document.getElementById('modalFavicon').style.display = 'block';
+    document.getElementById('modalTitle').textContent = link.title || '';
+    document.getElementById('modalDesc').textContent = link.description || '';
+    document.getElementById('modalLink').href = link.url || '#';
+    document.getElementById('modalBadge').innerHTML = getPriceBadge(link.tags);
+    // Tags
+    const tagsEl = document.getElementById('modalTags');
+    tagsEl.innerHTML = (link.tags || []).map(t => `<span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-size:0.72rem;padding:2px 9px;border-radius:999px;">${t}</span>`).join('');
+    const modal = document.getElementById('linkModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeLinkModal() {
+    document.getElementById('linkModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLinkModal(); });
+
+
 function renderLinks(links, rawSearch) {
     const ll = document.getElementById('linksList'); ll.innerHTML = '';
     links.forEach(link => {
         const div = document.createElement('div');
         div.className = 'link-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
+        div.style.cursor = 'pointer';
+        div.onclick = () => openLinkModal(link);
 
         // Header row: title + badge
         const header = document.createElement('div');
@@ -458,6 +542,7 @@ function renderLinks(links, rawSearch) {
         const a = document.createElement('a'); a.href = link.url; a.target = '_blank';
         a.className = 'text-blue-500 text-sm break-all';
         a.innerHTML = highlight(link.url||'', rawSearch);
+        a.onclick = e => e.stopPropagation();
 
         const p = document.createElement('p');
         p.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
@@ -469,6 +554,8 @@ function renderLinks(links, rawSearch) {
         ll.appendChild(div);
     });
 }
+
+
 
 function clearSearch() {
     document.getElementById('searchInput').value = '';
