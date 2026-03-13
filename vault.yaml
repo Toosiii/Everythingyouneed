@@ -1,0 +1,74 @@
+entries:
+
+  - title: "How to Download Torrents Safely"
+    description: "A quick guide on how to safely download torrents without exposing your IP or getting malware."
+    tags: [Guide, Torrents, Privacy]
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
+    steps:
+      - "Install a VPN (Proton VPN or Mullvad are recommended free/cheap options)"
+      - "Download a torrent client like qBittorrent – it's free and open source"
+      - "Find your torrent on a trusted site like 1337x or YTS"
+      - "Always check the comments and seeder count before downloading"
+      - "Scan downloaded files with Windows Defender or VirusTotal before opening"
+    links:
+      - title: "qBittorrent"
+        url: "https://www.qbittorrent.org/"
+      - title: "Proton VPN"
+        url: "https://protonvpn.com/"
+      - title: "VirusTotal"
+        url: "https://www.virustotal.com/"
+
+  - title: "Setting up Stremio + Torrentio"
+    description: "Stremio with the Torrentio addon lets you stream any movie or series in seconds via torrents — no downloading needed."
+    tags: [Guide, Streaming, Stremio]
+    steps:
+      - "Download and install Stremio from stremio.com"
+      - "Create a free account (required for addons to sync)"
+      - "Go to https://torrentio.strem.fun and configure your preferred debrid or torrent settings"
+      - "Click 'Install' — it will open Stremio and add the addon automatically"
+      - "Search any movie or series in Stremio and pick a stream from Torrentio"
+    links:
+      - title: "Stremio"
+        url: "https://www.stremio.com/"
+      - title: "Torrentio Addon"
+        url: "https://torrentio.strem.fun/"
+
+  - title: "Free VPNs Worth Using"
+    description: "Not all free VPNs are safe. These are the ones actually worth using — no data selling, no weird logging policies."
+    tags: [Privacy, VPN, Tips]
+    links:
+      - title: "Proton VPN (truly free tier)"
+        url: "https://protonvpn.com/"
+      - title: "Cloudflare WARP"
+        url: "https://1.1.1.1/"
+      - title: "Windscribe (10GB/month free)"
+        url: "https://windscribe.com/"
+
+  - title: "How to Use a Temp Mail"
+    description: "Many sites require an email to sign up. Use a disposable temp email so your real inbox stays clean."
+    tags: [Privacy, Tips]
+    steps:
+      - "Go to temp-mail.org or 10minutemail.com"
+      - "Copy the auto-generated email address"
+      - "Paste it into the site you want to register on"
+      - "Go back to the temp mail tab to receive the confirmation email"
+      - "Done — throw the address away when finished"
+    links:
+      - title: "Temp Mail"
+        url: "https://temp-mail.org/"
+      - title: "10 Minute Mail"
+        url: "https://10minutemail.com/"
+
+  - title: "Best Free Image Resources"
+    description: "High quality, royalty-free images you can use for anything — no attribution needed."
+    tags: [Design, Images, Resources]
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+    links:
+      - title: "Unsplash"
+        url: "https://unsplash.com/"
+      - title: "Pexels"
+        url: "https://www.pexels.com/"
+      - title: "Pixabay"
+        url: "https://pixabay.com/"
+      - title: "StockSnap"
+        url: "https://stocksnap.io/"

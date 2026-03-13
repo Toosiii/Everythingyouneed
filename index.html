@@ -119,6 +119,27 @@
                     <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
                     <div id="gamesList" class="flex flex-col gap-1"></div>
                 </div>
+
+                <!-- Vault button -->
+                <button onclick="showVault();closeSidebar();" id="vaultBtn" style="
+                    margin-top: 1.25rem;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.6rem;
+                    padding: 0.6rem 0.85rem;
+                    border-radius: 12px;
+                    background: rgba(124,58,237,0.15);
+                    border: 1px solid rgba(124,58,237,0.3);
+                    color: #c4b5fd;
+                    font-size: 0.88rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                " onmouseover="this.style.background='rgba(124,58,237,0.28)';this.style.borderColor='rgba(124,58,237,0.55)'"
+                   onmouseout="this.style.background='rgba(124,58,237,0.15)';this.style.borderColor='rgba(124,58,237,0.3)'">
+                    <span style="font-size:1.1rem;">🔐</span> The Vault
+                </button>
             </div>
         </aside>
 
@@ -189,6 +210,20 @@
                 </div>
                 <div id="tagsList" class="mb-4 flex gap-2 flex-wrap"></div>
                 <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+            </div>
+
+            <!-- VAULT CONTENT -->
+            <div id="vaultContent" style="display:none;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+                    <span style="font-size:1.6rem;">🔐</span>
+                    <h2 style="font-size:1.6rem;font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:-0.5px;">The Vault</h2>
+                </div>
+
+                <!-- Tag filter -->
+                <div id="vaultTagsList" class="mb-5 flex gap-2 flex-wrap"></div>
+
+                <!-- Cards grid -->
+                <div id="vaultList" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
             </div>
 
         </main>
@@ -310,7 +345,7 @@
 <!--  JAVASCRIPT                                                  -->
 <!-- ============================================================ -->
 <script>
-let allData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en', selectedPriceFilter = 'all';
+let allData = null, vaultData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en', selectedPriceFilter = 'all', selectedVaultTag = null;
 
 // --- Screen switching ---
 function showApp() {
@@ -324,10 +359,147 @@ function showHome() {
     window.history.pushState(null, '', '/');
 }
 
+// --- The Vault ---
+function showVault() {
+    document.getElementById('landingPage').style.display = 'none';
+    document.getElementById('topicContent').style.display = 'none';
+    document.getElementById('vaultContent').style.display = 'block';
+    document.getElementById('topicsDropdown').value = '';
+    currentTopicId = null;
+    selectedVaultTag = null;
+    if (vaultData) renderVault();
+    else loadVault();
+}
+
+async function loadVault() {
+    try {
+        const res = await fetch('vault.yaml');
+        if (!res.ok) throw new Error('vault.yaml not found');
+        vaultData = jsyaml.load(await res.text());
+        renderVault();
+    } catch(e) {
+        document.getElementById('vaultList').innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.yaml not loaded yet. Add it to your repo root.</p>';
+    }
+}
+
+function renderVault() {
+    // Build tag filter
+    const allTags = {};
+    vaultData.entries?.forEach(e => e.tags?.forEach(t => allTags[t] = true));
+    const tagsEl = document.getElementById('vaultTagsList');
+    tagsEl.innerHTML = '';
+    const allBtn = document.createElement('button');
+    allBtn.className = 'vault-tag-btn' + (!selectedVaultTag ? ' active' : '');
+    allBtn.textContent = 'All';
+    allBtn.onclick = () => { selectedVaultTag = null; renderVault(); };
+    tagsEl.appendChild(allBtn);
+    Object.keys(allTags).sort().forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className = 'vault-tag-btn' + (selectedVaultTag === tag ? ' active' : '');
+        btn.textContent = tag;
+        btn.onclick = () => { selectedVaultTag = tag; renderVault(); };
+        tagsEl.appendChild(btn);
+    });
+
+    // Filter entries
+    let entries = vaultData.entries || [];
+    if (selectedVaultTag) entries = entries.filter(e => e.tags?.includes(selectedVaultTag));
+
+    const list = document.getElementById('vaultList');
+    list.innerHTML = '';
+    entries.forEach(entry => {
+        const card = document.createElement('div');
+        card.className = 'vault-card';
+
+        // Header
+        const header = document.createElement('div');
+        header.style.cssText = 'display:flex;align-items:flex-start;justify-content:space-between;gap:0.75rem;margin-bottom:0.85rem;';
+        const titleWrap = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.style.cssText = 'font-size:1rem;font-weight:700;color:rgba(255,255,255,0.92);margin-bottom:0.2rem;';
+        h3.textContent = entry.title || '';
+        titleWrap.appendChild(h3);
+        // tags
+        if (entry.tags?.length) {
+            const tagsRow = document.createElement('div');
+            tagsRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.35rem;';
+            entry.tags.forEach(t => {
+                const pill = document.createElement('span');
+                pill.style.cssText = 'background:rgba(124,58,237,0.18);color:#c4b5fd;font-size:0.68rem;padding:1px 8px;border-radius:999px;border:1px solid rgba(124,58,237,0.3);';
+                pill.textContent = t;
+                tagsRow.appendChild(pill);
+            });
+            titleWrap.appendChild(tagsRow);
+        }
+        header.appendChild(titleWrap);
+        card.appendChild(header);
+
+        // Description
+        if (entry.description) {
+            const desc = document.createElement('p');
+            desc.style.cssText = 'color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.65;margin-bottom:1rem;';
+            desc.textContent = entry.description;
+            card.appendChild(desc);
+        }
+
+        // Image
+        if (entry.image) {
+            const img = document.createElement('img');
+            img.src = entry.image;
+            img.alt = entry.title || '';
+            img.style.cssText = 'width:100%;border-radius:12px;margin-bottom:1rem;object-fit:cover;max-height:220px;border:1px solid rgba(255,255,255,0.08);';
+            img.onerror = () => img.style.display = 'none';
+            card.appendChild(img);
+        }
+
+        // Steps
+        if (entry.steps?.length) {
+            const stepsWrap = document.createElement('div');
+            stepsWrap.style.cssText = 'margin-bottom:1rem;';
+            const stepsTitle = document.createElement('div');
+            stepsTitle.style.cssText = 'font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);margin-bottom:0.6rem;';
+            stepsTitle.textContent = 'Steps';
+            stepsWrap.appendChild(stepsTitle);
+            entry.steps.forEach((step, i) => {
+                const row = document.createElement('div');
+                row.style.cssText = 'display:flex;gap:0.65rem;align-items:flex-start;margin-bottom:0.5rem;';
+                const num = document.createElement('span');
+                num.style.cssText = 'min-width:22px;height:22px;border-radius:50%;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#c4b5fd;flex-shrink:0;margin-top:1px;';
+                num.textContent = i + 1;
+                const txt = document.createElement('span');
+                txt.style.cssText = 'font-size:0.84rem;color:rgba(255,255,255,0.65);line-height:1.55;';
+                txt.textContent = step;
+                row.appendChild(num); row.appendChild(txt);
+                stepsWrap.appendChild(row);
+            });
+            card.appendChild(stepsWrap);
+        }
+
+        // Links
+        if (entry.links?.length) {
+            const linksWrap = document.createElement('div');
+            linksWrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;';
+            entry.links.forEach(l => {
+                const a = document.createElement('a');
+                a.href = l.url; a.target = '_blank';
+                a.style.cssText = 'display:inline-flex;align-items:center;gap:0.35rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:0.3rem 0.85rem;font-size:0.78rem;color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.2s;';
+                a.onmouseover = () => { a.style.background='rgba(124,58,237,0.25)'; a.style.color='#c4b5fd'; };
+                a.onmouseout  = () => { a.style.background='rgba(255,255,255,0.07)'; a.style.color='rgba(255,255,255,0.7)'; };
+                a.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>${l.title || l.url}`;
+                linksWrap.appendChild(a);
+            });
+            card.appendChild(linksWrap);
+        }
+
+        list.appendChild(card);
+    });
+}
+
 // --- Translations ---
 function trans(key) { return allData?.translations?.[currentLanguage]?.[key] || key; }
 
 function selectTopic(topicId) {
+    document.getElementById('vaultContent').style.display = 'none';
     if (!topicId) {
         document.getElementById('landingPage').style.display = 'block';
         document.getElementById('topicContent').style.display = 'none';
