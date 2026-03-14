@@ -226,6 +226,17 @@
                 <div id="vaultList" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
             </div>
 
+            <!-- VAULT CATEGORY PAGE -->
+            <div id="vaultCategory" style="display:none; max-width:860px; margin:0 auto; width:100%;">
+                <button onclick="closeVaultCategory()" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:50px;color:rgba(255,255,255,0.65);font-size:0.83rem;padding:0.45rem 1rem;cursor:pointer;margin-bottom:2rem;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.65)'">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to The Vault
+                </button>
+                <h1 id="vcTitle" style="font-size:2.2rem;font-weight:900;color:rgba(255,255,255,0.95);letter-spacing:-1px;margin-bottom:0.5rem;"></h1>
+                <p id="vcDesc" style="font-size:0.95rem;color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.6;"></p>
+                <div id="vcSubjects" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;"></div>
+            </div>
+
             <!-- VAULT DETAIL PAGE -->
             <div id="vaultDetail" style="display:none; max-width:860px; margin:0 auto; width:100%;">
 
@@ -398,6 +409,8 @@ function showHome() {
 function showVault() {
     document.getElementById('landingPage').style.display = 'none';
     document.getElementById('topicContent').style.display = 'none';
+    document.getElementById('vaultDetail').style.display = 'none';
+    document.getElementById('vaultCategory').style.display = 'none';
     document.getElementById('vaultContent').style.display = 'block';
     document.getElementById('topicsDropdown').value = '';
     currentTopicId = null;
@@ -446,7 +459,7 @@ function renderVault() {
         const card = document.createElement('div');
         card.className = 'vault-card';
         card.style.cursor = 'pointer';
-        card.onclick = () => openVaultDetail(entry);
+        card.onclick = () => entry.type === 'category' ? openVaultCategory(entry) : openVaultDetail(entry);
 
         // Header
         const header = document.createElement('div');
@@ -484,9 +497,24 @@ function renderVault() {
             const img = document.createElement('img');
             img.src = entry.image;
             img.alt = entry.title || '';
-            img.style.cssText = 'width:100%;border-radius:12px;margin-bottom:1rem;object-fit:cover;max-height:220px;border:1px solid rgba(255,255,255,0.08);';
+            img.style.cssText = 'width:100%;border-radius:12px;margin-bottom:1rem;object-fit:cover;max-height:180px;border:1px solid rgba(255,255,255,0.08);';
             img.onerror = () => img.style.display = 'none';
             card.appendChild(img);
+        }
+
+        // Category indicator
+        if (entry.type === 'category' && entry.subjects?.length) {
+            const catRow = document.createElement('div');
+            catRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.07);';
+            const subCount = document.createElement('span');
+            subCount.style.cssText = 'font-size:0.78rem;color:rgba(255,255,255,0.35);';
+            subCount.textContent = entry.subjects.length + ' subjects inside';
+            const arrow = document.createElement('span');
+            arrow.style.cssText = 'font-size:0.78rem;color:#c4b5fd;font-weight:600;display:flex;align-items:center;gap:0.3rem;';
+            arrow.innerHTML = 'Open <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>';
+            catRow.appendChild(subCount);
+            catRow.appendChild(arrow);
+            card.appendChild(catRow);
         }
 
         // Steps
@@ -530,6 +558,65 @@ function renderVault() {
 
         list.appendChild(card);
     });
+}
+
+// --- Vault Category Page ---
+function openVaultCategory(entry) {
+    document.getElementById('vaultContent').style.display = 'none';
+    document.getElementById('vaultDetail').style.display = 'none';
+    const cat = document.getElementById('vaultCategory');
+    cat.style.display = 'block';
+    document.querySelector('main').scrollTop = 0;
+
+    // Back button behaviour stored on element
+    cat._entry = entry;
+
+    // Title
+    document.getElementById('vcTitle').textContent = entry.title || '';
+    document.getElementById('vcDesc').textContent = entry.description || '';
+
+    // Subject grid
+    const grid = document.getElementById('vcSubjects');
+    grid.innerHTML = '';
+    (entry.subjects || []).forEach(sub => {
+        const btn = document.createElement('div');
+        btn.className = 'vault-subject-btn';
+        btn.onclick = () => openVaultSubject(sub);
+
+        const icon = document.createElement('div');
+        icon.style.cssText = 'font-size:1.8rem;margin-bottom:0.6rem;';
+        icon.textContent = sub.title.match(/^(\p{Emoji})/u)?.[1] || '📄';
+
+        const name = document.createElement('div');
+        name.style.cssText = 'font-size:0.9rem;font-weight:700;color:rgba(255,255,255,0.88);';
+        name.textContent = sub.title.replace(/^[\p{Emoji}\s]+/u, '').trim();
+
+        const hint = document.createElement('div');
+        hint.style.cssText = 'font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.3rem;';
+        hint.textContent = sub.steps?.length ? sub.steps.length + ' steps' : sub.links?.length ? sub.links.length + ' links' : '';
+
+        btn.appendChild(icon);
+        btn.appendChild(name);
+        btn.appendChild(hint);
+        grid.appendChild(btn);
+    });
+}
+
+function openVaultSubject(sub) {
+    document.getElementById('vaultCategory').style.display = 'none';
+    openVaultDetail(sub);
+    // Override back button to go back to category
+    document.getElementById('vaultDetail').querySelector('button').onclick = () => {
+        document.getElementById('vaultDetail').style.display = 'none';
+        document.getElementById('vaultCategory').style.display = 'block';
+        document.querySelector('main').scrollTop = 0;
+    };
+}
+
+function closeVaultCategory() {
+    document.getElementById('vaultCategory').style.display = 'none';
+    document.getElementById('vaultContent').style.display = 'block';
+    document.querySelector('main').scrollTop = 0;
 }
 
 // --- Vault Detail Page ---

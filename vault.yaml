@@ -39,6 +39,126 @@ entries:
     url: https://apps.apple.com/app/claude-by-anthropic/id6473753684
   - title: Claude on Android
     url: https://play.google.com/store/apps/details?id=com.anthropic.claude
+
+- title: "🏫 School"
+  description: "Study resources, guides and tools for every subject. Click a subject to dive in."
+  tags: [School, Learning, Study]
+  image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
+  type: category
+  subjects:
+
+    - title: "💻 IT / Computer Science"
+      description: "Key topics in IT — algorithms, sorting, data structures and more."
+      tags: [IT, Algorithms, Sorting]
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+      steps:
+        - "Bubble Sort — repeatedly swap adjacent elements if they are in the wrong order. O(n²) worst case. Simple but slow."
+        - "Selection Sort — find the minimum element and place it at the beginning each pass. O(n²). Easy to understand."
+        - "Insertion Sort — build sorted array one item at a time by inserting each into its correct position. O(n²) worst, O(n) best."
+        - "Merge Sort — divide array in half recursively, then merge sorted halves. O(n log n) always. Stable and reliable."
+        - "Quick Sort — pick a pivot, partition elements around it, recurse on both sides. O(n log n) avg, O(n²) worst."
+        - "Binary Search — only works on sorted arrays. Cut search space in half each step. O(log n)."
+        - "Big-O Notation — describes algorithm efficiency. O(1) = constant, O(n) = linear, O(n²) = quadratic."
+      links:
+        - title: "VisuAlgo — Visualise Sorting"
+          url: "https://visualgo.net/en/sorting"
+        - title: "Big-O Cheat Sheet"
+          url: "https://www.bigocheatsheet.com/"
+        - title: "CS50 on YouTube"
+          url: "https://www.youtube.com/c/cs50"
+        - title: "W3Schools Algorithms"
+          url: "https://www.w3schools.com/dsa/"
+
+    - title: "📐 Math"
+      description: "Tools, calculators and explainers for every level of maths."
+      tags: [Math, Calculus, Algebra]
+      links:
+        - title: "Wolfram Alpha"
+          url: "https://www.wolframalpha.com/"
+        - title: "Desmos Graphing Calculator"
+          url: "https://www.desmos.com/calculator"
+        - title: "Khan Academy Math"
+          url: "https://www.khanacademy.org/math"
+        - title: "GeoGebra"
+          url: "https://www.geogebra.org/"
+        - title: "Mathway"
+          url: "https://www.mathway.com/"
+
+    - title: "🇬🇧 English"
+      description: "Grammar tools, writing helpers and vocabulary resources."
+      tags: [English, Writing, Grammar]
+      links:
+        - title: "Grammarly"
+          url: "https://www.grammarly.com/"
+        - title: "Merriam-Webster Dictionary"
+          url: "https://www.merriam-webster.com/"
+        - title: "Thesaurus.com"
+          url: "https://www.thesaurus.com/"
+        - title: "Purdue OWL Writing Guide"
+          url: "https://owl.purdue.edu/"
+        - title: "BBC Learning English"
+          url: "https://www.bbc.co.uk/learningenglish"
+
+    - title: "🇩🇪 German"
+      description: "German grammar, vocabulary and writing tools."
+      tags: [German, Grammar, Deutsch]
+      links:
+        - title: "DWDS — Deutsches Wörterbuch"
+          url: "https://www.dwds.de/"
+        - title: "Duden Online"
+          url: "https://www.duden.de/"
+        - title: "Canoo.net Grammatik"
+          url: "http://www.canoo.net/"
+        - title: "Deutsche Welle Deutsch lernen"
+          url: "https://learngerman.dw.com/"
+        - title: "Verbix — German Verb Conjugation"
+          url: "https://www.verbix.com/languages/german"
+
+    - title: "⚡ Physics"
+      description: "Formulas, simulations and explainers for physics topics."
+      tags: [Physics, Science, Formulas]
+      links:
+        - title: "PhET Simulations"
+          url: "https://phet.colorado.edu/"
+        - title: "Khan Academy Physics"
+          url: "https://www.khanacademy.org/science/physics"
+        - title: "HyperPhysics"
+          url: "http://hyperphysics.phy-astr.gsu.edu/"
+        - title: "Physics Classroom"
+          url: "https://www.physicsclassroom.com/"
+        - title: "Wolfram Alpha Physics"
+          url: "https://www.wolframalpha.com/examples/science-and-technology/physics"
+
+    - title: "🧪 Chemistry"
+      description: "Periodic table, reaction tools and chemistry explainers."
+      tags: [Chemistry, Science, Elements]
+      links:
+        - title: "Ptable — Interactive Periodic Table"
+          url: "https://ptable.com/"
+        - title: "Khan Academy Chemistry"
+          url: "https://www.khanacademy.org/science/chemistry"
+        - title: "ChemLibreTexts"
+          url: "https://chem.libretexts.org/"
+        - title: "Royal Society of Chemistry"
+          url: "https://www.rsc.org/learn-chemistry"
+        - title: "Chemspider"
+          url: "https://www.chemspider.com/"
+
+    - title: "🧬 Biology"
+      description: "Cell biology, genetics, ecosystems and everything life sciences."
+      tags: [Biology, Science, Genetics]
+      links:
+        - title: "Khan Academy Biology"
+          url: "https://www.khanacademy.org/science/biology"
+        - title: "BiologyOnline"
+          url: "https://www.biologyonline.com/"
+        - title: "NCBI — National Library of Medicine"
+          url: "https://www.ncbi.nlm.nih.gov/"
+        - title: "Visible Body"
+          url: "https://www.visiblebody.com/"
+        - title: "CrashCourse Biology (YouTube)"
+          url: "https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF"
+
 - title: How to Download Torrents Safely
   description: A quick guide on how to safely download torrents without exposing your
     IP or getting malware.

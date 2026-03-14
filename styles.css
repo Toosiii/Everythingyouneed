@@ -469,3 +469,32 @@ footer {
 }
 .vault-tag-btn:hover { background: rgba(124,58,237,0.2); border-color: rgba(124,58,237,0.4); color: #c4b5fd; }
 .vault-tag-btn.active { background: rgba(124,58,237,0.3); border-color: rgba(124,58,237,0.55); color: #ddd6fe; }
+
+
+/* ============================================================
+   VAULT SUBJECT BUTTONS
+   ============================================================ */
+
+.vault-subject-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+.vault-subject-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+}
+.vault-subject-btn:hover {
+    transform: translateY(-4px);
+    background: rgba(124,58,237,0.18);
+    border-color: rgba(124,58,237,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
