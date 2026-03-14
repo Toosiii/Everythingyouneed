@@ -1,8 +1,7 @@
 entries:
 - title: 🤖 Claude Stuff
-  description: Useful prompts, tips and tricks to get the most out of Claude. Whether
-    you want better answers, code help or creative writing — these will level you
-    up.
+  description: Useful prompts, tips and tricks to get the most out of Claude. Whether you want better answers, code help or
+    creative writing — these will level you up.
   tags:
   - Claude
   - AI
@@ -10,23 +9,15 @@ entries:
   - Tips
   image: https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80
   steps:
-  - Be specific — instead of 'explain X' try 'explain X like I'm 15 with no background
-    in it'
-  - Ask Claude to think step by step — add 'think step by step' to any complex question
-    for better results
-  - Use 'rewrite this but make it sound more casual / professional / shorter' to refine
-    any text
-  - Paste your code and say 'find the bug and explain why it happens' — works incredibly
-    well
-  - Say 'give me 10 ideas for...' to brainstorm fast, then ask Claude to expand on
-    the best one
+  - Be specific — instead of 'explain X' try 'explain X like I'm 15 with no background in it'
+  - Ask Claude to think step by step — add 'think step by step' to any complex question for better results
+  - Use 'rewrite this but make it sound more casual / professional / shorter' to refine any text
+  - Paste your code and say 'find the bug and explain why it happens' — works incredibly well
+  - Say 'give me 10 ideas for...' to brainstorm fast, then ask Claude to expand on the best one
   - 'For essays or writing: ''write a rough draft, then list 3 ways to improve it'''
-  - Use 'act as a [role] and help me with...' — e.g. 'act as a football coach and
-    build me a training plan'
-  - 'If an answer is too long: say ''give me the same answer but in 3 bullet points
-    max'''
-  - Chain prompts — after a good answer say 'now make it funnier / more detailed /
-    in German'
+  - Use 'act as a [role] and help me with...' — e.g. 'act as a football coach and build me a training plan'
+  - 'If an answer is too long: say ''give me the same answer but in 3 bullet points max'''
+  - Chain prompts — after a good answer say 'now make it funnier / more detailed / in German'
   - Ask Claude to quiz you on something — great for studying any subject
   links:
   - title: Claude.ai
@@ -39,129 +30,266 @@ entries:
     url: https://apps.apple.com/app/claude-by-anthropic/id6473753684
   - title: Claude on Android
     url: https://play.google.com/store/apps/details?id=com.anthropic.claude
-
-- title: "🏫 School"
-  description: "Study resources, guides and tools for every subject. Click a subject to dive in."
-  tags: [School, Learning, Study]
-  image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
+- title: 🏫 Schule
+  description: Lernmaterialien, Guides und Tools für die Schule — sortiert nach Schulform und Fach.
+  tags:
+  - Schule
+  - Lernen
+  - Abitur
+  image: https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80
   type: category
-  subjects:
-
-    - title: "💻 IT / Computer Science"
-      description: "Key topics in IT — algorithms, sorting, data structures and more."
-      tags: [IT, Algorithms, Sorting]
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+  tabs:
+  - name: Abitur
+    subjects:
+    - title: 🧰 Allgemein
+      description: Tools und Ressourcen, die in jedem Fach nützlich sind — KI, Design, Übersetzung, Notizen und mehr.
+      tags:
+      - Allgemein
+      - KI
+      - Tools
       steps:
-        - "Bubble Sort — repeatedly swap adjacent elements if they are in the wrong order. O(n²) worst case. Simple but slow."
-        - "Selection Sort — find the minimum element and place it at the beginning each pass. O(n²). Easy to understand."
-        - "Insertion Sort — build sorted array one item at a time by inserting each into its correct position. O(n²) worst, O(n) best."
-        - "Merge Sort — divide array in half recursively, then merge sorted halves. O(n log n) always. Stable and reliable."
-        - "Quick Sort — pick a pivot, partition elements around it, recurse on both sides. O(n log n) avg, O(n²) worst."
-        - "Binary Search — only works on sorted arrays. Cut search space in half each step. O(log n)."
-        - "Big-O Notation — describes algorithm efficiency. O(1) = constant, O(n) = linear, O(n²) = quadratic."
+      - 'Claude oder ChatGPT nutzen, um Themen zu erklären — einfach fragen: ''Erkläre mir X wie einem 16-Jährigen'''
+      - Canva für Präsentationen, Plakate oder Schaubilder — kostenlos mit Schul-E-Mail
+      - DeepL für präzise Übersetzungen — deutlich besser als Google Translate
+      - Grammarly für englische Texte — korrigiert Grammatik und verbessert den Stil
+      - Wolfram Alpha für Mathe, Physik und Chemie — löst Aufgaben und zeigt Rechenwege
+      - Notion oder Obsidian zum strukturierten Notizen machen und Lernen organisieren
+      - Scribd oder Z-Library für kostenlose Bücher, Fachbücher und Lernmaterialien
       links:
-        - title: "VisuAlgo — Visualise Sorting"
-          url: "https://visualgo.net/en/sorting"
-        - title: "Big-O Cheat Sheet"
-          url: "https://www.bigocheatsheet.com/"
-        - title: "CS50 on YouTube"
-          url: "https://www.youtube.com/c/cs50"
-        - title: "W3Schools Algorithms"
-          url: "https://www.w3schools.com/dsa/"
-
-    - title: "📐 Math"
-      description: "Tools, calculators and explainers for every level of maths."
-      tags: [Math, Calculus, Algebra]
+      - &id001
+        title: Claude.ai
+        url: https://claude.ai/
+      - &id002
+        title: ChatGPT
+        url: https://chat.openai.com/
+      - &id003
+        title: Canva
+        url: https://www.canva.com/
+      - &id004
+        title: DeepL Übersetzer
+        url: https://www.deepl.com/
+      - &id005
+        title: Grammarly
+        url: https://www.grammarly.com/
+      - &id006
+        title: Wolfram Alpha
+        url: https://www.wolframalpha.com/
+      - &id007
+        title: Notion
+        url: https://www.notion.so/
+      - &id008
+        title: Obsidian
+        url: https://obsidian.md/
+      - &id009
+        title: Scribd
+        url: https://www.scribd.com/
+      - &id010
+        title: Z-Library
+        url: https://z-lib.id/
+    - title: 💻 Informatik
+      description: Algorithmen, Sortierverfahren, Datenstrukturen und mehr für das Abitur.
+      tags:
+      - Informatik
+      - Algorithmen
+      - Abitur
+      image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80
+      steps:
+      - Bubble Sort — benachbarte Elemente werden vertauscht, wenn sie in der falschen Reihenfolge sind. O(n²) im schlechtesten
+        Fall.
+      - Selection Sort — das kleinste Element wird gesucht und an den Anfang gesetzt. O(n²). Einfach zu verstehen.
+      - Insertion Sort — das Array wird schrittweise aufgebaut, jedes Element wird an die richtige Stelle eingefügt. O(n²)
+        worst, O(n) best.
+      - Merge Sort — Array wird rekursiv halbiert, dann werden die sortierten Hälften zusammengeführt. O(n log n) immer.
+      - Quick Sort — Pivot-Element auswählen, Array aufteilen, rekursiv sortieren. O(n log n) im Durchschnitt.
+      - Binäre Suche — funktioniert nur auf sortierten Arrays. Suchraum wird bei jedem Schritt halbiert. O(log n).
+      - O-Notation — beschreibt die Effizienz eines Algorithmus. O(1) = konstant, O(n) = linear, O(n²) = quadratisch.
       links:
-        - title: "Wolfram Alpha"
-          url: "https://www.wolframalpha.com/"
-        - title: "Desmos Graphing Calculator"
-          url: "https://www.desmos.com/calculator"
-        - title: "Khan Academy Math"
-          url: "https://www.khanacademy.org/math"
-        - title: "GeoGebra"
-          url: "https://www.geogebra.org/"
-        - title: "Mathway"
-          url: "https://www.mathway.com/"
-
-    - title: "🇬🇧 English"
-      description: "Grammar tools, writing helpers and vocabulary resources."
-      tags: [English, Writing, Grammar]
+      - title: VisuAlgo — Sortierung visualisiert
+        url: https://visualgo.net/en/sorting
+      - title: Big-O Cheat Sheet
+        url: https://www.bigocheatsheet.com/
+      - title: CS50 auf YouTube
+        url: https://www.youtube.com/c/cs50
+      - title: W3Schools Algorithmen
+        url: https://www.w3schools.com/dsa/
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: 📐 Mathematik
+      description: Rechner, Visualisierungen und Erklärungen für alle Mathe-Themen im Abitur.
+      tags:
+      - Mathe
+      - Analysis
+      - Abitur
       links:
-        - title: "Grammarly"
-          url: "https://www.grammarly.com/"
-        - title: "Merriam-Webster Dictionary"
-          url: "https://www.merriam-webster.com/"
-        - title: "Thesaurus.com"
-          url: "https://www.thesaurus.com/"
-        - title: "Purdue OWL Writing Guide"
-          url: "https://owl.purdue.edu/"
-        - title: "BBC Learning English"
-          url: "https://www.bbc.co.uk/learningenglish"
-
-    - title: "🇩🇪 German"
-      description: "German grammar, vocabulary and writing tools."
-      tags: [German, Grammar, Deutsch]
+      - title: Wolfram Alpha
+        url: https://www.wolframalpha.com/
+      - title: Desmos Grafik-Rechner
+        url: https://www.desmos.com/calculator
+      - title: Khan Academy Mathe
+        url: https://de.khanacademy.org/math
+      - title: GeoGebra
+        url: https://www.geogebra.org/
+      - title: Mathway
+        url: https://www.mathway.com/
+      - title: Studyflix Mathe
+        url: https://studyflix.de/mathematik
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: 🇬🇧 Englisch
+      description: Grammatik, Vokabeln, Aufsatzhilfen und Übersetzungstools für das Englisch-Abitur.
+      tags:
+      - Englisch
+      - Grammatik
+      - Abitur
       links:
-        - title: "DWDS — Deutsches Wörterbuch"
-          url: "https://www.dwds.de/"
-        - title: "Duden Online"
-          url: "https://www.duden.de/"
-        - title: "Canoo.net Grammatik"
-          url: "http://www.canoo.net/"
-        - title: "Deutsche Welle Deutsch lernen"
-          url: "https://learngerman.dw.com/"
-        - title: "Verbix — German Verb Conjugation"
-          url: "https://www.verbix.com/languages/german"
-
-    - title: "⚡ Physics"
-      description: "Formulas, simulations and explainers for physics topics."
-      tags: [Physics, Science, Formulas]
+      - title: Grammarly
+        url: https://www.grammarly.com/
+      - title: Merriam-Webster
+        url: https://www.merriam-webster.com/
+      - title: Thesaurus.com
+        url: https://www.thesaurus.com/
+      - title: BBC Learning English
+        url: https://www.bbc.co.uk/learningenglish
+      - title: DeepL
+        url: https://www.deepl.com/
+      - title: Purdue OWL Schreibhilfe
+        url: https://owl.purdue.edu/
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: 🇩🇪 Deutsch
+      description: Rechtschreibung, Grammatik, Aufsätze und Literatur für das Deutsch-Abitur.
+      tags:
+      - Deutsch
+      - Grammatik
+      - Abitur
       links:
-        - title: "PhET Simulations"
-          url: "https://phet.colorado.edu/"
-        - title: "Khan Academy Physics"
-          url: "https://www.khanacademy.org/science/physics"
-        - title: "HyperPhysics"
-          url: "http://hyperphysics.phy-astr.gsu.edu/"
-        - title: "Physics Classroom"
-          url: "https://www.physicsclassroom.com/"
-        - title: "Wolfram Alpha Physics"
-          url: "https://www.wolframalpha.com/examples/science-and-technology/physics"
-
-    - title: "🧪 Chemistry"
-      description: "Periodic table, reaction tools and chemistry explainers."
-      tags: [Chemistry, Science, Elements]
+      - title: Duden Online
+        url: https://www.duden.de/
+      - title: DWDS Wörterbuch
+        url: https://www.dwds.de/
+      - title: Abitur-Vorbereitung Deutsch
+        url: https://www.abitur-vorbereitung.de/deutsch/
+      - title: Inhaltsangaben & Analysen
+        url: https://www.inhaltsangabe.de/
+      - title: Studyflix Deutsch
+        url: https://studyflix.de/deutsch
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: ⚡ Physik
+      description: Formeln, Simulationen und Erklärvideos für das Physik-Abitur.
+      tags:
+      - Physik
+      - Formeln
+      - Abitur
       links:
-        - title: "Ptable — Interactive Periodic Table"
-          url: "https://ptable.com/"
-        - title: "Khan Academy Chemistry"
-          url: "https://www.khanacademy.org/science/chemistry"
-        - title: "ChemLibreTexts"
-          url: "https://chem.libretexts.org/"
-        - title: "Royal Society of Chemistry"
-          url: "https://www.rsc.org/learn-chemistry"
-        - title: "Chemspider"
-          url: "https://www.chemspider.com/"
-
-    - title: "🧬 Biology"
-      description: "Cell biology, genetics, ecosystems and everything life sciences."
-      tags: [Biology, Science, Genetics]
+      - title: PhET Simulationen
+        url: https://phet.colorado.edu/de/
+      - title: Khan Academy Physik
+        url: https://de.khanacademy.org/science/physics
+      - title: HyperPhysics
+        url: http://hyperphysics.phy-astr.gsu.edu/
+      - title: Studyflix Physik
+        url: https://studyflix.de/physik
+      - title: Leifi Physik
+        url: https://www.leifiphysik.de/
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: 🧪 Chemie
+      description: Periodensystem, Reaktionen und Erklärungen für das Chemie-Abitur.
+      tags:
+      - Chemie
+      - Elemente
+      - Abitur
       links:
-        - title: "Khan Academy Biology"
-          url: "https://www.khanacademy.org/science/biology"
-        - title: "BiologyOnline"
-          url: "https://www.biologyonline.com/"
-        - title: "NCBI — National Library of Medicine"
-          url: "https://www.ncbi.nlm.nih.gov/"
-        - title: "Visible Body"
-          url: "https://www.visiblebody.com/"
-        - title: "CrashCourse Biology (YouTube)"
-          url: "https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF"
-
+      - title: Ptable — Interaktives Periodensystem
+        url: https://ptable.com/
+      - title: Khan Academy Chemie
+        url: https://de.khanacademy.org/science/chemistry
+      - title: Studyflix Chemie
+        url: https://studyflix.de/chemie
+      - title: ChemLibreTexts
+        url: https://chem.libretexts.org/
+      - title: Chemie.de Lexikon
+        url: https://www.chemie.de/lexikon/
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+    - title: 🧬 Biologie
+      description: Zellbiologie, Genetik, Ökosysteme und alles für das Bio-Abitur.
+      tags:
+      - Biologie
+      - Genetik
+      - Abitur
+      links:
+      - title: Khan Academy Biologie
+        url: https://de.khanacademy.org/science/biology
+      - title: Studyflix Biologie
+        url: https://studyflix.de/biologie
+      - title: Biologie-Schule.de
+        url: https://www.biologie-schule.de/
+      - title: NCBI Bibliothek
+        url: https://www.ncbi.nlm.nih.gov/
+      - title: CrashCourse Biologie (YouTube)
+        url: https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF
+      - *id001
+      - *id002
+      - *id003
+      - *id004
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
 - title: How to Download Torrents Safely
-  description: A quick guide on how to safely download torrents without exposing your
-    IP or getting malware.
+  description: A quick guide on how to safely download torrents without exposing your IP or getting malware.
   tags:
   - Guide
   - Torrents
@@ -181,8 +309,8 @@ entries:
   - title: VirusTotal
     url: https://www.virustotal.com/
 - title: Setting up Stremio + Torrentio
-  description: Stremio with the Torrentio addon lets you stream any movie or series
-    in seconds via torrents — no downloading needed.
+  description: Stremio with the Torrentio addon lets you stream any movie or series in seconds via torrents — no downloading
+    needed.
   tags:
   - Guide
   - Streaming
@@ -190,8 +318,7 @@ entries:
   steps:
   - Download and install Stremio from stremio.com
   - Create a free account (required for addons to sync)
-  - Go to https://torrentio.strem.fun and configure your preferred debrid or torrent
-    settings
+  - Go to https://torrentio.strem.fun and configure your preferred debrid or torrent settings
   - Click 'Install' — it will open Stremio and add the addon automatically
   - Search any movie or series in Stremio and pick a stream from Torrentio
   links:
@@ -200,8 +327,7 @@ entries:
   - title: Torrentio Addon
     url: https://torrentio.strem.fun/
 - title: Free VPNs Worth Using
-  description: Not all free VPNs are safe. These are the ones actually worth using
-    — no data selling, no weird logging policies.
+  description: Not all free VPNs are safe. These are the ones actually worth using — no data selling, no weird logging policies.
   tags:
   - Privacy
   - VPN
@@ -214,8 +340,7 @@ entries:
   - title: Windscribe (10GB/month free)
     url: https://windscribe.com/
 - title: How to Use a Temp Mail
-  description: Many sites require an email to sign up. Use a disposable temp email
-    so your real inbox stays clean.
+  description: Many sites require an email to sign up. Use a disposable temp email so your real inbox stays clean.
   tags:
   - Privacy
   - Tips
@@ -231,8 +356,7 @@ entries:
   - title: 10 Minute Mail
     url: https://10minutemail.com/
 - title: Best Free Image Resources
-  description: High quality, royalty-free images you can use for anything — no attribution
-    needed.
+  description: High quality, royalty-free images you can use for anything — no attribution needed.
   tags:
   - Design
   - Images
