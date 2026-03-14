@@ -10,201 +10,98 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition">
 
-<!-- ============================================================ -->
-<!--  SCREEN 1: HERO HOME                                         -->
-<!-- ============================================================ -->
+<!-- SCREEN 1: HERO -->
 <div id="screen-home">
     <div class="hero-wrapper">
-        <!-- animated background blobs -->
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-
+        <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
         <div class="hero-content">
             <div class="hero-badge">✨ All links in one place</div>
-
             <h1 class="hero-title">Everything<br><span class="hero-title-accent">you need</span></h1>
-
-            <p class="hero-subtitle">
-                Movies, Games, Learning, Programming –<br>
-                all your favourite links, neatly organised.
-            </p>
-
+            <p class="hero-subtitle">Movies, Games, Learning, Programming –<br>all your favourite links, neatly organised.</p>
             <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number" id="heroTopicsNum">4</span>
-                    <span class="hero-stat-label">Topics</span>
-                </div>
+                <div class="hero-stat"><span class="hero-stat-number" id="heroTopicsNum">–</span><span class="hero-stat-label">Topics</span></div>
                 <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number" id="heroLinksNum">0</span>
-                    <span class="hero-stat-label">Links</span>
-                </div>
+                <div class="hero-stat"><span class="hero-stat-number" id="heroLinksNum">–</span><span class="hero-stat-label">Links</span></div>
                 <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">2</span>
-                    <span class="hero-stat-label">Languages</span>
-                </div>
+                <div class="hero-stat"><span class="hero-stat-number">100%</span><span class="hero-stat-label">Free</span></div>
             </div>
-
             <button class="hero-cta" onclick="showApp()">
                 <span>Get Started</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </button>
-
             <p class="hero-hint">No account needed · Free forever</p>
         </div>
     </div>
 </div>
 
-<!-- ============================================================ -->
-<!--  SCREEN 2: APP                                               -->
-<!-- ============================================================ -->
+<!-- SCREEN 2: APP -->
 <div id="screen-app" style="display:none;">
-
     <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-3 flex items-center gap-3" style="position:sticky;top:0;z-index:40;">
-        <!-- Home button -->
         <button onclick="showHome()" class="flex items-center gap-1 text-purple-400 hover:text-purple-300 transition font-semibold flex-shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
             <span class="hidden sm:inline">Home</span>
         </button>
-
-        <!-- Universal search bar — centered -->
         <div class="flex-1 flex justify-center">
             <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 w-full" style="max-width:500px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="text-gray-400 flex-shrink-0">
-                    <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
-                </svg>
-                <input id="searchInput" placeholder="Search all topics..." oninput="filterLinks()"
-                    class="bg-transparent outline-none w-full text-sm dark:text-white text-gray-800 placeholder-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="text-gray-400 flex-shrink-0"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+                <input id="searchInput" placeholder="Search all topics..." oninput="filterLinks()" class="bg-transparent outline-none w-full text-sm dark:text-white text-gray-800 placeholder-gray-400">
                 <button onclick="clearSearch()" id="searchClearBtn" style="display:none;" class="text-gray-400 hover:text-gray-600 dark:hover:text-white flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
         </div>
-
-        <!-- Hamburger (mobile only) -->
         <button id="sidebarToggle" onclick="toggleSidebar()" class="flex sm:hidden items-center justify-center p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition flex-shrink-0" style="width:36px;height:36px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
     </header>
 
-    <div class="flex" style="min-height: calc(100vh - 65px); position:relative;">
-
-        <!-- SIDEBAR OVERLAY (mobile) -->
+    <div class="flex" style="min-height:calc(100vh - 65px);position:relative;">
         <div id="sidebarOverlay" onclick="toggleSidebar()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:30;"></div>
-
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700 flex flex-col" style="
-            width: 256px; flex-shrink:0;
-            position: fixed; top: 65px; left: 0; bottom: 0;
-            z-index: 31; overflow-y: auto;
-            transform: translateX(-100%);
-            transition: transform 0.25s ease;
-        ">
+        <aside id="sidebar" class="bg-white dark:bg-gray-800 p-5 border-r border-gray-200 dark:border-gray-700 flex flex-col" style="width:256px;flex-shrink:0;position:fixed;top:65px;left:0;bottom:0;z-index:31;overflow-y:auto;transform:translateX(-100%);transition:transform 0.25s ease;">
             <div class="flex-1">
-                <h1 id="sidebarTitle" class="text-xl font-bold mb-4">Topics</h1>
+                <h1 class="text-xl font-bold mb-4">Topics</h1>
                 <select id="topicsDropdown" class="w-full border p-2 rounded text-black dark:text-white dark:bg-gray-700" onchange="selectTopic(this.value);closeSidebar()">
                     <option value="">Select a topic...</option>
                 </select>
-                <div id="gamesCategory" style="display:none; margin-top:8px;">
-                    <h3 id="gamesCategoryTitle" class="text-lg font-semibold mt-4 mb-2">Games</h3>
+                <div id="gamesCategory" style="display:none;margin-top:8px;">
+                    <h3 class="text-lg font-semibold mt-4 mb-2">Games</h3>
                     <div id="gamesList" class="flex flex-col gap-1"></div>
                 </div>
-
-                <!-- Vault button -->
-                <button onclick="showVault();closeSidebar();" id="vaultBtn" style="
-                    margin-top: 1.25rem;
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.6rem;
-                    padding: 0.6rem 0.85rem;
-                    border-radius: 12px;
-                    background: rgba(124,58,237,0.15);
-                    border: 1px solid rgba(124,58,237,0.3);
-                    color: #c4b5fd;
-                    font-size: 0.88rem;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: all 0.2s;
-                " onmouseover="this.style.background='rgba(124,58,237,0.28)';this.style.borderColor='rgba(124,58,237,0.55)'"
-                   onmouseout="this.style.background='rgba(124,58,237,0.15)';this.style.borderColor='rgba(124,58,237,0.3)'">
+                <button onclick="showVault();closeSidebar();" class="vault-sidebar-btn" onmouseover="this.style.background='rgba(124,58,237,0.28)';this.style.borderColor='rgba(124,58,237,0.55)'" onmouseout="this.style.background='rgba(124,58,237,0.15)';this.style.borderColor='rgba(124,58,237,0.3)'">
                     <span style="font-size:1.1rem;">🔐</span> The Vault
                 </button>
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
         <main class="flex-1 p-4 sm:p-8 flex flex-col landing-container overflow-y-auto" style="width:100%;">
 
-            <!-- TOPIC LANDING -->
+            <!-- Landing page -->
             <div id="landingPage" class="w-full">
-                <div class="landing-page-content">
-                    <div class="landing-content">
-                        <h2 id="landingTitle" class="landing-title">Everything you need</h2>
-                        <p id="landingSubtitle" class="landing-subtitle">Select a topic from the list on the left to get started</p>
-                        <div class="features-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">🎬</div>
-                                <div class="feature-title" id="featureTitle1">Live TV & Streaming</div>
-                                <div class="feature-description" id="featureDesc1">Browse through curated links for movies, series, and live TV streams</div>
-                            </div>
-                            <div class="feature-card">
-                                <div class="feature-icon">🎮</div>
-                                <div class="feature-title" id="featureTitle2">Games</div>
-                                <div class="feature-description" id="featureDesc2">Find resources for your favorite games like Minecraft, Valorant, and more</div>
-                            </div>
-                            <div class="feature-card">
-                                <div class="feature-icon">💻</div>
-                                <div class="feature-title" id="featureTitle3">Learning & Tools</div>
-                                <div class="feature-description" id="featureDesc3">Access educational resources and programming tools all in one place</div>
-                            </div>
-                        </div>
-                        <div class="stats-section">
-                            <div class="stat">
-                                <span class="stat-number" id="statTopicsNum">4</span>
-                                <span class="stat-label" id="statTopics">Topics</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" id="totalLinks">0</span>
-                                <span class="stat-label" id="statLinks">Links</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">2</span>
-                                <span class="stat-label" id="statLanguages">Languages</span>
-                            </div>
-                        </div>
+                <div class="landing-page-content"><div class="landing-content">
+                    <h2 class="landing-title">Everything you need</h2>
+                    <p class="landing-subtitle">Select a topic from the list on the left to get started</p>
+                    <div class="features-grid">
+                        <div class="feature-card"><div class="feature-icon">🎬</div><div class="feature-title">Live TV & Streaming</div><div class="feature-description">Curated links for movies, series, and live TV</div></div>
+                        <div class="feature-card"><div class="feature-icon">🎮</div><div class="feature-title">Games</div><div class="feature-description">Resources for Minecraft, Valorant, and more</div></div>
+                        <div class="feature-card"><div class="feature-icon">💻</div><div class="feature-title">Learning & Tools</div><div class="feature-description">Educational resources and programming tools</div></div>
                     </div>
-                </div>
+                    <div class="stats-section">
+                        <div class="stat"><span class="stat-number" id="statTopicsNum">–</span><span class="stat-label">Topics</span></div>
+                        <div class="stat"><span class="stat-number" id="totalLinks">–</span><span class="stat-label">Links</span></div>
+                        <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Free</span></div>
+                    </div>
+                </div></div>
             </div>
 
-            <!-- TOPIC CONTENT -->
+            <!-- Topic content -->
             <div id="topicContent" style="display:none;">
                 <h2 id="topicTitle" class="text-3xl font-bold mb-4"></h2>
                 <div class="mb-4 flex flex-wrap gap-2 items-center">
                     <div class="flex gap-1">
-                        <button id="filter-all"      class="price-filter active"   onclick="setPriceFilter('all')">All</button>
-                        <button id="filter-free"     class="price-filter free"     onclick="setPriceFilter('free')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>
-                            Free
-                        </button>
-                        <button id="filter-paid"     class="price-filter paid"     onclick="setPriceFilter('paid')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                            Paid
-                        </button>
-                        <button id="filter-freemium" class="price-filter freemium" onclick="setPriceFilter('freemium')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            Freemium
-                        </button>
+                        <button id="filter-all" class="price-filter active" onclick="setPriceFilter('all')">All</button>
+                        <button id="filter-free" class="price-filter free" onclick="setPriceFilter('free')"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>Free</button>
+                        <button id="filter-paid" class="price-filter paid" onclick="setPriceFilter('paid')"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Paid</button>
+                        <button id="filter-freemium" class="price-filter freemium" onclick="setPriceFilter('freemium')"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Freemium</button>
                     </div>
                     <span id="resultsCount" class="text-sm text-gray-400"></span>
                 </div>
@@ -212,804 +109,338 @@
                 <div id="linksList" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
             </div>
 
-            <!-- VAULT CONTENT -->
+            <!-- Vault grid -->
             <div id="vaultContent" style="display:none;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
                     <span style="font-size:1.6rem;">🔐</span>
                     <h2 style="font-size:1.6rem;font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:-0.5px;">The Vault</h2>
                 </div>
-
-                <!-- Tag filter -->
                 <div id="vaultTagsList" class="mb-5 flex gap-2 flex-wrap"></div>
-
-                <!-- Cards grid -->
                 <div id="vaultList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;"></div>
             </div>
 
-            <!-- VAULT CATEGORY PAGE (School etc.) -->
-            <div id="vaultCategory" style="display:none; max-width:900px; margin:0 auto; width:100%;">
-
-                <!-- Back -->
-                <button onclick="closeVaultCategory()" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:50px;color:rgba(255,255,255,0.65);font-size:0.83rem;padding:0.45rem 1rem;cursor:pointer;margin-bottom:2rem;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.65)'">
+            <!-- Vault category (tabs) -->
+            <div id="vaultCategory" style="display:none;max-width:900px;margin:0 auto;width:100%;">
+                <button onclick="closeVaultCategory()" class="back-btn" onmouseover="this.style.background='rgba(255,255,255,0.13)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.65)'">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Zurück zum Vault
                 </button>
-
-                <!-- Header -->
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
                     <span id="vcIcon" style="font-size:1.8rem;"></span>
                     <h1 id="vcTitle" style="font-size:2rem;font-weight:900;color:rgba(255,255,255,0.95);letter-spacing:-0.75px;line-height:1.1;"></h1>
                 </div>
                 <p id="vcDesc" style="font-size:0.92rem;color:rgba(255,255,255,0.4);margin-bottom:1.75rem;line-height:1.6;"></p>
-
-                <!-- Tabs -->
                 <div id="vcTabs" style="display:flex;gap:0.5rem;margin-bottom:1.75rem;flex-wrap:wrap;"></div>
-
-                <!-- Subject grid per tab -->
                 <div id="vcSubjects" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1rem;"></div>
             </div>
 
-            <!-- VAULT DETAIL PAGE -->
-            <div id="vaultDetail" style="display:none; max-width:860px; margin:0 auto; width:100%;">
-
-                <!-- Back button -->
-                <button onclick="closeVaultDetail()" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:50px;color:rgba(255,255,255,0.65);font-size:0.83rem;padding:0.45rem 1rem;cursor:pointer;margin-bottom:2rem;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.13)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.65)'">
+            <!-- Vault detail page -->
+            <div id="vaultDetail" style="display:none;max-width:860px;margin:0 auto;width:100%;">
+                <button id="vaultDetailBack" onclick="closeVaultDetail()" class="back-btn" onmouseover="this.style.background='rgba(255,255,255,0.13)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='rgba(255,255,255,0.65)'">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Back to The Vault
                 </button>
-
-                <!-- Hero image -->
                 <div id="vdImage" style="display:none;margin-bottom:2rem;">
                     <img id="vdImageEl" src="" alt="" style="width:100%;max-height:340px;object-fit:cover;border-radius:22px;border:1px solid rgba(255,255,255,0.09);">
                 </div>
-
-                <!-- Title + tags -->
                 <h1 id="vdTitle" style="font-size:2.2rem;font-weight:900;color:rgba(255,255,255,0.95);letter-spacing:-1px;margin-bottom:0.75rem;line-height:1.15;"></h1>
                 <div id="vdTags" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;"></div>
-
-                <!-- Description -->
                 <p id="vdDesc" style="font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:2rem;"></p>
-
-                <!-- Steps -->
                 <div id="vdStepsWrap" style="display:none;margin-bottom:2.5rem;">
-                    <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:1rem;">Step by Step</div>
+                    <div class="section-label">Step by Step</div>
                     <div id="vdSteps" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
                 </div>
-
-                <!-- Links -->
                 <div id="vdLinksWrap" style="display:none;">
-                    <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:1rem;">Useful Links</div>
+                    <div class="section-label">Useful Links</div>
                     <div id="vdLinks" style="display:flex;flex-wrap:wrap;gap:0.65rem;"></div>
                 </div>
-
             </div>
 
         </main>
     </div>
 </div>
 
-<!-- ============================================================ -->
-<!--  FOOTER                                                      -->
-<!-- ============================================================ -->
-<footer style="
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 1.5rem 1.25rem;
-    color: rgba(255,255,255,0.55);
-    font-size: 0.85rem;
-">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem; text-align:center;">
-
-        <!-- Left: name + copyright -->
-        <div style="display:flex; flex-direction:column; gap:0.3rem; flex:1; min-width:130px;">
-            <span style="font-weight:700; font-size:1rem; color:rgba(255,255,255,0.85); letter-spacing:0.01em;">Toosi</span>
-            <span style="font-size:0.78rem;">© <span id="footer-year"></span> All rights reserved.</span>
-            <span style="font-size:0.75rem; color:rgba(255,255,255,0.35);">Version 1.0 · HTML · Tailwind · JS · YAML</span>
+<!-- FOOTER -->
+<footer style="background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.08);padding:1.5rem 1.25rem;color:rgba(255,255,255,0.55);font-size:0.85rem;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.2rem;text-align:center;">
+        <div style="display:flex;flex-direction:column;gap:0.3rem;flex:1;min-width:130px;">
+            <span style="font-weight:700;font-size:1rem;color:rgba(255,255,255,0.85);">Toosi</span>
+            <span style="font-size:0.78rem;">&copy; <span id="footer-year"></span> All rights reserved.</span>
+            <span style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Version 1.0 · HTML · Tailwind · JS · YAML</span>
         </div>
-
-        <!-- Center: social links -->
-        <div style="display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; justify-content:center; flex:2; min-width:200px;">
-            <a href="#" title="GitHub" style="display:flex;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.55);text-decoration:none;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:0.35rem 0.75rem;border-radius:999px;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.background='rgba(255,255,255,0.07)'">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-            </a>
-            <a href="#" title="Discord" style="display:flex;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.55);text-decoration:none;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:0.35rem 0.75rem;border-radius:999px;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.background='rgba(255,255,255,0.07)'">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.133 18.114a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                Discord
-            </a>
-            <a href="#" title="Twitter / X" style="display:flex;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.55);text-decoration:none;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:0.35rem 0.75rem;border-radius:999px;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.background='rgba(255,255,255,0.07)'">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                Twitter
-            </a>
+        <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;justify-content:center;flex:2;min-width:200px;">
+            <a href="#" class="footer-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+            <a href="#" class="footer-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.133 18.114a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
+            <a href="#" class="footer-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter</a>
         </div>
-
-        <!-- Right: last updated -->
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.35); flex:1; min-width:100px;">
-            Last updated<br>
-            <span id="footer-date" style="color:rgba(255,255,255,0.5);"></span>
-        </div>
-
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.35);flex:1;min-width:100px;">Last updated<br><span id="footer-date" style="color:rgba(255,255,255,0.5);"></span></div>
     </div>
 </footer>
 
-<script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-    document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
-</script>
-
-<!-- ============================================================ -->
-<!--  LINK DETAIL MODAL                                           -->
-<!-- ============================================================ -->
-<div id="linkModal" onclick="if(event.target===this)closeLinkModal()" style="
-    display:none; position:fixed; inset:0; z-index:100;
-    background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    align-items:center; justify-content:center; padding:1rem;
-">
-    <div style="
-        background:#1e1e2e; border:1px solid rgba(255,255,255,0.1);
-        border-radius:1.25rem; width:100%; max-width:480px;
-        padding:1.75rem; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5);
-        animation: modalIn 0.2s ease;
-    ">
-        <!-- Close button -->
-        <button onclick="closeLinkModal()" style="
-            position:absolute; top:1rem; right:1rem;
-            background:rgba(255,255,255,0.08); border:none; border-radius:50%;
-            width:32px; height:32px; cursor:pointer; color:rgba(255,255,255,0.7);
-            display:flex; align-items:center; justify-content:center;
-            font-size:1.1rem; transition:background 0.2s;
-        " onmouseover="this.style.background='rgba(255,255,255,0.16)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">✕</button>
-
-        <!-- Favicon + title row -->
-        <div style="display:flex; align-items:center; gap:0.85rem; margin-bottom:1rem;">
+<!-- LINK MODAL -->
+<div id="linkModal" onclick="if(event.target===this)closeLinkModal()" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem;">
+    <div style="background:#1e1e2e;border:1px solid rgba(255,255,255,0.1);border-radius:1.25rem;width:100%;max-width:480px;padding:1.75rem;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.5);animation:modalIn 0.2s ease;">
+        <button onclick="closeLinkModal()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.16)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">&#x2715;</button>
+        <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1rem;">
             <img id="modalFavicon" src="" alt="" style="width:40px;height:40px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,0.06);padding:4px;" onerror="this.style.display='none'">
-            <div>
-                <div id="modalTitle" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.3;"></div>
-                <div id="modalBadge" style="margin-top:3px;"></div>
-            </div>
+            <div><div id="modalTitle" style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.3;"></div><div id="modalBadge" style="margin-top:3px;"></div></div>
         </div>
-
-        <!-- Description -->
         <p id="modalDesc" style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.6;margin-bottom:1.25rem;"></p>
-
-        <!-- Tags -->
         <div id="modalTags" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.4rem;"></div>
-
-        <!-- Visit button -->
-        <a id="modalLink" href="#" target="_blank" style="
-            display:flex; align-items:center; justify-content:center; gap:0.5rem;
-            background:linear-gradient(135deg,#7c3aed,#4f46e5);
-            color:#fff; text-decoration:none; font-weight:600; font-size:0.95rem;
-            padding:0.75rem 1.5rem; border-radius:0.75rem;
-            transition:opacity 0.2s; width:100%; box-sizing:border-box;
-        " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        <a id="modalLink" href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;font-weight:600;font-size:0.95rem;padding:0.75rem 1.5rem;border-radius:0.75rem;transition:opacity 0.2s;width:100%;box-sizing:border-box;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             Visit Site
         </a>
     </div>
 </div>
+<style>@keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}</style>
 
-<style>
-@keyframes modalIn {
-    from { opacity:0; transform:scale(0.95) translateY(10px); }
-    to   { opacity:1; transform:scale(1) translateY(0); }
-}
-</style>
-
-<!-- ============================================================ -->
-<!--  JAVASCRIPT                                                  -->
-<!-- ============================================================ -->
 <script>
-let allData = null, vaultData = null, currentTopicId = null, selectedTag = null, selectedGame = null, currentLanguage = 'en', selectedPriceFilter = 'all', selectedVaultTag = null;
+// State
+let allData=null,vaultData=null,currentTopicId=null,selectedTag=null,selectedGame=null,selectedPriceFilter='all',selectedVaultTag=null;
 
-// --- Screen switching ---
-function showApp() {
-    document.getElementById('screen-home').style.display = 'none';
-    document.getElementById('screen-app').style.display = 'block';
-    window.history.pushState(null, '', '?screen=app');
+// Helpers
+const $=id=>document.getElementById(id);
+const show=id=>{$(id).style.display='block'};
+const hide=id=>{$(id).style.display='none'};
+function hideAllPanels(){['landingPage','topicContent','vaultContent','vaultCategory','vaultDetail'].forEach(hide);}
+function scrollMainTop(){document.querySelector('main').scrollTop=0;}
+
+// Screens
+function showApp(){hide('screen-home');show('screen-app');window.history.pushState(null,'','?screen=app');}
+function showHome(){hide('screen-app');show('screen-home');window.history.pushState(null,'','/');}
+
+// Price (single source of truth)
+function getPriceType(tags){
+    const t=(tags||[]).map(x=>x.toString().toLowerCase());
+    const free=t.includes('free');
+    const paid=t.some(x=>['premium','paid','subscription','not-free'].includes(x));
+    if(free&&paid)return'freemium';if(free)return'free';if(paid)return'paid';return'none';
 }
-function showHome() {
-    document.getElementById('screen-app').style.display = 'none';
-    document.getElementById('screen-home').style.display = 'block';
-    window.history.pushState(null, '', '/');
+const BSVG={
+    free:'<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>',
+    paid:'<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+    freemium:'<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+};
+function getPriceBadge(tags){const type=getPriceType(tags);const label={free:'Free',paid:'Paid',freemium:'Freemium'}[type];return label?`<span class="price-badge ${type}">${BSVG[type]}${label}</span>`:''}
+
+// Link card (used by topic view AND search — no duplication)
+function makeLinkCard(link,rawSearch){
+    const div=document.createElement('div');
+    div.className='link-card bg-white dark:bg-gray-800 p4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
+    div.style.cssText='cursor:pointer;padding:1rem;';
+    div.onclick=()=>openLinkModal(link);
+    const header=document.createElement('div');header.className='flex items-start justify-between gap-2 mb-1';
+    const h3=document.createElement('h3');h3.className='font-semibold text-lg leading-tight';h3.innerHTML=highlight(link.title||'',rawSearch);
+    const badge=document.createElement('div');badge.innerHTML=getPriceBadge(link.tags);
+    header.appendChild(h3);header.appendChild(badge);
+    const a=document.createElement('a');a.href=link.url;a.target='_blank';a.className='text-blue-500 text-sm break-all';a.innerHTML=highlight(link.url||'',rawSearch);a.onclick=e=>e.stopPropagation();
+    const p=document.createElement('p');p.className='text-gray-600 dark:text-gray-300 text-sm mt-1';p.innerHTML=highlight(link.description||'',rawSearch);
+    div.appendChild(header);div.appendChild(a);div.appendChild(p);
+    return div;
+}
+function renderLinks(links,rawSearch){const ll=$('linksList');ll.innerHTML='';links.forEach(l=>ll.appendChild(makeLinkCard(l,rawSearch)));}
+
+// Modal
+function openLinkModal(link){
+    const domain=(()=>{try{return new URL(link.url).hostname;}catch(e){return'';}})();
+    $('modalFavicon').src=`https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    $('modalFavicon').style.display='block';
+    $('modalTitle').textContent=link.title||'';$('modalDesc').textContent=link.description||'';$('modalLink').href=link.url||'#';
+    $('modalBadge').innerHTML=getPriceBadge(link.tags);
+    $('modalTags').innerHTML=(link.tags||[]).map(t=>`<span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-size:0.72rem;padding:2px 9px;border-radius:999px;">${t}</span>`).join('');
+    $('linkModal').style.display='flex';document.body.style.overflow='hidden';
+}
+function closeLinkModal(){$('linkModal').style.display='none';document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLinkModal();});
+
+// Search highlight
+function highlight(text,raw){
+    if(!raw)return text;
+    return raw.split(/\s+/).filter(Boolean).reduce((r,t)=>{
+        try{return r.replace(new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<span class="match-highlight">$1</span>');}catch(e){return r;}
+    },text);
 }
 
-// --- The Vault ---
-function showVault() {
-    document.getElementById('landingPage').style.display = 'none';
-    document.getElementById('topicContent').style.display = 'none';
-    document.getElementById('vaultDetail').style.display = 'none';
-    document.getElementById('vaultCategory').style.display = 'none';
-    document.getElementById('vaultContent').style.display = 'block';
-    document.getElementById('topicsDropdown').value = '';
-    currentTopicId = null;
-    selectedVaultTag = null;
-    if (vaultData) renderVault();
-    else loadVault();
+// Price filter
+function setPriceFilter(type){
+    selectedPriceFilter=type;
+    ['all','free','paid','freemium'].forEach(t=>$('filter-'+t)?.classList.toggle('active',t===type));
+    filterLinks();
 }
 
-async function loadVault() {
-    try {
-        const res = await fetch('vault.yaml');
-        if (!res.ok) throw new Error('vault.yaml not found');
-        vaultData = jsyaml.load(await res.text());
-        renderVault();
-    } catch(e) {
-        document.getElementById('vaultList').innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.yaml not loaded yet. Add it to your repo root.</p>';
+// Filter / search
+function filterLinks(){
+    const rawSearch=$('searchInput').value.trim();
+    const search=rawSearch.toLowerCase();
+    $('searchClearBtn').style.display=rawSearch?'block':'none';
+    if(!search){
+        const current=allData?.topics?.find(t=>t.id===currentTopicId);
+        if(!current)return;
+        let links=current.links||[];
+        if(selectedTag)links=links.filter(l=>l.tags?.includes(selectedTag));
+        if(selectedGame&&currentTopicId==='Games')links=links.filter(l=>l.game===selectedGame);
+        if(selectedPriceFilter!=='all')links=links.filter(l=>getPriceType(l.tags)===selectedPriceFilter);
+        $('resultsCount').textContent=`${links.length} result${links.length!==1?'s':''}`;
+        renderLinks(links,'');return;
     }
-}
-
-function renderVault() {
-    // Build tag filter
-    const allTags = {};
-    vaultData.entries?.forEach(e => e.tags?.forEach(t => allTags[t] = true));
-    const tagsEl = document.getElementById('vaultTagsList');
-    tagsEl.innerHTML = '';
-    const allBtn = document.createElement('button');
-    allBtn.className = 'vault-tag-btn' + (!selectedVaultTag ? ' active' : '');
-    allBtn.textContent = 'All';
-    allBtn.onclick = () => { selectedVaultTag = null; renderVault(); };
-    tagsEl.appendChild(allBtn);
-    Object.keys(allTags).sort().forEach(tag => {
-        const btn = document.createElement('button');
-        btn.className = 'vault-tag-btn' + (selectedVaultTag === tag ? ' active' : '');
-        btn.textContent = tag;
-        btn.onclick = () => { selectedVaultTag = tag; renderVault(); };
-        tagsEl.appendChild(btn);
+    const terms=search.split(/\s+/).filter(Boolean);
+    show('topicContent');hide('landingPage');
+    $('topicTitle').textContent=`Search: "${rawSearch}"`;
+    const ll=$('linksList');ll.innerHTML='';
+    let total=0;
+    allData.topics.forEach(topic=>{
+        let links=(topic.links||[]).filter(l=>{const hay=[l.title,l.description,l.url,(l.tags||[]).join(' '),l.game||''].join(' ').toLowerCase();return terms.every(t=>hay.includes(t));});
+        if(selectedPriceFilter!=='all')links=links.filter(l=>getPriceType(l.tags)===selectedPriceFilter);
+        if(!links.length)return;
+        total+=links.length;
+        const heading=document.createElement('div');
+        heading.style.cssText='margin:1.5rem 0 0.6rem;padding-bottom:0.4rem;border-bottom:1px solid rgba(255,255,255,0.1);';
+        heading.innerHTML=`<span style="font-size:1rem;font-weight:700;opacity:0.85;">${topic.name}</span> <span style="font-size:0.8rem;opacity:0.45;">${links.length} result${links.length!==1?'s':''}</span>`;
+        ll.appendChild(heading);
+        const grid=document.createElement('div');grid.className='grid grid-cols-1 md:grid-cols-3 gap-4';
+        links.forEach(link=>grid.appendChild(makeLinkCard(link,rawSearch)));
+        ll.appendChild(grid);
     });
-
-    // Filter entries
-    let entries = vaultData.entries || [];
-    if (selectedVaultTag) entries = entries.filter(e => e.tags?.includes(selectedVaultTag));
-
-    const list = document.getElementById('vaultList');
-    list.innerHTML = '';
-    entries.forEach(entry => {
-        const card = document.createElement('div');
-        card.className = 'vault-card-compact';
-        card.onclick = () => entry.type === 'category' ? openVaultCategory(entry) : openVaultDetail(entry);
-
-        // Image — full top, cropped
-        if (entry.image) {
-            const img = document.createElement('img');
-            img.src = entry.image;
-            img.alt = entry.title || '';
-            img.className = 'vault-card-img';
-            img.onerror = () => img.style.display = 'none';
-            card.appendChild(img);
-        } else {
-            // Placeholder gradient if no image
-            const placeholder = document.createElement('div');
-            placeholder.className = 'vault-card-img vault-card-img-placeholder';
-            placeholder.textContent = (entry.title||'').match(/./u)?.[0] || '📄';
-            card.appendChild(placeholder);
-        }
-
-        // Bottom info strip
-        const info = document.createElement('div');
-        info.className = 'vault-card-info';
-
-        const title = document.createElement('div');
-        title.className = 'vault-card-title';
-        title.textContent = entry.title || '';
-        info.appendChild(title);
-
-        // Tags row (max 2)
-        if (entry.tags?.length) {
-            const tagsRow = document.createElement('div');
-            tagsRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.4rem;';
-            entry.tags.slice(0,2).forEach(t => {
-                const pill = document.createElement('span');
-                pill.style.cssText = 'background:rgba(124,58,237,0.2);color:#c4b5fd;font-size:0.65rem;padding:1px 7px;border-radius:999px;border:1px solid rgba(124,58,237,0.3);white-space:nowrap;';
-                pill.textContent = t;
-                tagsRow.appendChild(pill);
-            });
-            info.appendChild(tagsRow);
-        }
-
-        // Arrow hint for categories
-        if (entry.type === 'category') {
-            const hint = document.createElement('div');
-            hint.style.cssText = 'margin-top:0.5rem;font-size:0.7rem;color:#c4b5fd;display:flex;align-items:center;gap:0.25rem;font-weight:600;';
-            hint.innerHTML = 'Öffnen <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>';
-            info.appendChild(hint);
-        }
-
-        card.appendChild(info);
-        list.appendChild(card);
-    });
+    $('resultsCount').textContent=total?`${total} result${total!==1?'s':''}across all topics`:'No results found';
 }
 
-// --- Vault Category Page ---
-let _currentCategoryEntry = null;
-
-function openVaultCategory(entry) {
-    document.getElementById('vaultContent').style.display = 'none';
-    document.getElementById('vaultDetail').style.display = 'none';
-    const cat = document.getElementById('vaultCategory');
-    cat.style.display = 'block';
-    document.querySelector('main').scrollTop = 0;
-    _currentCategoryEntry = entry;
-
-    // Icon + Title + Desc
-    const titleText = entry.title || '';
-    const emojiMatch = titleText.match(/^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/);
-    document.getElementById('vcIcon').textContent = emojiMatch ? emojiMatch[1] : '';
-    document.getElementById('vcTitle').textContent = emojiMatch ? titleText.replace(emojiMatch[1], '').trim() : titleText;
-    document.getElementById('vcDesc').textContent = entry.description || '';
-
-    // Build tabs from entry.tabs (or fall back to flat subjects)
-    const tabsEl = document.getElementById('vcTabs');
-    tabsEl.innerHTML = '';
-    if (entry.tabs && entry.tabs.length > 0) {
-        entry.tabs.forEach((tab, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'vc-tab-btn' + (i === 0 ? ' active' : '');
-            btn.textContent = tab.name;
-            btn.onclick = () => {
-                tabsEl.querySelectorAll('.vc-tab-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderSubjectGrid(tab.subjects);
-            };
-            tabsEl.appendChild(btn);
-        });
-        renderSubjectGrid(entry.tabs[0].subjects);
-    } else {
-        renderSubjectGrid(entry.subjects || []);
-    }
+function clearSearch(){
+    $('searchInput').value='';$('searchClearBtn').style.display='none';
+    if(currentTopicId){const c=allData?.topics?.find(t=>t.id===currentTopicId);if(c)$('topicTitle').textContent=c.name;filterLinks();}
 }
 
-function renderSubjectGrid(subjects) {
-    const grid = document.getElementById('vcSubjects');
-    grid.innerHTML = '';
-    subjects.forEach(sub => {
-        const btn = document.createElement('div');
-        btn.className = 'vault-subject-btn';
-        btn.onclick = () => openVaultSubject(sub);
-
-        const emojiMatch = (sub.title||'').match(/^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/);
-        const icon = document.createElement('div');
-        icon.style.cssText = 'font-size:1.9rem;margin-bottom:0.55rem;';
-        icon.textContent = emojiMatch ? emojiMatch[1] : '📄';
-
-        const name = document.createElement('div');
-        name.style.cssText = 'font-size:0.88rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.3;';
-        name.textContent = emojiMatch ? sub.title.replace(emojiMatch[1],'').trim() : sub.title;
-
-        const hint = document.createElement('div');
-        hint.style.cssText = 'font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:0.35rem;';
-        const stepCount = sub.steps?.length || 0;
-        const linkCount = sub.links?.length || 0;
-        hint.textContent = [stepCount && stepCount + ' Schritte', linkCount && linkCount + ' Links'].filter(Boolean).join(' · ');
-
-        btn.appendChild(icon); btn.appendChild(name); btn.appendChild(hint);
-        grid.appendChild(btn);
-    });
+// Topics
+function selectTopic(topicId){
+    hideAllPanels();
+    if(!topicId){show('landingPage');return;}
+    currentTopicId=topicId;selectedTag=null;selectedGame=null;
+    $('searchInput').value='';$('topicsDropdown').value=topicId;
+    const current=allData?.topics?.find(t=>t.id===topicId);if(!current)return;
+    show('topicContent');$('topicTitle').textContent=current.name;
+    const gs=$('gamesCategory');
+    if(topicId==='Games'){gs.style.display='block';renderGameCategories(current);}else gs.style.display='none';
+    renderTags(current);filterLinks();
+    window.history.pushState(null,'',`?screen=app&topic=${encodeURIComponent(topicId)}`);
 }
-
-function openVaultSubject(sub) {
-    document.getElementById('vaultCategory').style.display = 'none';
-    openVaultDetail(sub);
-    document.getElementById('vaultDetail').querySelector('button').onclick = () => {
-        document.getElementById('vaultDetail').style.display = 'none';
-        document.getElementById('vaultCategory').style.display = 'block';
-        document.querySelector('main').scrollTop = 0;
-    };
-}
-
-function closeVaultCategory() {
-    document.getElementById('vaultCategory').style.display = 'none';
-    document.getElementById('vaultContent').style.display = 'block';
-    document.querySelector('main').scrollTop = 0;
-}
-
-// --- Vault Detail Page ---
-function openVaultDetail(entry) {
-    // Hide vault list, show detail
-    document.getElementById('vaultContent').style.display = 'none';
-    const detail = document.getElementById('vaultDetail');
-    detail.style.display = 'block';
-
-    // Scroll to top
-    document.querySelector('main').scrollTop = 0;
-
-    // Image
-    const imgWrap = document.getElementById('vdImage');
-    const imgEl   = document.getElementById('vdImageEl');
-    if (entry.image) {
-        imgEl.src = entry.image;
-        imgEl.alt = entry.title || '';
-        imgWrap.style.display = 'block';
-    } else {
-        imgWrap.style.display = 'none';
-    }
-
-    // Title
-    document.getElementById('vdTitle').textContent = entry.title || '';
-
-    // Tags
-    const tagsEl = document.getElementById('vdTags');
-    tagsEl.innerHTML = (entry.tags || []).map(t =>
-        `<span style="background:rgba(124,58,237,0.18);color:#c4b5fd;font-size:0.75rem;padding:3px 11px;border-radius:999px;border:1px solid rgba(124,58,237,0.35);">${t}</span>`
-    ).join('');
-
-    // Description
-    document.getElementById('vdDesc').textContent = entry.description || '';
-
-    // Steps
-    const stepsWrap = document.getElementById('vdStepsWrap');
-    const stepsEl   = document.getElementById('vdSteps');
-    if (entry.steps?.length) {
-        stepsEl.innerHTML = '';
-        entry.steps.forEach((step, i) => {
-            const row = document.createElement('div');
-            row.style.cssText = 'display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:0.85rem 1.1rem;';
-            const num = document.createElement('span');
-            num.style.cssText = 'min-width:26px;height:26px;border-radius:50%;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:#c4b5fd;flex-shrink:0;margin-top:1px;';
-            num.textContent = i + 1;
-            const txt = document.createElement('span');
-            txt.style.cssText = 'font-size:0.9rem;color:rgba(255,255,255,0.72);line-height:1.6;';
-            txt.textContent = step;
-            row.appendChild(num); row.appendChild(txt);
-            stepsEl.appendChild(row);
-        });
-        stepsWrap.style.display = 'block';
-    } else {
-        stepsWrap.style.display = 'none';
-    }
-
-    // Links
-    const linksWrap = document.getElementById('vdLinksWrap');
-    const linksEl   = document.getElementById('vdLinks');
-    if (entry.links?.length) {
-        linksEl.innerHTML = '';
-        entry.links.forEach(l => {
-            const a = document.createElement('a');
-            a.href = l.url; a.target = '_blank';
-            a.style.cssText = 'display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:0.65rem 1.1rem;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.2s;';
-            a.onmouseover = () => { a.style.background='rgba(124,58,237,0.25)'; a.style.borderColor='rgba(124,58,237,0.45)'; a.style.color='#c4b5fd'; };
-            a.onmouseout  = () => { a.style.background='rgba(255,255,255,0.07)'; a.style.borderColor='rgba(255,255,255,0.12)'; a.style.color='rgba(255,255,255,0.75)'; };
-            a.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>${l.title || l.url}`;
-            linksEl.appendChild(a);
-        });
-        linksWrap.style.display = 'block';
-    } else {
-        linksWrap.style.display = 'none';
-    }
-}
-
-function closeVaultDetail() {
-    document.getElementById('vaultDetail').style.display = 'none';
-    document.getElementById('vaultContent').style.display = 'block';
-    document.querySelector('main').scrollTop = 0;
-}
-
-// --- Translations ---
-function trans(key) { return allData?.translations?.[currentLanguage]?.[key] || key; }
-
-function selectTopic(topicId) {
-    document.getElementById('vaultContent').style.display = 'none';
-    if (!topicId) {
-        document.getElementById('landingPage').style.display = 'block';
-        document.getElementById('topicContent').style.display = 'none';
-        document.getElementById('gamesCategory').style.display = 'none';
-        return;
-    }
-    currentTopicId = topicId; selectedTag = null; selectedGame = null;
-    document.getElementById('searchInput').value = '';
-    document.getElementById('topicsDropdown').value = topicId;
-    const current = allData?.topics?.find(t => t.id === topicId);
-    if (!current) return;
-    document.getElementById('landingPage').style.display = 'none';
-    document.getElementById('topicContent').style.display = 'block';
-    document.getElementById('topicTitle').textContent = current.name;
-    const gs = document.getElementById('gamesCategory');
-    if (topicId === 'Games') { gs.style.display = 'block'; renderGameCategories(current); }
-    else gs.style.display = 'none';
-    renderTags(current); filterLinks();
-    window.history.pushState(null, '', `?screen=app&topic=${encodeURIComponent(topicId)}`);
-}
-
-function renderTags(topic) {
-    const tl = document.getElementById('tagsList'); tl.innerHTML = '';
-    const allTags = {};
-    topic.links?.forEach(l => l.tags?.forEach(t => allTags[t] = true));
-    Object.keys(allTags).forEach(tag => {
-        const a = document.createElement('a'); a.href='#'; a.textContent = tag;
-        a.className = 'px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded text-sm cursor-pointer hover:bg-gray-400';
-        a.onclick = e => { e.preventDefault(); selectedTag = selectedTag === tag ? null : tag; filterLinks(); };
+function renderTags(topic){
+    const tl=$('tagsList');tl.innerHTML='';const allTags={};
+    topic.links?.forEach(l=>l.tags?.forEach(t=>allTags[t]=true));
+    Object.keys(allTags).forEach(tag=>{
+        const a=document.createElement('a');a.href='#';a.textContent=tag;
+        a.className='px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded text-sm cursor-pointer hover:bg-gray-400';
+        a.onclick=e=>{e.preventDefault();selectedTag=selectedTag===tag?null:tag;filterLinks();};
         tl.appendChild(a);
     });
 }
-
-function renderGameCategories(topic) {
-    const gl = document.getElementById('gamesList'); gl.innerHTML = '';
-    const games = new Set();
-    topic.links?.forEach(l => { if(l.game) games.add(l.game); });
-    games.forEach(game => {
-        const a = document.createElement('a'); a.href='#'; a.textContent = game;
-        a.className = 'px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
-        a.onclick = e => { e.preventDefault(); selectedGame = selectedGame === game ? null : game; filterLinks(); };
+function renderGameCategories(topic){
+    const gl=$('gamesList');gl.innerHTML='';const games=new Set();
+    topic.links?.forEach(l=>{if(l.game)games.add(l.game);});
+    games.forEach(game=>{
+        const a=document.createElement('a');a.href='#';a.textContent=game;
+        a.className='px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer text-sm';
+        a.onclick=e=>{e.preventDefault();selectedGame=selectedGame===game?null:game;filterLinks();};
         gl.appendChild(a);
     });
 }
 
-function getPriceType(tags) {
-    const t = (tags || []).map(x => x.toString().toLowerCase());
-    const isFree    = t.includes('free');
-    const isPremium = t.some(x => ['premium','paid','subscription','not-free'].includes(x));
-    if (isFree && isPremium) return 'freemium';
-    if (isFree)    return 'free';
-    if (isPremium) return 'paid';
-    return 'none';
+// Vault
+function showVault(){hideAllPanels();show('vaultContent');$('topicsDropdown').value='';currentTopicId=null;selectedVaultTag=null;if(vaultData)renderVault();else loadVault();}
+async function loadVault(){
+    try{const res=await fetch('vault.yaml');if(!res.ok)throw new Error();vaultData=jsyaml.load(await res.text());renderVault();}
+    catch(e){$('vaultList').innerHTML='<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.yaml not found.</p>';}
 }
-
-function setPriceFilter(type) {
-    selectedPriceFilter = type;
-    ['all','free','paid','freemium'].forEach(t => {
-        document.getElementById('filter-' + t)?.classList.toggle('active', t === type);
+function renderVault(){
+    const allTags={};vaultData.entries?.forEach(e=>e.tags?.forEach(t=>allTags[t]=true));
+    const tagsEl=$('vaultTagsList');tagsEl.innerHTML='';
+    [null,...Object.keys(allTags).sort()].forEach(tag=>{
+        const btn=document.createElement('button');
+        btn.className='vault-tag-btn'+((!tag&&!selectedVaultTag)||tag===selectedVaultTag?' active':'');
+        btn.textContent=tag||'All';btn.onclick=()=>{selectedVaultTag=tag;renderVault();};tagsEl.appendChild(btn);
     });
-    filterLinks();
-}
-
-function filterLinks() {
-    const rawSearch = document.getElementById('searchInput').value.trim();
-    const search = rawSearch.toLowerCase();
-    document.getElementById('searchClearBtn').style.display = rawSearch ? 'block' : 'none';
-
-    // If no search term, show current topic normally
-    if (!search) {
-        const current = allData?.topics?.find(t => t.id === currentTopicId);
-        if (!current) return;
-        let links = current.links || [];
-        if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
-        if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
-        if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
-        document.getElementById('resultsCount').textContent = `${links.length} result${links.length !== 1 ? 's' : ''}`;
-        renderLinks(links, rawSearch);
-        return;
-    }
-
-    // Global search across ALL topics
-    const terms = search.split(/\s+/).filter(Boolean);
-    let totalCount = 0;
-    const ll = document.getElementById('linksList');
-    ll.innerHTML = '';
-
-    // Make sure topic content area is visible
-    document.getElementById('topicContent').style.display = 'block';
-    document.getElementById('landingPage').style.display = 'none';
-    document.getElementById('topicTitle').textContent = `Search: "${rawSearch}"`;
-
-    allData.topics.forEach(topic => {
-        let links = topic.links || [];
-        links = links.filter(l => {
-            const hay = [l.title, l.description, l.url, (l.tags||[]).join(' '), l.game||''].join(' ').toLowerCase();
-            return terms.every(t => hay.includes(t));
-        });
-        if (selectedPriceFilter !== 'all') links = links.filter(l => getPriceType(l.tags) === selectedPriceFilter);
-        if (!links.length) return;
-
-        totalCount += links.length;
-
-        // Topic heading
-        const heading = document.createElement('div');
-        heading.style.cssText = 'margin: 1.5rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(255,255,255,0.1);';
-        heading.innerHTML = `<span style="font-size:1rem;font-weight:700;opacity:0.85;">${topic.name}</span> <span style="font-size:0.8rem;opacity:0.45;">${links.length} result${links.length !== 1 ? 's' : ''}</span>`;
-        ll.appendChild(heading);
-
-        // Cards row
-        const grid = document.createElement('div');
-        grid.className = 'grid grid-cols-1 md:grid-cols-3 gap-4';
-        links.forEach(link => {
-            const div = document.createElement('div');
-            div.className = 'link-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
-            const header = document.createElement('div');
-            header.className = 'flex items-start justify-between gap-2 mb-1';
-            const h3 = document.createElement('h3');
-            h3.className = 'font-semibold text-lg leading-tight';
-            h3.innerHTML = highlight(link.title||'', rawSearch);
-            const badge = document.createElement('div');
-            badge.innerHTML = getPriceBadge(link.tags);
-            header.appendChild(h3); header.appendChild(badge);
-            const a = document.createElement('a'); a.href = link.url; a.target = '_blank';
-            a.className = 'text-blue-500 text-sm break-all';
-            a.innerHTML = highlight(link.url||'', rawSearch);
-            const p = document.createElement('p');
-            p.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
-            p.innerHTML = highlight(link.description||'', rawSearch);
-            div.appendChild(header); div.appendChild(a); div.appendChild(p);
-            grid.appendChild(div);
-        });
-        ll.appendChild(grid);
-    });
-
-    document.getElementById('resultsCount').textContent = totalCount
-        ? `${totalCount} result${totalCount !== 1 ? 's' : ''} across all topics`
-        : trans('noResults');
-}
-
-function highlight(text, raw) {
-    if (!raw) return text;
-    return raw.split(/\s+/).filter(Boolean).reduce((r, t) => {
-        try { return r.replace(new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<span class="match-highlight">$1</span>'); }
-        catch(e) { return r; }
-    }, text);
-}
-
-function getPriceBadge(tags) {
-    const t = (tags || []).map(x => x.toString().toLowerCase());
-    const isFree    = t.includes('free');
-    const isPremium = t.some(x => ['premium','paid','subscription','not-free'].includes(x));
-    if (isFree && !isPremium) return `<span class="price-badge free">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>
-        Free
-    </span>`;
-    if (isPremium && !isFree) return `<span class="price-badge paid">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Paid
-    </span>`;
-    if (isFree && isPremium) return `<span class="price-badge freemium">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Freemium
-    </span>`;
-    return '';
-}
-
-function openLinkModal(link) {
-    const domain = (() => { try { return new URL(link.url).hostname; } catch(e) { return ''; } })();
-    document.getElementById('modalFavicon').src = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-    document.getElementById('modalFavicon').style.display = 'block';
-    document.getElementById('modalTitle').textContent = link.title || '';
-    document.getElementById('modalDesc').textContent = link.description || '';
-    document.getElementById('modalLink').href = link.url || '#';
-    document.getElementById('modalBadge').innerHTML = getPriceBadge(link.tags);
-    // Tags
-    const tagsEl = document.getElementById('modalTags');
-    tagsEl.innerHTML = (link.tags || []).map(t => `<span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-size:0.72rem;padding:2px 9px;border-radius:999px;">${t}</span>`).join('');
-    const modal = document.getElementById('linkModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-function closeLinkModal() {
-    document.getElementById('linkModal').style.display = 'none';
-    document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLinkModal(); });
-
-
-function renderLinks(links, rawSearch) {
-    const ll = document.getElementById('linksList'); ll.innerHTML = '';
-    links.forEach(link => {
-        const div = document.createElement('div');
-        div.className = 'link-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow hover:shadow-lg hover:-translate-y-1 transition';
-        div.style.cursor = 'pointer';
-        div.onclick = () => openLinkModal(link);
-
-        // Header row: title + badge
-        const header = document.createElement('div');
-        header.className = 'flex items-start justify-between gap-2 mb-1';
-
-        const h3 = document.createElement('h3');
-        h3.className = 'font-semibold text-lg leading-tight';
-        h3.innerHTML = highlight(link.title||'', rawSearch);
-
-        const badge = document.createElement('div');
-        badge.innerHTML = getPriceBadge(link.tags);
-
-        header.appendChild(h3);
-        header.appendChild(badge);
-
-        const a = document.createElement('a'); a.href = link.url; a.target = '_blank';
-        a.className = 'text-blue-500 text-sm break-all';
-        a.innerHTML = highlight(link.url||'', rawSearch);
-        a.onclick = e => e.stopPropagation();
-
-        const p = document.createElement('p');
-        p.className = 'text-gray-600 dark:text-gray-300 text-sm mt-1';
-        p.innerHTML = highlight(link.description||'', rawSearch);
-
-        div.appendChild(header);
-        div.appendChild(a);
-        div.appendChild(p);
-        ll.appendChild(div);
+    let entries=vaultData.entries||[];
+    if(selectedVaultTag)entries=entries.filter(e=>e.tags?.includes(selectedVaultTag));
+    const list=$('vaultList');list.innerHTML='';
+    entries.forEach(entry=>{
+        const card=document.createElement('div');card.className='vault-card-compact';
+        card.onclick=()=>entry.type==='category'?openVaultCategory(entry):openVaultDetail(entry);
+        if(entry.image){const img=document.createElement('img');img.src=entry.image;img.alt=entry.title||'';img.className='vault-card-img';img.onerror=()=>img.style.display='none';card.appendChild(img);}
+        else{const ph=document.createElement('div');ph.className='vault-card-img vault-card-img-placeholder';ph.textContent=(entry.title||'').match(/./u)?.[0]||'\u{1F4C4}';card.appendChild(ph);}
+        const info=document.createElement('div');info.className='vault-card-info';
+        const title=document.createElement('div');title.className='vault-card-title';title.textContent=entry.title||'';info.appendChild(title);
+        if(entry.tags?.length){const row=document.createElement('div');row.style.cssText='display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.4rem;';entry.tags.slice(0,2).forEach(t=>{const pill=document.createElement('span');pill.style.cssText='background:rgba(124,58,237,0.2);color:#c4b5fd;font-size:0.65rem;padding:1px 7px;border-radius:999px;border:1px solid rgba(124,58,237,0.3);white-space:nowrap;';pill.textContent=t;row.appendChild(pill);});info.appendChild(row);}
+        if(entry.type==='category'){const hint=document.createElement('div');hint.style.cssText='margin-top:0.5rem;font-size:0.7rem;color:#c4b5fd;display:flex;align-items:center;gap:0.25rem;font-weight:600;';hint.innerHTML='\u00d6ffnen <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>';info.appendChild(hint);}
+        card.appendChild(info);list.appendChild(card);
     });
 }
 
+// Vault category
+function extractEmoji(s){return(s||'').match(/^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/)?.[1]||null;}
+function openVaultCategory(entry){
+    hideAllPanels();show('vaultCategory');scrollMainTop();
+    const em=extractEmoji(entry.title||'');
+    $('vcIcon').textContent=em||'';$('vcTitle').textContent=em?(entry.title||'').replace(em,'').trim():(entry.title||'');$('vcDesc').textContent=entry.description||'';
+    const tabsEl=$('vcTabs');tabsEl.innerHTML='';
+    if(entry.tabs?.length){entry.tabs.forEach((tab,i)=>{const btn=document.createElement('button');btn.className='vc-tab-btn'+(i===0?' active':'');btn.textContent=tab.name;btn.onclick=()=>{tabsEl.querySelectorAll('.vc-tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSubjectGrid(tab.subjects);};tabsEl.appendChild(btn);});renderSubjectGrid(entry.tabs[0].subjects);}
+    else renderSubjectGrid(entry.subjects||[]);
+}
+function renderSubjectGrid(subjects){
+    const grid=$('vcSubjects');grid.innerHTML='';
+    subjects.forEach(sub=>{
+        const btn=document.createElement('div');btn.className='vault-subject-btn';btn.onclick=()=>openVaultSubject(sub);
+        const em=extractEmoji(sub.title||'');
+        const icon=document.createElement('div');icon.style.cssText='font-size:1.9rem;margin-bottom:0.55rem;';icon.textContent=em||'\u{1F4C4}';
+        const name=document.createElement('div');name.style.cssText='font-size:0.88rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.3;';name.textContent=em?(sub.title||'').replace(em,'').trim():(sub.title||'');
+        const hint=document.createElement('div');hint.style.cssText='font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:0.35rem;';
+        hint.textContent=[(sub.steps?.length&&sub.steps.length+' Schritte'),(sub.links?.length&&sub.links.length+' Links')].filter(Boolean).join(' \u00b7 ');
+        btn.appendChild(icon);btn.appendChild(name);btn.appendChild(hint);grid.appendChild(btn);
+    });
+}
+function openVaultSubject(sub){hide('vaultCategory');openVaultDetail(sub);$('vaultDetailBack').onclick=()=>{hide('vaultDetail');show('vaultCategory');scrollMainTop();};}
+function closeVaultCategory(){hide('vaultCategory');show('vaultContent');scrollMainTop();}
 
+// Vault detail
+function openVaultDetail(entry){
+    hideAllPanels();show('vaultDetail');scrollMainTop();
+    $('vaultDetailBack').onclick=closeVaultDetail;
+    const imgWrap=$('vdImage'),imgEl=$('vdImageEl');
+    if(entry.image){imgEl.src=entry.image;imgEl.alt=entry.title||'';imgWrap.style.display='block';}else imgWrap.style.display='none';
+    $('vdTitle').textContent=entry.title||'';
+    $('vdTags').innerHTML=(entry.tags||[]).map(t=>`<span style="background:rgba(124,58,237,0.18);color:#c4b5fd;font-size:0.75rem;padding:3px 11px;border-radius:999px;border:1px solid rgba(124,58,237,0.35);">${t}</span>`).join('');
+    $('vdDesc').textContent=entry.description||'';
+    const sw=$('vdStepsWrap'),se=$('vdSteps');
+    if(entry.steps?.length){se.innerHTML='';entry.steps.forEach((step,i)=>{const row=document.createElement('div');row.style.cssText='display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:0.85rem 1.1rem;';const num=document.createElement('span');num.style.cssText='min-width:26px;height:26px;border-radius:50%;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:#c4b5fd;flex-shrink:0;margin-top:1px;';num.textContent=i+1;const txt=document.createElement('span');txt.style.cssText='font-size:0.9rem;color:rgba(255,255,255,0.72);line-height:1.6;';txt.textContent=step;row.appendChild(num);row.appendChild(txt);se.appendChild(row);});sw.style.display='block';}else sw.style.display='none';
+    const lw=$('vdLinksWrap'),le=$('vdLinks');
+    if(entry.links?.length){le.innerHTML='';entry.links.forEach(l=>{const a=document.createElement('a');a.href=l.url;a.target='_blank';a.style.cssText='display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:0.65rem 1.1rem;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.2s;';a.onmouseover=()=>{a.style.background='rgba(124,58,237,0.25)';a.style.borderColor='rgba(124,58,237,0.45)';a.style.color='#c4b5fd';};a.onmouseout=()=>{a.style.background='rgba(255,255,255,0.07)';a.style.borderColor='rgba(255,255,255,0.12)';a.style.color='rgba(255,255,255,0.75)';};a.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>${l.title||l.url}`;le.appendChild(a);});lw.style.display='block';}else lw.style.display='none';
+}
+function closeVaultDetail(){hide('vaultDetail');show('vaultContent');scrollMainTop();}
 
-function clearSearch() {
-    document.getElementById('searchInput').value = '';
-    document.getElementById('searchClearBtn').style.display = 'none';
-    // Restore topic title if a topic is selected
-    if (currentTopicId) {
-        const current = allData?.topics?.find(t => t.id === currentTopicId);
-        if (current) document.getElementById('topicTitle').textContent = current.name;
-        filterLinks();
-    }
+// Sidebar
+function toggleSidebar(){const sb=$('sidebar'),ov=$('sidebarOverlay');const open=sb.style.transform==='translateX(0px)'||sb.style.transform==='translateX(0%)';sb.style.transform=open?'translateX(-100%)':'translateX(0%)';ov.style.display=open?'none':'block';}
+function closeSidebar(){if(window.innerWidth>=640)return;$('sidebar').style.transform='translateX(-100%)';$('sidebarOverlay').style.display='none';}
+function applyDesktopSidebar(){const sb=$('sidebar');if(window.innerWidth>=640){sb.style.transform='translateX(0%)';sb.style.position='sticky';sb.style.top='0';sb.style.height='calc(100vh - 65px)';}else{sb.style.transform='translateX(-100%)';sb.style.position='fixed';sb.style.top='65px';sb.style.height='';$('sidebarOverlay').style.display='none';}}
+window.addEventListener('resize',applyDesktopSidebar);
+
+// Data loading
+async function loadData(){
+    try{
+        const res=await fetch('data.yaml');if(!res.ok)throw new Error('HTTP '+res.status);
+        allData=jsyaml.load(await res.text());
+        const total=allData.topics?.reduce((s,t)=>s+(t.links?.length||0),0)||0;
+        $('heroLinksNum').textContent=total;$('heroTopicsNum').textContent=allData.topics?.length||0;
+        $('totalLinks').textContent=total;$('statTopicsNum').textContent=allData.topics?.length||0;
+        const sel=$('topicsDropdown');sel.innerHTML='<option value="">Select a topic...</option>';
+        allData.topics?.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.name;sel.appendChild(o);});
+        const params=new URLSearchParams(window.location.search);
+        if(params.get('screen')==='app'){showApp();if(params.get('topic')){selectTopic(params.get('topic'));if(params.get('search')){$('searchInput').value=params.get('search');filterLinks();}}}
+    }catch(err){document.body.innerHTML='<div style="padding:2rem;color:red;">\u26a0\ufe0f data.yaml konnte nicht geladen werden.</div>';}
 }
 
-async function loadData() {
-    try {
-        const res = await fetch('data.yaml');
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        allData = jsyaml.load(await res.text());
-
-        const total = allData.topics?.reduce((s,t) => s+(t.links?.length||0), 0) || 0;
-        document.getElementById('totalLinks').textContent = total;
-        document.getElementById('statTopicsNum').textContent = allData.topics?.length || 0;
-        document.getElementById('heroLinksNum').textContent = total;
-        document.getElementById('heroTopicsNum').textContent = allData.topics?.length || 0;
-
-        const savedLang = 'en';
-        // Populate topics dropdown
-        const sel = document.getElementById('topicsDropdown');
-        sel.innerHTML = `<option value="">Select a topic...</option>`;
-        allData?.topics?.forEach(t => {
-            const o = document.createElement('option');
-            o.value = t.id; o.textContent = t.name; sel.appendChild(o);
-        });
-
-        // Handle URL params – go straight to app if ?screen=app
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('screen') === 'app') {
-            showApp();
-            if (params.get('topic')) {
-                selectTopic(params.get('topic'));
-                if (params.get('search')) document.getElementById('searchInput').value = params.get('search');
-                filterLinks();
-            }
-        }
-    } catch(err) {
-        document.body.innerHTML = '<div style="padding:2rem;color:red;font-size:1.2rem;">⚠️ <strong>data.yaml konnte nicht geladen werden.</strong><br>Stelle sicher, dass <code>data.yaml</code> im gleichen Ordner wie <code>index.html</code> liegt.</div>';
-    }
-}
-
+// Init
 document.documentElement.classList.add('dark');
-// --- Sidebar toggle (mobile) ---
-function toggleSidebar() {
-    const sb = document.getElementById('sidebar');
-    const ov = document.getElementById('sidebarOverlay');
-    const open = sb.style.transform === 'translateX(0px)' || sb.style.transform === 'translateX(0%)';
-    if (open) {
-        sb.style.transform = 'translateX(-100%)';
-        ov.style.display = 'none';
-    } else {
-        sb.style.transform = 'translateX(0%)';
-        ov.style.display = 'block';
-    }
-}
-function closeSidebar() {
-    if (window.innerWidth >= 640) return; // don't close on desktop
-    const sb = document.getElementById('sidebar');
-    const ov = document.getElementById('sidebarOverlay');
-    sb.style.transform = 'translateX(-100%)';
-    ov.style.display = 'none';
-}
-function applyDesktopSidebar() {
-    const sb = document.getElementById('sidebar');
-    const main = document.querySelector('#screen-app main');
-    if (window.innerWidth >= 640) {
-        sb.style.transform = 'translateX(0%)';
-        sb.style.position = 'sticky';
-        sb.style.top = '0';
-        sb.style.height = 'calc(100vh - 65px)';
-        if (main) main.style.marginLeft = '0';
-    } else {
-        sb.style.transform = 'translateX(-100%)';
-        sb.style.position = 'fixed';
-        sb.style.top = '65px';
-        sb.style.height = '';
-        document.getElementById('sidebarOverlay').style.display = 'none';
-    }
-}
-window.addEventListener('resize', applyDesktopSidebar);
-window.addEventListener('DOMContentLoaded', () => { applyDesktopSidebar(); loadData(); });
-
-
+$('footer-year').textContent=new Date().getFullYear();
+$('footer-date').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+window.addEventListener('DOMContentLoaded',()=>{applyDesktopSidebar();loadData();});
 </script>
 </body>
 </html>
