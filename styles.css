@@ -603,3 +603,28 @@ footer {
     font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 1rem;
 }
+
+
+/* ============================================================
+   SCHOOL SUBJECT CARDS (2x vault card size)
+   ============================================================ */
+
+.subject-card {
+    position: relative; /* for emoji badge positioning */
+}
+
+.subject-card-img {
+    height: 200px !important; /* 2x the vault card 100px */
+}
+
+.subject-card-info {
+    padding: 1rem 1.1rem 1.1rem !important;
+}
+
+.subject-card-title {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: rgba(255,255,255,0.92) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.2px;
+}

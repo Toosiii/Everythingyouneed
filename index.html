@@ -131,7 +131,7 @@
                 </div>
                 <p id="vcDesc" style="font-size:0.92rem;color:rgba(255,255,255,0.4);margin-bottom:1.75rem;line-height:1.6;"></p>
                 <div id="vcTabs" style="display:flex;gap:0.5rem;margin-bottom:1.75rem;flex-wrap:wrap;"></div>
-                <div id="vcSubjects" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1rem;"></div>
+                <div id="vcSubjects" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;"></div>
             </div>
 
             <!-- Vault detail page -->
@@ -387,13 +387,36 @@ function openVaultCategory(entry){
 function renderSubjectGrid(subjects){
     const grid=$('vcSubjects');grid.innerHTML='';
     subjects.forEach(sub=>{
-        const btn=document.createElement('div');btn.className='vault-subject-btn';btn.onclick=()=>openVaultSubject(sub);
+        const card=document.createElement('div');card.className='vault-card-compact subject-card';card.onclick=()=>openVaultSubject(sub);
+
+        // Image or emoji placeholder
+        if(sub.image){
+            const img=document.createElement('img');img.src=sub.image;img.alt=sub.title||'';
+            img.className='vault-card-img subject-card-img';img.onerror=()=>img.style.display='none';card.appendChild(img);
+        } else {
+            const em=extractEmoji(sub.title||'');
+            const ph=document.createElement('div');ph.className='vault-card-img subject-card-img vault-card-img-placeholder';
+            ph.textContent=em||'\u{1F4C4}';ph.style.fontSize='3rem';card.appendChild(ph);
+        }
+
+        const info=document.createElement('div');info.className='vault-card-info subject-card-info';
+
+        // Title (strip leading emoji)
         const em=extractEmoji(sub.title||'');
-        const icon=document.createElement('div');icon.style.cssText='font-size:1.9rem;margin-bottom:0.55rem;';icon.textContent=em||'\u{1F4C4}';
-        const name=document.createElement('div');name.style.cssText='font-size:0.88rem;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.3;';name.textContent=em?(sub.title||'').replace(em,'').trim():(sub.title||'');
-        const hint=document.createElement('div');hint.style.cssText='font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:0.35rem;';
-        hint.textContent=[(sub.steps?.length&&sub.steps.length+' Schritte'),(sub.links?.length&&sub.links.length+' Links')].filter(Boolean).join(' \u00b7 ');
-        btn.appendChild(icon);btn.appendChild(name);btn.appendChild(hint);grid.appendChild(btn);
+        const title=document.createElement('div');title.className='subject-card-title';
+        title.textContent=em?(sub.title||'').replace(em,'').trim():(sub.title||'');
+        info.appendChild(title);
+
+        // Emoji badge
+        if(em){const badge=document.createElement('div');badge.style.cssText='font-size:1.4rem;position:absolute;top:0.6rem;left:0.75rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.6));';badge.textContent=em;card.appendChild(badge);}
+
+        // Stats row
+        const stats=document.createElement('div');stats.style.cssText='display:flex;gap:0.6rem;margin-top:0.6rem;flex-wrap:wrap;';
+        if(sub.steps?.length){const s=document.createElement('span');s.style.cssText='font-size:0.72rem;color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.06);border-radius:999px;padding:2px 9px;';s.textContent=sub.steps.length+' Schritte';stats.appendChild(s);}
+        if(sub.links?.length){const l=document.createElement('span');l.style.cssText='font-size:0.72rem;color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.06);border-radius:999px;padding:2px 9px;';l.textContent=sub.links.length+' Links';stats.appendChild(l);}
+        info.appendChild(stats);
+
+        card.appendChild(info);grid.appendChild(card);
     });
 }
 function openVaultSubject(sub){hide('vaultCategory');openVaultDetail(sub);$('vaultDetailBack').onclick=()=>{hide('vaultDetail');show('vaultCategory');scrollMainTop();};}
