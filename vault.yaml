@@ -54,7 +54,9 @@ entries:
       - Grammarly für englische Texte — korrigiert Grammatik und verbessert den Stil
       - Wolfram Alpha für Mathe, Physik und Chemie — löst Aufgaben und zeigt Rechenwege
       - Notion oder Obsidian zum strukturierten Notizen machen und Lernen organisieren
+      - Quizlet oder Anki um Vokabeln und Fakten mit Karteikarten zu lernen
       - Scribd oder Z-Library für kostenlose Bücher, Fachbücher und Lernmaterialien
+      - Google Scholar und Sci-Hub für wissenschaftliche Quellen und Paper
       links:
       - &id001
         title: Claude.ai
@@ -86,6 +88,18 @@ entries:
       - &id010
         title: Z-Library
         url: https://z-lib.id/
+      - &id011
+        title: Quizlet
+        url: https://quizlet.com
+      - &id012
+        title: Anki
+        url: https://apps.ankiweb.net
+      - &id013
+        title: Google Scholar
+        url: https://scholar.google.com
+      - &id014
+        title: Sci-Hub
+        url: https://sci-hub.se
     - title: 💻 Informatik
       description: Algorithmen, Sortierverfahren, Datenstrukturen und mehr für das Abitur.
       tags:
@@ -97,12 +111,12 @@ entries:
       - Bubble Sort — benachbarte Elemente werden vertauscht, wenn sie in der falschen Reihenfolge sind. O(n²) im schlechtesten
         Fall.
       - Selection Sort — das kleinste Element wird gesucht und an den Anfang gesetzt. O(n²). Einfach zu verstehen.
-      - Insertion Sort — das Array wird schrittweise aufgebaut, jedes Element wird an die richtige Stelle eingefügt. O(n²)
-        worst, O(n) best.
-      - Merge Sort — Array wird rekursiv halbiert, dann werden die sortierten Hälften zusammengeführt. O(n log n) immer.
+      - Insertion Sort — das Array wird schrittweise aufgebaut, jedes Element an die richtige Stelle eingefügt. O(n²) worst,
+        O(n) best.
+      - Merge Sort — Array wird rekursiv halbiert, dann werden sortierte Hälften zusammengeführt. O(n log n) immer.
       - Quick Sort — Pivot-Element auswählen, Array aufteilen, rekursiv sortieren. O(n log n) im Durchschnitt.
       - Binäre Suche — funktioniert nur auf sortierten Arrays. Suchraum wird bei jedem Schritt halbiert. O(log n).
-      - O-Notation — beschreibt die Effizienz eines Algorithmus. O(1) = konstant, O(n) = linear, O(n²) = quadratisch.
+      - O-Notation — O(1) = konstant, O(n) = linear, O(n²) = quadratisch, O(log n) = logarithmisch.
       links:
       - title: VisuAlgo — Sortierung visualisiert
         url: https://visualgo.net/en/sorting
@@ -110,8 +124,12 @@ entries:
         url: https://www.bigocheatsheet.com/
       - title: CS50 auf YouTube
         url: https://www.youtube.com/c/cs50
-      - title: W3Schools Algorithmen
+      - title: W3Schools DSA
         url: https://www.w3schools.com/dsa/
+      - title: Khan Academy
+        url: https://www.khanacademy.org
+      - title: Brilliant.org
+        url: https://brilliant.org
       - *id001
       - *id002
       - *id003
@@ -122,6 +140,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: 📐 Mathematik
       description: Rechner, Visualisierungen und Erklärungen für alle Mathe-Themen im Abitur.
       tags:
@@ -130,17 +152,21 @@ entries:
       - Abitur
       links:
       - title: Wolfram Alpha
-        url: https://www.wolframalpha.com/
-      - title: Desmos Grafik-Rechner
+        url: https://www.wolframalpha.com
+      - title: Desmos
         url: https://www.desmos.com/calculator
-      - title: Khan Academy Mathe
-        url: https://de.khanacademy.org/math
       - title: GeoGebra
-        url: https://www.geogebra.org/
-      - title: Mathway
-        url: https://www.mathway.com/
+        url: https://www.geogebra.org
+      - title: Symbolab
+        url: https://www.symbolab.com
+      - title: Khan Academy
+        url: https://www.khanacademy.org
+      - title: Brilliant.org
+        url: https://brilliant.org
       - title: Studyflix Mathe
         url: https://studyflix.de/mathematik
+      - title: Mathway
+        url: https://www.mathway.com/
       - *id001
       - *id002
       - *id003
@@ -151,6 +177,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: 🇬🇧 Englisch
       description: Grammatik, Vokabeln, Aufsatzhilfen und Übersetzungstools für das Englisch-Abitur.
       tags:
@@ -160,16 +190,22 @@ entries:
       links:
       - title: Grammarly
         url: https://www.grammarly.com/
+      - title: DeepL
+        url: https://www.deepl.com/
       - title: Merriam-Webster
         url: https://www.merriam-webster.com/
       - title: Thesaurus.com
         url: https://www.thesaurus.com/
+      - title: Duolingo
+        url: https://www.duolingo.com
+      - title: Babbel
+        url: https://www.babbel.com
       - title: BBC Learning English
         url: https://www.bbc.co.uk/learningenglish
-      - title: DeepL
-        url: https://www.deepl.com/
-      - title: Purdue OWL Schreibhilfe
+      - title: Purdue OWL
         url: https://owl.purdue.edu/
+      - title: Project Gutenberg
+        url: https://www.gutenberg.org
       - *id001
       - *id002
       - *id003
@@ -180,6 +216,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: 🇩🇪 Deutsch
       description: Rechtschreibung, Grammatik, Aufsätze und Literatur für das Deutsch-Abitur.
       tags:
@@ -191,12 +231,14 @@ entries:
         url: https://www.duden.de/
       - title: DWDS Wörterbuch
         url: https://www.dwds.de/
-      - title: Abitur-Vorbereitung Deutsch
-        url: https://www.abitur-vorbereitung.de/deutsch/
       - title: Inhaltsangaben & Analysen
         url: https://www.inhaltsangabe.de/
       - title: Studyflix Deutsch
         url: https://studyflix.de/deutsch
+      - title: Project Gutenberg
+        url: https://www.gutenberg.org
+      - title: Sci-Hub
+        url: https://sci-hub.se
       - *id001
       - *id002
       - *id003
@@ -207,6 +249,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: ⚡ Physik
       description: Formeln, Simulationen und Erklärvideos für das Physik-Abitur.
       tags:
@@ -214,16 +260,20 @@ entries:
       - Formeln
       - Abitur
       links:
-      - title: PhET Simulationen
-        url: https://phet.colorado.edu/de/
-      - title: Khan Academy Physik
-        url: https://de.khanacademy.org/science/physics
-      - title: HyperPhysics
-        url: http://hyperphysics.phy-astr.gsu.edu/
-      - title: Studyflix Physik
-        url: https://studyflix.de/physik
       - title: Leifi Physik
         url: https://www.leifiphysik.de/
+      - title: PhET Simulationen
+        url: https://phet.colorado.edu/de/
+      - title: Wolfram Alpha
+        url: https://www.wolframalpha.com
+      - title: Khan Academy
+        url: https://www.khanacademy.org
+      - title: Brilliant.org
+        url: https://brilliant.org
+      - title: Studyflix Physik
+        url: https://studyflix.de/physik
+      - title: HyperPhysics
+        url: http://hyperphysics.phy-astr.gsu.edu/
       - *id001
       - *id002
       - *id003
@@ -234,6 +284,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: 🧪 Chemie
       description: Periodensystem, Reaktionen und Erklärungen für das Chemie-Abitur.
       tags:
@@ -243,12 +297,12 @@ entries:
       links:
       - title: Ptable — Interaktives Periodensystem
         url: https://ptable.com/
-      - title: Khan Academy Chemie
-        url: https://de.khanacademy.org/science/chemistry
       - title: Studyflix Chemie
         url: https://studyflix.de/chemie
-      - title: ChemLibreTexts
-        url: https://chem.libretexts.org/
+      - title: Khan Academy
+        url: https://www.khanacademy.org
+      - title: LibreTexts
+        url: https://libretexts.org
       - title: Chemie.de Lexikon
         url: https://www.chemie.de/lexikon/
       - *id001
@@ -261,6 +315,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
     - title: 🧬 Biologie
       description: Zellbiologie, Genetik, Ökosysteme und alles für das Bio-Abitur.
       tags:
@@ -268,15 +326,17 @@ entries:
       - Genetik
       - Abitur
       links:
-      - title: Khan Academy Biologie
-        url: https://de.khanacademy.org/science/biology
       - title: Studyflix Biologie
         url: https://studyflix.de/biologie
       - title: Biologie-Schule.de
         url: https://www.biologie-schule.de/
-      - title: NCBI Bibliothek
-        url: https://www.ncbi.nlm.nih.gov/
-      - title: CrashCourse Biologie (YouTube)
+      - title: Khan Academy
+        url: https://www.khanacademy.org
+      - title: Sci-Hub
+        url: https://sci-hub.se
+      - title: Google Scholar
+        url: https://scholar.google.com
+      - title: CrashCourse Biologie
         url: https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF
       - *id001
       - *id002
@@ -288,6 +348,10 @@ entries:
       - *id008
       - *id009
       - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
 - title: How to Download Torrents Safely
   description: A quick guide on how to safely download torrents without exposing your IP or getting malware.
   tags:
