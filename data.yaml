@@ -73,7 +73,6 @@ topics:
     - Series
     - TV
     - free
-    - EN
   - title: watch-v2
     url: https://watch-v2.autoembed.cc
     description: Watch movies and series online for free
@@ -81,7 +80,6 @@ topics:
     - Movies
     - Series
     - free
-    - EN
   - title: DeepWebNest
     url: https://deepwebnest.com
     description: Movies, Series, TV, Books, Music and more – all free
@@ -92,7 +90,6 @@ topics:
     - free
     - Books
     - Music
-    - EN
   - title: Soap2Day
     url: https://soap2day.tf
     description: Watch free HD movies and TV shows online
@@ -101,7 +98,6 @@ topics:
     - Series
     - free
     - HD
-    - EN
   - title: Tubi TV
     url: https://tubitv.com
     description: Free legal streaming with thousands of movies and shows
@@ -110,7 +106,6 @@ topics:
     - Series
     - free
     - legal
-    - EN
   - title: Pluto TV
     url: https://pluto.tv
     description: Free live TV and on-demand movies
@@ -119,7 +114,6 @@ topics:
     - Movies
     - free
     - live
-    - EN
   - title: Crackle
     url: https://www.crackle.com
     description: Free movies and TV shows from Sony
@@ -128,7 +122,6 @@ topics:
     - Series
     - free
     - Sony
-    - EN
   - title: Plex
     url: https://www.plex.tv
     description: Free streaming movies, shows and live TV
@@ -137,7 +130,6 @@ topics:
     - Series
     - TV
     - free
-    - Multi
   - title: 123Movies
     url: https://ww5.123movies.buzz
     description: Stream movies and series for free
@@ -145,7 +137,6 @@ topics:
     - Movies
     - Series
     - free
-    - EN
   - title: FMovies
     url: https://fmovies.ps
     description: Watch full HD movies online without registration
@@ -153,7 +144,6 @@ topics:
     - Movies
     - HD
     - free
-    - EN
   - title: Peacock
     url: https://www.peacocktv.com
     description: NBC's streaming service – movies, sports, news
@@ -162,7 +152,6 @@ topics:
     - Series
     - Sports
     - News
-    - EN
   - title: Paramount+
     url: https://www.paramountplus.com
     description: Stream CBS, MTV, Comedy Central and more
@@ -170,7 +159,6 @@ topics:
     - Movies
     - Series
     - premium
-    - EN
   - title: CrunchyRoll
     url: https://www.crunchyroll.com
     description: World's largest anime streaming service
@@ -179,7 +167,6 @@ topics:
     - Series
     - free
     - premium
-    - Multi
   - title: ESPN+
     url: https://plus.espn.com
     description: Live sports, news and exclusive originals
@@ -187,7 +174,6 @@ topics:
     - Sports
     - live
     - premium
-    - EN
   - title: DAZN
     url: https://www.dazn.com
     description: Live and on-demand sports streaming
@@ -195,7 +181,6 @@ topics:
     - Sports
     - live
     - premium
-    - Multi
   - title: Twitch
     url: https://www.twitch.tv
     description: Live streaming platform – gaming, IRL, esports and more
@@ -204,7 +189,6 @@ topics:
     - Gaming
     - Esports
     - free
-    - Multi
   - title: YouTube
     url: https://www.youtube.com
     description: The world's biggest video platform
@@ -213,17 +197,15 @@ topics:
     - free
     - Music
     - live
-    - Multi
   - title: Dailymotion
     url: https://www.dailymotion.com
     description: Watch and share videos worldwide
     tags:
     - Videos
     - free
-    - EN
-- id: multi_server
-  name: 🎬 Movies & Series (Multi-Server)
-  description: Multi-server streaming sites for movies, TV shows and anime
+- id: movies_series
+  name: 🎬 Movies & Series
+  description: Stream movies and series online for free — hundreds of sites combined.
   links:
   - title: Cineby
     url: https://www.cineby.gd/
@@ -234,7 +216,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Bitcine
     url: https://www.bitcine.app/
     description: Movies, TV, Anime with Auto-Next. Mirror of Cineby.
@@ -244,7 +225,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Fmovies+
     url: https://www.fmovies.gd/
     description: Movies, TV, Anime with Auto-Next.
@@ -254,7 +234,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: XPrime
     url: https://xprime.today/
     description: Movies, TV, Anime with Auto-Next.
@@ -264,7 +243,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: XPrime Mirror
     url: https://xprime.stream/
     description: Movies, TV, Anime with Auto-Next. Mirror of XPrime.
@@ -274,7 +252,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Rive Mirror 2
     url: https://rivestream.net/
     description: Movies, TV, Anime with Auto-Next.
@@ -284,7 +261,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Rive Mirror 3
     url: https://www.rivestream.app/
     description: Movies, TV, Anime with Auto-Next.
@@ -294,7 +270,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: CorsFlix
     url: https://watch.corsflix.net
     description: Movies, TV, Anime with Auto-Next.
@@ -304,7 +279,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: 67Movies
     url: https://67movies.net/
     description: Movies, TV, Anime with Auto-Next.
@@ -314,7 +288,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: 456movie
     url: https://456movie.nl
     description: Movies, TV, Anime with Auto-Next.
@@ -324,7 +297,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Aether
     url: https://aether.mom/
     description: Movies, TV, Anime with Auto-Next.
@@ -334,7 +306,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: FlickyStream
     url: https://flickystream.ru/
     description: Movies, TV, Anime with Auto-Next.
@@ -344,7 +315,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: CineMora
     url: https://cinemora.ru/
     description: Movies, TV, Anime with Auto-Next.
@@ -354,7 +324,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: SpenFlix
     url: https://watch.spencerdevs.xyz/
     description: Movies, TV, Anime with Auto-Next.
@@ -364,7 +333,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Cinegram
     url: https://cinegram.net/
     description: Movies, TV, Anime with Auto-Next.
@@ -374,7 +342,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: ShuttleTV
     url: https://shuttletv.su/
     description: Movies, TV, Anime with Auto-Next.
@@ -384,7 +351,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: 1Shows
     url: https://www.1shows.nl/
     description: Movies, TV, Anime streaming.
@@ -393,7 +359,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: 1Flex
     url: https://www.1flex.nl/
     description: Movies, TV, Anime streaming.
@@ -402,7 +367,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: RgShows
     url: https://www.rgshows.ru/
     description: Movies, TV, Anime streaming.
@@ -411,7 +375,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Cinema.BZ
     url: https://cinema.bz/
     description: Movies, TV, Anime with Auto-Next.
@@ -421,7 +384,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Cinevibe
     url: https://cinevibe.asia/
     description: Movies, TV, Anime streaming.
@@ -430,7 +392,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: FilmCave
     url: https://filmcave.ru/
     description: Movies, TV, Anime with Auto-Next.
@@ -440,7 +401,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Flixway
     url: https://flixway.pro/
     description: Movies, TV, Anime with Auto-Next.
@@ -450,7 +410,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: PopcornMovies
     url: https://popcornmovies.org/
     description: Movies, TV, Anime streaming.
@@ -459,7 +418,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Movish
     url: https://movish.net/
     description: Movies, TV, Anime streaming.
@@ -468,7 +426,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Cinetaro
     url: https://cinetaro.buzz/
     description: Movies, TV, Anime streaming.
@@ -477,7 +434,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: IceFY
     url: https://icefy.top/
     description: Movies, TV, Anime streaming.
@@ -486,7 +442,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Smashystream
     url: https://smashystream.com/
     description: Movies, TV, Anime streaming.
@@ -495,7 +450,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: TVids
     url: https://www.tvids.to/
     description: Movies, TV, Anime with Auto-Next.
@@ -505,7 +459,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: AZMovies
     url: https://azmovies.to/
     description: Movies, TV, Anime. Mostly 3rd party hosts.
@@ -514,7 +467,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: BFLIX
     url: https://bflix.sh/
     description: Movies and TV streaming.
@@ -522,14 +474,12 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
   - title: MovieHD
     url: https://moviehd.us
     description: Movies streaming.
     tags:
     - Movies
     - Free
-    - EN
   - title: StreamM4u
     url: https://streamm4u.com.co/
     description: Movies, TV, Anime streaming.
@@ -538,7 +488,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Levidia
     url: https://www.levidia.ch/
     description: Movies, TV, Anime streaming.
@@ -547,7 +496,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Supernova
     url: https://supernova.to/
     description: Movies, TV, Anime streaming.
@@ -556,7 +504,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: PrimeWire
     url: https://www.primewire.mov/
     description: Movies, TV, Anime. Mostly 3rd party hosts.
@@ -565,7 +512,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: ProjectFreeTV
     url: https://projectfreetv.sx/
     description: Movies, TV, Anime. 3rd party hosts.
@@ -574,7 +520,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Downloads-Anymovies
     url: https://www.downloads-anymovies.co/
     description: Movies. 3rd party hosts.
@@ -582,11 +527,6 @@ topics:
     - Movies
     - Download
     - Free
-    - EN
-- id: single_server
-  name: 🖥️ Movies & Series (Single Server)
-  description: Fast, consistent single-server streaming with less mislabeled content
-  links:
   - title: NEPU
     url: https://nepu.to/
     description: Movies, TV, Anime with Auto-Next and 4K.
@@ -597,7 +537,6 @@ topics:
     - Auto-Next
     - 4K
     - Free
-    - EN
   - title: EE3
     url: https://ee3.me/
     description: 'Movies. Invite codes: mpgh or 1hack. Requires sign-up.'
@@ -605,7 +544,6 @@ topics:
     - Movies
     - Free
     - SignUp
-    - EN
   - title: RIPS
     url: https://rips.cc/
     description: Movies. Requires sign-up.
@@ -613,7 +551,6 @@ topics:
     - Movies
     - Free
     - SignUp
-    - EN
   - title: yFlix
     url: https://yflix.to/
     description: Movies, TV, Anime with Auto-Next.
@@ -623,7 +560,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: 1Movies
     url: https://1movies.bz/
     description: Movies, TV, Anime with Auto-Next.
@@ -633,7 +569,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: MovieBox
     url: https://moviebox.ph/
     description: Movies, TV, Anime streaming.
@@ -642,7 +577,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: CinemaCity
     url: https://cinemacity.cc/
     description: Movies, TV, Anime. Requires sign-up.
@@ -652,7 +586,6 @@ topics:
     - Anime
     - Free
     - SignUp
-    - EN
   - title: RidoMovies
     url: https://ridomovies.tv/
     description: Movies and TV streaming.
@@ -660,7 +593,6 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
   - title: WatchFlix
     url: https://watchflix.to/
     description: Movies, TV, Anime at 720p.
@@ -670,7 +602,6 @@ topics:
     - Anime
     - 720p
     - Free
-    - EN
   - title: ShowBox
     url: https://www.showbox.media/
     description: Movies, TV, Anime. Use throwaway Gmail.
@@ -679,7 +610,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: UniqueStream
     url: https://uniquestream.net/
     description: Movies, TV, Anime at 720p.
@@ -689,14 +619,12 @@ topics:
     - Anime
     - 720p
     - Free
-    - EN
   - title: FshareTV
     url: https://fsharetv.co/
     description: Movies streaming.
     tags:
     - Movies
     - Free
-    - EN
   - title: YesMovie
     url: https://ww1.yesmovies.ag/
     description: Movies and TV at 720p.
@@ -705,7 +633,6 @@ topics:
     - Series
     - 720p
     - Free
-    - EN
   - title: SFlix
     url: https://sflix2.to/
     description: Movies and TV streaming.
@@ -713,7 +640,6 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
   - title: FlixHQ
     url: https://flixhq.to/
     description: Movies and TV streaming.
@@ -721,7 +647,6 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
   - title: HollyMovieHD
     url: https://hollymoviehd.cc/
     description: Movies, TV, Anime streaming.
@@ -730,7 +655,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: LookMovie
     url: https://lookmovie2.to/
     description: Movies and TV with Auto-Next at 480p.
@@ -740,7 +664,6 @@ topics:
     - Auto-Next
     - 480p
     - Free
-    - EN
   - title: PlayIMDb
     url: https://www.playimdb.com/
     description: Search VidSrc via IMDb URLs.
@@ -748,7 +671,6 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
 - id: aggregators
   name: 🔀 Stream Aggregators
   description: Auto-test multiple stream sources without user input
@@ -763,7 +685,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Hexa
     url: https://hexa.su/
     description: Movies, TV, Anime with Auto-Next.
@@ -774,7 +695,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Vidora
     url: https://watch.vidora.su/
     description: Movies, TV, Anime with Auto-Next.
@@ -785,7 +705,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: bCine
     url: https://bcine.app/
     description: Movies, TV, Anime with Auto-Next.
@@ -796,7 +715,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Filmex
     url: https://filmex.to/
     description: Movies, TV, Anime with Auto-Next and 4K.
@@ -808,7 +726,6 @@ topics:
     - 4K
     - Aggregator
     - Free
-    - EN
   - title: Vidbox
     url: https://vidbox.cc/
     description: Movies, TV, Anime with Auto-Next.
@@ -819,7 +736,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Willow
     url: https://willow.arlen.icu/
     description: Movies, TV, Anime with Auto-Next and 4K support.
@@ -831,7 +747,6 @@ topics:
     - 4K
     - Aggregator
     - Free
-    - EN
   - title: CinemaOS
     url: https://cinemaos.live/
     description: Movies, TV, Anime with Auto-Next.
@@ -842,7 +757,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: FlyX
     url: https://tv.vynx.cc/
     description: Movies, TV, Anime with Auto-Next.
@@ -853,7 +767,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: AuroraScreen
     url: https://www.aurorascreen.org/
     description: Movies, TV, Anime with Auto-Next. Requires Chromium.
@@ -864,7 +777,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Poprink
     url: https://www.popr.ink/
     description: Movies, TV, Anime aggregator.
@@ -874,7 +786,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: SanuFlix
     url: https://sanuflix-web-v2.pages.dev/
     description: Movies, TV, Anime aggregator.
@@ -884,7 +795,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: amri.gg
     url: https://amri.gg/
     description: Movies, TV, Anime with Auto-Next.
@@ -895,7 +805,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: HydraHD
     url: https://hydrahd.com/
     description: Movies, TV, Anime with Auto-Next.
@@ -906,7 +815,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Primeshows
     url: https://www.primeshows.uk/
     description: Movies, TV, Anime aggregator.
@@ -916,7 +824,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: Netflex
     url: https://netflex.uk/
     description: Movies, TV, Anime aggregator.
@@ -926,7 +833,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: LordFlix
     url: https://lordflix.club/
     description: Movies, TV, Anime with Auto-Next.
@@ -937,7 +843,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Flicker
     url: https://flickermini.pages.dev/
     description: Movies, TV, Anime aggregator.
@@ -947,7 +852,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: 1PrimeShows
     url: https://1primeshow.online/
     description: Movies, TV, Anime aggregator.
@@ -957,7 +861,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: ZXCSTREAM
     url: https://zxcprime.icu/
     description: Movies and TV aggregator.
@@ -966,7 +869,6 @@ topics:
     - Series
     - Aggregator
     - Free
-    - EN
   - title: KiraStreams
     url: https://kirastreamsv2.vercel.app/
     description: Movies, TV, Anime aggregator.
@@ -976,7 +878,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: Netplay
     url: https://netplayz.live/
     description: Movies, TV, Anime with Auto-Next.
@@ -987,7 +888,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Cinelove
     url: https://cinelove.live/
     description: Movies, TV, Anime with Auto-Next.
@@ -998,7 +898,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Youflex
     url: https://youflex.live/
     description: Movies, TV, Anime aggregator.
@@ -1008,7 +907,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: StreamWatch
     url: https://streamwatch.online/
     description: Movies, TV, Anime with Auto-Next.
@@ -1019,7 +917,6 @@ topics:
     - Auto-Next
     - Aggregator
     - Free
-    - EN
   - title: Mapple.tv
     url: https://mappl.tv/
     description: Movies, TV, Anime aggregator.
@@ -1029,7 +926,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: QuickWatch
     url: https://www.quickwatch.co/
     description: Movies, TV, Anime aggregator.
@@ -1039,7 +935,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: Auto Embed
     url: https://watch-v2.autoembed.cc/
     description: Movies, TV, Anime embed aggregator.
@@ -1049,7 +944,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: Moviebay
     url: https://moviebay.cc/
     description: Movies, TV, Anime aggregator.
@@ -1059,7 +953,6 @@ topics:
     - Anime
     - Aggregator
     - Free
-    - EN
   - title: PlayTorrio Streaming
     url: https://playtorrio.xyz/
     description: Streaming desktop app. Use Streaming Mode.
@@ -1069,7 +962,6 @@ topics:
     - Anime
     - Desktop
     - Free
-    - EN
   - title: mov-cli
     url: https://mov-cli.github.io/
     description: Streaming CLI tool with plugin support.
@@ -1079,7 +971,6 @@ topics:
     - Anime
     - CLI
     - Free
-    - EN
 - id: embed_frontends
   name: 🖱️ Embed Frontends
   description: Pick your preferred stream source from a list
@@ -1093,7 +984,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Cinezo
     url: https://www.cinezo.net/
     description: Movies, TV, Anime with Auto-Next.
@@ -1103,7 +993,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Flikhub
     url: https://www.flikhub.net/
     description: Movies, TV, Anime with Auto-Next.
@@ -1113,7 +1002,6 @@ topics:
     - Anime
     - Auto-Next
     - Free
-    - EN
   - title: Redflix
     url: https://redflix.co/
     description: Movies, TV, Anime embed frontend.
@@ -1122,7 +1010,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Flixvo
     url: https://flixvo.live/
     description: Movies, TV, Anime embed frontend.
@@ -1131,7 +1018,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: BoredFlix
     url: https://www.boredflix.com/
     description: Movies, TV, Anime embed frontend.
@@ -1140,7 +1026,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: TeleV
     url: https://stream.telev.tv/
     description: Movies, TV, Anime embed frontend.
@@ -1149,7 +1034,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: AlienFlix
     url: https://alienflix.net/
     description: Movies, TV, Anime embed frontend.
@@ -1158,7 +1042,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: CineBolt
     url: https://cinebolt.net/
     description: Movies, TV, Anime embed frontend.
@@ -1167,7 +1050,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: ONOFLIX
     url: https://onoflix.ru/
     description: Movies, TV, Anime embed frontend.
@@ -1176,7 +1058,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Bingeflix
     url: https://bingeflix.tv/
     description: Movies, TV, Anime embed frontend.
@@ -1185,7 +1066,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Streamr
     url: https://streamr.pages.dev/
     description: Movies, TV, Anime embed frontend.
@@ -1194,7 +1074,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Cubeflix
     url: https://cubeflix.org/discover
     description: Movies, TV, Anime embed frontend.
@@ -1203,7 +1082,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: LunaStream
     url: https://lunastream.fun/
     description: Movies, TV, Anime embed frontend.
@@ -1212,7 +1090,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: CineFlow
     url: https://www.cineflow.watch/
     description: Movies, TV, Anime embed frontend.
@@ -1221,7 +1098,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Way2Movies
     url: https://way2movies.live/
     description: Movies, TV, Anime embed frontend.
@@ -1230,7 +1106,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: zmov
     url: https://plexmovies.online/
     description: Movies, TV, Anime embed frontend.
@@ -1239,7 +1114,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: KaitoVault
     url: https://www.kaitovault.com/
     description: Movies, TV, Anime embed frontend.
@@ -1248,7 +1122,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Yampi
     url: https://yampi.live/
     description: Movies, TV, Anime embed frontend.
@@ -1257,7 +1130,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: M-Zone
     url: https://www.m-zone.org/
     description: Movies, TV, Anime embed frontend.
@@ -1266,7 +1138,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: MoviePluto
     url: https://moviepluto.fun/
     description: Movies, TV, Anime embed frontend.
@@ -1275,7 +1146,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: VIBLIX
     url: https://viblix.ovh/
     description: Movies, TV, Anime embed frontend.
@@ -1284,7 +1154,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: 321Movies
     url: https://321movies.xyz/
     description: Movies, TV, Anime embed frontend.
@@ -1293,7 +1162,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: VibeMax
     url: https://vibemax.to/
     description: Movies, TV, Anime embed frontend.
@@ -1302,7 +1170,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: KrakenFlix
     url: https://krakenflix.cx/
     description: Movies, TV, Anime embed frontend.
@@ -1311,7 +1178,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: StreameX
     url: https://streamex.sh/
     description: Movies, TV, Anime embed frontend.
@@ -1320,7 +1186,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Snowstream
     url: https://snowstream.vercel.app/
     description: Movies, TV, Anime embed frontend.
@@ -1329,7 +1194,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: ViewFlix
     url: https://viewflix.site/
     description: Movies, TV, Anime embed frontend.
@@ -1338,7 +1202,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Mjland
     url: https://beta.mjland.xyz/
     description: Movies, TV, Anime with customizable sources.
@@ -1347,7 +1210,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Ask4Movies
     url: https://ask4movie.app/
     description: Movies, TV, Anime embed frontend.
@@ -1356,7 +1218,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: MovieBite
     url: https://moviebite.cc/
     description: Movies, TV, Anime embed frontend.
@@ -1365,7 +1226,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Warflix
     url: https://warflix.im/
     description: Movies, TV, Anime embed frontend.
@@ -1374,7 +1234,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Heartive
     url: https://heartiveloves.pages.dev/
     description: Movies, TV, Anime embed frontend.
@@ -1383,7 +1242,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: CineGo
     url: https://cinego.co/
     description: Movies and TV embed frontend.
@@ -1391,7 +1249,6 @@ topics:
     - Movies
     - Series
     - Free
-    - EN
   - title: Moviepire
     url: https://moviepire.org/
     description: Movies, TV, Anime embed frontend.
@@ -1400,7 +1257,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
   - title: Madplay
     url: https://madplay.site/
     description: Movies, TV, Anime embed frontend.
@@ -1409,7 +1265,6 @@ topics:
     - Series
     - Anime
     - Free
-    - EN
 - id: free_ads
   name: 📡 Free with Ads (Legal)
   description: Official free streaming platforms supported by ads
@@ -1423,7 +1278,6 @@ topics:
     - Free
     - Legal
     - Ads
-    - EN
   - title: Plex
     url: https://watch.plex.tv/
     description: Free official Movies and TV up to 720p.
@@ -1433,7 +1287,6 @@ topics:
     - Free
     - Legal
     - Ads
-    - Multi
   - title: Pluto TV Live
     url: https://pluto.tv/
     description: Free Movies, TV and Live streaming.
@@ -1444,7 +1297,6 @@ topics:
     - Free
     - Legal
     - Ads
-    - EN
   - title: Prime Video Free
     url: https://www.amazon.com/gp/video/storefront/?contentId=freetv
     description: Free movies and TV on Amazon. US only.
@@ -1454,7 +1306,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Roku Channel
     url: https://therokuchannel.roku.com/
     description: Free Movies and TV. US only.
@@ -1464,7 +1315,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: DarkRoom
     url: https://www.darkroom.film/
     description: Free Movies and TV. US only. Requires sign-up.
@@ -1474,7 +1324,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Fawesome
     url: https://fawesome.tv/
     description: Free Movies and TV.
@@ -1483,7 +1332,6 @@ topics:
     - Series
     - Free
     - Legal
-    - EN
   - title: Sling Free
     url: https://watch.sling.com/
     description: Free Movies, TV and Live News. US only.
@@ -1494,7 +1342,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Mometu
     url: https://watch.mometu.com/
     description: Free Movies and TV. US only.
@@ -1504,7 +1351,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Vudu Free
     url: https://www.vudu.com/content/movies/uxpage/View-All-Free-Movies-TV/207
     description: Free Movies and TV. US only.
@@ -1514,7 +1360,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Fandango Free
     url: https://athome.fandango.com/content/browse/free
     description: Free Movies and TV. US only.
@@ -1524,7 +1369,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Shout! TV
     url: https://shout-tv.com/
     description: Free Movies and TV with Auto-Next. US and CA only.
@@ -1534,7 +1378,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: Kanopy
     url: https://kanopy.com/
     description: Free Movies and TV with library card. US only.
@@ -1544,7 +1387,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: hoopla
     url: https://www.hoopladigital.com/
     description: Free Movies and TV with library card. US only.
@@ -1554,7 +1396,6 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: 7+
     url: https://7plus.com.au/
     description: Free Movies and TV. US and AU.
@@ -1563,7 +1404,6 @@ topics:
     - Series
     - Free
     - Legal
-    - EN
   - title: Playary
     url: https://www.playary.com/
     description: Free Movies and TV.
@@ -1572,7 +1412,6 @@ topics:
     - Series
     - Free
     - Legal
-    - EN
   - title: Filmzie
     url: https://filmzie.com/
     description: Free Movies and TV.
@@ -1581,7 +1420,6 @@ topics:
     - Series
     - Free
     - Legal
-    - EN
   - title: ARTE
     url: https://www.arte.tv/en
     description: Free European Movies and TV with Auto-Next.
@@ -1591,8 +1429,6 @@ topics:
     - Free
     - Legal
     - European
-    - DE
-    - FR
   - title: BBC iPlayer
     url: https://www.bbc.co.uk/iplayer
     description: Free BBC Movies and TV. Requires UK VPN.
@@ -1602,7 +1438,6 @@ topics:
     - Free
     - Legal
     - UK
-    - EN
   - title: FlixHouse
     url: https://flixhouse.com/
     description: Free Indie Movies.
@@ -1611,7 +1446,6 @@ topics:
     - Free
     - Legal
     - Indie
-    - EN
 - id: video_platforms
   name: ▶️ Video Platforms
   description: General video platforms good for classic, obscure and short films
@@ -1624,7 +1458,6 @@ topics:
     - Series
     - Free
     - Video
-    - Multi
   - title: OK.ru Video
     url: https://ok.ru/video
     description: Odnoklassniki video platform.
@@ -1632,7 +1465,6 @@ topics:
     - Movies
     - Free
     - Video
-    - RU
   - title: BiliBili
     url: https://www.bilibili.com/
     description: Chinese video platform with anime and movies.
@@ -1641,7 +1473,6 @@ topics:
     - Movies
     - Free
     - Video
-    - Multi
   - title: Niconico
     url: https://www.nicovideo.jp/
     description: Japanese video sharing platform.
@@ -1650,7 +1481,6 @@ topics:
     - Movies
     - Free
     - Video
-    - JP
   - title: PeerTube
     url: https://joinpeertube.org/
     description: Decentralized open-source video platform.
@@ -1658,7 +1488,6 @@ topics:
     - Movies
     - Free
     - Video
-    - EN
   - title: Vimeo
     url: https://vimeo.com/watch
     description: High quality video and short film platform.
@@ -1667,7 +1496,6 @@ topics:
     - Short-Films
     - Free
     - Video
-    - EN
   - title: Rutube
     url: https://rutube.ru
     description: Russian video platform.
@@ -1675,7 +1503,6 @@ topics:
     - Movies
     - Free
     - Video
-    - RU
   - title: Odysee
     url: https://odysee.com/
     description: Decentralized blockchain video platform.
@@ -1683,7 +1510,6 @@ topics:
     - Movies
     - Free
     - Video
-    - EN
   - title: Rumble
     url: https://rumble.com/
     description: Video platform. May require VPN in some countries.
@@ -1691,7 +1517,6 @@ topics:
     - Movies
     - Free
     - Video
-    - EN
 - id: anime
   name: 🎌 Anime
   description: Dedicated anime streaming with sub and dub options
@@ -1703,7 +1528,6 @@ topics:
     - Anime
     - free
     - HD
-    - EN
   - title: Zoro.to
     url: https://zoro.to
     description: Watch anime online with no ads
@@ -1711,7 +1535,6 @@ topics:
     - Anime
     - free
     - no-ads
-    - EN
   - title: AnimeKai
     url: https://animekai.to/home
     description: Hard subs and dub with Auto-Next. Multiple mirrors.
@@ -1721,7 +1544,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: HiAnime
     url: https://hianime.to/
     description: Sub and dub with Auto-Next. Many mirrors.
@@ -1731,7 +1553,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Miruro
     url: https://www.miruro.com/
     description: Hard subs and dub with Auto-Next.
@@ -1741,7 +1562,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Anime Realms
     url: https://www.animerealms.org/
     description: Sub and dub with Auto-Next.
@@ -1751,7 +1571,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: All Manga
     url: https://allmanga.to/
     description: Sub and dub anime streaming.
@@ -1760,7 +1579,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: animepahe
     url: https://animepahe.si/
     description: Sub and dub anime streaming.
@@ -1769,7 +1587,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: KickAssAnime
     url: https://kaa.to/
     description: Sub and dub with Auto-Next.
@@ -1779,7 +1596,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: AnimeX
     url: https://animex.one/
     description: Sub and dub with Auto-Next.
@@ -1789,7 +1605,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Anidap
     url: https://anidap.se/
     description: Sub and dub with Auto-Next.
@@ -1799,7 +1614,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Anify
     url: https://anify.to/
     description: Sub and dub anime streaming.
@@ -1808,7 +1622,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: 123anime
     url: https://123animes.ru/
     description: Sub and dub with Auto-Next.
@@ -1818,7 +1631,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Kuudere
     url: https://kuudere.to/
     description: Sub and dub with Auto-Next.
@@ -1828,7 +1640,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: JustAnime
     url: https://justanime.to/
     description: Sub and dub with Auto-Next.
@@ -1838,7 +1649,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: AniKuro
     url: https://anikuro.to/
     description: Sub and dub anime streaming.
@@ -1847,7 +1657,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: AnimeNoSub
     url: https://animenosub.to/
     description: Sub and dub anime streaming.
@@ -1856,7 +1665,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: Anime Nexus
     url: https://anime.nexus/
     description: Sub and dub anime streaming.
@@ -1865,7 +1673,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: AnimeHub
     url: https://animehub.ac/
     description: Sub and dub with Auto-Next.
@@ -1875,7 +1682,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: AniZone
     url: https://anizone.to/
     description: Sub-only anime streaming.
@@ -1883,7 +1689,6 @@ topics:
     - Anime
     - Sub
     - Free
-    - EN
   - title: AniHQ
     url: https://anihq.to/
     description: Sub and dub anime streaming.
@@ -1892,7 +1697,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: Animelok
     url: https://animelok.site/
     description: Sub and dub anime streaming.
@@ -1901,7 +1705,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: Anisuge
     url: https://animesuge.cz/
     description: Sub and dub with Auto-Next.
@@ -1911,7 +1714,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: Lunar
     url: https://lunaranime.ru/
     description: Sub and dub anime streaming.
@@ -1920,7 +1722,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: Anoboye
     url: https://anoboye.com/
     description: Sub-only anime streaming.
@@ -1928,7 +1729,6 @@ topics:
     - Anime
     - Sub
     - Free
-    - EN
   - title: Senshi
     url: https://senshi.live/
     description: Sub and dub with Auto-Next.
@@ -1938,7 +1738,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: AnimeParadise
     url: https://www.animeparadise.moe/
     description: Sub and dub anime streaming.
@@ -1947,7 +1746,6 @@ topics:
     - Sub
     - Dub
     - Free
-    - EN
   - title: KissAnime
     url: https://kissanime.com.ru/
     description: Sub and dub with Auto-Next.
@@ -1957,7 +1755,6 @@ topics:
     - Dub
     - Auto-Next
     - Free
-    - EN
   - title: AnimeOnsen
     url: https://animeonsen.xyz/
     description: Sub anime at 720p.
@@ -1966,7 +1763,6 @@ topics:
     - Sub
     - 720p
     - Free
-    - EN
   - title: AnimeStream
     url: https://anime.uniquestream.net/
     description: Sub anime at 720p.
@@ -1975,7 +1771,6 @@ topics:
     - Sub
     - 720p
     - Free
-    - EN
   - title: FireAnime
     url: https://fireani.me/
     description: Sub-only anime streaming.
@@ -1983,7 +1778,6 @@ topics:
     - Anime
     - Sub
     - Free
-    - EN
   - title: PirateXplay Anime
     url: https://piratexplay.cc/home
     description: Sub anime streaming.
@@ -1991,7 +1785,6 @@ topics:
     - Anime
     - Sub
     - Free
-    - EN
   - title: AnimeXin
     url: https://animexin.dev/
     description: Donghua (Chinese anime) sub streaming.
@@ -2000,7 +1793,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: Lucifer Donghua
     url: https://luciferdonghua.in/
     description: Donghua sub streaming.
@@ -2009,7 +1801,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: LMANIME
     url: https://lmanime.com/
     description: Donghua sub streaming.
@@ -2018,7 +1809,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: CKSub
     url: https://cksub.org/
     description: Donghua sub streaming.
@@ -2027,7 +1817,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: MyAnime
     url: https://myanime.live/
     description: Donghua sub streaming.
@@ -2036,7 +1825,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: AnimeKhor
     url: https://animekhor.org/
     description: Donghua sub streaming.
@@ -2045,7 +1833,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: Crimson Subs
     url: https://crimsonfansubs.com/
     description: Donghua fan sub streaming.
@@ -2054,7 +1841,6 @@ topics:
     - Donghua
     - Sub
     - Free
-    - EN
   - title: Seanime
     url: https://seanime.app/
     description: Desktop anime streaming and torrent app.
@@ -2063,7 +1849,6 @@ topics:
     - Desktop
     - Torrent
     - Free
-    - Multi
   - title: AnymeX
     url: https://anymex.vercel.app/
     description: Desktop anime streaming app.
@@ -2071,7 +1856,6 @@ topics:
     - Anime
     - Desktop
     - Free
-    - EN
   - title: Miru
     url: https://miru.js.org/en/
     description: Desktop anime streaming app.
@@ -2079,7 +1863,6 @@ topics:
     - Anime
     - Desktop
     - Free
-    - EN
 - id: cartoons
   name: 🐾 Cartoons
   description: Free cartoon and animated series streaming
@@ -2247,7 +2030,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Dramacool
     url: https://dramacoolt.com.in/
     description: Asian TV and movies.
@@ -2256,7 +2038,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Einthusan
     url: https://einthusan.tv/intro/
     description: Asian movies streaming.
@@ -2265,7 +2046,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - Multi
   - title: KissAsian
     url: https://ww14.kissasian.com.lv/
     description: Asian TV and movies.
@@ -2274,7 +2054,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: KissKH
     url: https://kisskh.ovh/
     description: Asian TV and movies.
@@ -2283,7 +2062,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Dramahood
     url: https://dramahood.mom/
     description: Asian TV and movies.
@@ -2292,7 +2070,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Asiaflix
     url: https://asiaflix.net/
     description: Asian TV and movies.
@@ -2301,7 +2078,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Rive KDrama
     url: https://rivestream.org/kdrama
     description: Korean Drama, TV and Movies.
@@ -2310,7 +2086,6 @@ topics:
     - Movies
     - Korean
     - Free
-    - EN
   - title: Vidbox Asian Drama
     url: https://vidbox.cc/asian-drama
     description: Asian TV and movies.
@@ -2319,7 +2094,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: DramaFire
     url: https://dramafire.com.pl/
     description: Asian TV and movies.
@@ -2328,7 +2102,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: KissAsian.video
     url: https://kissasian.video/
     description: Asian TV and movies.
@@ -2337,7 +2110,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: AsianCrush
     url: https://www.asiancrush.com/
     description: Asian TV and movies.
@@ -2346,7 +2118,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: AsianSubs
     url: https://asiansubs.com/
     description: Asian TV and movies.
@@ -2355,7 +2126,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: Dramacool9
     url: https://dramacools9.cam/
     description: Asian TV and movies.
@@ -2364,7 +2134,6 @@ topics:
     - Movies
     - Asian
     - Free
-    - EN
   - title: OnDemandChina
     url: https://www.ondemandchina.com/
     description: Chinese TV and movies.
@@ -2373,7 +2142,6 @@ topics:
     - Movies
     - Chinese
     - Free
-    - ZH
 - id: classics
   name: 🎞️ Classics & Public Domain
   description: Classic films, silent movies and public domain content
@@ -2386,7 +2154,6 @@ topics:
     - Classic
     - Archive
     - Free
-    - EN
   - title: WikiFlix
     url: https://wikiflix.toolforge.org/
     description: Classic films from Wikimedia.
@@ -2394,7 +2161,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: Classic Cinema Online
     url: https://classiccinemaonline.com/
     description: Classic films streaming.
@@ -2402,7 +2168,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: The Classic Movies
     url: https://www.the-classic-movies.com/
     description: Classic films streaming.
@@ -2410,7 +2175,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: RetroFlix
     url: https://retroflix.org/
     description: Classic films streaming.
@@ -2418,7 +2182,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: moonflix
     url: https://moonflix.com/
     description: Restored and colorized classic films and shows.
@@ -2426,7 +2189,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: RetroStrange
     url: https://retrostrange.com/
     description: Live retro media streams.
@@ -2435,7 +2197,6 @@ topics:
     - Classic
     - Live
     - Free
-    - EN
   - title: Wu Tang Collection
     url: https://www.thewutangcollection.com/
     description: Classic martial arts films.
@@ -2443,7 +2204,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: Silent Hall of Fame
     url: https://silent-hall-of-fame.org/
     description: Silent films archive.
@@ -2452,7 +2212,6 @@ topics:
     - Classic
     - Silent
     - Free
-    - EN
   - title: Danish Silent Film
     url: https://www.stumfilm.dk/en/stumfilm
     description: Silent Danish film archive.
@@ -2461,7 +2220,6 @@ topics:
     - Classic
     - Silent
     - Free
-    - DA
   - title: Public Domain Movie Torrents
     url: https://www.publicdomaintorrents.info/
     description: Public domain movies as torrents.
@@ -2470,7 +2228,6 @@ topics:
     - Classic
     - Torrent
     - Free
-    - EN
   - title: FootageFarm
     url: https://footagefarm.com/
     description: Public domain films.
@@ -2478,7 +2235,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Public Domain Movies
     url: https://publicdomainmovie.net/
     description: Public domain films streaming.
@@ -2486,7 +2242,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
   - title: Cinetimes
     url: https://cinetimes.org/en/
     description: Public domain films.
@@ -2494,7 +2249,6 @@ topics:
     - Movies
     - Classic
     - Free
-    - EN
 - id: specialty
   name: 🔬 Specialty Streaming
   description: Rare, experimental, avant-garde and niche streaming content
@@ -2506,7 +2260,6 @@ topics:
     - Movies
     - Rare
     - Free
-    - EN
   - title: JP-Films
     url: https://jp-films.com/
     description: Japanese Movies and TV streaming.
@@ -2515,7 +2268,6 @@ topics:
     - Series
     - Japanese
     - Free
-    - JP
   - title: Tokuzilla
     url: https://tokuzilla.net/
     description: Tokusatsu movies and shows.
@@ -2524,7 +2276,6 @@ topics:
     - Series
     - Japanese
     - Free
-    - JP
   - title: GizmoPlex
     url: https://www.gizmoplex.com/mst3k
     description: MST3K movies streaming.
@@ -2532,7 +2283,6 @@ topics:
     - Movies
     - Comedy
     - Free
-    - EN
   - title: RiffTrax Twitch
     url: https://www.twitch.tv/rifftrax
     description: RiffTrax live streams.
@@ -2541,7 +2291,6 @@ topics:
     - Comedy
     - Live
     - Free
-    - EN
   - title: Ubu
     url: https://ubu.com/film/
     description: Short films and avant-garde cinema.
@@ -2550,7 +2299,6 @@ topics:
     - Short-Films
     - Avant-Garde
     - Free
-    - EN
   - title: Le Cinéma Club
     url: https://www.lecinemaclub.com/
     description: Hand-picked indie film stream with archive.
@@ -2558,7 +2306,6 @@ topics:
     - Movies
     - Indie
     - Free
-    - EN
   - title: Zero1Cine
     url: https://zero1cine.com/
     description: AI generated films.
@@ -2566,21 +2313,18 @@ topics:
     - Movies
     - AI
     - Free
-    - EN
   - title: Viddsee
     url: https://www.viddsee.com/
     description: Short films from Asia.
     tags:
     - Short-Films
     - Free
-    - EN
   - title: Short of the Week
     url: https://www.shortoftheweek.com/
     description: Curated short films.
     tags:
     - Short-Films
     - Free
-    - EN
   - title: '0xDB'
     url: https://0xdb.org/
     description: Rare movies archive.
@@ -2588,7 +2332,6 @@ topics:
     - Movies
     - Rare
     - Free
-    - EN
   - title: HomeMovies101
     url: https://www.homemovies100.it/en/
     description: Home movies collection.
@@ -2596,7 +2339,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Prelinger Archives
     url: https://www.panix.com/~footage/
     description: Ephemeral films archive.
@@ -2604,7 +2346,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: GlobalShakespeares
     url: https://globalshakespeares.mit.edu/
     description: Shakespeare performance recordings from MIT.
@@ -2612,7 +2353,6 @@ topics:
     - Movies
     - Theatre
     - Free
-    - EN
   - title: TVARK
     url: https://tvark.org/
     description: Commercial and TV promo archive.
@@ -2620,7 +2360,6 @@ topics:
     - TV
     - Archive
     - Free
-    - EN
   - title: Daily Commercials
     url: https://dailycommercials.com/
     description: Commercial and TV promo archive.
@@ -2628,7 +2367,6 @@ topics:
     - TV
     - Archive
     - Free
-    - EN
   - title: NASA+
     url: https://plus.nasa.gov/
     description: Official NASA streaming service.
@@ -2637,7 +2375,6 @@ topics:
     - Science
     - Free
     - Legal
-    - EN
 - id: film_archives
   name: 🏛️ Film Archives
   description: National and international film archives with historical footage
@@ -2650,7 +2387,6 @@ topics:
     - Archive
     - Historical
     - Free
-    - EN
   - title: US National Archives
     url: https://www.youtube.com/@USNationalArchives
     description: US National Archives films on YouTube.
@@ -2659,7 +2395,6 @@ topics:
     - Archive
     - Historical
     - Free
-    - EN
   - title: HuntleyArchives
     url: https://www.huntleyarchives.com/
     description: Rare and forgotten short films.
@@ -2668,7 +2403,6 @@ topics:
     - Archive
     - Short-Films
     - Free
-    - EN
   - title: European Film Gateway
     url: https://www.europeanfilmgateway.eu/
     description: European film archive.
@@ -2677,7 +2411,6 @@ topics:
     - Archive
     - European
     - Free
-    - EN
   - title: Eastern European Movies
     url: https://easterneuropeanmovies.com/
     description: Eastern European film archive.
@@ -2686,7 +2419,6 @@ topics:
     - Archive
     - European
     - Free
-    - EN
   - title: BFI Player Free
     url: https://player.bfi.org.uk/free
     description: British Film Institute free archive. Requires UK VPN.
@@ -2695,7 +2427,6 @@ topics:
     - Archive
     - British
     - Free
-    - EN
   - title: British Pathe
     url: https://www.britishpathe.com/
     description: British video archives.
@@ -2704,7 +2435,6 @@ topics:
     - Archive
     - British
     - Free
-    - EN
   - title: Imperial War Museums
     url: https://www.iwm.org.uk/
     description: British and Commonwealth war footage.
@@ -2713,7 +2443,6 @@ topics:
     - Archive
     - Historical
     - Free
-    - EN
   - title: Atom Central
     url: https://www.atomcentral.com/
     description: Historical archive of atomic and nuclear tests.
@@ -2722,7 +2451,6 @@ topics:
     - Archive
     - Historical
     - Free
-    - EN
   - title: NFB Canada
     url: https://www.nfb.ca/
     description: Canadian film archive.
@@ -2730,8 +2458,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
-    - FR
   - title: IndianCine
     url: https://indiancine.ma/
     description: Indian film archive.
@@ -2739,7 +2465,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - Multi
   - title: National Film Archive of Japan
     url: https://meiji.filmarchives.jp/
     description: Japanese film archive.
@@ -2748,7 +2473,6 @@ topics:
     - Archive
     - Japanese
     - Free
-    - JP
   - title: Japanese Animated Film Classics
     url: https://animation.filmarchives.jp/index.html
     description: Japanese animation archive.
@@ -2757,7 +2481,6 @@ topics:
     - Archive
     - Japanese
     - Free
-    - JP
   - title: RussianFilmHub
     url: https://russianfilmhub.com/
     description: Russian films archive.
@@ -2765,7 +2488,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - RU
   - title: NFSA Australia
     url: https://www.nfsa.gov.au/
     description: Australian film archive.
@@ -2773,7 +2495,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: NZOnScreen
     url: https://www.nzonscreen.com/
     description: New Zealand audiovisual archive.
@@ -2781,7 +2502,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Cinematheque Henri
     url: https://www.cinematheque.fr/henri/english/
     description: Rare French film archive.
@@ -2790,7 +2510,6 @@ topics:
     - Archive
     - French
     - Free
-    - FR
   - title: Film Portal Germany
     url: https://www.filmportal.de/en/videos
     description: German video archive.
@@ -2798,7 +2517,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - DE
   - title: 35mm Polish Archive
     url: https://35mm.online/en
     description: Polish film archive.
@@ -2806,7 +2524,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - PL
   - title: TexasArchive
     url: https://texasarchive.org/
     description: Texas film archive.
@@ -2814,7 +2531,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Chicago Film Archives
     url: https://www.chicagofilmarchives.org/
     description: Chicago film archive.
@@ -2822,7 +2538,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: The Travel Film Archive
     url: https://travelfilmarchive.com/
     description: Archival travel footage.
@@ -2831,7 +2546,6 @@ topics:
     - Archive
     - Travel
     - Free
-    - EN
   - title: DVidHub
     url: https://www.dvidshub.net/
     description: Military video archive.
@@ -2840,7 +2554,6 @@ topics:
     - Archive
     - Historical
     - Free
-    - EN
   - title: IFI Archive
     url: https://ifiarchiveplayer.ie/
     description: Irish film archive.
@@ -2848,7 +2561,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Northern Ireland Screen
     url: https://digitalfilmarchive.net/
     description: Northern Irish film archive.
@@ -2856,7 +2568,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: NLS Scotland
     url: https://movingimage.nls.uk/
     description: Scottish film and video archive.
@@ -2864,7 +2575,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
   - title: Cinemata
     url: https://cinemata.org/
     description: Asia-Pacific social films.
@@ -2873,7 +2583,6 @@ topics:
     - Archive
     - Asian
     - Free
-    - Multi
   - title: Austrian Film Museum
     url: https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en
     description: Austrian film archive.
@@ -2881,7 +2590,6 @@ topics:
     - Movies
     - Archive
     - Free
-    - EN
 - id: live_tv
   name: 📡 Live TV
   description: Free live TV channels from around the world
@@ -2893,7 +2601,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: NTV
     url: http://ntv.cx/
     description: Live TV and sports aggregator.
@@ -2902,7 +2609,6 @@ topics:
     - Sports
     - Aggregator
     - Free
-    - EN
   - title: PlayTorrio IPTV
     url: https://iptv.playtorrio.xyz/
     description: Live TV and sports IPTV player.
@@ -2911,7 +2617,6 @@ topics:
     - Sports
     - IPTV
     - Free
-    - EN
   - title: Famelack
     url: https://famelack.com/
     description: Free live TV and sports.
@@ -2919,7 +2624,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: EasyWebTV
     url: https://zhangboheng.github.io/Easy-Web-TV-M3u8/routes/countries.html
     description: Live TV from many countries via M3U8.
@@ -2928,7 +2632,6 @@ topics:
     - Sports
     - International
     - Free
-    - Multi
   - title: IPTV Web
     url: https://iptv-web.app/
     description: Live TV IPTV web player.
@@ -2936,7 +2639,6 @@ topics:
     - Live-TV
     - IPTV
     - Free
-    - EN
   - title: RgShows Live TV
     url: https://www.rgshows.ru/livetv/
     description: Live TV and sports.
@@ -2944,7 +2646,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: DaddyLive TV
     url: https://dlhd.link/24-7-channels.php
     description: Live TV and sports channels.
@@ -2952,7 +2653,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: TVPass
     url: https://tvpass.org/
     description: Live TV and sports. US only.
@@ -2961,7 +2661,6 @@ topics:
     - Sports
     - Free
     - US
-    - EN
   - title: StreamSports99 TV
     url: https://streamsports99.su/live-tv
     description: Live TV and sports.
@@ -2969,7 +2668,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Xumo Play
     url: https://play.xumo.com/networks
     description: Free live TV. US only.
@@ -2978,14 +2676,12 @@ topics:
     - Free
     - Legal
     - US
-    - EN
   - title: LiveHDTV
     url: https://www.livehdtv.com/
     description: Live TV streaming.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: SportsBite TV
     url: https://app.moviebite.cc/channels
     description: Live TV and sports channels.
@@ -2993,7 +2689,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: TV Freedom
     url: https://tvfreedom.netlify.app/
     description: Free live TV and sports.
@@ -3001,7 +2696,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Globe TV
     url: https://globetv.app/
     description: Live TV and sports.
@@ -3009,14 +2703,12 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: uFreeTV
     url: https://ufreetv.com/
     description: Free live TV.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: SportOnTV
     url: https://sportontv.biz/
     description: Live TV and sports.
@@ -3024,7 +2716,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: SportDB TV
     url: https://hoofoot.ru/tv/
     description: Live TV and sports.
@@ -3032,7 +2723,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Heartive Live
     url: https://heartiveloves.pages.dev/live/
     description: Live TV and sports.
@@ -3040,7 +2730,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: CXtv
     url: https://www.cxtvlive.com/
     description: Live TV and sports.
@@ -3048,7 +2737,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: lmao.love
     url: https://lmao.love/channels/
     description: Live TV and sports channels.
@@ -3056,7 +2744,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Cubik TV
     url: https://cubiktv.com/
     description: Live TV and sports.
@@ -3064,7 +2751,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Rive Live
     url: https://rivestream.org/iptv
     description: Live TV and sports on Rive.
@@ -3072,14 +2758,12 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: iShowMovies Live
     url: https://ishowmovies.org/live
     description: Live TV streaming.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: FreeInterTV
     url: http://www.freeintertv.com/
     description: Free international live TV.
@@ -3087,7 +2771,6 @@ topics:
     - Live-TV
     - International
     - Free
-    - Multi
   - title: Time4TV
     url: https://t4tv.click/
     description: Live TV and sports.
@@ -3095,7 +2778,6 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: Global Free TV
     url: https://www.globalfreetv.com/
     description: Global free TV channels.
@@ -3103,7 +2785,6 @@ topics:
     - Live-TV
     - International
     - Free
-    - Multi
   - title: vipotv
     url: https://vipotv.com/
     description: Live TV and sports.
@@ -3111,14 +2792,12 @@ topics:
     - Live-TV
     - Sports
     - Free
-    - EN
   - title: SquidTV
     url: https://www.squidtv.net/
     description: Live TV streaming.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: DistroTV
     url: https://distro.tv/
     description: Free live TV streaming.
@@ -3126,28 +2805,24 @@ topics:
     - Live-TV
     - Free
     - Legal
-    - EN
   - title: Puffer
     url: https://puffer.stanford.edu/
     description: San Francisco TV. Sign-up required.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: YTCH
     url: https://ytch.tv/
     description: Random TV-style YouTube channels.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: FreeTVz
     url: https://freetvz.com/
     description: Random TV-style YouTube.
     tags:
     - Live-TV
     - Free
-    - EN
   - title: SHOWROOM
     url: https://showroom-live.com/
     description: Live performance broadcasts.
@@ -3155,14 +2830,12 @@ topics:
     - Live-TV
     - Music
     - Free
-    - EN
   - title: KCNA
     url: https://kcnawatch.us/korea-central-tv-livestream
     description: North Korean live TV stream.
     tags:
     - Live-TV
     - Free
-    - KO
 - id: live_sports
   name: ⚽ Live Sports
   description: Free live sports streaming from all major sports
@@ -3175,7 +2848,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: SportyHunter
     url: https://sportyhunter.com/
     description: Community sports aggregator — NFL, NHL, MLB and more.
@@ -3184,7 +2856,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: WatchSports
     url: https://watchsports.to/
     description: Sports stream aggregator.
@@ -3193,7 +2864,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: BINTV
     url: https://bintv.net/
     description: Live sports streaming.
@@ -3201,7 +2871,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: Watch Footy
     url: https://watchfooty.st/
     description: Football-focused stream aggregator.
@@ -3211,7 +2880,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: StreamSports99
     url: https://streamsports99.su
     description: Live sports streams.
@@ -3219,7 +2887,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: Sporting77
     url: https://sporting77.ru/
     description: Live sports streams.
@@ -3227,7 +2894,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: DaddyLive
     url: https://dlhd.link/
     description: Live TV and sports with many mirrors.
@@ -3235,7 +2901,6 @@ topics:
     - Sports
     - Live-TV
     - Free
-    - EN
   - title: PPV.TO
     url: https://ppv.cx
     description: Live pay-per-view events.
@@ -3244,7 +2909,6 @@ topics:
     - PPV
     - Live
     - Free
-    - EN
   - title: SportsBite
     url: https://sportsbite.cv/
     description: Live sports streaming.
@@ -3252,7 +2916,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: StreamEast
     url: https://streameast.ga/
     description: Live sports streaming.
@@ -3260,7 +2923,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: LiveTV
     url: https://livetv.sx/enx/
     description: Live sports TV from around the world.
@@ -3269,7 +2931,6 @@ topics:
     - Live
     - International
     - Free
-    - Multi
   - title: TimStreams
     url: https://timstreams.lol/
     description: Live events and sports.
@@ -3277,7 +2938,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: StreamFree
     url: https://streamfree.app
     description: Free sports streams.
@@ -3285,7 +2945,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: Sportsurge
     url: https://v2.sportsurge.net/home5/
     description: Sports stream aggregator.
@@ -3294,7 +2953,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: SportDB
     url: https://hoofoot.ru/
     description: Sports stream aggregator.
@@ -3303,7 +2961,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: TotalSportek
     url: https://totalsportek.es/
     description: Sports stream aggregator.
@@ -3312,7 +2969,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: CrackStreams24
     url: http://crackstreams24.cfd/
     description: Sports stream aggregator.
@@ -3321,7 +2977,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: FootStreams
     url: https://footstreams.xyz/
     description: Football stream aggregator.
@@ -3331,7 +2986,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: Sportive
     url: https://sportive.pages.dev/
     description: Sports stream aggregator.
@@ -3340,7 +2994,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: FSL
     url: https://freestreams-live1a.pk/
     description: Sports stream aggregator.
@@ -3349,7 +3002,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: Footfy
     url: https://footfy.net/
     description: Football stream aggregator.
@@ -3359,7 +3011,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: DaddyLive.cv
     url: https://daddylive.cv/
     description: Sports stream aggregator.
@@ -3368,7 +3019,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: StreamCorner
     url: https://streamcorner.info/
     description: Sports stream aggregator.
@@ -3377,7 +3027,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: GamesCentral
     url: https://www.gamescentral.top/
     description: Sports stream aggregator.
@@ -3386,7 +3035,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: CosecTV
     url: https://cosectv.com/
     description: Live sports streaming.
@@ -3394,7 +3042,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: CricHD
     url: https://crichd.at/
     description: Live cricket and sports.
@@ -3403,7 +3050,6 @@ topics:
     - Cricket
     - Live
     - Free
-    - EN
   - title: l1l1
     url: https://l1l1.link/
     description: Live sports streaming.
@@ -3411,7 +3057,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: MrGamingStreams
     url: http://mrgamingstreams.org/
     description: Live sports streaming.
@@ -3419,7 +3064,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: Sports Plus
     url: https://en12.sportplus.live/
     description: Live sports streaming.
@@ -3427,7 +3071,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: CrackStreams.blog
     url: https://crackstreams.blog/
     description: Sports stream aggregator.
@@ -3436,7 +3079,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: VIP Box Sports
     url: https://www.viprow.co/
     description: Live sports streaming.
@@ -3444,7 +3086,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: 720pStream
     url: https://720pstream.lc/
     description: Live sports at 720p.
@@ -3453,7 +3094,6 @@ topics:
     - Live
     - 720p
     - Free
-    - EN
   - title: BuffStream
     url: https://app.buffstream.io/
     description: Live sports streaming.
@@ -3461,7 +3101,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: Glisco
     url: https://www.glisco.link/
     description: Live sports streaming.
@@ -3469,7 +3108,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: SharkStreams
     url: https://sharkstreams.net/
     description: Live sports streaming.
@@ -3477,7 +3115,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: MyFootball
     url: https://myfootball.pw/
     description: Football streaming.
@@ -3486,7 +3123,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: LSBC
     url: https://lsbc.cx/
     description: Live football streaming.
@@ -3495,7 +3131,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: Trendgola
     url: https://trendgola.org/
     description: Football streaming.
@@ -3504,7 +3139,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: KilatLIVE
     url: https://kilatlive.net/
     description: Football streaming.
@@ -3513,7 +3147,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: TFLIX Sports
     url: https://tv.tflix.app/
     description: Sports channels.
@@ -3521,7 +3154,6 @@ topics:
     - Sports
     - Live
     - Free
-    - EN
   - title: NBAMonster
     url: https://nbamonster.com/
     description: Basketball streaming aggregator.
@@ -3531,7 +3163,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: YoSinTV
     url: https://www.yosintv.link/
     description: Cricket and football live streams.
@@ -3541,7 +3172,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: WicketGoal
     url: https://live.wicketgoal.com/
     description: Live cricket and football.
@@ -3551,7 +3181,6 @@ topics:
     - Football
     - Live
     - Free
-    - EN
   - title: WebCric
     url: https://me.webcric.com/
     description: Live cricket streaming.
@@ -3560,7 +3189,6 @@ topics:
     - Cricket
     - Live
     - Free
-    - EN
   - title: OnHockey
     url: https://onhockey.tv/
     description: Hockey streaming aggregator.
@@ -3570,7 +3198,6 @@ topics:
     - Live
     - Aggregator
     - Free
-    - EN
   - title: OvertakeFans
     url: https://overtakefans.com/
     description: Motorsports live streams.
@@ -3579,7 +3206,6 @@ topics:
     - Motorsport
     - Live
     - Free
-    - EN
   - title: Aceztrims
     url: https://acestrlms.pages.dev/
     description: Motorsports streaming.
@@ -3588,7 +3214,6 @@ topics:
     - Motorsport
     - Live
     - Free
-    - EN
   - title: Pitsport
     url: https://pitsport.xyz/
     description: Motorsports live streams.
@@ -3597,7 +3222,6 @@ topics:
     - Motorsport
     - Live
     - Free
-    - EN
   - title: DD12
     url: https://dd12streams.com/
     description: Motorsports streaming.
@@ -3606,7 +3230,6 @@ topics:
     - Motorsport
     - Live
     - Free
-    - EN
   - title: NontonGP
     url: https://esp32.nontonx.com/
     description: Motorcycle racing live streams.
@@ -3615,7 +3238,6 @@ topics:
     - Motorsport
     - Live
     - Free
-    - EN
   - title: Tiz-Cycling
     url: https://tiz-cycling.tv/
     description: Live cycling streams.
@@ -3624,7 +3246,6 @@ topics:
     - Cycling
     - Live
     - Free
-    - EN
   - title: Formula Timer
     url: https://formula-timer.com/livetiming
     description: F1 live stats dashboard.
@@ -3634,7 +3255,6 @@ topics:
     - Live
     - Stats
     - Free
-    - EN
   - title: F1 Dash
     url: https://f1-dash.com/
     description: F1 live timing dashboard.
@@ -3644,7 +3264,6 @@ topics:
     - Live
     - Stats
     - Free
-    - EN
 - id: sports_replays
   name: 🏆 Sports Replays
   description: Watch full replays of past sports events
@@ -3988,7 +3607,6 @@ topics:
     - Torrent
     - Streaming
     - Desktop
-    - Multi
   - title: Prowlarr
     url: https://github.com/Prowlarr/Prowlarr
     description: Indexer manager for auto-downloading torrents.
