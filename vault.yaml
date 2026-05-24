@@ -359,6 +359,17 @@ entries:
       - *id013
       - *id014
       image: https://images.unsplash.com/photo-1530026405186-ed1f139313f2?w=800&q=80
+- title: ⚔️ Clash of Clans Tracker
+  description: Tracke deine Upgrades, Kosten und Zeit bis zum Max — für jede Town Hall Stufe. Komplett offline, keine Daten
+    verlassen dein Gerät.
+  tags:
+  - Games
+  - CoC
+  - Tracker
+  - Tool
+  image: https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80
+  type: tool
+  tool_src: coc_tracker.html
 - title: How to Download Torrents Safely
   description: A quick guide on how to safely download torrents without exposing your IP or getting malware.
   tags:

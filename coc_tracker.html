@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clash of Clans Village Progress Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f0;--panel:#fff;--hbg:#a05301;--htext:#fff;
+  --border:#d4c9a8;--borderdk:#b8a880;--text:#222;--muted:#666;--light:#999;
+  --accent:#a05301;--sh:#f0e8d0;--shb:#c8a860;--btn:#e8e0cc;--btnhov:#d8ccaa;
+  --green:#1a6e1a;--greenbg:#eaf6ea;--maxbg:#fff8c0;--maxbdr:#c8a800;--maxtxt:#806000;
+  --r:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',sans-serif;font-size:14px;background:var(--bg);color:var(--text);line-height:1.5}
+
+/* HEADER */
+#hdr{background:var(--hbg);color:var(--htext);padding:10px 16px;display:flex;align-items:center;gap:12px}
+#hdr h1{font-size:1.1rem;font-weight:700}
+#hdr p{font-size:.78rem;opacity:.8}
+.hico{font-size:1.6rem}
+
+/* APP */
+#app{max-width:940px;margin:0 auto;padding:14px 14px 80px}
+
+/* INTRO */
+.intro{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;font-size:.84rem;color:var(--muted);line-height:1.6}
+
+/* TH + GP */
+.settings-row{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.settings-row label{font-weight:700;font-size:.88rem;display:block;margin-bottom:6px}
+select.th-sel{padding:5px 10px;border:1px solid var(--borderdk);border-radius:var(--r);background:#fff;font-size:.9rem;font-family:inherit;cursor:pointer}
+.gp-group{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.gp-btn{padding:3px 10px;font-size:.75rem;border:1px solid var(--borderdk);border-radius:var(--r);background:#fff;cursor:pointer;font-family:inherit}
+.gp-btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* SUMMARY BAR */
+#sumbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:12px}
+.sc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;text-align:center}
+.sc .v{font-size:1.25rem;font-weight:700;color:var(--accent)}
+.sc .l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+.sc.done .v{color:var(--green)}
+
+/* BIG SECTION LABEL */
+.big-section{background:var(--hbg);color:#fff;padding:8px 14px;font-size:.9rem;font-weight:700;letter-spacing:.04em;margin-bottom:0;border-radius:var(--r) var(--r) 0 0;margin-top:14px}
+
+/* MODULE */
+.mod{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.mod-head{background:var(--sh);border-bottom:1px solid var(--shb);padding:9px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.mod-head:hover{background:#e8dcc0}
+.mod-title{font-weight:700;font-size:.92rem;color:var(--accent)}
+.mod-right{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--muted)}
+.badge{background:#fff;border:1px solid var(--borderdk);border-radius:10px;padding:2px 9px;font-size:.72rem}
+.badge.ok{background:var(--maxbg);border-color:var(--maxbdr);color:var(--maxtxt);font-weight:700}
+.chev{font-size:.7rem;transition:transform .2s}
+.mod.col .chev{transform:rotate(-90deg)}
+.mod.col .mod-body{display:none}
+.mod-body{padding:12px 14px}
+
+/* ITEM BLOCK */
+.item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #ede6d4}
+.item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.item-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.iname{font-weight:600;font-size:.88rem}
+.icur{font-size:.78rem;color:var(--muted)}
+.item.mx .iname{color:var(--green)}
+.mbar{height:4px;background:#e0d8c0;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.mbar-f{height:4px;border-radius:2px;transition:width .25s}
+.lvlrow{display:flex;flex-wrap:wrap;gap:3px}
+.lb{width:28px;height:28px;border:1px solid var(--borderdk);border-radius:var(--r);background:var(--btn);color:var(--muted);font-size:.73rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .1s;font-family:inherit}
+.lb:hover{background:var(--btnhov);color:var(--text)}
+.lb.s0{border-style:dashed;opacity:.6}
+.lb.sg{background:#a05301;border-color:#a05301;color:#fff}
+.lb.se{background:#7a20b0;border-color:#7a20b0;color:#fff}
+.lb.sd{background:#1050a0;border-color:#1050a0;color:#fff}
+.lb.mx{background:var(--maxbg);border-color:var(--maxbdr);color:var(--maxtxt);font-weight:700}
+/* hero buttons smaller */
+.lb.sm{width:23px;height:23px;font-size:.62rem}
+.upg{font-size:.74rem;color:var(--muted);margin-top:5px;min-height:15px}
+.upg.done{color:var(--green);font-weight:600}
+.upg .c{font-weight:700}
+.cg{color:#905000}.ce{color:#6010a0}.cd{color:#1040a0}
+
+/* na = not available */
+.upg.na{color:#bbb}
+
+/* WALLS */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:6px}
+.wcell{border:1px solid var(--border);border-radius:var(--r);padding:7px;text-align:center;background:#faf8f2}
+.wbar{height:4px;border-radius:2px;margin-bottom:5px}
+.wlbl{font-size:.68rem;color:var(--muted);margin-bottom:3px}
+.wlbl2{font-size:.65rem;color:var(--light);margin-bottom:3px}
+.winp{width:52px;border:1px solid var(--borderdk);border-radius:3px;padding:3px 0;text-align:center;font-family:inherit;font-size:.92rem;font-weight:700;background:#fff;color:var(--text)}
+.winp:focus{outline:none;border-color:var(--accent)}
+.wfoot{font-size:.8rem;color:var(--muted);margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+
+/* PROGRESS PANEL */
+.prog-panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.prog-panel h2{font-size:.92rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+.pctrl{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;align-items:center}
+.pctrl span{font-size:.8rem;font-weight:700;color:var(--muted);margin-right:4px}
+.pbtn{padding:3px 10px;font-size:.74rem;border:1px solid var(--borderdk);border-radius:var(--r);background:#fff;cursor:pointer;font-family:inherit}
+.pbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.plist{display:flex;flex-direction:column;gap:4px;max-height:420px;overflow-y:auto}
+.prow{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--border);border-radius:var(--r);background:#faf8f2;font-size:.8rem}
+.prow:hover{background:#f0e8d8}
+.prow .pn{font-weight:600}
+.prow .pm{font-size:.7rem;color:var(--muted)}
+.prow .pc{font-weight:700;white-space:nowrap}
+.prow .pt{font-size:.7rem;color:var(--muted);text-align:right;white-space:nowrap}
+.rtag{display:inline-block;padding:1px 6px;border-radius:8px;font-size:.67rem;font-weight:700;margin-right:3px}
+.rtag.g{background:#fff0d0;color:#805000;border:1px solid #c09040}
+.rtag.e{background:#f0e0ff;color:#600090;border:1px solid #b060d0}
+.rtag.d{background:#d8eaff;color:#104080;border:1px solid #5080c0}
+.nomatch{text-align:center;padding:20px;color:var(--green);font-weight:600;font-size:.85rem}
+
+/* TOTALS */
+.tot-wrap{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.tot-wrap h2{font-size:.92rem;font-weight:700;color:var(--accent);margin-bottom:10px}
+.ttbl{width:100%;border-collapse:collapse;font-size:.82rem}
+.ttbl th{text-align:left;padding:6px 8px;background:var(--sh);border-bottom:1px solid var(--shb);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.ttbl td{padding:6px 8px;border-bottom:1px solid var(--border)}
+.ttbl tr:last-child td{border-bottom:none;font-weight:700;background:#faf8f0}
+.ttbl .nr{text-align:right;font-variant-numeric:tabular-nums}
+.ttbl .ng{color:#805000;font-weight:700}.ttbl .ne{color:#600090;font-weight:700}.ttbl .nd{color:#104080;font-weight:700}
+.fn{font-size:.71rem;color:var(--light);margin-top:8px;line-height:1.5}
+
+@media(max-width:540px){
+  .lb{width:24px;height:24px;font-size:.67rem}
+  .lb.sm{width:20px;height:20px;font-size:.57rem}
+  #sumbar{grid-template-columns:repeat(2,1fr)}
+}
+
+/* SAVE/LOAD BAR */
+#savebar{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#savebar .sb-title{font-weight:700;font-size:.88rem;color:var(--accent);margin-right:4px}
+.sb-btn{padding:6px 14px;font-size:.82rem;font-weight:700;border:none;border-radius:var(--r);cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:opacity .15s}
+.sb-btn:hover{opacity:.85}
+.sb-export{background:#a05301;color:#fff}
+.sb-import{background:#2a6e2a;color:#fff}
+.sb-note{font-size:.76rem;color:var(--muted);margin-left:auto}
+#import-file{display:none}
+.sb-stamp{font-size:.74rem;color:var(--light);margin-top:2px;width:100%}
+</style>
+</head>
+<body>
+<div id="hdr">
+  <div class="hico">🏰</div>
+  <div><h1>Clash of Clans Village Progress Tracker</h1><p>Track upgrades, costs &amp; time to max — Home Village</p></div>
+</div>
+<div id="app">
+
+
+<!-- SAVE / LOAD BAR -->
+<div id="savebar">
+  <span class="sb-title">💾 Progress File</span>
+  <button class="sb-btn sb-export" onclick="exportData()">⬇ Export Save File</button>
+  <button class="sb-btn sb-import" onclick="document.getElementById('import-file').click()">⬆ Import Save File</button>
+  <input type="file" id="import-file" accept=".json" onchange="importData(event)">
+  <span class="sb-note">Your data never leaves your device.</span>
+  <span class="sb-stamp" id="sb-stamp"></span>
+</div>
+<div class="intro">Select your current level for each item using the level buttons. <strong>Level 0</strong> = not yet built. The tracker shows remaining upgrade costs and times, and calculates totals to max your Town Hall level.</div>
+
+<!-- Settings -->
+<div class="settings-row">
+  <div>
+    <label>Town Hall Level</label>
+    <select class="th-sel" id="thSel">
+      <option>8</option><option>9</option><option>10</option><option>11</option>
+      <option>12</option><option>13</option><option>14</option><option>15</option>
+      <option>16</option><option>17</option><option value="18" selected>18</option>
+    </select>
+  </div>
+  <div>
+    <label>Builder Boost (Gold Pass)</label>
+    <div class="gp-group" id="gpB">
+      <button class="gp-btn on" data-v="1">N/A</button>
+      <button class="gp-btn" data-v="1.1">+10%</button>
+      <button class="gp-btn" data-v="1.15">+15%</button>
+      <button class="gp-btn" data-v="1.2">+20%</button>
+      <button class="gp-btn" data-v="1.3">+30%</button>
+    </div>
+  </div>
+  <div>
+    <label>Research Boost (Gold Pass)</label>
+    <div class="gp-group" id="gpR">
+      <button class="gp-btn on" data-v="1">N/A</button>
+      <button class="gp-btn" data-v="1.1">+10%</button>
+      <button class="gp-btn" data-v="1.15">+15%</button>
+      <button class="gp-btn" data-v="1.2">+20%</button>
+      <button class="gp-btn" data-v="1.3">+30%</button>
+    </div>
+  </div>
+</div>
+
+<!-- Summary -->
+<div id="sumbar"></div>
+
+<!-- Progress panel -->
+<div class="prog-panel">
+  <h2>Upgrades Remaining — Town Hall <span id="upgTHlbl">18</span></h2>
+  <div class="pctrl">
+    <span>Sort:</span>
+    <button class="pbtn on" data-s="cost">Cost</button>
+    <button class="pbtn" data-s="time">Duration</button>
+    <button class="pbtn" data-s="type">Builder / Lab</button>
+  </div>
+  <div class="pctrl">
+    <span>Filter:</span>
+    <button class="pbtn on" data-f="all">All</button>
+    <button class="pbtn" data-f="gold">🪙 Gold</button>
+    <button class="pbtn" data-f="elixir">💜 Elixir</button>
+    <button class="pbtn" data-f="dark">🖤 Dark Elixir</button>
+    <button class="pbtn" data-f="builder">Builder</button>
+    <button class="pbtn" data-f="lab">Laboratory</button>
+  </div>
+  <div class="plist" id="upgList"></div>
+</div>
+
+<!-- Totals -->
+<div class="tot-wrap">
+  <h2>Costs to Max Everything — Town Hall <span id="totTHlbl">18</span></h2>
+  <table class="ttbl"><thead><tr><th>Type</th><th class="nr">Loot Remaining</th><th class="nr">Build Time Remaining*</th></tr></thead>
+  <tbody id="totBody"></tbody></table>
+  <div class="fn">* Total sequential time. With multiple builders/lab working in parallel, actual time is shorter.<br>† Walls level 5+ may be upgraded with Gold or Elixir.</div>
+</div>
+
+<!-- SECTIONS CONTAINER -->
+<div id="sections"></div>
+
+</div><!-- #app -->
+<script>
+// ═══════════════════════════════════════════════
+// GAME DATA  (cost, time in seconds)
+// All level arrays: index = level number (0 = not built / base)
+// ═══════════════════════════════════════════════
+const D=86400,H=3600;
+
+// ── BUILDING DATA ──────────────────────────────
+// Each entry: { res, type:'builder', count, max:{th:level,...}, cost:[0,c1,c2,...], time:[0,t1,...] }
+// count = how many of this building exist at TH18
+
+const BDATA = {
+  // ── TOWN HALL ──
+  townHall:{res:'gold',type:'builder',count:1,
+    max:{8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:16,17:17,18:18},
+    cost:[0,0,0,0,0,0,0,0,2000000,3500000,5000000,7500000,10000000,12000000,16000000,20000000,25000000,35000000,50000000],
+    time:[0,0,0,0,0,0,0,0,2*D,3*D,4*D,5*D,6*D,7*D,8*D,10*D,12*D,14*D,16*D]},
+
+  // ── ARMY ──
+  clanCastle:{res:'gold',type:'builder',count:1,
+    max:{8:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14},
+    cost:[0,10000,40000,150000,750000,2000000,4000000,6000000,9000000,12500000,16500000,21000000,26000000,32000000,40000000],
+    time:[0,5*H,12*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D,12*D]},
+  armyCamp:{res:'elixir',type:'builder',count:4,
+    max:{8:6,9:7,10:8,11:9,12:10,13:11,14:12,15:13,16:14,17:14,18:14},
+    cost:[0,0,250,2000,10000,50000,250000,750000,1500000,3000000,5000000,8000000,12000000,16000000,20000000],
+    time:[0,0,600,1800,7200,28800,86400,172800,259200,345600,432000,518400,604800,691200,777600]},
+  barracks:{res:'elixir',type:'builder',count:4,
+    max:{8:8,9:9,10:11,11:11,12:13,13:14,14:15,15:16,16:17,17:17,18:18},
+    cost:[0,0,500,1500,5000,20000,100000,300000,900000,2000000,3500000,5500000,8000000,11000000,14500000,18500000,23000000,28500000,35000000],
+    time:[0,0,1800,3600,7200,14400,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000]},
+  darkBarracks:{res:'gold',type:'builder',count:2,
+    max:{8:3,9:4,10:5,11:6,12:7,13:8,14:9,15:9,16:9,17:9,18:9},
+    cost:[0,0,150000,400000,1000000,2000000,3500000,5000000,7000000,9500000,12500000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D]},
+  laboratory:{res:'elixir',type:'builder',count:1,
+    max:{8:6,9:7,10:8,11:9,12:10,13:11,14:12,15:13,16:14,17:15,18:16},
+    cost:[0,0,0,75000,500000,1500000,3000000,5500000,8500000,12500000,17500000,23500000,30500000,38500000,47500000,57500000,68500000],
+    time:[0,0,0,6*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D,12*D,13*D]},
+  spellFactory:{res:'elixir',type:'builder',count:1,
+    max:{8:2,9:3,10:4,11:5,12:5,13:5,14:5,15:6,16:6,17:6,18:7},
+    cost:[0,0,200000,500000,1500000,3000000,5000000,7000000,9000000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D,6*D]},
+  darkSpellFactory:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:1,10:2,11:3,12:4,13:5,14:5,15:5,16:5,17:5,18:5},
+    cost:[0,0,750000,1500000,3000000,5500000,8500000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D]},
+  workshop:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:1,12:2,13:3,14:4,15:5,16:6,17:7,18:8},
+    cost:[0,0,4000000,6000000,8000000,10000000,12500000,15500000,19000000,23000000],
+    time:[0,0,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D]},
+  heroHall:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:1,18:5},
+    cost:[0,0,0,0,0,4000000,8000000,14000000,22000000,32000000],
+    time:[0,0,0,0,0,3*D,5*D,7*D,9*D,11*D]},
+  petHouse:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:1,15:2,16:3,17:4,18:5},
+    cost:[0,0,2000000,4000000,6000000,8000000,10000000],
+    time:[0,0,2*D,4*D,6*D,8*D,10*D]},
+
+  // ── DEFENSES ──
+  cannon:{res:'gold',type:'builder',count:6,
+    max:{8:10,9:11,10:13,11:15,12:17,13:19,14:20,15:21,16:21,17:21,18:22},
+    cost:[0,0,250,1000,4000,16000,50000,100000,200000,400000,700000,1200000,2000000,3000000,4500000,6000000,8000000,10000000,13000000,16000000,20000000,24000000,28000000],
+    time:[0,0,900,1800,3600,7200,14400,21600,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  archerTower:{res:'gold',type:'builder',count:8,
+    max:{8:10,9:11,10:13,11:15,12:17,13:19,14:20,15:21,16:21,17:21,18:22},
+    cost:[0,0,1000,4000,12000,30000,80000,180000,360000,680000,1200000,2000000,3000000,4500000,6000000,8000000,10500000,13000000,16000000,19000000,22000000,26000000,30000000],
+    time:[0,0,900,1800,3600,7200,14400,28800,57600,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  mortar:{res:'gold',type:'builder',count:4,
+    max:{8:6,9:7,10:8,11:9,12:10,13:11,14:13,15:15,16:16,17:17,18:17},
+    cost:[0,0,8000,40000,150000,500000,1000000,2000000,3500000,5000000,7000000,9500000,12000000,15000000,18000000,21000000,24000000,28000000],
+    time:[0,0,3600,14400,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000]},
+  airDefense:{res:'gold',type:'builder',count:4,
+    max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:12,16:13,17:15,18:16},
+    cost:[0,0,7500,50000,200000,500000,1000000,2000000,3500000,5500000,8000000,11000000,14000000,17000000,20000000,24000000,28000000],
+    time:[0,0,3600,14400,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000]},
+  wizardTower:{res:'gold',type:'builder',count:5,
+    max:{8:5,9:7,10:8,11:10,12:12,13:14,14:15,15:16,16:17,17:17,18:17},
+    cost:[0,0,50000,200000,600000,1500000,3000000,5000000,7500000,10000000,13000000,16000000,19000000,22000000,25000000,28000000,31000000,35000000],
+    time:[0,0,14400,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  airSweeper:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:1,10:2,11:3,12:4,13:5,14:6,15:7,16:7,17:7,18:7},
+    cost:[0,0,500000,1000000,2000000,3500000,5500000,8000000,11000000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D,6*D]},
+  hiddenTesla:{res:'gold',type:'builder',count:4,
+    max:{8:6,9:7,10:8,11:9,12:10,13:11,14:12,15:13,16:14,17:15,18:16},
+    cost:[0,0,200000,600000,1200000,2000000,3000000,4000000,5500000,7000000,9000000,11500000,14000000,17000000,20000000,23000000,27000000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D,12*D,13*D,14*D]},
+  xBow:{res:'gold',type:'builder',count:4,
+    max:{8:0,9:0,10:3,11:5,12:7,13:9,14:10,15:11,16:12,17:12,18:12},
+    cost:[0,0,2000000,4000000,7000000,10000000,14000000,18000000,22000000,27000000,32000000,37000000,42000000],
+    time:[0,0,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D,12*D]},
+  infernoTower:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:0,12:4,13:7,14:8,15:9,16:10,17:11,18:11},
+    cost:[0,0,3000000,6000000,10000000,14000000,19000000,24000000,30000000,36000000,42000000,48000000],
+    time:[0,0,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D]},
+  eaOrInfernoArtillery:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:1,14:2,15:3,16:4,17:5,18:5},
+    cost:[0,0,8000000,10000000,12000000,14000000,16000000],
+    time:[0,0,4*D,5*D,6*D,7*D,8*D]},
+  scattershot:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:0,12:0,13:1,14:2,15:3,16:5,17:5,18:6},
+    cost:[0,0,14000000,20000000,27000000,35000000,43000000,52000000],
+    time:[0,0,5*D,6*D,7*D,8*D,9*D,10*D]},
+  giga:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:1,17:5,18:5},
+    cost:[0,0,8000000,12000000,16000000,20000000,24000000],
+    time:[0,0,4*D,5*D,6*D,7*D,8*D]},
+  bombTower:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:3,12:5,13:7,14:9,15:11,16:12,17:12,18:13},
+    cost:[0,0,1000000,3000000,5000000,8000000,12000000,16000000,21000000,27000000,33000000,40000000,47000000,55000000],
+    time:[0,0,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D,10*D,11*D,12*D]},
+  multiArcherTower:{res:'elixir',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:1,17:3,18:4},
+    cost:[0,0,14000000,22000000,32000000],
+    time:[0,0,5*D,6*D,7*D]},
+  riccochetCannon:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:1,17:3,18:4},
+    cost:[0,0,12000000,19000000,28000000],
+    time:[0,0,5*D,6*D,7*D]},
+  multiGearTower:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:3},
+    cost:[0,0,20000000,35000000],
+    time:[0,0,6*D,7*D]},
+  firespitter:{res:'gold',type:'builder',count:2,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:2},
+    cost:[0,0,23000000],
+    time:[0,0,6*D]},
+  revengeТower:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:2},
+    cost:[0,0,25000000,40000000],
+    time:[0,0,6*D,8*D]},
+
+  // ── GUARDIANS (TH18) ──
+  smasher:{res:'dark',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:5},
+    cost:[0,0,50000,150000,300000,500000,750000],
+    time:[0,0,1*D,2*D,3*D,4*D,5*D]},
+  longshot:{res:'dark',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:5},
+    cost:[0,0,50000,150000,300000,500000,750000],
+    time:[0,0,1*D,2*D,3*D,4*D,5*D]},
+
+  // ── TRAPS ──
+  bomb:{res:'gold',type:'builder',count:6,
+    max:{8:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14},
+    cost:[0,0,500,1000,5000,20000,75000,200000,500000,1000000,2000000,3500000,5500000,8000000,11000000],
+    time:[0,0,300,600,1800,7200,21600,43200,86400,172800,259200,345600,432000,518400,604800]},
+  springTrap:{res:'gold',type:'builder',count:6,
+    max:{8:3,9:4,10:5,11:6,12:7,13:8,14:8,15:8,16:8,17:8,18:8},
+    cost:[0,0,500,2000,8000,25000,75000,200000,500000,1000000],
+    time:[0,0,300,600,3600,14400,43200,86400,172800,259200]},
+  airBomb:{res:'gold',type:'builder',count:5,
+    max:{8:2,9:3,10:4,11:5,12:6,13:7,14:8,15:9,16:9,17:9,18:9},
+    cost:[0,0,1000,5000,15000,50000,150000,400000,1000000,2500000],
+    time:[0,0,600,1800,7200,21600,86400,172800,259200,345600]},
+  giantBomb:{res:'gold',type:'builder',count:5,
+    max:{8:3,9:4,10:5,11:6,12:7,13:8,14:8,15:8,16:8,17:8,18:8},
+    cost:[0,0,5000,25000,100000,250000,750000,2000000,5000000,10000000],
+    time:[0,0,1800,7200,21600,86400,172800,259200,345600,432000]},
+  seekingAirMine:{res:'gold',type:'builder',count:5,
+    max:{8:0,9:2,10:3,11:4,12:4,13:4,14:4,15:4,16:4,17:4,18:4},
+    cost:[0,0,200000,500000,1000000,2000000],
+    time:[0,0,12*H,1*D,2*D,3*D]},
+  skeletonTrap:{res:'gold',type:'builder',count:3,
+    max:{8:0,9:0,10:0,11:2,12:3,13:4,14:5,15:6,16:6,17:6,18:6},
+    cost:[0,0,500000,1000000,2000000,3500000,5500000,8000000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D]},
+  tornadoTrap:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:1,16:2,17:3,18:4},
+    cost:[0,0,1000000,2500000,5000000,9000000],
+    time:[0,0,1*D,2*D,3*D,4*D]},
+
+  // ── RESOURCE BUILDINGS ──
+  goldMine:{res:'gold',type:'builder',count:7,
+    max:{8:10,9:11,10:12,11:12,12:13,13:14,14:15,15:15,16:15,17:15,18:15},
+    cost:[0,0,500,1000,2500,5000,12500,25000,50000,100000,250000,500000,1000000,1500000,2000000,2500000],
+    time:[0,0,600,1800,3600,7200,14400,28800,57600,86400,172800,259200,345600,432000,518400,604800]},
+  elixirCollector:{res:'gold',type:'builder',count:7,
+    max:{8:10,9:11,10:12,11:12,12:13,13:14,14:15,15:15,16:15,17:15,18:15},
+    cost:[0,0,500,1000,2500,5000,12500,25000,50000,100000,250000,500000,1000000,1500000,2000000,2500000],
+    time:[0,0,600,1800,3600,7200,14400,28800,57600,86400,172800,259200,345600,432000,518400,604800]},
+  darkElixirDrill:{res:'gold',type:'builder',count:3,
+    max:{8:0,9:1,10:2,11:3,12:4,13:6,14:7,15:8,16:9,17:10,18:11},
+    cost:[0,0,600000,1200000,2000000,3000000,4500000,6500000,9000000,12000000,15500000,19500000],
+    time:[0,0,12*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D]},
+  goldStorage:{res:'gold',type:'builder',count:4,
+    max:{8:9,9:10,10:11,11:12,12:13,13:14,14:15,15:16,16:17,17:18,18:19},
+    cost:[0,0,500,1000,5000,25000,100000,300000,750000,1500000,3000000,5000000,8000000,12000000,17000000,22000000,28000000,35000000,43000000,52000000],
+    time:[0,0,1800,3600,7200,28800,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  elixirStorage:{res:'elixir',type:'builder',count:4,
+    max:{8:9,9:10,10:11,11:12,12:13,13:14,14:15,15:16,16:17,17:18,18:19},
+    cost:[0,0,500,1000,5000,25000,100000,300000,750000,1500000,3000000,5000000,8000000,12000000,17000000,22000000,28000000,35000000,43000000,52000000],
+    time:[0,0,1800,3600,7200,28800,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  darkElixirStorage:{res:'gold',type:'builder',count:1,
+    max:{8:0,9:1,10:3,11:4,12:5,13:7,14:8,15:9,16:10,17:11,18:12},
+    cost:[0,0,400000,800000,1600000,2800000,4500000,6500000,9000000,12000000,15500000,19500000,24500000],
+    time:[0,0,8*H,16*H,1*D,2*D,3*D,4*D,5*D,6*D,7*D,8*D,9*D]},
+  builderHut:{res:'gold',type:'builder',count:6,
+    max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:1},
+    cost:[0,0,250000],
+    time:[0,0,12*H]},
+};
+
+// ── TROOP DATA (Laboratory) ──
+const TDATA = {
+  // Elixir troops
+  barbarian:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:12,16:13,17:13,18:14},
+    cost:[0,0,10000,50000,150000,500000,1000000,2000000,3000000,4000000,5000000,6000000,8000000,10000000,12000000],
+    time:[0,0,600,3600,14400,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000]},
+  archer:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:12,16:13,17:13,18:14},
+    cost:[0,0,10000,60000,200000,600000,1200000,2400000,3600000,5000000,6500000,8000000,10000000,12000000,14000000],
+    time:[0,0,600,7200,28800,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000]},
+  giant:{res:'elixir',type:'lab',max:{8:6,9:7,10:8,11:9,12:10,13:11,14:12,15:13,16:13,17:13,18:14},
+    cost:[0,0,25000,100000,500000,1500000,2500000,4000000,6000000,8000000,10000000,12000000,15000000,17000000,19000000],
+    time:[0,0,3600,28800,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000]},
+  goblin:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:8,13:9,14:10,15:10,16:10,17:10,18:11},
+    cost:[0,0,10000,50000,150000,500000,1500000,3000000,5000000,8000000,11000000,14000000],
+    time:[0,0,600,3600,14400,86400,172800,259200,432000,604800,720000,864000]},
+  wallBreaker:{res:'elixir',type:'lab',max:{8:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14},
+    cost:[0,0,10000,50000,200000,800000,2000000,4000000,6000000,9000000,12000000,15000000,18000000,21000000,24000000],
+    time:[0,0,600,7200,28800,86400,172800,259200,345600,432000,604800,720000,777600,864000,864000]},
+  balloon:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:12,16:13,17:13,18:14},
+    cost:[0,0,50000,250000,1000000,2500000,4000000,6000000,9000000,12000000,15000000,18000000,22000000,26000000,30000000],
+    time:[0,0,7200,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000]},
+  wizard:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:12,16:13,17:13,18:14},
+    cost:[0,0,50000,250000,750000,2000000,4000000,7000000,10000000,13000000,16000000,19000000,22000000,26000000,30000000],
+    time:[0,0,14400,57600,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000]},
+  healer:{res:'elixir',type:'lab',max:{8:0,9:3,10:4,11:5,12:6,13:7,14:8,15:8,16:8,17:8,18:9},
+    cost:[0,0,100000,500000,2000000,5000000,9000000,14000000,19000000,24000000],
+    time:[0,0,21600,86400,172800,259200,432000,604800,691200,777600]},
+  dragon:{res:'elixir',type:'lab',max:{8:0,9:4,10:5,11:6,12:7,13:8,14:9,15:10,16:11,17:12,18:13},
+    cost:[0,0,100000,500000,2000000,5000000,9000000,13000000,17000000,21000000,25000000,30000000,35000000,40000000],
+    time:[0,0,28800,86400,172800,259200,432000,518400,604800,691200,777600,864000,864000,864000]},
+  pekka:{res:'elixir',type:'lab',max:{8:0,9:0,10:4,11:5,12:6,13:7,14:8,15:9,16:10,17:12,18:13},
+    cost:[0,0,100000,500000,2000000,5000000,9000000,14000000,19000000,24000000,29000000,34000000,39000000,44000000],
+    time:[0,0,28800,86400,172800,259200,432000,518400,604800,691200,777600,864000,864000,864000]},
+  babyDragon:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:4,12:6,13:8,14:10,15:12,16:13,17:13,18:14},
+    cost:[0,0,100000,500000,2000000,5000000,9000000,13000000,18000000,23000000,28000000,33000000,38000000,43000000,48000000],
+    time:[0,0,21600,86400,172800,259200,432000,518400,604800,691200,777600,864000,864000,864000,864000]},
+  miner:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:3,13:5,14:7,15:9,16:11,17:12,18:13},
+    cost:[0,0,1000000,3000000,5000000,8000000,11000000,14000000,18000000,22000000,26000000,30000000,35000000,40000000],
+    time:[0,0,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000]},
+  electroDragon:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:3,14:5,15:6,16:7,17:8,18:9},
+    cost:[0,0,2000000,5000000,9000000,14000000,19000000,25000000,31000000,38000000,45000000],
+    time:[0,0,86400,172800,259200,432000,518400,604800,691200,777600,864000]},
+  yeti:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:2,15:4,16:5,17:6,18:7},
+    cost:[0,0,3000000,7000000,12000000,18000000,25000000,32000000],
+    time:[0,0,172800,259200,432000,518400,604800,691200]},
+  dragonRider:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:2,16:4,17:5,18:6},
+    cost:[0,0,4000000,9000000,15000000,22000000,30000000],
+    time:[0,0,172800,259200,432000,518400,604800]},
+  electroTitan:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:2,17:5,18:6},
+    cost:[0,0,5000000,12000000,20000000,30000000,40000000],
+    time:[0,0,172800,259200,432000,518400,604800]},
+  rootRider:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:2,18:4},
+    cost:[0,0,8000000,18000000,30000000],
+    time:[0,0,259200,432000,604800]},
+  meteorGolem:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:5},
+    cost:[0,0,5000000,12000000,22000000,35000000,50000000],
+    time:[0,0,172800,259200,432000,604800,720000]},
+  // Dark troops
+  minion:{res:'dark',type:'lab',max:{8:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:13,18:14},
+    cost:[0,0,20000,100000,300000,800000,1500000,3000000,5000000,7000000,9000000,11000000,14000000,17000000,20000000],
+    time:[0,0,21600,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000]},
+  hogRider:{res:'dark',type:'lab',max:{8:0,9:4,10:5,11:6,12:7,13:8,14:9,15:11,16:13,17:15,18:16},
+    cost:[0,0,50000,150000,400000,900000,1800000,3500000,5500000,8000000,11000000,14000000,17000000,21000000,25000000,30000000,35000000],
+    time:[0,0,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000,864000,864000,864000]},
+  valkyrie:{res:'dark',type:'lab',max:{8:0,9:0,10:3,11:5,12:6,13:8,14:9,15:10,16:11,17:12,18:13},
+    cost:[0,0,50000,200000,700000,2000000,4500000,7000000,10000000,14000000,18000000,22000000,27000000,32000000],
+    time:[0,0,43200,86400,172800,259200,432000,518400,604800,691200,777600,864000,864000,864000]},
+  golem:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:4,12:5,13:7,14:8,15:9,16:10,17:12,18:12},
+    cost:[0,0,100000,400000,1200000,3000000,6000000,9000000,13000000,18000000,23000000,28000000,33000000],
+    time:[0,0,86400,172800,259200,345600,432000,518400,604800,691200,777600,864000,864000]},
+  witch:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:3,13:4,14:5,15:6,16:7,17:8,18:9},
+    cost:[0,0,200000,700000,2000000,5000000,9000000,14000000,19000000,25000000],
+    time:[0,0,86400,172800,259200,432000,518400,604800,691200,777600]},
+  lavaHound:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:3,14:5,15:6,16:7,17:8,18:9},
+    cost:[0,0,200000,700000,2000000,5000000,9000000,14000000,19000000,25000000],
+    time:[0,0,86400,172800,259200,432000,518400,604800,691200,777600]},
+  bowler:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:3,15:5,16:7,17:8,18:9},
+    cost:[0,0,500000,1500000,4000000,8000000,13000000,19000000,25000000,32000000],
+    time:[0,0,172800,259200,345600,432000,518400,604800,691200,777600]},
+  iceGolem:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:3,16:5,17:8,18:9},
+    cost:[0,0,500000,1500000,4000000,8000000,13000000,19000000,25000000,32000000],
+    time:[0,0,172800,259200,345600,432000,518400,604800,691200,777600]},
+  headhunter:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:2,17:7,18:8},
+    cost:[0,0,700000,2000000,5000000,9000000,14000000,20000000,27000000],
+    time:[0,0,172800,259200,345600,432000,518400,604800,691200]},
+  apprenticeWarden:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:4,18:5},
+    cost:[0,0,1000000,3000000,7000000,12000000],
+    time:[0,0,172800,259200,432000,518400]},
+  // Siege machines
+  wallWrecker:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:1,12:2,13:3,14:4,15:4,16:4,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  battleBlimp:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:1,13:2,14:3,15:4,16:4,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  stoneSlammer:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:1,14:2,15:3,16:4,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  siegeBarracks:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:1,15:2,16:3,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  logLauncher:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:1,16:2,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  flameFlinger:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:1,17:4,18:4},
+    cost:[0,0,3000000,7000000,14000000],
+    time:[0,0,172800,259200,432000]},
+  battleDrill:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:5,18:5},
+    cost:[0,0,5000000,10000000,16000000,24000000],
+    time:[0,0,172800,259200,432000,518400]},
+};
+
+// ── SPELLS ──
+const SDATA = {
+  lightningSpell:{res:'elixir',type:'lab',max:{8:4,9:5,10:6,11:7,12:8,13:9,14:10,15:11,16:12,17:12,18:12},
+    cost:[0,0,50000,200000,500000,1000000,2500000,4000000,6000000,9000000,12000000,16000000,20000000],
+    time:[0,0,7200,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600]},
+  healingSpell:{res:'elixir',type:'lab',max:{8:5,9:6,10:7,11:8,12:9,13:10,14:11,15:11,16:12,17:12,18:12},
+    cost:[0,0,50000,200000,500000,1500000,3000000,5000000,8000000,11000000,15000000,19000000,23000000],
+    time:[0,0,7200,43200,86400,172800,259200,345600,432000,518400,604800,691200,777600]},
+  rageSpell:{res:'elixir',type:'lab',max:{8:0,9:4,10:5,11:6,12:7,13:8,14:8,15:9,16:9,17:9,18:9},
+    cost:[0,0,200000,600000,1500000,3000000,5000000,8000000,12000000,17000000],
+    time:[0,0,43200,86400,172800,259200,345600,432000,518400,604800]},
+  jumpSpell:{res:'elixir',type:'lab',max:{8:0,9:0,10:2,11:3,12:4,13:5,14:6,15:6,16:7,17:7,18:7},
+    cost:[0,0,200000,800000,2000000,5000000,9000000,14000000],
+    time:[0,0,43200,172800,259200,345600,432000,518400]},
+  freezeSpell:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:3,12:5,13:7,14:7,15:8,16:9,17:9,18:9},
+    cost:[0,0,500000,1500000,3000000,5500000,8500000,12000000,16000000,21000000],
+    time:[0,0,86400,172800,259200,345600,432000,518400,604800,691200]},
+  cloneSpell:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:3,14:5,15:6,16:7,17:8,18:8},
+    cost:[0,0,1000000,3000000,6000000,10000000,15000000,21000000,28000000],
+    time:[0,0,172800,259200,345600,432000,518400,604800,691200]},
+  invisibilitySpell:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:2,16:3,17:4,18:5},
+    cost:[0,0,2000000,5000000,9000000,14000000],
+    time:[0,0,172800,259200,345600,432000]},
+  recallSpell:{res:'elixir',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:2,17:6,18:7},
+    cost:[0,0,2000000,5000000,9000000,14000000,20000000,27000000],
+    time:[0,0,172800,259200,345600,432000,518400,604800]},
+  poisonSpell:{res:'dark',type:'lab',max:{8:0,9:2,10:3,11:4,12:5,13:6,14:7,15:8,16:8,17:8,18:8},
+    cost:[0,0,50000,200000,600000,1500000,3500000,7000000,12000000],
+    time:[0,0,43200,86400,172800,259200,345600,432000,518400]},
+  earthquakeSpell:{res:'dark',type:'lab',max:{8:0,9:0,10:2,11:3,12:4,13:4,14:5,15:5,16:5,17:5,18:5},
+    cost:[0,0,100000,400000,1000000,2500000],
+    time:[0,0,86400,172800,259200,345600]},
+  hasteSpell:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:2,13:3,14:4,15:5,16:5,17:5,18:5},
+    cost:[0,0,100000,400000,1000000,2500000],
+    time:[0,0,86400,172800,259200,345600]},
+  skeletonSpell:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:3,14:5,15:6,16:7,17:7,18:7},
+    cost:[0,0,100000,400000,1200000,3000000,7000000,12000000],
+    time:[0,0,86400,172800,259200,345600,432000,518400]},
+  batSpell:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:2,15:3,16:4,17:5,18:6},
+    cost:[0,0,200000,600000,1500000,4000000,8000000],
+    time:[0,0,86400,172800,259200,345600,432000]},
+  overgrowthSpell:{res:'dark',type:'lab',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:4,18:4},
+    cost:[0,0,500000,1500000,4000000],
+    time:[0,0,172800,259200,345600]},
+};
+
+// ── HEROES ──
+const BK_C=[0,0,10000,11000,12000,13000,14000,15000,16000,17000,18000,20000,22000,24000,26000,28000,30000,32000,34000,36000,38000,41000,44000,47000,50000,53000,56000,60000,64000,68000,72000,76000,80000,85000,90000,95000,100000,105000,110000,115000,120000,125000,130000,135000,140000,145000,150000,155000,160000,165000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,370000,380000,390000,400000,410000,420000,430000,440000,450000,460000,470000,480000,490000,500000,510000,520000,530000,540000,550000,560000,570000,580000,590000,600000,610000,620000,630000,640000,650000,660000,670000,680000,690000,700000,710000,720000];
+const BK_T=[0,0,0,43200,43200,43200,43200,64800,64800,64800,64800,86400,86400,86400,86400,86400,108000,108000,108000,108000,108000,129600,129600,129600,129600,129600,151200,151200,151200,151200,151200,172800,172800,172800,172800,172800,194400,194400,194400,194400,194400,216000,216000,216000,216000,216000,237600,259200,259200,259200,259200,280800,302400,324000,345600,367200,388800,388800,388800,388800,388800,432000,432000,432000,432000,432000,475200,475200,475200,475200,475200,518400,518400,518400,518400,518400,561600,561600,561600,561600,561600,604800,604800,604800,604800,604800,604800,604800,604800,604800,604800,648000,648000,648000,648000,648000,691200,691200,691200,691200,691200,720000,720000,720000,720000,720000];
+const GW_C=[0,0,1000000,1100000,1200000,1300000,1400000,1500000,1600000,1700000,1800000,2000000,2200000,2400000,2600000,2800000,3000000,3200000,3400000,3600000,3800000,4000000,4200000,4400000,4600000,4800000,5000000,5200000,5400000,5600000,5800000,6000000,6500000,7000000,7500000,8000000,8500000,9000000,9500000,10000000,10500000,11000000,11500000,12000000,12500000,13000000,13500000,14000000,14500000,15000000,15500000,16000000,16500000,17000000,17500000,18000000,18500000,19000000,19500000,20000000,20500000,21000000,21500000,22000000,22500000,23000000,23500000,24000000,24500000,25000000,25500000,26000000,26500000,27000000,27500000,28000000,28500000,29000000,29500000,30000000,30500000,31000000,31500000,32000000,32500000,33000000,33500000];
+const GW_T=[0,0,0,21600,21600,21600,21600,43200,43200,43200,43200,86400,86400,86400,86400,86400,108000,108000,108000,108000,108000,129600,129600,129600,129600,129600,151200,151200,151200,151200,151200,172800,194400,216000,237600,259200,280800,302400,324000,345600,367200,388800,388800,388800,388800,388800,432000,432000,432000,432000,432000,475200,475200,475200,475200,475200,518400,518400,518400,518400,518400,561600,561600,561600,561600,561600,604800,604800,604800,604800,604800,648000,648000,648000,648000,648000,691200,691200,691200,691200,691200,720000,720000,720000,720000,720000,720000];
+const RC_C=[0,0,30000,32000,34000,36000,38000,40000,45000,50000,55000,60000,65000,70000,75000,80000,90000,100000,110000,120000,130000,140000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,370000,380000,390000,400000,410000,420000,430000,440000,450000,460000,470000,480000];
+const RC_T=[0,0,0,43200,43200,64800,64800,86400,86400,86400,108000,129600,151200,172800,194400,216000,237600,259200,280800,302400,324000,345600,367200,388800,410400,432000,453600,475200,496800,518400,540000,561600,583200,604800,604800,604800,648000,648000,648000,691200,691200,691200,720000,720000,720000,720000,720000,720000,720000,720000,720000,720000,720000,720000,720000,720000];
+const MP_C=[0,0,70000,75000,80000,85000,90000,95000,100000,105000,110000,115000,120000,125000,130000,135000,140000,145000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,370000,380000,390000,400000,410000,420000,430000,440000,450000,460000,470000,480000,490000,500000,510000,520000];
+const MP_T=RC_T.slice();
+
+const HDATA={
+  barbarianKing:{res:'dark',type:'builder',max:{8:10,9:20,10:30,11:40,12:50,13:65,14:75,15:80,16:90,17:95,18:105},cost:BK_C,time:BK_T},
+  archerQueen:{res:'dark',type:'builder',max:{8:0,9:10,10:20,11:30,12:40,13:55,14:65,15:75,16:85,17:90,18:105},cost:BK_C,time:BK_T},
+  grandWarden:{res:'elixir',type:'builder',max:{8:0,9:0,10:0,11:5,12:20,13:40,14:55,15:65,16:75,17:80,18:85},cost:GW_C,time:GW_T},
+  royalChampion:{res:'dark',type:'builder',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:15,15:25,16:35,17:45,18:55},cost:RC_C,time:RC_T},
+  minionPrince:{res:'dark',type:'builder',max:{8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:30,18:55},cost:MP_C,time:MP_T},
+};
+
+// Walls
+const WALL_COLORS=['','#8B4513','#696969','#808080','#A9A9A9','#556B2F','#228B22','#3CB371','#4169E1','#8B008B','#FF4500','#FF6347','#DAA520','#00CED1','#1E90FF','#7B68EE','#FF1493','#FF69B4','#00FA9A','#FFD700'];
+const WALL_COSTS=[0,300,1000,5000,50000,100000,200000,500000,1000000,2000000,3000000,4000000,5000000,6000000,7000000,9000000,12000000,15000000,18000000,20000000];
+const WALL_MAX_NUM={8:175,9:200,10:225,11:250,12:275,13:300,14:300,15:300,16:300,17:300,18:300};
+const WALL_MAX_LVL={8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:16,17:17,18:19};
+
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+let TH=18, gpB=1, gpR=1, pSort='cost', pFilter='all';
+const V={}; // village levels
+const WALLS={}; for(let i=1;i<=19;i++) WALLS[i]=0;
+// init all to 0
+[...Object.keys(BDATA),...Object.keys(TDATA),...Object.keys(SDATA),...Object.keys(HDATA)].forEach(k=>V[k]=0);
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function fmt(n){if(!n)return'0';if(n>=1e9)return(n/1e9).toFixed(2).replace(/\.?0+$/,'')+'B';if(n>=1e6)return(n/1e6).toFixed(2).replace(/\.?0+$/,'')+'M';if(n>=1e3)return(n/1e3).toFixed(1).replace(/\.?0+$/,'')+'K';return n.toLocaleString()}
+function fmtT(s){if(!s)return'—';const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);const p=[];if(d)p.push(d+'d');if(h)p.push(h+'h');if(m&&!d)p.push(m+'m');return p.join(' ')||'<1m'}
+function rc(r){return r==='gold'?'#905000':r==='elixir'?'#6010a0':'#1040a0'}
+function rl(r){return r==='gold'?'🪙':r==='elixir'?'💜':'🖤'}
+function rn(r){return r==='gold'?'Gold':r==='elixir'?'Elixir':'Dark Elixir'}
+function thMax(key,data){return(data.max||{})[TH]||0}
+function boostFactor(type){return type==='builder'?(1/gpB):type==='lab'?(1/gpR):1}
+function nextUpg(key,data){
+  const cur=V[key]||0,max=thMax(key,data);
+  if(max===0||cur>=max)return null;
+  const nl=cur+1,c=(data.cost||[])[nl]||0,t=Math.floor(((data.time||[])[nl]||0)*boostFactor(data.type));
+  return{lvl:nl,cost:c,time:t,res:data.res,type:data.type};
+}
+function heroNext(key){
+  const hd=HDATA[key];if(!hd)return null;
+  const cur=V[key]||0,max=thMax(key,hd);
+  if(max===0||cur>=max)return null;
+  const nl=cur+1;
+  if(nl>=hd.cost.length)return null;
+  const t=Math.floor((hd.time[nl]||0)*boostFactor(hd.type));
+  return{lvl:nl,cost:hd.cost[nl],time:t,res:hd.res,type:hd.type};
+}
+function remainCost(key,data){
+  const cur=V[key]||0,max=thMax(key,data);
+  let gc=0,ec=0,dc=0,gt=0,et=0,dt=0;
+  for(let l=cur+1;l<=max&&l<(data.cost||[]).length;l++){
+    const c=(data.cost[l]||0)*(data.count||1);
+    const t=Math.floor(((data.time||[])[l]||0)*boostFactor(data.type));
+    if(data.res==='gold'){gc+=c;gt+=t*(data.count||1);}
+    else if(data.res==='elixir'){ec+=c;et+=t*(data.count||1);}
+    else{dc+=c;dt+=t*(data.count||1);}
+  }
+  return{gc,ec,dc,gt,et,dt};
+}
+function heroRemainCost(key){
+  const hd=HDATA[key];if(!hd)return{gc:0,ec:0,dc:0,gt:0,et:0,dt:0};
+  const cur=V[key]||0,max=thMax(key,hd);
+  let gc=0,ec=0,dc=0,gt=0,et=0,dt=0;
+  for(let l=cur+1;l<=max&&l<hd.cost.length;l++){
+    const c=hd.cost[l]||0,t=Math.floor((hd.time[l]||0)*boostFactor(hd.type));
+    if(hd.res==='elixir'){ec+=c;et+=t;}else{dc+=c;dt+=t;}
+  }
+  return{gc,ec,dc,gt,et,dt};
+}
+function addCosts(a,b){return{gc:a.gc+b.gc,ec:a.ec+b.ec,dc:a.dc+b.dc,gt:a.gt+b.gt,et:a.et+b.et,dt:a.dt+b.dt};}
+function totalCosts(){
+  let T={gc:0,ec:0,dc:0,gt:0,et:0,dt:0};
+  [...Object.entries(BDATA),...Object.entries(TDATA),...Object.entries(SDATA)].forEach(([k,d])=>{ T=addCosts(T,remainCost(k,d)); });
+  Object.keys(HDATA).forEach(k=>{ T=addCosts(T,heroRemainCost(k)); });
+  // walls
+  const wm=WALL_MAX_LVL[TH]||17;
+  for(let i=1;i<wm;i++){
+    const cnt=WALLS[i]||0;
+    if(cnt>0) T.gc+=cnt*(WALL_COSTS[wm]-WALL_COSTS[i]);
+  }
+  return T;
+}
+
+// ═══════════════════════════════════════════════
+// RENDER HELPERS
+// ═══════════════════════════════════════════════
+function lvlBtns(key,data,maxLvl,small){
+  const cur=V[key]||0,res=data.res||'gold';
+  const sc=small?' sm':'';
+  let h='<div class="lvlrow">';
+  for(let i=0;i<=maxLvl;i++){
+    let c='lb'+sc;
+    if(i===0) c+=' s0';
+    else if(i===cur&&i===maxLvl) c+=' mx';
+    else if(i===cur) c+=' s'+res[0];
+    h+=`<button class="${c}" data-k="${key}" data-l="${i}">${i}</button>`;
+  }
+  return h+'</div>';
+}
+function heroBtns(key){
+  const hd=HDATA[key],cur=V[key]||0,max=thMax(key,hd)||0,res=hd.res;
+  let h='<div class="lvlrow">';
+  for(let i=0;i<=max;i++){
+    let c='lb sm';
+    if(i===0) c+=' s0';
+    else if(i===cur&&i===max) c+=' mx';
+    else if(i===cur) c+=' s'+res[0];
+    h+=`<button class="${c}" data-k="${key}" data-l="${i}">${i}</button>`;
+  }
+  return h+'</div>';
+}
+function upgLine(key,data){
+  const cur=V[key]||0,max=thMax(key,data);
+  if(max===0) return '<div class="upg na">Not available at TH'+TH+'</div>';
+  if(cur>=max) return '<div class="upg done">✓ Maxed for Town Hall '+TH+'</div>';
+  const n=nextUpg(key,data);
+  if(!n) return '<div class="upg"></div>';
+  return `<div class="upg">Next (→${n.lvl}): <span class="c" style="color:${rc(n.res)}">${fmt(n.cost)} ${rl(n.res)}</span> &nbsp;·&nbsp; ${fmtT(n.time)}</div>`;
+}
+function heroUpgLine(key){
+  const hd=HDATA[key],cur=V[key]||0,max=thMax(key,hd);
+  if(max===0) return '<div class="upg na">Not available at TH'+TH+'</div>';
+  if(cur>=max) return '<div class="upg done">✓ Maxed for Town Hall '+TH+'</div>';
+  const n=heroNext(key);
+  if(!n) return '<div class="upg"></div>';
+  return `<div class="upg">Next (→${n.lvl}): <span class="c" style="color:${rc(n.res)}">${fmt(n.cost)} ${rl(n.res)}</span> &nbsp;·&nbsp; ${fmtT(n.time)}</div>`;
+}
+function itemHtml(key,name,data,small){
+  const cur=V[key]||0,max=thMax(key,data);
+  const mx=max>0&&cur>=max;
+  const pct=max>0?Math.round(cur/max*100):0;
+  const col=data.res==='gold'?'#c06000':data.res==='elixir'?'#8030c0':'#2060c0';
+  const cnt=data.count>1?` <span style="font-size:.72rem;color:var(--muted)">×${data.count}</span>`:'';
+  return `<div class="item${mx?' mx':''}" id="itm-${key}">
+    <div class="item-top"><span class="iname">${name}${cnt}</span><span class="icur">Level ${cur} / ${max||'—'}</span></div>
+    <div class="mbar"><div class="mbar-f" style="width:${pct}%;background:${col}"></div></div>
+    ${lvlBtns(key,data,max,!!small)}
+    ${upgLine(key,data)}
+  </div>`;
+}
+function heroHtml(key,name){
+  const hd=HDATA[key],cur=V[key]||0,max=thMax(key,hd);
+  const mx=max>0&&cur>=max;
+  const pct=max>0?Math.round(cur/max*100):0;
+  const col=hd.res==='elixir'?'#8030c0':'#2060c0';
+  return `<div class="item${mx?' mx':''}" id="itm-${key}">
+    <div class="item-top"><span class="iname">${name}</span><span class="icur">Level ${cur} / ${max||'—'}</span></div>
+    <div class="mbar"><div class="mbar-f" style="width:${pct}%;background:${col}"></div></div>
+    ${heroBtns(key)}
+    ${heroUpgLine(key)}
+  </div>`;
+}
+function modProgress(keys,allData){
+  let done=0,tot=0;
+  keys.forEach(k=>{
+    const d=allData[k];if(!d)return;
+    const m=thMax(k,d);if(m===0)return;
+    tot++;if((V[k]||0)>=m)done++;
+  });
+  return{done,tot};
+}
+function heroModProg(keys){
+  let done=0,tot=0;
+  keys.forEach(k=>{
+    const m=thMax(k,HDATA[k]);if(m===0)return;
+    tot++;if((V[k]||0)>=m)done++;
+  });
+  return{done,tot};
+}
+function makeModule(id,title,bodyHtml,done,tot){
+  const ok=tot>0&&done===tot;
+  return `<div class="mod" id="mod-${id}">
+    <div class="mod-head" onclick="tog('${id}')">
+      <span class="mod-title">${title}</span>
+      <span class="mod-right"><span class="badge${ok?' ok':''}">${done}/${tot}${ok?' ✦':''}</span><span class="chev">▼</span></span>
+    </div>
+    <div class="mod-body">${bodyHtml}</div>
+  </div>`;
+}
+function makeSectionLabel(txt){return`<div class="big-section">${txt}</div>`;}
+
+// ═══════════════════════════════════════════════
+// SECTION GROUPS
+// ═══════════════════════════════════════════════
+const SECTIONS=[
+  // [sectionLabel, [ [modId, modTitle, keys, dataMap, renderFn?] ]]
+  ['Town Hall',[
+    ['townhall','Town Hall',['townHall'],BDATA,null],
+  ]],
+  ['Troops and Army Buildings',[
+    ['troops','Elixir Troops',['barbarian','archer','giant','goblin','wallBreaker','balloon','wizard','healer','dragon','pekka','babyDragon','miner','electroDragon','yeti','dragonRider','electroTitan','rootRider','meteorGolem'],TDATA,null],
+    ['barracks','Barracks',['barracks'],BDATA,null],
+    ['dtroops','Dark Elixir Troops',['minion','hogRider','valkyrie','golem','witch','lavaHound','bowler','iceGolem','headhunter','apprenticeWarden'],TDATA,null],
+    ['dbarracks','Dark Barracks',['darkBarracks'],BDATA,null],
+    ['siege','Siege Machines',['wallWrecker','battleBlimp','stoneSlammer','siegeBarracks','logLauncher','flameFlinger','battleDrill'],TDATA,null],
+    ['workshop','Workshop',['workshop'],BDATA,null],
+    ['armycamp','Army Camps',['armyCamp'],BDATA,null],
+    ['lab','Laboratory',['laboratory'],BDATA,null],
+    ['heroes','Heroes',['barbarianKing','archerQueen','grandWarden','royalChampion','minionPrince'],HDATA,'hero'],
+    ['herohall','Hero Hall',['heroHall'],BDATA,null],
+    ['cc','Clan Castle',['clanCastle'],BDATA,null],
+  ]],
+  ['Spells and Spell Buildings',[
+    ['espells','Elixir Spells',['lightningSpell','healingSpell','rageSpell','jumpSpell','freezeSpell','cloneSpell','invisibilitySpell','recallSpell'],SDATA,null],
+    ['sf','Spell Factory',['spellFactory'],BDATA,null],
+    ['dspells','Dark Elixir Spells',['poisonSpell','earthquakeSpell','hasteSpell','skeletonSpell','batSpell','overgrowthSpell'],SDATA,null],
+    ['dsf','Dark Spell Factory',['darkSpellFactory'],BDATA,null],
+  ]],
+  ['Defenses',[
+    ['walls','Walls',['walls'],null,'walls'],
+    ['cannon','Cannons',['cannon'],BDATA,null],
+    ['archertower','Archer Towers',['archerTower'],BDATA,null],
+    ['mortar','Mortars',['mortar'],BDATA,null],
+    ['airdefense','Air Defenses',['airDefense'],BDATA,null],
+    ['wizardtower','Wizard Towers',['wizardTower'],BDATA,null],
+    ['airsweeper','Air Sweepers',['airSweeper'],BDATA,null],
+    ['htesla','Hidden Teslas',['hiddenTesla'],BDATA,null],
+    ['xbow','X-Bows',['xBow'],BDATA,null],
+    ['inferno','Inferno Towers',['infernoTower'],BDATA,null],
+    ['ea','Eagle Artillery / Inferno Artillery',['eaOrInfernoArtillery'],BDATA,null],
+    ['scatter','Scattershots',['scattershot'],BDATA,null],
+    ['giga','Giga Inferno / Guardian',['giga'],BDATA,null],
+    ['bombtower','Bomb Towers',['bombTower'],BDATA,null],
+    ['mat','Multi-Archer Towers',['multiArcherTower'],BDATA,null],
+    ['ricochet','Ricochet Cannons',['riccochetCannon'],BDATA,null],
+    ['mgt','Multi-Gear Tower',['multiGearTower'],BDATA,null],
+    ['firespitter','Firespitters',['firespitter'],BDATA,null],
+    ['revtower','Revenge Tower',['revengeТower'],BDATA,null],
+    ['guardians','Guardians (Smasher & Longshot)',['smasher','longshot'],BDATA,null],
+  ]],
+  ['Traps',[
+    ['bomb','Bombs',['bomb'],BDATA,null],
+    ['spring','Spring Traps',['springTrap'],BDATA,null],
+    ['airbomb','Air Bombs',['airBomb'],BDATA,null],
+    ['gbomb','Giant Bombs',['giantBomb'],BDATA,null],
+    ['sam','Seeking Air Mines',['seekingAirMine'],BDATA,null],
+    ['skeltrap','Skeleton Traps',['skeletonTrap'],BDATA,null],
+    ['tornado','Tornado Traps',['tornadoTrap'],BDATA,null],
+  ]],
+  ['Resource Buildings',[
+    ['goldmine','Gold Mines',['goldMine'],BDATA,null],
+    ['elixircol','Elixir Collectors',['elixirCollector'],BDATA,null],
+    ['dedrill','Dark Elixir Drills',['darkElixirDrill'],BDATA,null],
+    ['goldstorage','Gold Storages',['goldStorage'],BDATA,null],
+    ['elixirstorage','Elixir Storages',['elixirStorage'],BDATA,null],
+    ['destorage','Dark Elixir Storage',['darkElixirStorage'],BDATA,null],
+    ['builderhut','Builder\'s Huts',['builderHut'],BDATA,null],
+    ['pethouse','Pet House',['petHouse'],BDATA,null],
+  ]],
+];
+
+const NAMES={
+  townHall:'Town Hall',clanCastle:'Clan Castle',armyCamp:'Army Camp',barracks:'Barracks',darkBarracks:'Dark Barracks',laboratory:'Laboratory',spellFactory:'Spell Factory',darkSpellFactory:'Dark Spell Factory',workshop:'Workshop',heroHall:'Hero Hall',petHouse:'Pet House',
+  cannon:'Cannon',archerTower:'Archer Tower',mortar:'Mortar',airDefense:'Air Defense',wizardTower:'Wizard Tower',airSweeper:'Air Sweeper',hiddenTesla:'Hidden Tesla',xBow:'X-Bow',infernoTower:'Inferno Tower',eaOrInfernoArtillery:'Eagle/Inferno Artillery',scattershot:'Scattershot',giga:'Giga Inferno',bombTower:'Bomb Tower',multiArcherTower:'Multi-Archer Tower',riccochetCannon:'Ricochet Cannon',multiGearTower:'Multi-Gear Tower',firespitter:'Firespitter','revengeТower':'Revenge Tower',smasher:'Smasher',longshot:'Longshot',
+  bomb:'Bomb',springTrap:'Spring Trap',airBomb:'Air Bomb',giantBomb:'Giant Bomb',seekingAirMine:'Seeking Air Mine',skeletonTrap:'Skeleton Trap',tornadoTrap:'Tornado Trap',
+  goldMine:'Gold Mine',elixirCollector:'Elixir Collector',darkElixirDrill:'Dark Elixir Drill',goldStorage:'Gold Storage',elixirStorage:'Elixir Storage',darkElixirStorage:'Dark Elixir Storage',builderHut:"Builder's Hut",
+  barbarian:'Barbarian',archer:'Archer',giant:'Giant',goblin:'Goblin',wallBreaker:'Wall Breaker',balloon:'Balloon',wizard:'Wizard',healer:'Healer',dragon:'Dragon',pekka:'P.E.K.K.A',babyDragon:'Baby Dragon',miner:'Miner',electroDragon:'Electro Dragon',yeti:'Yeti',dragonRider:'Dragon Rider',electroTitan:'Electro Titan',rootRider:'Root Rider',meteorGolem:'Meteor Golem',
+  minion:'Minion',hogRider:'Hog Rider',valkyrie:'Valkyrie',golem:'Golem',witch:'Witch',lavaHound:'Lava Hound',bowler:'Bowler',iceGolem:'Ice Golem',headhunter:'Headhunter',apprenticeWarden:'Apprentice Warden',
+  wallWrecker:'Wall Wrecker',battleBlimp:'Battle Blimp',stoneSlammer:'Stone Slammer',siegeBarracks:'Siege Barracks',logLauncher:'Log Launcher',flameFlinger:'Flame Flinger',battleDrill:'Battle Drill',
+  lightningSpell:'Lightning Spell',healingSpell:'Healing Spell',rageSpell:'Rage Spell',jumpSpell:'Jump Spell',freezeSpell:'Freeze Spell',cloneSpell:'Clone Spell',invisibilitySpell:'Invisibility Spell',recallSpell:'Recall Spell',
+  poisonSpell:'Poison Spell',earthquakeSpell:'Earthquake Spell',hasteSpell:'Haste Spell',skeletonSpell:'Skeleton Spell',batSpell:'Bat Spell',overgrowthSpell:'Overgrowth Spell',
+  barbarianKing:'Barbarian King',archerQueen:'Archer Queen',grandWarden:'Grand Warden',royalChampion:'Royal Champion',minionPrince:'Minion Prince',
+};
+
+// ═══════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════
+function renderWallsModule(){
+  const wml=WALL_MAX_LVL[TH]||17,wmn=WALL_MAX_NUM[TH]||300;
+  let total=0;for(let i=1;i<=19;i++)total+=(WALLS[i]||0);
+  let g=`<div class="wgrid">`;
+  for(let i=1;i<=wml;i++){
+    const cnt=WALLS[i]||0;
+    g+=`<div class="wcell">
+      <div class="wbar" style="background:${WALL_COLORS[i]||'#888'}"></div>
+      <div class="wlbl">Level ${i}</div>
+      <div class="wlbl2">${fmt(WALL_COSTS[i]||0)} 🪙</div>
+      <input class="winp" type="number" min="0" max="300" value="${cnt}" data-wl="${i}">
+    </div>`;
+  }
+  g+=`</div><div class="wfoot"><span>Total entered: <strong id="wTotal">${total}</strong> / ${wmn}</span><span>Max wall level: <strong>${wml}</strong></span></div>`;
+  return g;
+}
+
+function renderSections(){
+  let html='';
+  SECTIONS.forEach(([secLabel,mods])=>{
+    html+=makeSectionLabel(secLabel);
+    mods.forEach(([id,title,keys,dataMap,special])=>{
+      if(special==='walls'){
+        const wml=WALL_MAX_LVL[TH]||17,wmn=WALL_MAX_NUM[TH]||300;
+        let tot=0;for(let i=1;i<=19;i++)tot+=(WALLS[i]||0);
+        const ok=tot===wmn&&tot>0;
+        html+=`<div class="mod" id="mod-walls">
+          <div class="mod-head" onclick="tog('walls')">
+            <span class="mod-title">Walls</span>
+            <span class="mod-right"><span class="badge${ok?' ok':''}">Max Lvl ${wml} · ${tot}/${wmn} entered${ok?' ✦':''}</span><span class="chev">▼</span></span>
+          </div>
+          <div class="mod-body" id="walls-body">${renderWallsModule()}</div>
+        </div>`;
+        return;
+      }
+      if(special==='hero'){
+        const p=heroModProg(keys);
+        let body='';
+        keys.forEach(k=>body+=heroHtml(k,NAMES[k]||k));
+        html+=makeModule(id,title,body,p.done,p.tot);
+        return;
+      }
+      if(!dataMap){html+=`<div class="mod" id="mod-${id}"><div class="mod-head"><span class="mod-title" style="color:var(--muted)">${title}</span></div></div>`;return;}
+      const validKeys=keys.filter(k=>dataMap[k]&&thMax(k,dataMap[k])>0);
+      if(validKeys.length===0&&TH<18){
+        // show greyed out
+        html+=`<div class="mod" id="mod-${id}">
+          <div class="mod-head" onclick="tog('${id}')">
+            <span class="mod-title" style="color:var(--light)">${title}</span>
+            <span class="mod-right"><span class="badge">Locked at TH${TH}</span><span class="chev">▼</span></span>
+          </div>
+          <div class="mod-body" style="color:var(--light);font-size:.83rem">Not available at Town Hall ${TH}.</div>
+        </div>`;
+        return;
+      }
+      const p=modProgress(keys,dataMap);
+      let body='';
+      keys.forEach(k=>{
+        if(!dataMap[k])return;
+        body+=itemHtml(k,NAMES[k]||k,dataMap[k]);
+      });
+      html+=makeModule(id,title,body,p.done,p.tot);
+    });
+  });
+  document.getElementById('sections').innerHTML=html;
+  // Wall inputs
+  document.querySelectorAll('input[data-wl]').forEach(inp=>{
+    inp.addEventListener('input',()=>{
+      WALLS[+inp.dataset.wl]=Math.max(0,parseInt(inp.value)||0);
+      let t=0;for(let i=1;i<=19;i++)t+=(WALLS[i]||0);
+      const el=document.getElementById('wTotal');if(el)el.textContent=t;
+      refreshTopPanels();
+    });
+  });
+}
+
+function refreshItem(key){
+  const el=document.getElementById('itm-'+key);
+  if(!el)return;
+  let html='';
+  if(HDATA[key]) html=heroHtml(key,NAMES[key]||key);
+  else{
+    const d=BDATA[key]||TDATA[key]||SDATA[key];
+    if(d) html=itemHtml(key,NAMES[key]||key,d);
+  }
+  if(!html)return;
+  const tmp=document.createElement('div');tmp.innerHTML=html;
+  el.replaceWith(tmp.firstElementChild);
+  // update module badge
+  const ni=document.getElementById('itm-'+key);
+  if(ni){
+    const mod=ni.closest('.mod');
+    if(mod){
+      const badge=mod.querySelector('.badge');
+      if(badge){
+        const items=[...mod.querySelectorAll('.item')];
+        const done=items.filter(i=>i.classList.contains('mx')).length;
+        const allOk=done===items.length&&items.length>0;
+        badge.textContent=`${done}/${items.length}${allOk?' ✦':''}`;
+        badge.className='badge'+(allOk?' ok':'');
+      }
+    }
+  }
+}
+
+function renderSumbar(){
+  let gDone=0,gTot=0,eDone=0,eTot=0,dDone=0,dTot=0,allDone=0,allTot=0;
+  [...Object.keys(BDATA),...Object.keys(TDATA),...Object.keys(SDATA)].forEach(k=>{
+    const d=BDATA[k]||TDATA[k]||SDATA[k];
+    const m=thMax(k,d);if(m===0)return;
+    allTot++;if((V[k]||0)>=m)allDone++;
+    if(d.res==='gold'){gTot++;if((V[k]||0)>=m)gDone++;}
+    else if(d.res==='elixir'){eTot++;if((V[k]||0)>=m)eDone++;}
+    else{dTot++;if((V[k]||0)>=m)dDone++;}
+  });
+  Object.keys(HDATA).forEach(k=>{
+    const m=thMax(k,HDATA[k]);if(m===0)return;
+    allTot++;if((V[k]||0)>=m)allDone++;
+    const r=HDATA[k].res;
+    if(r==='gold'){gTot++;if((V[k]||0)>=m)gDone++;}
+    else if(r==='elixir'){eTot++;if((V[k]||0)>=m)eDone++;}
+    else{dTot++;if((V[k]||0)>=m)dDone++;}
+  });
+  const pct=allTot?Math.round(allDone/allTot*100):0;
+  document.getElementById('sumbar').innerHTML=[
+    {l:'Overall',v:pct+'%',ok:allDone===allTot},
+    {l:'Items Maxed',v:`${allDone}/${allTot}`,ok:allDone===allTot},
+    {l:'Gold Items',v:`${gDone}/${gTot}`,ok:gDone===gTot},
+    {l:'Elixir Items',v:`${eDone}/${eTot}`,ok:eDone===eTot},
+    {l:'Dark Elixir',v:`${dDone}/${dTot}`,ok:dDone===dTot},
+  ].map(c=>`<div class="sc${c.ok?' done':''}"><div class="v">${c.v}</div><div class="l">${c.l}</div></div>`).join('');
+}
+
+function renderTotals(){
+  const T=totalCosts();
+  document.getElementById('totTHlbl').textContent=TH;
+  document.getElementById('totBody').innerHTML=`
+    <tr><td>Gold 🪙</td><td class="nr ng">${fmt(T.gc)}</td><td class="nr">${fmtT(T.gt)}</td></tr>
+    <tr><td>Elixir 💜</td><td class="nr ne">${fmt(T.ec)}</td><td class="nr">${fmtT(T.et)}</td></tr>
+    <tr><td>Dark Elixir 🖤</td><td class="nr nd">${fmt(T.dc)}</td><td class="nr">${fmtT(T.dt)}</td></tr>
+    <tr><td><strong>Total</strong></td><td class="nr"><strong>${fmt(T.gc+T.ec)} 🪙/💜 + ${fmt(T.dc)} 🖤</strong></td><td class="nr"><strong>${fmtT(T.gt+T.et)}</strong></td></tr>`;
+}
+
+function renderUpgradeList(){
+  document.getElementById('upgTHlbl').textContent=TH;
+  const rows=[];
+  function addItem(name,key,data,cnt){
+    const cur=V[key]||0,max=thMax(key,data);
+    if(max===0||cur>=max)return;
+    const n=nextUpg(key,data);
+    if(!n)return;
+    rows.push({name,key,cur,max,cost:n.cost*(cnt||1),time:n.time,res:n.res,type:n.type,cnt:cnt||1});
+  }
+  [...Object.entries(BDATA),...Object.entries(TDATA),...Object.entries(SDATA)].forEach(([k,d])=>addItem(NAMES[k]||k,k,d,d.count||1));
+  Object.keys(HDATA).forEach(k=>{
+    const hd=HDATA[k],cur=V[k]||0,max=thMax(k,hd);
+    if(max===0||cur>=max)return;
+    const n=heroNext(k);if(!n)return;
+    rows.push({name:NAMES[k]||k,key:k,cur,max,cost:n.cost,time:n.time,res:n.res,type:n.type,cnt:1});
+  });
+  // filter
+  let f=rows.filter(r=>{
+    if(pFilter==='all')return true;
+    if(pFilter==='gold')return r.res==='gold';
+    if(pFilter==='elixir')return r.res==='elixir';
+    if(pFilter==='dark')return r.res==='dark';
+    if(pFilter==='builder')return r.type==='builder';
+    if(pFilter==='lab')return r.type==='lab';
+    return true;
+  });
+  // sort
+  if(pSort==='cost')f.sort((a,b)=>b.cost-a.cost);
+  else if(pSort==='time')f.sort((a,b)=>b.time-a.time);
+  else f.sort((a,b)=>a.type.localeCompare(b.type)||a.res.localeCompare(b.res));
+
+  const ul=document.getElementById('upgList');
+  if(!f.length){ul.innerHTML=`<div class="nomatch">🎉 All upgrades complete for TH${TH}! Time to upgrade your Town Hall!</div>`;return;}
+  ul.innerHTML=f.map(r=>`<div class="prow">
+    <div><div class="pn"><span class="rtag ${r.res[0]}">${rl(r.res)}</span>${r.name}${r.cnt>1?` (×${r.cnt})`:''}</div>
+    <div class="pm">Lvl ${r.cur} → ${r.cur+1} / ${r.max} &nbsp;·&nbsp; ${r.type==='builder'?'Builder':'Laboratory'}</div></div>
+    <div class="pc" style="color:${rc(r.res)}">${fmt(r.cost)}</div>
+    <div class="pt">${fmtT(r.time)}</div>
+  </div>`).join('');
+}
+
+function refreshTopPanels(){renderSumbar();renderTotals();renderUpgradeList();}
+
+// ═══════════════════════════════════════════════
+// EVENTS
+// ═══════════════════════════════════════════════
+function tog(id){const m=document.getElementById('mod-'+id);if(m)m.classList.toggle('col');}
+window.tog=tog;
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.lb');
+  if(b){
+    const k=b.dataset.k,l=parseInt(b.dataset.l);
+    if(k!=null&&!isNaN(l)){V[k]=l;refreshItem(k);refreshTopPanels();}
+  }
+  const pb=e.target.closest('.pbtn');
+  if(pb){
+    if(pb.dataset.s){document.querySelectorAll('.pbtn[data-s]').forEach(x=>x.classList.remove('on'));pb.classList.add('on');pSort=pb.dataset.s;}
+    if(pb.dataset.f){document.querySelectorAll('.pbtn[data-f]').forEach(x=>x.classList.remove('on'));pb.classList.add('on');pFilter=pb.dataset.f;}
+    renderUpgradeList();
+  }
+  const gp=e.target.closest('.gp-btn');
+  if(gp){
+    const grp=gp.closest('.gp-group').id;
+    gp.closest('.gp-group').querySelectorAll('.gp-btn').forEach(x=>x.classList.remove('on'));
+    gp.classList.add('on');
+    if(grp==='gpB')gpB=parseFloat(gp.dataset.v);else gpR=parseFloat(gp.dataset.v);
+    refreshTopPanels();
+  }
+});
+
+document.getElementById('thSel').addEventListener('change',e=>{
+  TH=parseInt(e.target.value);
+  renderSections();refreshTopPanels();
+});
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+renderSections();renderSumbar();renderTotals();renderUpgradeList();
+
+// ═══════════════════════════════════════════════
+// EXPORT / IMPORT
+// ═══════════════════════════════════════════════
+function exportData(){
+  const payload={
+    version:1,
+    exportedAt:new Date().toISOString(),
+    th:TH,
+    village:{...V},
+    walls:{...WALLS},
+    gpBuilder:gpB,
+    gpResearch:gpR,
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  const date=new Date().toISOString().slice(0,10);
+  a.download=`coc_village_th${TH}_${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById('sb-stamp').textContent='Last exported: '+new Date().toLocaleString();
+}
+
+function importData(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=evt=>{
+    try{
+      const p=JSON.parse(evt.target.result);
+      if(!p.version||!p.village) throw new Error('Invalid save file');
+      // Restore TH
+      if(p.th){
+        TH=parseInt(p.th);
+        document.getElementById('thSel').value=TH;
+      }
+      // Restore village levels
+      Object.keys(p.village).forEach(k=>{ if(k in V) V[k]=p.village[k]||0; });
+      // Restore walls
+      if(p.walls) Object.keys(p.walls).forEach(k=>{ WALLS[k]=p.walls[k]||0; });
+      // Restore GP boosts
+      if(p.gpBuilder){
+        gpB=p.gpBuilder;
+        document.querySelectorAll('#gpB .gp-btn').forEach(b=>{
+          b.classList.toggle('on',parseFloat(b.dataset.v)===gpB);
+        });
+      }
+      if(p.gpResearch){
+        gpR=p.gpResearch;
+        document.querySelectorAll('#gpR .gp-btn').forEach(b=>{
+          b.classList.toggle('on',parseFloat(b.dataset.v)===gpR);
+        });
+      }
+      // Full re-render
+      renderSections();
+      refreshTopPanels();
+      const stamp=p.exportedAt?new Date(p.exportedAt).toLocaleString():'unknown';
+      document.getElementById('sb-stamp').textContent=
+        '✓ Loaded save from '+stamp+' (TH'+TH+')';
+    } catch(err){
+      alert('Could not load save file: '+err.message);
+    }
+    // Reset input so same file can be re-imported
+    e.target.value='';
+  };
+  reader.readAsText(file);
+}
+
+</script>
+</body>
+</html>
