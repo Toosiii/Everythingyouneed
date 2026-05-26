@@ -30,12 +30,36 @@ function toggleSettings() {
     }
 }
 
+function initTheme() {
+    // Prüft, ob das Betriebssystem des Nutzers "Dark" bevorzugt
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    function applyTheme(isDark) {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.add('dark'); // Standardmäßig dunkel lassen, falls gewünscht
+            // Oder komplett dynamisch: document.documentElement.classList.remove('dark');
+        }
+        const toggleBtn = document.getElementById('darkModeToggle');
+        if (toggleBtn) toggleBtn.checked = isDark;
+    }
+
+    // 1. Beim Start ausführen
+    applyTheme(systemPrefersDark.matches);
+
+    // 2. Live reagieren, wenn der Nutzer sein System-Theme mitten in der Nutzung ändert!
+    systemPrefersDark.addEventListener('change', (e) => {
+        applyTheme(e.matches);
+    });
+}
+
 function toggleDarkMode() {
+    // Manueller Schalter erlaubt temporäres Umschalten in der aktuellen Session
     const isDarkMode = document.documentElement.classList.toggle('dark');
     const toggleBtn = document.getElementById('darkModeToggle');
     if (toggleBtn) toggleBtn.checked = isDarkMode;
-    
-    // UPGRADE 1: localStorage.setItem HIER KOMPLETT ENTFERNT FÜR 100% DATENSCHUTZ
+    // HINWEIS: Kein localStorage.setItem hier! Absolut datenschutzkonform.
 }
 
 function changeLanguage(lang) {
