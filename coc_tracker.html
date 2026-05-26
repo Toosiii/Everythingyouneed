@@ -262,6 +262,36 @@ select.th-sel{padding:5px 10px;border:1px solid var(--borderdk);border-radius:va
 
 </div><!-- #app -->
 <script>
+  // Drag & Drop für die JSON-Datei erlauben
+window.addEventListener('dragover', (e) => {
+  e.preventDefault(); // Verhindert, dass der Browser die Datei einfach so öffnet
+});
+
+window.addEventListener('drop', (e) => {
+  e.preventDefault();
+  if (e.dataTransfer.files.length > 0) {
+    const file = e.dataTransfer.files[0];
+    if (file.type === "application/json" || file.name.endsWith('.json')) {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const p = JSON.parse(evt.target.result);
+          if (!p.version || !p.village) throw new Error('Ungültige Datei');
+          
+          // Hier rufen wir deine bestehende Import-Logik auf
+          // Da deine Funktion ein Event erwartet, faken wir das kurz:
+          const fakeEvent = { target: { files: [file] } };
+          importData(fakeEvent);
+          
+          alert("Erfolgreich per Drag & Drop importiert!");
+        } catch (err) {
+          alert("Fehler: Das ist keine gültige CoC-Tracker-Datei.");
+        }
+      };
+      reader.readAsText(file);
+    }
+  }
+});
 // ═══════════════════════════════════════════════
 // GAME DATA  (cost, time in seconds)
 // All level arrays: index = level number (0 = not built / base)
