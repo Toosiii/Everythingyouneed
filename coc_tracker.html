@@ -809,11 +809,10 @@ function heroUpgLine(key){
 }
 function itemHtml(key,name,data,small){
   const cur=V[key]||0,max=thMax(key,data);
-  const ico=ICONS[key]||'';
   if(max===0){
     // Locked at this TH
     return `<div class="item locked" id="itm-${key}">
-      <div class="item-top"><span class="iname">${ico?ico+' ':''}<span style="opacity:.5">${name}</span></span><span class="lock-badge">🔒 Locked at TH${TH}</span></div>
+      <div class="item-top"><span class="iname"><span style="opacity:.5">${name}</span></span><span class="lock-badge">🔒 Locked at TH${TH}</span></div>
     </div>`;
   }
   const mx=max>0&&cur>=max;
@@ -821,7 +820,7 @@ function itemHtml(key,name,data,small){
   const col=data.res==='gold'?'#c06000':data.res==='elixir'?'#8030c0':'#2060c0';
   const cnt=data.count>1?` <span style="font-size:.72rem;color:var(--muted)">×${data.count}</span>`:'';
   return `<div class="item${mx?' mx':''}" id="itm-${key}">
-    <div class="item-top"><span class="iname">${ico?'<span class="iico">'+ico+'</span> ':''}<span>${name}</span>${cnt}</span><span class="icur">Lv ${cur} / ${max}</span></div>
+    <div class="item-top"><span class="iname"><span>${name}</span>${cnt}</span><span class="icur">Lv ${cur} / ${max}</span></div>
     <div class="mbar"><div class="mbar-f" style="width:${pct}%;background:${col}"></div></div>
     ${lvlBtns(key,data,max,!!small)}
     ${upgLine(key,data)}
@@ -829,17 +828,16 @@ function itemHtml(key,name,data,small){
 }
 function heroHtml(key,name){
   const hd=HDATA[key],cur=V[key]||0,max=thMax(key,hd);
-  const ico=ICONS[key]||'';
   if(max===0){
     return `<div class="item locked" id="itm-${key}">
-      <div class="item-top"><span class="iname">${ico?ico+' ':''}<span style="opacity:.5">${name}</span></span><span class="lock-badge">🔒 Locked at TH${TH}</span></div>
+      <div class="item-top"><span class="iname"><span style="opacity:.5">${name}</span></span><span class="lock-badge">🔒 Locked at TH${TH}</span></div>
     </div>`;
   }
   const mx=max>0&&cur>=max;
   const pct=max>0?Math.round(cur/max*100):0;
   const col=hd.res==='elixir'?'#8030c0':'#2060c0';
   return `<div class="item${mx?' mx':''}" id="itm-${key}">
-    <div class="item-top"><span class="iname">${ico?'<span class="iico">'+ico+'</span> ':''}<span>${name}</span></span><span class="icur">Lv ${cur} / ${max}</span></div>
+    <div class="item-top"><span class="iname"><span>${name}</span></span><span class="icur">Lv ${cur} / ${max}</span></div>
     <div class="mbar"><div class="mbar-f" style="width:${pct}%;background:${col}"></div></div>
     ${heroBtns(key)}
     ${heroUpgLine(key)}
@@ -1309,42 +1307,6 @@ function importData(e){
   reader.readAsText(file);
 }
 
-
-// ── ICONS ──
-const ICONS={
-  townHall:'🏰',clanCastle:'🏰',armyCamp:'⛺',barracks:'⚔️',darkBarracks:'🌑',
-  laboratory:'⚗️',spellFactory:'🧪',darkSpellFactory:'🌑',workshop:'🔧',
-  heroHall:'🏛️',petHouse:'🐾',blacksmith:'🔨',
-  cannon:'💣',archerTower:'🏹',mortar:'💥',airDefense:'🎯',wizardTower:'🧙',
-  airSweeper:'💨',hiddenTesla:'⚡',xBow:'🎯',infernoTower:'🔥',
-  eaOrInfernoArtillery:'💥',scattershot:'🪨',giga:'🔱',bombTower:'💣',
-  multiArcherTower:'🏹',riccochetCannon:'🔁',multiGearTower:'⚙️',
-  firespitter:'🔥',revengeТower:'⚠️',smasher:'🔨',longshot:'🎯',
-  spellTower:'🧪',monolith:'🗿',gigaBomb:'💥',
-  bomb:'💣',springTrap:'🌀',airBomb:'💨',giantBomb:'💣',
-  seekingAirMine:'🎯',skeletonTrap:'💀',tornadoTrap:'🌪️',
-  goldMine:'⛏️',elixirCollector:'🫧',darkElixirDrill:'🌑',
-  goldStorage:'🪙',elixirStorage:'💜',darkElixirStorage:'🖤',
-  builderHut:'🔨',
-  barbarian:'⚔️',archer:'🏹',giant:'🗿',goblin:'💰',wallBreaker:'💣',
-  balloon:'🎈',wizard:'🧙',healer:'💚',dragon:'🐉',pekka:'🤖',
-  babyDragon:'🐲',miner:'⛏️',electroDragon:'⚡',yeti:'🐻',
-  dragonRider:'🐉',electroTitan:'⚡',rootRider:'🌿',meteorGolem:'☄️',
-  thrower:'🪨',
-  minion:'🦇',hogRider:'🐗',valkyrie:'🪓',golem:'🗿',witch:'🧙',
-  lavaHound:'🌋',bowler:'🎳',iceGolem:'🧊',headhunter:'🗡️',
-  apprenticeWarden:'📖',druid:'🌿',furnace:'🔥',
-  wallWrecker:'🏗️',battleBlimp:'🎈',stoneSlammer:'🪨',
-  siegeBarracks:'⛺',logLauncher:'🪵',flameFlinger:'🔥',
-  battleDrill:'⚙️',troopLauncher:'🚀',
-  lightningSpell:'⚡',healingSpell:'💚',rageSpell:'😡',jumpSpell:'🦘',
-  freezeSpell:'❄️',cloneSpell:'👥',invisibilitySpell:'👻',recallSpell:'🔙',
-  reviveSpell:'💫',totemSpell:'🗿',
-  poisonSpell:'☠️',earthquakeSpell:'🌍',hasteSpell:'💨',skeletonSpell:'💀',
-  batSpell:'🦇',overgrowthSpell:'🌿',
-  barbarianKing:'👑',archerQueen:'👸',grandWarden:'📖',
-  royalChampion:'🏆',minionPrince:'👹',dragonDuke:'🐉',
-};
 
 </script>
 </body>
