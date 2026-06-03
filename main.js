@@ -322,6 +322,51 @@ function renderLinks(links, rawSearch) {
     });
 }
 
+// Zentrales Routing basierend auf der URL-Struktur
+function handleRouting() {
+    const hash = window.location.hash;
+    const params = new URLSearchParams(window.location.search);
+    
+    // Alle Screens standardmäßig verstecken
+    hide('screen-home');
+    hide('screen-app');
+    hide('landingPage');
+    hide('topicContent');
+    hide('vaultContent');
+    hide('vaultCategory');
+    hide('vaultDetail');
+
+    if (!hash || hash === '#home') {
+        show('screen-home');
+    } else if (hash === '#app') {
+        show('screen-app');
+        
+        const topicParam = params.get('topic');
+        if (topicParam) {
+            show('topicContent');
+            // Deine bestehende Logik zum Laden des Themas
+            currentTopicId = topicParam;
+            filterLinks();
+        } else if (hash.includes('vault')) {
+            // Logik für Vault-Unterseiten hier triggern
+        } else {
+            show('landingPage');
+        }
+    }
+}
+
+// Überwacht, wenn der Nutzer im Browser auf "Zurück" oder "Vorwärts" klickt
+window.addEventListener('popstate', handleRouting);
+
+function showApp() {
+    window.location.hash = '#app';
+    handleRouting();
+}
+function showHome() {
+    window.location.hash = '#home';
+    handleRouting();
+}
+
 // ============================================================
 // UPGRADE 3: GLOBALE TASTATUR-SHORTCUTS (0 Bytes Datenspeicherung)
 // ============================================================
@@ -351,6 +396,35 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
+// Füge das ganz unten in der main.js ein (vor den window.xxx Zeilen):
+function generateShareLink() {
+    const searchVal = document.getElementById('searchInput')?.value.trim() || '';
+    const currentTopic = currentTopicId || '';
+    
+    // Baut die perfekte Share-URL basierend auf der aktuellen Ansicht zusammen
+    let shareUrl = `${window.location.origin}${window.location.pathname}?screen=app`;
+    if (currentTopic) shareUrl += `&topic=${encodeURIComponent(currentTopic)}`;
+    if (searchVal) shareUrl += `&search=${encodeURIComponent(searchVal)}`;
+
+    // Text in die Zwischenablage kopieren
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        const shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            // Cooles visuelles Feedback: Icon verschwindet kurz, Text zeigt Erfolg an
+            const originalHTML = shareBtn.innerHTML;
+            shareBtn.innerHTML = '<span class="text-xs font-bold">📋 Copied!</span>';
+            shareBtn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+            shareBtn.classList.add('bg-green-600', 'w-auto', 'px-3'); // Macht den Button kurz breiter für den Text
+
+            setTimeout(() => {
+                // Nach 2 Sekunden wird alles wieder in den Ursprungszustand versetzt
+                shareBtn.innerHTML = originalHTML;
+                shareBtn.classList.remove('bg-green-600', 'w-auto', 'px-3');
+                shareBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+            }, 2000);
+        }
+    });
+}
 
 // Expose functions to global scope (wichtig für HTML inline onclick-Handler)
 window.toggleSettings = toggleSettings;
@@ -358,6 +432,7 @@ window.toggleDarkMode = toggleDarkMode;
 window.changeLanguage = changeLanguage;
 window.selectTopic = selectTopic;
 window.filterLinks = filterLinks;
+window.generateShareLink = generateShareLink;
 window.clearSearch = () => {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) searchInput.value = '';
