@@ -195,52 +195,10 @@
     </div>
 </div>
 
+<script src="main.js" defer></script>
 <script>
-// State
-let allData=null,vaultData=null,currentTopicId=null,selectedTag=null,selectedGame=null,selectedPriceFilter='all',selectedVaultTag=null,selectedLangFilter=null;
-
-// Helpers
-const $=id=>document.getElementById(id);
-
-function show(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove('hidden');
-}
-
-function hide(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('hidden');
-}
-
-function hideAllPanels(){['landingPage','topicContent','vaultContent','vaultCategory','vaultDetail','vaultTool'].forEach(hide);}
-function scrollMainTop(){document.querySelector('main').scrollTop=0;}
-
-// Screens
-function showApp() {
-    hide('screen-home');
-    show('screen-app');
-}
-
-// Data loading
-async function loadData(){
-    try{
-        const res=await fetch('data.yaml');if(!res.ok)throw new Error('HTTP '+res.status);
-        allData=jsyaml.load(await res.text());
-        const total=allData.topics?.reduce((s,t)=>s+(t.links?.length||0),0)||0;
-        $('heroLinksNum').textContent=total;$('heroTopicsNum').textContent=allData.topics?.length||0;
-        $('totalLinks').textContent=total;$('statTopicsNum').textContent=allData.topics?.length||0;
-        const sel=$('topicsDropdown');sel.innerHTML='<option value="">Select a topic...</option>';
-        allData.topics?.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.name;sel.appendChild(o);});
-        const params=new URLSearchParams(window.location.search);
-        if(params.get('screen')==='app'){showApp();if(params.get('topic')){selectTopic(params.get('topic'));if(params.get('search')){$('searchInput').value=params.get('search');filterLinks();}}}
-    }catch(err){document.body.innerHTML='<div style="padding:2rem;color:red;">\u26a0\ufe0f data.yaml konnte nicht geladen werden.</div>';}
-}
-
-// Init
-document.documentElement.classList.add('dark');
-$('footer-year').textContent=new Date().getFullYear();
-$('footer-date').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-window.addEventListener('DOMContentLoaded',()=>{applyDesktopSidebar();loadData();});
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
 </script>
 </body>
 </html>

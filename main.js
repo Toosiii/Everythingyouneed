@@ -1,9 +1,10 @@
-import allData from './data.yaml'
-
+let allData = null;
 let currentTopicId = null;
 let selectedTag = null;
 let selectedGame = null;
 let currentLanguage = 'en';
+let selectedPriceFilter = 'all';
+let selectedLangFilter = null;
 
 // ============================================================
 // HILFSFUNKTIONEN FÜR TAILWIND-SICHTBARKEIT (.hidden)
@@ -18,48 +19,45 @@ function hide(id) {
     if (el) el.classList.add('hidden');
 }
 
+function hideAllPanels() {
+    ['landingPage', 'topicContent', 'vaultContent', 'vaultCategory', 'vaultDetail', 'vaultTool'].forEach(hide);
+}
+
 function trans(key) {
-    return allData.translations[currentLanguage]?.[key] || key;
+    return allData?.translations?.[currentLanguage]?.[key] || key;
 }
 
 function toggleSettings() {
     const modal = document.getElementById('settingsModal');
     if (modal) {
-        // Nutzt jetzt classList.toggle statt unsauberes inline-style.display
         modal.classList.toggle('hidden');
     }
 }
 
 function initTheme() {
-    // Prüft, ob das Betriebssystem des Nutzers "Dark" bevorzugt
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     
     function applyTheme(isDark) {
         if (isDark) {
             document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.add('dark'); // Standardmäßig dunkel lassen, falls gewünscht
-            // Oder komplett dynamisch: document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('dark'); // Standardmäßig dunkel lassen
         }
         const toggleBtn = document.getElementById('darkModeToggle');
         if (toggleBtn) toggleBtn.checked = isDark;
     }
 
-    // 1. Beim Start ausführen
     applyTheme(systemPrefersDark.matches);
 
-    // 2. Live reagieren, wenn der Nutzer sein System-Theme mitten in der Nutzung ändert!
     systemPrefersDark.addEventListener('change', (e) => {
         applyTheme(e.matches);
     });
 }
 
 function toggleDarkMode() {
-    // Manueller Schalter erlaubt temporäres Umschalten in der aktuellen Session
     const isDarkMode = document.documentElement.classList.toggle('dark');
     const toggleBtn = document.getElementById('darkModeToggle');
     if (toggleBtn) toggleBtn.checked = isDarkMode;
-    // HINWEIS: Kein localStorage.setItem hier! Absolut datenschutzkonform.
 }
 
 function changeLanguage(lang) {
@@ -69,7 +67,6 @@ function changeLanguage(lang) {
     const langSelect = document.getElementById('settingsLanguageSelect');
     if (langSelect) langSelect.value = lang;
 
-    // Automatisierte Übersetzungsschleife für saubereren Code
     const elementsToTranslate = {
         'sidebarTitle': 'topics',
         'gamesCategoryTitle': 'games',
@@ -103,37 +100,44 @@ function changeLanguage(lang) {
         }
     });
 
-    // Update der Themen-Anzahl in den Statistiken
     const statNum = document.querySelector('.stat-number');
-    if (statNum) statNum.textContent = allData.topics?.length || 0;
+    if (statNum) statNum.textContent = allData?.topics?.length || 0;
 
-    // Dropdown dynamisch neu aufbauen
     const select = document.getElementById('topicsDropdown');
     if (select) {
         select.innerHTML = `<option value="">${trans('selectTopic')}</option>`;
-        allData.topics?.forEach(topic => {
+        allData?.topics?.forEach(topic => {
             const option = document.createElement('option');
             option.value = topic.id;
             option.textContent = topic.name;
             select.appendChild(option);
         });
     }
-
-    // UPGRADE 1: localStorage.setItem FÜR SPRACHE EBENFALLS ENTFERNT
 }
 
-function loadData() {
-    // Standardmäßig direkt Dark Mode aktivieren (ohne etwas zu tracken/speichern)
+async function loadData() {
+    try {
+        const res = await fetch('data.yaml');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        allData = jsyaml.load(await res.text());
+    } catch (err) {
+        console.error("Error loading data.yaml:", err);
+        document.body.innerHTML = '<div style="padding:2rem;color:red;font-family:sans-serif;text-align:center;">⚠️ <b>data.yaml konnte nicht geladen werden.</b><br>Bitte stelle sicher, dass du einen lokalen Server nutzt (z.B. Live Server in VS Code) und kein file:/// in der Adresszeile steht.</div>';
+        return;
+    }
+
     document.documentElement.classList.add('dark');
     const toggleBtn = document.getElementById('darkModeToggle');
     if (toggleBtn) toggleBtn.checked = true;
 
-    // Gesamte Links für die Landingpage-Statistik zählen
-    const totalLinks = allData.topics?.reduce((sum, t) => sum + (t.links?.length || 0), 0) || 0;
-    const totalLinksEl = document.getElementById('totalLinks');
-    if (totalLinksEl) totalLinksEl.textContent = totalLinks + '+';
+    const totalLinks = allData?.topics?.reduce((sum, t) => sum + (t.links?.length || 0), 0) || 0;
+    
+    // Befülle alle Statistik-Counter im UI falls vorhanden
+    if (document.getElementById('heroLinksNum')) document.getElementById('heroLinksNum').textContent = totalLinks;
+    if (document.getElementById('heroTopicsNum')) document.getElementById('heroTopicsNum').textContent = allData?.topics?.length || 0;
+    if (document.getElementById('totalLinks')) document.getElementById('totalLinks').textContent = totalLinks + '+';
+    if (document.getElementById('statTopicsNum')) document.getElementById('statTopicsNum').textContent = allData?.topics?.length || 0;
 
-    // Sprache initialisieren (Startet immer frisch auf Englisch/Standard)
     changeLanguage(currentLanguage);
 
     const settingsModal = document.getElementById('settingsModal');
@@ -143,28 +147,102 @@ function loadData() {
         });
     }
 
-    // URL-Parameter für direktes Teilen von Links parsen (Clever & ohne Speicherbedarf!)
+    // Deep-Linking URL-Parameter auslesen
     const params = new URLSearchParams(window.location.search);
+    const screenParam = params.get('screen');
     const topicParam = params.get('topic');
     const tagParam = params.get('tag');
     const searchParam = params.get('search');
 
-    if (topicParam) {
-        selectTopic(topicParam);
-        if (tagParam) selectedTag = tagParam;
-        if (searchParam) {
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) searchInput.value = searchParam;
+    if (screenParam === 'app' || topicParam) {
+        showApp();
+        if (topicParam) {
+            selectTopic(topicParam);
+            if (tagParam) selectedTag = tagParam;
+            if (searchParam) {
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) searchInput.value = searchParam;
+            }
+            filterLinks();
         }
-        filterLinks();
     }
+}
+
+function showApp() {
+    hide('screen-home');
+    show('screen-app');
+}
+
+function showHome() {
+    hide('screen-app');
+    show('screen-home');
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    if (sidebar) sidebar.classList.toggle('-translate-x-full');
+    if (overlay) overlay.classList.toggle('hidden');
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    if (sidebar) sidebar.classList.add('-translate-x-full');
+    if (overlay) overlay.classList.add('hidden');
+}
+
+function showVault() {
+    hideAllPanels();
+    show('vaultContent');
+}
+
+function closeVaultCategory() {
+    hideAllPanels();
+    show('vaultContent');
+}
+
+function closeVaultDetail() {
+    hideAllPanels();
+    show('vaultContent');
+}
+
+function closeVaultTool() {
+    hideAllPanels();
+    show('vaultContent');
+}
+
+function setPriceFilter(filter) {
+    selectedPriceFilter = filter;
+    ['filter-all', 'filter-free', 'filter-paid', 'filter-freemium'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            if (id === `filter-${filter}`) btn.classList.add('active');
+            else btn.classList.remove('active');
+        }
+    });
+    filterLinks();
+}
+
+function setLangFilter(lang) {
+    selectedLangFilter = lang;
+    ['lang-all', 'lang-EN', 'lang-DE', 'lang-Multi'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            if ((lang === null && id === 'lang-all') || (id === `lang-${lang}`)) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        }
+    });
+    filterLinks();
 }
 
 function selectTopic(topicId) {
     if (!topicId) {
+        hideAllPanels();
         show('landingPage');
-        hide('topicContent');
-        hide('gamesCategory');
         return;
     }
 
@@ -178,10 +256,10 @@ function selectTopic(topicId) {
     const dropdown = document.getElementById('topicsDropdown');
     if (dropdown) dropdown.value = topicId;
 
-    const current = allData.topics?.find(t => t.id === topicId);
+    const current = allData?.topics?.find(t => t.id === topicId);
     if (!current) return;
 
-    hide('landingPage');
+    hideAllPanels();
     show('topicContent');
     
     const titleEl = document.getElementById('topicTitle');
@@ -197,7 +275,7 @@ function selectTopic(topicId) {
     renderTags(current);
     filterLinks();
 
-    window.history.pushState(null, '', `?topic=${encodeURIComponent(topicId)}`);
+    window.history.pushState(null, '', `?screen=app&topic=${encodeURIComponent(topicId)}`);
 }
 
 function renderTags(topic) {
@@ -218,7 +296,7 @@ function renderTags(topic) {
         a.onclick = (e) => {
             e.preventDefault();
             selectedTag = selectedTag === tag ? null : tag;
-            window.history.pushState(null, '', `?topic=${currentTopicId}&tag=${selectedTag || ''}`);
+            window.history.pushState(null, '', `?screen=app&topic=${currentTopicId}&tag=${selectedTag || ''}`);
             filterLinks();
         };
         tagsList.appendChild(a);
@@ -248,7 +326,7 @@ function renderGameCategories(topic) {
 }
 
 function filterLinks() {
-    const current = allData.topics?.find(t => t.id === currentTopicId);
+    const current = allData?.topics?.find(t => t.id === currentTopicId);
     if (!current) return;
 
     let links = current.links || [];
@@ -266,6 +344,13 @@ function filterLinks() {
 
     if (selectedTag) links = links.filter(l => l.tags?.includes(selectedTag));
     if (selectedGame && currentTopicId === 'Games') links = links.filter(l => l.game === selectedGame);
+    
+    if (selectedPriceFilter !== 'all') {
+        links = links.filter(l => l.price?.toLowerCase() === selectedPriceFilter);
+    }
+    if (selectedLangFilter) {
+        links = links.filter(l => l.language === selectedLangFilter);
+    }
 
     const resultsCount = document.getElementById('resultsCount');
     if (resultsCount) {
@@ -322,58 +407,8 @@ function renderLinks(links, rawSearch) {
     });
 }
 
-// Zentrales Routing basierend auf der URL-Struktur
-function handleRouting() {
-    const hash = window.location.hash;
-    const params = new URLSearchParams(window.location.search);
-    
-    // Alle Screens standardmäßig verstecken
-    hide('screen-home');
-    hide('screen-app');
-    hide('landingPage');
-    hide('topicContent');
-    hide('vaultContent');
-    hide('vaultCategory');
-    hide('vaultDetail');
-
-    if (!hash || hash === '#home') {
-        show('screen-home');
-    } else if (hash === '#app') {
-        show('screen-app');
-        
-        const topicParam = params.get('topic');
-        if (topicParam) {
-            show('topicContent');
-            // Deine bestehende Logik zum Laden des Themas
-            currentTopicId = topicParam;
-            filterLinks();
-        } else if (hash.includes('vault')) {
-            // Logik für Vault-Unterseiten hier triggern
-        } else {
-            show('landingPage');
-        }
-    }
-}
-
-// Überwacht, wenn der Nutzer im Browser auf "Zurück" oder "Vorwärts" klickt
-window.addEventListener('popstate', handleRouting);
-
-function showApp() {
-    window.location.hash = '#app';
-    handleRouting();
-}
-function showHome() {
-    window.location.hash = '#home';
-    handleRouting();
-}
-
-// ============================================================
-// UPGRADE 3: GLOBALE TASTATUR-SHORTCUTS (0 Bytes Datenspeicherung)
-// ============================================================
 window.addEventListener('keydown', (e) => {
     const searchInput = document.getElementById('searchInput');
-    
-    // 1. Wenn "/" gedrückt wird: Sofort ins Suchfeld springen (außer man tippt schon irgendwo)
     if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault(); 
         if (searchInput) {
@@ -381,8 +416,6 @@ window.addEventListener('keydown', (e) => {
             searchInput.select();
         }
     }
-    
-    // 2. Wenn "Escape" gedrückt wird: Modals schießen oder Suche abbrechen
     if (e.key === 'Escape') {
         const settingsModal = document.getElementById('settingsModal');
         if (settingsModal && !settingsModal.classList.contains('hidden')) {
@@ -396,28 +429,24 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
-// Füge das ganz unten in der main.js ein (vor den window.xxx Zeilen):
+
 function generateShareLink() {
     const searchVal = document.getElementById('searchInput')?.value.trim() || '';
     const currentTopic = currentTopicId || '';
     
-    // Baut die perfekte Share-URL basierend auf der aktuellen Ansicht zusammen
     let shareUrl = `${window.location.origin}${window.location.pathname}?screen=app`;
     if (currentTopic) shareUrl += `&topic=${encodeURIComponent(currentTopic)}`;
     if (searchVal) shareUrl += `&search=${encodeURIComponent(searchVal)}`;
 
-    // Text in die Zwischenablage kopieren
     navigator.clipboard.writeText(shareUrl).then(() => {
         const shareBtn = document.getElementById('shareBtn');
         if (shareBtn) {
-            // Cooles visuelles Feedback: Icon verschwindet kurz, Text zeigt Erfolg an
             const originalHTML = shareBtn.innerHTML;
             shareBtn.innerHTML = '<span class="text-xs font-bold">📋 Copied!</span>';
             shareBtn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
-            shareBtn.classList.add('bg-green-600', 'w-auto', 'px-3'); // Macht den Button kurz breiter für den Text
+            shareBtn.classList.add('bg-green-600', 'w-auto', 'px-3');
 
             setTimeout(() => {
-                // Nach 2 Sekunden wird alles wieder in den Ursprungszustand versetzt
                 shareBtn.innerHTML = originalHTML;
                 shareBtn.classList.remove('bg-green-600', 'w-auto', 'px-3');
                 shareBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
@@ -426,13 +455,23 @@ function generateShareLink() {
     });
 }
 
-// Expose functions to global scope (wichtig für HTML inline onclick-Handler)
+// Global scope bindings für HTML inline onclick-Handler
 window.toggleSettings = toggleSettings;
 window.toggleDarkMode = toggleDarkMode;
 window.changeLanguage = changeLanguage;
 window.selectTopic = selectTopic;
 window.filterLinks = filterLinks;
 window.generateShareLink = generateShareLink;
+window.showApp = showApp;
+window.showHome = showHome;
+window.toggleSidebar = toggleSidebar;
+window.closeSidebar = closeSidebar;
+window.showVault = showVault;
+window.closeVaultCategory = closeVaultCategory;
+window.closeVaultDetail = closeVaultDetail;
+window.closeVaultTool = closeVaultTool;
+window.setPriceFilter = setPriceFilter;
+window.setLangFilter = setLangFilter;
 window.clearSearch = () => {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) searchInput.value = '';
