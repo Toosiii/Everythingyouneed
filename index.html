@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    // Stubs so onclick handlers don't crash before main script loads
     function showApp(){document.getElementById('screen-home').style.display='none';document.getElementById('screen-app').style.display='block';}
     function showHome(){document.getElementById('screen-app').style.display='none';document.getElementById('screen-home').style.display='block';}
     </script>
@@ -209,10 +208,12 @@
 <style>@keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}</style>
 
 <script>
+// Path helper for GitHub Pages
+const BASE=(()=>{const u=location.href.split('?')[0];return u.substring(0,u.lastIndexOf('/')+1);})();
+const asset=f=>BASE+f;
+
 // State
 let allData=null,vaultData=null,currentTopicId=null,selectedTag=null,selectedGame=null,selectedPriceFilter='all',selectedVaultTag=null;
-const BASE=(()=>{const u=location.href.split("?")[0];return u.substring(0,u.lastIndexOf("/")+1);})();
-const asset=f=>BASE+f;
 
 // Helpers
 const $=id=>document.getElementById(id);
@@ -363,7 +364,7 @@ function renderGameCategories(topic){
 function showVault(){hideAllPanels();show('vaultContent');$('topicsDropdown').value='';currentTopicId=null;selectedVaultTag=null;if(vaultData)renderVault();else loadVault();}
 async function loadVault(){
     try{const res=await fetch(asset('vault.json'));if(!res.ok)throw new Error();vaultData=await res.json();renderVault();}
-    catch(e){$('vaultList').innerHTML='<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.yaml not found.</p>';}
+    catch(e){$('vaultList').innerHTML='<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.json not found.</p>';}
 }
 function renderVault(){
     const allTags={};vaultData.entries?.forEach(e=>e.tags?.forEach(t=>allTags[t]=true));
@@ -460,7 +461,7 @@ function openVaultTool(entry){
     hideAllPanels();
     const panel=$('vaultTool');
     panel.style.display='flex';
-    $('vaultToolFrame').src=entry.tool_src?asset(entry.tool_src):'';
+    $('vaultToolFrame').src=entry.tool_src||'';
     scrollMainTop();
 }
 function closeVaultTool(){
@@ -489,7 +490,7 @@ async function loadData(){
         allData.topics?.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.name;sel.appendChild(o);});
         const params=new URLSearchParams(window.location.search);
         if(params.get('screen')==='app'){showApp();if(params.get('topic')){selectTopic(params.get('topic'));if(params.get('search')){$('searchInput').value=params.get('search');filterLinks();}}}
-    }catch(err){document.body.innerHTML='<div style="padding:2rem;color:red;">\u26a0\ufe0f data.yaml konnte nicht geladen werden.</div>';}
+    }catch(err){document.body.innerHTML='<div style="padding:2rem;color:red;">⚠️ Daten konnten nicht geladen werden: '+err.message+'</div>';}
 }
 
 // Init
