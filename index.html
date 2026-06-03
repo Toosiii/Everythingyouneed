@@ -206,7 +206,9 @@
 
 <script>
 // State
-let allData=null,vaultData=null,currentTopicId=null,selectedTag=null,selectedGame=null,selectedPriceFilter='all',selectedVaultTag=null;
+let allData=null,vaultData=null,currentTopicId=null,selectedTag=null,selectedGame=null,selectedPriceFilter='all',selectedVaultTag=null,selectedLangFilter=null;
+const BASE=location.href.substring(0,location.href.lastIndexOf('/')+1);
+function asset(f){return BASE+f;}
 
 // Helpers
 const $=id=>document.getElementById(id);
@@ -216,8 +218,8 @@ function hideAllPanels(){['landingPage','topicContent','vaultContent','vaultCate
 function scrollMainTop(){document.querySelector('main').scrollTop=0;}
 
 // Screens
-function showApp(){hide('screen-home');show('screen-app');}
-function showHome(){hide('screen-app');show('screen-home');}
+function showApp(){hide('screen-home');show('screen-app');window.history.pushState(null,'','?screen=app');}
+function showHome(){hide('screen-app');show('screen-home');window.history.pushState(null,'','/');}
 
 // Price (single source of truth)
 function getPriceType(tags){
@@ -330,6 +332,7 @@ function selectTopic(topicId){
     const gs=$('gamesCategory');
     if(topicId==='Games'){gs.style.display='block';renderGameCategories(current);}else gs.style.display='none';
     renderTags(current);filterLinks();
+    window.history.pushState(null,'',`?screen=app&topic=${encodeURIComponent(topicId)}`);
 }
 function renderTags(topic){
     const tl=$('tagsList');tl.innerHTML='';const allTags={};
@@ -355,7 +358,7 @@ function renderGameCategories(topic){
 // Vault
 function showVault(){hideAllPanels();show('vaultContent');$('topicsDropdown').value='';currentTopicId=null;selectedVaultTag=null;if(vaultData)renderVault();else loadVault();}
 async function loadVault(){
-    try{const res=await fetch('vault.yaml');if(!res.ok)throw new Error();vaultData=jsyaml.load(await res.text());renderVault();}
+    try{const res=await fetch(asset('vault.yaml'));if(!res.ok)throw new Error();vaultData=jsyaml.load(await res.text());renderVault();}
     catch(e){$('vaultList').innerHTML='<p style="color:rgba(255,255,255,0.4);font-size:0.9rem;">vault.yaml not found.</p>';}
 }
 function renderVault(){
@@ -453,7 +456,7 @@ function openVaultTool(entry){
     hideAllPanels();
     const panel=$('vaultTool');
     panel.style.display='flex';
-    $('vaultToolFrame').src=entry.tool_src||'';
+    $('vaultToolFrame').src=entry.tool_src?asset(entry.tool_src):'';
     scrollMainTop();
 }
 function closeVaultTool(){
@@ -473,14 +476,15 @@ window.addEventListener('resize',applyDesktopSidebar);
 // Data loading
 async function loadData(){
     try{
-        const res=await fetch('data.yaml');if(!res.ok)throw new Error('HTTP '+res.status);
+        const res=await fetch(asset('data.yaml'));if(!res.ok)throw new Error('HTTP '+res.status);
         allData=jsyaml.load(await res.text());
         const total=allData.topics?.reduce((s,t)=>s+(t.links?.length||0),0)||0;
         $('heroLinksNum').textContent=total;$('heroTopicsNum').textContent=allData.topics?.length||0;
         $('totalLinks').textContent=total;$('statTopicsNum').textContent=allData.topics?.length||0;
         const sel=$('topicsDropdown');sel.innerHTML='<option value="">Select a topic...</option>';
         allData.topics?.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.name;sel.appendChild(o);});
-        // URL param restore removed — pure single-page, no reloads
+        const params=new URLSearchParams(window.location.search);
+        if(params.get('screen')==='app'){showApp();if(params.get('topic')){selectTopic(params.get('topic'));if(params.get('search')){$('searchInput').value=params.get('search');filterLinks();}}}
     }catch(err){document.body.innerHTML='<div style="padding:2rem;color:red;">\u26a0\ufe0f data.yaml konnte nicht geladen werden.</div>';}
 }
 
