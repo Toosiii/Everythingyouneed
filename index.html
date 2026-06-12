@@ -220,7 +220,7 @@ let currentTopicId = "";
 let currentPriceFilter = "all";
 let currentSearchQuery = "";
 let currentLang = "de"; // Standard-Sprachzustand
-let favorites = [];     // Ermöglicht zukünftige cookie-freie Speicherungen
+let favorites = [];     // Cookie-freie Favoritenliste
 
 // Schneller Helfer für DOM-Selektion (Kurzschreibweise)
 const $ = (id) => document.getElementById(id);
@@ -230,14 +230,11 @@ const $ = (id) => document.getElementById(id);
 // 2. ABSCHNITT: DIE KOMBINIERTE HAUPT-FILTER-LOGIK
 // ============================================================================
 function applyFilters() {
-    // Falls keine Daten geladen sind oder kein Thema gewählt wurde, abbrechen
     if (!allData || !currentTopicId) return;
 
-    // Finde das aktive Thema anhand der gesetzten ID
     const activeTopic = allData.topics?.find(t => t.id === currentTopicId);
     if (!activeTopic) return;
 
-    // Starte den Filterprozess mit allen Links des Themas
     let filteredLinks = activeTopic.links || [];
 
     // A) Filtern nach Preis-Typ (Free / Paid / Freemium)
@@ -248,7 +245,7 @@ function applyFilters() {
         });
     }
 
-    // B) Filtern nach der Suchleiste (Titel, Beschreibung und Tags)
+    // B) Filtern nach Suchleiste
     if (currentSearchQuery.trim() !== "") {
         const query = currentSearchQuery.toLowerCase().trim();
         filteredLinks = filteredLinks.filter(link => {
@@ -259,11 +256,15 @@ function applyFilters() {
         });
     }
 
-    // C) Such-Clear-Button anzeigen/verstecken
-    $('searchClearBtn').style.display = currentSearchQuery ? 'block' : 'none';
+    // C) Such-Clear-Button umschalten
+    if ($('searchClearBtn')) {
+        $('searchClearBtn').style.display = currentSearchQuery ? 'block' : 'none';
+    }
 
-    // D) UI aktualisieren: Trefferanzahl und Ergebnisliste rendern
-    $('resultsCount').textContent = `(${filteredLinks.length} ${filteredLinks.length === 1 ? 'Eintrag' : 'Einträge'} gefunden)`;
+    // D) UI aktualisieren
+    if ($('resultsCount')) {
+        $('resultsCount').textContent = `(${filteredLinks.length} ${filteredLinks.length === 1 ? 'Eintrag' : 'Einträge'} gefunden)`;
+    }
     renderLinksList(filteredLinks);
 }
 
@@ -272,24 +273,20 @@ function applyFilters() {
 // 3. ABSCHNITT: EVENT-HANDLER & UI-STEUERUNG
 // ============================================================================
 
-// Wird aufgerufen, wenn der User tippt (oninput)
 function filterLinks() {
     currentSearchQuery = $('searchInput').value;
     applyFilters();
 }
 
-// Löscht das Suchfeld
 function clearSearch() {
     $('searchInput').value = "";
     currentSearchQuery = "";
     applyFilters();
 }
 
-// Wird aufgerufen, wenn einer der Preis-Buttons gedrückt wird
 function setPriceFilter(type) {
     currentPriceFilter = type;
     
-    // Aktive CSS-Klasse bei den Buttons tauschen
     document.querySelectorAll('.price-filter').forEach(btn => btn.classList.remove('active'));
     if ($(`filter-${type}`)) {
         $(`filter-${type}`).classList.add('active');
@@ -298,15 +295,16 @@ function setPriceFilter(type) {
     applyFilters();
 }
 
-// Wechselt das Hauptthema in der App
 function selectTopic(topicId) {
     if (!topicId) return;
     currentTopicId = topicId;
     
-    // Dropdown im Menü synchron halten
-    $('topicsDropdown').value = topicId;
+    if ($('topicsDropdown')) $('topicsDropdown').value = topicId;
 
-    // Alle anderen Ansichten (einschließlich Vault) ausblenden
+    // Screens umschalten
+    if ($('screen-home')) $('screen-home').style.display = 'none';
+    if ($('screen-app')) $('screen-app').style.display = 'block';
+
     $('landingPage').style.display = 'none';
     $('vaultContent').style.display = 'none';
     $('vaultCategory').style.display = 'none';
@@ -314,19 +312,20 @@ function selectTopic(topicId) {
     $('vaultTool').style.display = 'none';
     $('topicContent').style.display = 'block';
 
-    // Titel aktualisieren
     const activeTopic = allData.topics?.find(t => t.id === topicId);
     $('topicTitle').textContent = activeTopic ? activeTopic.name : "";
 
-    // Tags-Filterleiste oben zurücksetzen & Filter anwenden
-    setPriceFilter('all'); 
+    setPriceFilter('all');
+    closeSidebar();
 }
 
-// --- Vault-spezifische UI-Steuerungen ---
 function showVault() {
     currentTopicId = "";
-    $('topicsDropdown').value = "";
+    if ($('topicsDropdown')) $('topicsDropdown').value = "";
     
+    if ($('screen-home')) $('screen-home').style.display = 'none';
+    if ($('screen-app')) $('screen-app').style.display = 'block';
+
     $('landingPage').style.display = 'none';
     $('topicContent').style.display = 'none';
     $('vaultCategory').style.display = 'none';
@@ -335,6 +334,14 @@ function showVault() {
     $('vaultContent').style.display = 'block';
     
     renderVaultGrid();
+    closeSidebar();
+}
+
+// Zurück zur Startseite (Home)
+function goHome() {
+    if ($('screen-app')) $('screen-app').style.display = 'none';
+    if ($('screen-home')) $('screen-home').style.display = 'block';
+    closeSidebar();
 }
 
 function closeVaultCategory() {
@@ -358,36 +365,43 @@ function closeVaultTool() {
     $('vaultContent').style.display = 'block';
 }
 
-// --- Sidebar Steuerungen für Mobile ---
+// --- Sidebar Steuerungen ---
 function toggleSidebar() {
     const sb = $('sidebar');
     const overlay = $('sidebarOverlay');
+    if (!sb) return;
+
     const isHidden = sb.style.transform === 'translateX(-100%)' || sb.style.transform === '';
     
     if (isHidden) {
         sb.style.transform = 'translateX(0%)';
-        overlay.style.display = 'block';
+        if (overlay) overlay.style.display = 'block';
     } else {
         sb.style.transform = 'translateX(-100%)';
-        overlay.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
     }
 }
 
 function closeSidebar() {
-    if (window.innerWidth < 640) { // Nur auf Mobilgeräten schließen
-        $('sidebar').style.transform = 'translateX(-100%)';
-        $('sidebarOverlay').style.display = 'none';
+    const sb = $('sidebar');
+    const overlay = $('sidebarOverlay');
+    if (sb && window.innerWidth < 640) {
+        sb.style.transform = 'translateX(-100%)';
+        if (overlay) overlay.style.display = 'none';
     }
 }
 
 function applyDesktopSidebar() {
     const sb = $('sidebar');
+    const overlay = $('sidebarOverlay');
+    if (!sb) return;
+
     if (window.innerWidth >= 640) {
         sb.style.transform = 'translateX(0%)';
         sb.style.position = 'sticky';
         sb.style.top = '65px';
         sb.style.height = 'calc(100vh - 65px)';
-        $('sidebarOverlay').style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
     } else {
         sb.style.transform = 'translateX(-100%)';
         sb.style.position = 'fixed';
@@ -401,9 +415,9 @@ function applyDesktopSidebar() {
 // 4. ABSCHNITT: DOM-RENDERING (DIE LISTEN-ZEICHNER)
 // ============================================================================
 
-// Baut die Link-Karten dynamisch im Hauptbereich zusammen
 function renderLinksList(links) {
     const container = $('linksList');
+    if (!container) return;
     container.innerHTML = "";
 
     if (links.length === 0) {
@@ -441,7 +455,6 @@ function renderLinksList(links) {
     });
 }
 
-// Baut das Hauptgitter für "The Vault" auf
 function renderVaultGrid() {
     const container = $('vaultList');
     if (!container) return;
@@ -470,7 +483,6 @@ function renderVaultGrid() {
     });
 }
 
-// Öffnet eine Kategorie (z.B. Schule) mit Unter-Tabs
 function showVaultCategory(idx) {
     const entry = window.__VAULT__?.entries[idx];
     if (!entry) return;
@@ -503,9 +515,9 @@ function showVaultCategory(idx) {
     renderCategorySubjects(entry.tabs[0]?.subjects || [], idx);
 }
 
-// Hilfsfunktion zum Rendern der Kacheln innerhalb eines Kategorie-Tabs
 function renderCategorySubjects(subjects, entryIdx) {
     const container = $('vcSubjects');
+    if (!container) return;
     container.innerHTML = "";
 
     subjects.forEach((subj, sIdx) => {
@@ -526,7 +538,6 @@ function renderCategorySubjects(subjects, entryIdx) {
     });
 }
 
-// Öffnet die Detail-Ansicht für einen Guide (Step by Step)
 function showVaultDetail(entryIdx, fromCategory = false, subjectsArray = null, subjectIdx = 0) {
     let data = null;
     if (fromCategory && subjectsArray) {
@@ -553,7 +564,6 @@ function showVaultDetail(entryIdx, fromCategory = false, subjectsArray = null, s
         $('vdImage').style.display = 'none';
     }
 
-    // Tags
     const tagsContainer = $('vdTags');
     tagsContainer.innerHTML = "";
     (data.tags || []).forEach(t => {
@@ -563,7 +573,6 @@ function showVaultDetail(entryIdx, fromCategory = false, subjectsArray = null, s
         tagsContainer.appendChild(span);
     });
 
-    // Schritte (Steps)
     const stepsWrap = $('vdStepsWrap');
     const stepsContainer = $('vdSteps');
     stepsContainer.innerHTML = "";
@@ -582,7 +591,6 @@ function showVaultDetail(entryIdx, fromCategory = false, subjectsArray = null, s
         stepsWrap.style.display = 'none';
     }
 
-    // Nützliche Links
     const linksWrap = $('vdLinksWrap');
     const linksContainer = $('vdLinks');
     linksContainer.innerHTML = "";
@@ -604,7 +612,6 @@ function showVaultDetail(entryIdx, fromCategory = false, subjectsArray = null, s
     }
 }
 
-// Öffnet eingebaute Tools (z.B. Clash of Clans Tracker) direkt über Iframes
 function showVaultTool(url) {
     if (!url) return;
     $('vaultContent').style.display = 'none';
@@ -612,30 +619,35 @@ function showVaultTool(url) {
     $('vaultToolFrame').src = url;
 }
 
-// Verarbeitet die globalen Daten beim Laden der Seite
+// Lädt die Daten und befüllt sofort alle IDs (inkl. Startseite)
 async function loadData() {
     try {
         allData = window.__DATA__;
         if (!allData) throw new Error('Inline data missing');
 
-        // Statistiken auf der Startseite eintragen
+        // Berechne die Link-Summen
         const total = allData.topics?.reduce((s, t) => s + (t.links?.length || 0), 0) || 0;
-        $('heroLinksNum').textContent = total;
-        $('heroTopicsNum').textContent = allData.topics?.length || 0;
-        $('totalLinks').textContent = total;
-        $('statTopicsNum').textContent = allData.topics?.length || 0;
+        
+        // Fülle alle Zähler-IDs auf der Startseite aus, falls vorhanden
+        if ($('heroLinksNum')) $('heroLinksNum').textContent = total;
+        if ($('heroTopicsNum')) $('heroTopicsNum').textContent = allData.topics?.length || 0;
+        if ($('totalLinks')) $('totalLinks').textContent = total;
+        if ($('statTopicsNum')) $('statTopicsNum').textContent = allData.topics?.length || 0;
 
-        // Dropdown-Auswahl im Menü befüllen
+        // Dropdown im Menü befüllen
         const sel = $('topicsDropdown');
-        sel.innerHTML = '<option value="">Select a topic...</option>';
-        allData.topics?.forEach(t => {
-            const o = document.createElement('option');
-            o.value = t.id;
-            o.textContent = t.name;
-            sel.appendChild(o);
-        });
+        if (sel) {
+            sel.innerHTML = '<option value="">Select a topic...</option>';
+            allData.topics?.forEach(t => {
+                const o = document.createElement('option');
+                o.value = t.id;
+                o.textContent = t.name;
+                sel.appendChild(o);
+            });
+        }
 
     } catch (err) {
+        console.error(err);
         document.body.innerHTML = `<div style="padding:2rem;color:red;">⚠️ Daten konnten nicht geladen werden: ${err.message}</div>`;
     }
 }
@@ -645,22 +657,19 @@ async function loadData() {
 // 5. ABSCHNITT: APP-INITIALISIERUNG & UTILITIES
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Dunkelmodus standardmäßig setzen
+    // Dunkelmodus erzwingen
     document.documentElement.classList.add('dark');
     
-    // Jahr im Footer setzen
-    $('footer-year').textContent = new Date().getFullYear();
-    
-    // Aktuelles Datum im Footer eintragen
-    const footerDate = $('footer-date');
-    if (footerDate) footerDate.textContent = new Date().toLocaleDateString('de-DE');
+    // Fußzeilen-Zustände füllen
+    if ($('footer-year')) $('footer-year').textContent = new Date().getFullYear();
+    if ($('footer-date')) $('footer-date').textContent = new Date().toLocaleDateString('de-DE');
 
-    // Layout-Berechnungen der Sidebar starten
+    // WICHTIG: Zuerst Daten laden, damit die Zahlen sofort da sind!
+    loadData();
+
+    // Danach Sidebar für die App berechnen und Events binden
     applyDesktopSidebar();
     window.addEventListener('resize', applyDesktopSidebar);
-
-    // Große Datenmengen laden
-    loadData();
 });
 </script>
 </body>
