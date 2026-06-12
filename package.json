@@ -1,0 +1,14 @@
+{
+    "name": "everything-you-need",
+    "version": "1.0.0",
+    "description": "Everything you need - all in one palce",
+    "scripts": {
+        "dev":  "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^5.0.0",
+        "@modyfy/vite-plugin-yaml": "^1.0.4"
+    }
+}
