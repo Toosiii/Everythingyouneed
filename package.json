@@ -9,6 +9,5 @@
     },
     "devDependencies": {
         "vite": "^5.0.0",
-        "@modyfy/vite-plugin-yaml": "^1.0.4"
     }
 }
